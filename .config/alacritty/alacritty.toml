@@ -1,0 +1,32 @@
+live_config_reload = true
+
+import = ["~/.config/alacritty/themes/themes/rose-pine.toml"]
+
+[window]
+decorations = "none"
+
+startup_mode = "SimpleFullscreen"
+dynamic_title = true
+dynamic_padding = true
+
+[scrolling]
+history = 10000
+
+[font.normal]
+family = "JetBrainsMono Nerd Font Mono"
+style = "Medium"
+
+[font]
+bold = { style = "Bold" }
+italic = { style = "Italic" }
+size = 18.0
+
+
+[cursor.style]
+shape = "Beam"
+blinking = "On"
+[cursor]
+blink_timeout = 0
+
+[mouse]
+hide_when_typing = true
