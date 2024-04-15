@@ -1,2 +1,4 @@
-.git
+\.git
 ^/README.*
+\.DS_Store
+
