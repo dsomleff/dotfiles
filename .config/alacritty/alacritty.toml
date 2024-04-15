@@ -34,3 +34,9 @@ hide_when_typing = true
 
 [colors]
 transparent_background_colors = true
+
+[keyboard]
+bindings = [
+    { key = "Q", mods = "Command", action = "None" },
+    { key = "W", mods = "Command", action = "None" },
+]
