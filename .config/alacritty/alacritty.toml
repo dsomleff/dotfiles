@@ -3,9 +3,9 @@ live_config_reload = true
 import = ["~/.config/alacritty/themes/themes/rose-pine.toml"]
 
 [window]
-decorations = "none"
+decorations = "None"
 
-startup_mode = "SimpleFullscreen"
+startup_mode = "Windowed"
 dynamic_title = true
 dynamic_padding = true
 
