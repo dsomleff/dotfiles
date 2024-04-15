@@ -12,10 +12,7 @@ fcd() {
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+# Set name of the theme to load
 ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
@@ -143,7 +140,7 @@ export PATH="/Users/somleff/.rd/bin:$PATH"
 export PATH="$HOME/.tmuxifier/bin:$PATH"
 
 
-### zoxide init 
+### zoxide init
 eval "$(zoxide init --cmd cd zsh)"
 
 eval "$(tmuxifier init -)"
