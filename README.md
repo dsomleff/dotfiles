@@ -11,4 +11,4 @@ To install stow use
 brew install  stow
 ```
 
-Use this video as inspiration &mdash; ("Click")[https://www.youtube.com/watch?v=y6XCebnB9gs]
+Use this video as inspiration &mdash; ["Click"](https://www.youtube.com/watch?v=y6XCebnB9gs)
