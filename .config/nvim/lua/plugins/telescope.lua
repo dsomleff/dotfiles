@@ -46,6 +46,8 @@ return {
 
             vim.keymap.set("n", "<leader>fr", builtin.live_grep, {})
             -- vim.keymap.set("n", "<C-p>", builtin.git_files, {})
+
+            vim.keymap.set("n", "<leader>fo", builtin.oldfiles, {})
         end,
     },
 

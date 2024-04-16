@@ -119,6 +119,7 @@ alias tma="tmux attach"
 alias tmas="tmux attach -t"
 alias tmns="tmux new-session -s"
 alias tmks="tmux kill-session -t"
+alias tmka="tmux kill-server"
 
 alias ff="fzf"
 
