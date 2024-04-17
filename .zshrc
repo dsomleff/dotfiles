@@ -112,6 +112,9 @@ alias ga="git add"
 alias gs="git status"
 alias gc="git commit -m"
 alias gp="git push origin"
+alias gli="git branch -a"
+alias glc="git branch -v" #last commit on each branch
+alias gf="git fetch --prune"
 
 alias v="nvim"
 
@@ -142,13 +145,8 @@ PATH=/opt/podman/bin:$PATH
 export PATH="/Users/somleff/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
-export PATH="$HOME/.tmuxifier/bin:$PATH"
-
-
 ### zoxide init
 eval "$(zoxide init --cmd cd zsh)"
-
-eval "$(tmuxifier init -)"
 
 # prime tmux-sessionizer
 PATH="$PATH":"$HOME/.local/scripts/"
