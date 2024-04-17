@@ -11,6 +11,7 @@ fcd() {
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+export DISABLE_AUTO_TITLE='true'
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -126,6 +127,9 @@ alias tmks="tmux kill-session -t"
 alias tmka="tmux kill-server"
 
 alias ff="fzf"
+
+# Tmux sessions
+alias conf="tmuxp load ~/dotfiles/.config/tmux/sessions/dotfiles.yaml"
 
 # pnpm
 # export PNPM_HOME="/Users/somleff/Library/pnpm"

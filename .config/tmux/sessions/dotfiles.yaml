@@ -1,0 +1,24 @@
+session_name: dotfiles
+windows:
+- focus: 'true'
+  layout: ce7d,161x39,0,0,0
+  options: {}
+  panes:
+  - focus: 'true'
+    shell_command: v .
+  start_directory: /Users/somleff/dotfiles/.config/nvim
+  window_name: nvim
+- layout: ce7e,161x39,0,0,1
+  options: {}
+  panes:
+  - focus: 'true'
+    shell_command: v .
+  start_directory: /Users/somleff/dotfiles/.config/tmux
+  window_name: tmux
+- layout: ce7f,161x39,0,0,2
+  options: {}
+  panes:
+  - focus: 'true'
+    shell_command: v .
+  start_directory: /Users/somleff/dotfiles/.config/alacritty
+  window_name: alacritty
