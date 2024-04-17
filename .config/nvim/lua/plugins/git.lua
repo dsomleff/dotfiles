@@ -11,6 +11,8 @@ return {
                 changedelete = { text = "▎" },
                 untracked = { text = "▎" },
             },
+
+            vim.keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", {})
         })
     end,
 }
