@@ -23,9 +23,13 @@ return {
                     },
                     grep_string = {
                         theme = "dropdown",
-                    }
+                    },
+                    git_status = {
+                        theme = "ivy"
+                    },
                 },
             })
+
 
             local builtin = require("telescope.builtin")
 
@@ -45,9 +49,15 @@ return {
 
 
             vim.keymap.set("n", "<leader>fr", builtin.live_grep, {})
-            -- vim.keymap.set("n", "<C-p>", builtin.git_files, {})
-
             vim.keymap.set("n", "<leader>fo", builtin.oldfiles, {})
+
+
+            --vim.keymap.set("n", "<leader>bd", actions.delete_buffer, {})
+
+
+            vim.keymap.set("n", "<leader>tc", builtin.git_commits, {})
+            vim.keymap.set("n", "<leader>gs", builtin.git_status, {})
+            -- vim.keymap.set("n", "<C-p>", builtin.git_files, {})
         end,
     },
 
