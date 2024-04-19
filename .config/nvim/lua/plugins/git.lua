@@ -31,7 +31,7 @@ return {
                     untracked = { text = "▎" },
                 },
 
-                vim.keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", {}),
+                vim.keymap.set("n", "<leader>gh", ":Gitsigns preview_hunk<CR>", {}),
                 vim.keymap.set("n", "<leader>gd", ":Gvdiff<CR>", {}),
 
                 vim.keymap.set("n", "]c", function()
