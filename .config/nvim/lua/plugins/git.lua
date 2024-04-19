@@ -4,7 +4,7 @@ return {
 
         config = function()
             vim.keymap.set({ "n", "v" }, "<leader>gb", ":G blame<CR>", {})
-            vim.keymap.set({ "n", "v" }, "<leader>gc", ":G commit<CR>", {})
+            --vim.keymap.set({ "n", "v" }, "<leader>gc", ":G commit<CR>", {})
             vim.keymap.set({ "n", "v" }, "<leader>gl", ":G log<CR>", {})
         end
     },
