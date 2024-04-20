@@ -18,6 +18,8 @@ return {
                     { silent = true, noremap = true }
                 ),
 
+                vim.keymap.set({ "n", "v" }, "<leader>gS", ":G | only<CR>", {}),
+
                 vim.keymap.set("n", "<leader>gp", ":Neogit pull<CR>",
                     { silent = true, noremap = true }
                 ),
