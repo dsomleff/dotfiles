@@ -4,9 +4,11 @@ return {
     },
     {
         "NeogitOrg/neogit",
+
         dependencies = {
             "sindrets/diffview.nvim",
         },
+
         config = function()
             local neogit = require('neogit')
 
@@ -31,6 +33,8 @@ return {
                 vim.keymap.set("n", "<leader>gB", ":G blame<CR>",
                     { silent = true, noremap = true }
                 ),
+
+                vim.keymap.set("n", "<leader>gd", ":Gvdiff<CR>", {}),
             })
         end
     },
@@ -41,12 +45,12 @@ return {
             local gs = package.loaded.gitsigns
 
             require("gitsigns").setup({
-                --              signs = {
-                --  add = { text = '+' },
-                --  change = { text = '~' },
-                --  delete = { text = '_' },
-                --  topdelete = { text = '‾' },
-                --  changedelete = { text = '~' },
+                --signs = {
+                --    add = { text = '+' },
+                --    change = { text = '~' },
+                --    delete = { text = '_' },
+                --    topdelete = { text = '‾' },
+                --    changedelete = { text = '~' },
                 --},
                 signs = {
                     add = { text = "▎" },
@@ -58,7 +62,7 @@ return {
                 },
 
                 vim.keymap.set("n", "<leader>gh", ":Gitsigns preview_hunk<CR>", {}),
-                vim.keymap.set("n", "<leader>gd", ":Gvdiff<CR>", {}),
+                vim.keymap.set({ "n", "v" }, "<leader>tb", ":Gitsigns blame_line <CR>", {}),
 
                 vim.keymap.set("n", "]c", function()
                     if vim.wo.diff then return ']c' end
@@ -72,12 +76,11 @@ return {
                     return '<Ignore>'
                 end, { expr = true }),
 
-                vim.keymap.set({ "n", "v" }, "<leader>tb", ":Gitsigns blame_line <CR>", {})
-                --
-                --            vim.keymap.set("n", "<leader>tc", builtin.git_commits, {})
-                --            vim.keymap.set("n", "<leader>gs", builtin.git_status, {})
-                --            vim.keymap.set("n", "<leader>bl", builtin.git_branches, {})
-                -- vim.keymap.set("n", "<C-p>", builtin.git_files, {})
+
+                --vim.keymap.set("n", "<leader>tc", builtin.git_commits, {})
+                --vim.keymap.set("n", "<leader>gs", builtin.git_status, {})
+                --vim.keymap.set("n", "<leader>bl", builtin.git_branches, {})
+                --vim.keymap.set("n", "<C-p>", builtin.git_files, {})
             })
         end,
     }
