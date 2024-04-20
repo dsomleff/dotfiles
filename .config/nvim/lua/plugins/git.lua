@@ -1,9 +1,11 @@
 return {
     {
+        "tpope/vim-fugitive",
+    },
+    {
         "NeogitOrg/neogit",
         dependencies = {
-            --"nvim-lua/plenary.nvim", -- required
-            "sindrets/diffview.nvim", -- optional - Diff integration
+            "sindrets/diffview.nvim",
         },
         config = function()
             local neogit = require('neogit')
@@ -13,10 +15,6 @@ return {
                 vim.keymap.set("n", "<leader>gs", neogit.open,
                     { silent = true, noremap = true }
                 ),
-
-                --                vim.keymap.set("n", "<leader>gc", ":Neogit commit<CR>",
-                --                    { silent = true, noremap = true }
-                --                ),
 
                 vim.keymap.set("n", "<leader>gp", ":Neogit pull<CR>",
                     { silent = true, noremap = true }
@@ -30,9 +28,9 @@ return {
                     { silent = true, noremap = true }
                 ),
 
-                --               vim.keymap.set("n", "<leader>gB", ":G blame<CR>",
-                --                   { silent = true, noremap = true }
-                --               )
+                vim.keymap.set("n", "<leader>gB", ":G blame<CR>",
+                    { silent = true, noremap = true }
+                ),
             })
         end
     },
@@ -75,6 +73,11 @@ return {
                 end, { expr = true }),
 
                 vim.keymap.set({ "n", "v" }, "<leader>tb", ":Gitsigns blame_line <CR>", {})
+                --
+                --            vim.keymap.set("n", "<leader>tc", builtin.git_commits, {})
+                --            vim.keymap.set("n", "<leader>gs", builtin.git_status, {})
+                --            vim.keymap.set("n", "<leader>bl", builtin.git_branches, {})
+                -- vim.keymap.set("n", "<C-p>", builtin.git_files, {})
             })
         end,
     }
