@@ -8,25 +8,33 @@ return {
 
         config = function()
             require("telescope").setup({
+                defaults = {
+                    file_ignore_patterns = {
+                        '.git',
+                        'lazy-lock.json',
+                        '*-lock.json',
+                        'node_modules',
+                        '%.lock',
+                    },
+                    path_display = { 'truncate' },
+                    layout_strategy = 'vertical',
+                },
                 pickers = {
-                    find_files = {
-                        theme = "dropdown",
-                    },
-                    live_grep = {
-                        theme = "dropdown",
-                    },
                     help_tags = {
                         theme = "ivy",
                     },
-                    git_files = {
-                        theme = "dropdown",
-                    },
-                    grep_string = {
-                        theme = "dropdown",
-                    },
-                    git_status = {
-                        theme = "ivy"
-                    },
+                    --              find_files = {
+                    --                  theme = "dropdown",
+                    --                  hidden = true,
+                    --              },
+                    --              live_grep = {
+                    --                  theme = "dropdown",
+                    --                  hidden = true,
+                    --              },
+                    --              grep_string = {
+                    --                  theme = "dropdown",
+                    --                  hidden = true,
+                    --              },
                 },
             })
 
@@ -48,11 +56,8 @@ return {
             end)
 
 
-            vim.keymap.set("n", "<leader>fr", builtin.live_grep, {})
+            vim.keymap.set("n", "<leader>fW", builtin.live_grep, {})
             vim.keymap.set("n", "<leader>fo", builtin.oldfiles, {})
-
-
-            --vim.keymap.set("n", "<leader>bd", actions.delete_buffer, {})
         end,
     },
 
