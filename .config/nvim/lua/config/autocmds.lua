@@ -1,7 +1,15 @@
+--remove white space at the end of a line
+local autocmd = vim.api.nvim_create_autocmd
+
+autocmd({ "BufWritePre" }, {
+    pattern = "*",
+    command = [[%s/\s\+$//e]]
+})
+
 -- format on save
 vim.api.nvim_create_augroup("AutoFormatting", {})
 
-vim.api.nvim_create_autocmd("BufWritePre", {
+autocmd("BufWritePre", {
     group = "AutoFormatting",
     callback = function()
         vim.lsp.buf.format()
@@ -11,7 +19,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 -- open Netrw after now open buffers left
 vim.api.nvim_create_augroup("AutoCommands", {})
 
-vim.api.nvim_create_autocmd("BufEnter", {
+autocmd("BufEnter", {
     group = "AutoCommands",
     pattern = "*",
     command = "if !argc() | Explore | endif",
@@ -53,7 +61,7 @@ local function progress()
     end
 end
 
-vim.api.nvim_create_autocmd({ "FileType", "BufEnter", "FocusGained" }, {
+autocmd({ "FileType", "BufEnter", "FocusGained" }, {
     callback = function()
         vim.b.branch_name = branch_name()
         vim.b.file_name = file_name()
@@ -76,3 +84,10 @@ function Status_Line()
 end
 
 vim.opt.statusline = "%{%v:lua.Status_Line()%}"
+
+-- highlight on yank
+autocmd('TextYankPost', {
+    callback = function()
+        vim.highlight.on_yank()
+    end,
+})
