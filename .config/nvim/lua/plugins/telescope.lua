@@ -7,8 +7,15 @@ return {
         dependencies = { "nvim-lua/plenary.nvim" },
 
         config = function()
+            local actions = require 'telescope.actions'
+
             require("telescope").setup({
                 defaults = {
+                    mappings = {
+                        i = {
+                            ['<C-q>'] = actions.smart_send_to_qflist + actions.open_qflist,
+                        },
+                    },
                     file_ignore_patterns = {
                         '.git',
                         'lazy-lock.json',
@@ -18,23 +25,24 @@ return {
                     },
                     path_display = { 'truncate' },
                     layout_strategy = 'vertical',
+                    hidden = true,
                 },
                 pickers = {
                     help_tags = {
                         theme = "ivy",
                     },
-                    --              find_files = {
-                    --                  theme = "dropdown",
-                    --                  hidden = true,
-                    --              },
-                    --              live_grep = {
-                    --                  theme = "dropdown",
-                    --                  hidden = true,
-                    --              },
-                    --              grep_string = {
-                    --                  theme = "dropdown",
-                    --                  hidden = true,
-                    --              },
+                    find_files = {
+                        --theme = "dropdown",
+                        hidden = true,
+                    },
+                    live_grep = {
+                        --theme = "dropdown",
+                        hidden = true,
+                    },
+                    grep_string = {
+                        --theme = "dropdown",
+                        hidden = true,
+                    },
                 },
             })
 
