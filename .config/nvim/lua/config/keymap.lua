@@ -48,7 +48,7 @@ vim.keymap.set("n", "<c-h>", ":wincmd h<CR>")
 vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
 
 -- Select all
-vim.keymap.set("n", "<C-a>", "gg<S-v>G")
+-- vim.keymap.set("n", "<C-a>", "gg<S-v>G")
 
 -- Navigating buffers
 vim.keymap.set("n", "<S-l>", ":bnext<CR>")
