@@ -64,3 +64,9 @@ vim.opt.backspace = "indent,eol,start"
 -- disable auto-comments on new line
 vim.cmd('autocmd BufEnter * set formatoptions-=cro')
 vim.cmd('autocmd BufEnter * setlocal formatoptions-=cro')
+
+-- Add mappings to disable arrow keys
+vim.api.nvim_set_keymap('n', '<Up>', '<NOP>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Down>', '<NOP>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Left>', '<NOP>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Right>', '<NOP>', { noremap = true })
