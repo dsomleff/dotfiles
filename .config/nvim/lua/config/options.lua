@@ -53,14 +53,6 @@ vim.opt.smartcase = true
 -- backspace
 vim.opt.backspace = "indent,eol,start"
 
-----remove white space at the end of a line
---local autocmd = vim.api.nvim_create_autocmd
---
---autocmd({ "BufWritePre" }, {
---    pattern = "*",
---    command = [[%s/\s\+$//e]]
---})
-
 -- disable auto-comments on new line
 vim.cmd('autocmd BufEnter * set formatoptions-=cro')
 vim.cmd('autocmd BufEnter * setlocal formatoptions-=cro')
