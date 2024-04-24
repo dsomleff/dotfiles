@@ -16,7 +16,7 @@ autocmd("BufWritePre", {
     end,
 })
 
--- open Netrw after now open buffers left
+-- open Netrw after no open buffers left
 vim.api.nvim_create_augroup("AutoCommands", {})
 
 autocmd("BufEnter", {

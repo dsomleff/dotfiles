@@ -18,7 +18,8 @@ vim.keymap.set("n", "<leader>p", [["_dP]])
 
 -- copy into system clipboard
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
-vim.keymap.set("n", "<leader>Y", [["+Y]])
+--vim.keymap.set("n", "<leader>Y", [["+Y]])
+vim.keymap.set("n", "<leader>Y", [[gg"+yG]])
 
 -- prevent big Q pressing ;)
 vim.keymap.set("n", "Q", "<nop>")
