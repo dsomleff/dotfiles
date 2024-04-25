@@ -14,11 +14,11 @@ return {
 
             require("neogit").setup({
 
-                vim.keymap.set("n", "<leader>gc", neogit.open,
+                vim.keymap.set("n", "<leader>gs", neogit.open,
                     { silent = true, noremap = true }
                 ),
 
-                vim.keymap.set({ "n", "v" }, "<leader>gs", ":G | only<CR>", {}),
+                vim.keymap.set({ "n", "v" }, "<leader>gS", ":G | only<CR>", {}),
 
                 vim.keymap.set("n", "<leader>gp", ":G pull<CR>",
                     { silent = true, noremap = true }
