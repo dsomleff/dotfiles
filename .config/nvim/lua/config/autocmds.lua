@@ -61,7 +61,7 @@ local function progress()
     end
 end
 
-autocmd({ "FileType", "BufEnter", "FocusGained" }, {
+autocmd({ "FileType", "BufEnter", "FocusGained", "CursorHold", "CursorHoldI", "FileChangedShellPost" }, {
     callback = function()
         vim.b.branch_name = branch_name()
         vim.b.file_name = file_name()
@@ -90,4 +90,10 @@ autocmd('TextYankPost', {
     callback = function()
         vim.highlight.on_yank()
     end,
+})
+
+-- Set bufhidden=delete for fugitive buffers after reading
+autocmd({ "BufReadPost" }, {
+    pattern = "fugitive://*",
+    command = "set bufhidden=delete"
 })
