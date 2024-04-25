@@ -1,0 +1,17 @@
+[user]
+	name = Dmytro Somliev
+	email = dmytro.somliev@ibm.com
+[pull]
+	ff = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[status]
+	submoduleSummary = true
+[core]
+    excludesfile = ~/.gitignore_global
+[alias]
+    co = checkout
+    br = branch
