@@ -42,7 +42,6 @@ function my_statusline()
     local branch = vim.fn.FugitiveHead()
 
     if branch and #branch > 0 then
-        --branch = " " .. branch .."  "
         branch = " " .. branch .. " | "
     end
 

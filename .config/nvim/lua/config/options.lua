@@ -62,6 +62,3 @@ vim.api.nvim_set_keymap('n', '<Up>', '<NOP>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Down>', '<NOP>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Left>', '<NOP>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Right>', '<NOP>', { noremap = true })
-
--- show git branch name with Fugitive
---vim.opt.statusline = "%<%f\\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\\ %P"
