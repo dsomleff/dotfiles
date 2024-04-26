@@ -47,8 +47,8 @@ function my_statusline()
 
     return "%<"
         .. branch
-        -- " | "
-        .. '  '
+        .. " | "
+        --.. '  '
         .. "%f"
         .. " "
         .. "%m"
