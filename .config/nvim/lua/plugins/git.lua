@@ -37,6 +37,7 @@ return {
                 ),
 
                 vim.keymap.set("n", "<leader>gd", ":Gvdiff<CR>", {}),
+                vim.keymap.set("n", "<leader>gH", ":term git log --oneline --graph --all<CR>", {}),
             })
         end
     },
