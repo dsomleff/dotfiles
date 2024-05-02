@@ -36,9 +36,6 @@ vim.g.mapleader = " "
 vim.opt.spelllang = "en_us"
 vim.opt.spell = true
 
--- Ex command history
-vim.opt.history = 200
-
 -- Enable cursor blinking
 vim.opt.guicursor = vim.opt.guicursor + "a:blinkon20"
 
