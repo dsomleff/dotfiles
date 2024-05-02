@@ -53,8 +53,12 @@ vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
 -- vim.keymap.set("n", "<C-a>", "gg<S-v>G")
 
 -- Navigating buffers
-vim.keymap.set("n", "<S-l>", ":bnext<CR>")
-vim.keymap.set("n", "<S-h>", ":bprevious<CR>")
+--vim.keymap.set("n", "<S-l>", ":bnext<CR>")
+--vim.keymap.set("n", "<S-h>", ":bprevious<CR>")
+vim.keymap.set("n", "[b", ":bprevious<CR>")
+vim.keymap.set("n", "]b", ":bnext<CR>")
+vim.keymap.set("n", "[B", ":bfirst<CR>")
+vim.keymap.set("n", "]B", ":blast<CR>")
 
 -- Tab's
 vim.keymap.set("v", "<", "<gv")
