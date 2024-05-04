@@ -36,7 +36,7 @@ return {
                         hidden = true,
                     },
                     live_grep = {
-                        --theme = "dropdown",
+                        theme = "dropdown",
                         hidden = true,
                     },
                     grep_string = {
