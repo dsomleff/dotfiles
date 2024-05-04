@@ -74,13 +74,7 @@ defaults write com.apple.dock mru-spaces -bool false
 defaults write com.apple.dock expose-group-by-app -bool false
 defaults write com.apple.dock minimize-to-application -bool true
 
-# Set the default web browser for HTTP
-defaults write ~/Library/Preferences/com.apple.LaunchServices/com.apple.launchservices.secure.plist LSHandlers -array-add '{ \
-    LSHandlerContentType = "public.html"; \
-    LSHandlerRoleAll = "company.thebrowser.browser"; \
-}'
-
-# Set the default web browser for HTTPS
+# Set the default web browser for HTTP/HTTPS
 defaults write ~/Library/Preferences/com.apple.LaunchServices/com.apple.launchservices.secure.plist LSHandlers -array-add '{ \
     LSHandlerContentType = "public.html"; \
     LSHandlerRoleAll = "company.thebrowser.browser"; \
@@ -130,7 +124,7 @@ defaults -currentHost write com.apple.screensaver idleTime -int 600
 sudo pmset -b displaysleep 10
 
 # Turn display off on power adapter when inactive for 10 min
-sudo pmset -c displaysleep 10
+sudo pmset -c sleep 10
 
 # Require password after screen saver begins or display is turned off immediately
 defaults write com.apple.screensaver askForPassword -int 1
@@ -140,4 +134,12 @@ defaults write com.apple.screensaver askForPasswordDelay -int 0
 defaults write com.apple.screensaver showClock -bool true
 
 # Show username and photo on lock screen
+defaults write com.apple.loginwindow AdminHostInfo HostName
 
+# Kill affected apps
+for app in "Dock" "Finder"; do
+  killall "${app}" > /dev/null 2>&1
+done
+
+# Done
+echo "Done. Note that some of these changes require a logout/restart to take effect."
