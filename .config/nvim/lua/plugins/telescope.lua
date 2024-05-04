@@ -38,6 +38,10 @@ return {
                     live_grep = {
                         theme = "dropdown",
                         hidden = true,
+                        layout_config = {
+                            width = 0.8,
+                            height = 0.3
+                        }
                     },
                     grep_string = {
                         --theme = "dropdown",
