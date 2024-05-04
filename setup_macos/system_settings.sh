@@ -119,3 +119,25 @@ defaults write ~/Library/Preferences/com.apple.HIToolbox.plist AppleEnabledInput
 # Trackpad Tracking speed
 defaults write ~/Library/Preferences/.GlobalPreferences.plist com.apple.trackpad.scaling -float 2
 
+################################################################################
+# System Preferences > Screen
+################################################################################
+
+# Start Screen Saver when inactive for 10 min
+defaults -currentHost write com.apple.screensaver idleTime -int 600
+
+# Turn display off on battery when inactive for 10 min
+sudo pmset -b displaysleep 10
+
+# Turn display off on power adapter when inactive for 10 min
+sudo pmset -c displaysleep 10
+
+# Require password after screen saver begins or display is turned off immediately
+defaults write com.apple.screensaver askForPassword -int 1
+defaults write com.apple.screensaver askForPasswordDelay -int 0
+
+# Show large clock on lock screen
+defaults write com.apple.screensaver showClock -bool true
+
+# Show username and photo on lock screen
+
