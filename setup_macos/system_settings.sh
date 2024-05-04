@@ -54,8 +54,8 @@ defaults write NSGlobalDomain _HIHideMenuBar -bool true
 ################################################################################
 
 # Dock
-defaults write com.apple.dock tilesize -int 60
-defaults write com.apple.dock largesize -float 128
+defaults write com.apple.dock tilesize -int 75
+defaults write com.apple.dock largesize -float 90
 defaults write com.apple.dock orientation -string "bottom"
 defaults write com.apple.dock minimize-to-application -bool true
 defaults write com.apple.dock autohide -bool true
@@ -73,3 +73,38 @@ defaults write -g NSCloseAlwaysConfirmsChanges -bool true
 defaults write com.apple.dock mru-spaces -bool false
 defaults write com.apple.dock expose-group-by-app -bool false
 defaults write com.apple.dock minimize-to-application -bool true
+
+
+################################################################################
+# System Preferences > Keyboard & Trackpad
+################################################################################
+
+# Keep repeat rate: Fast
+defaults write -g KeyRepeat -int 2
+
+# Delay until repeat: short
+defaults write -g InitialKeyRepeat -int 15
+
+# Turn keyboard backlight off after inactivity: After 1 Minute
+defaults write com.apple.BezelServices kDimTime -int 60
+
+# Keyboard navigation: on
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 2
+
+# Add ABC keyboard layout
+defaults write ~/Library/Preferences/com.apple.HIToolbox.plist AppleEnabledInputSources -array-add '{
+    InputSourceKind = "Keyboard Layout";
+    "KeyboardLayout ID" = 0;
+    "KeyboardLayout Name" = "ABC";
+}'
+
+# Add Ukrainian keyboard layout
+defaults write ~/Library/Preferences/com.apple.HIToolbox.plist AppleEnabledInputSources -array-add '{
+    InputSourceKind = "Keyboard Layout";
+    "KeyboardLayout ID" = -2354;
+    "KeyboardLayout Name" = "Ukrainian-PC";
+}'
+
+# Trackpad Tracking speed
+defaults write ~/Library/Preferences/.GlobalPreferences.plist com.apple.trackpad.scaling -float 2
+
