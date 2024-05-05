@@ -21,6 +21,11 @@ brew tap homebrew/cask-fonts
 brew install --cask font-jetbrains-mono
 
 brew install --cask webstorm
+brew install --cask rancher
 
 # Other tools
 brew install --cask rectangle
+brew install --cask telegram
+
+# Remove outdated versions from the cellar.
+brew cleanup
