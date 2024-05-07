@@ -60,18 +60,6 @@ return {
                 end,
             },
 
-            ["volar"] = function()
-                require("lspconfig").volar.setup({
-                    capabilities = capabilities,
-                    filetypes = { "vue", "javascript", "typescript", "javascriptreact", "typescriptreact" },
-                    init_options = {
-                        vue = {
-                            hybridMode = false,
-                        },
-                    },
-                })
-            end,
-
             cmp.setup({
                 snippet = {
                     expand = function(args)
