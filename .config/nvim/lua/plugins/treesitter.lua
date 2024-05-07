@@ -1,6 +1,7 @@
 return {
     "nvim-treesitter/nvim-treesitter",
 
+    event = { "BufReadPre", "BufNewFile" },
     build = ":TSUpdate",
 
     config = function()
@@ -11,7 +12,20 @@ return {
                 enable = true,
             },
 
-            ensure_installed = { "vimdoc", "javascript", "typescript", "lua", "go", "jsdoc" },
+            ensure_installed = {
+                "vimdoc",
+                "javascript",
+                "typescript",
+                "lua",
+                "go",
+                "jsdoc",
+                "json",
+                "yaml",
+                "html",
+                "css",
+                "markdown",
+                "bash",
+            },
 
             sync_install = false,
 
