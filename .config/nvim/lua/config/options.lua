@@ -62,3 +62,6 @@ vim.api.nvim_set_keymap("n", "<Up>", "<NOP>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<Down>", "<NOP>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<Left>", "<NOP>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<Right>", "<NOP>", { noremap = true })
+
+-- Activate Matchit plugin
+vim.cmd("runtime macros/matchit.vim")
