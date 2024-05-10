@@ -83,6 +83,9 @@ alias conf="tmuxp load ~/dotfiles/.config/tmux/sessions/dotfiles.yaml"
 # Use Neovim as "preferred editor"
 export VISUAL=nvim
 
+# for tmux color consistency
+export TERM=tmux-256color
+
 # pnpm
 # export PNPM_HOME="/Users/somleff/Library/pnpm"
 # case ":$PATH:" in

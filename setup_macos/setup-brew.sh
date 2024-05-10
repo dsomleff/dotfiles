@@ -10,6 +10,7 @@ brew install neovim
 brew install tmux
 brew install stow
 brew install alacritty
+brew install wget
 
 # Install dev tools
 brew install --cask docker
