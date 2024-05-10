@@ -80,6 +80,9 @@ alias ff="fzf"
 # Tmux sessions
 alias conf="tmuxp load ~/dotfiles/.config/tmux/sessions/dotfiles.yaml"
 
+# Use Neovim as "preferred editor"
+export VISUAL=nvim
+
 # pnpm
 # export PNPM_HOME="/Users/somleff/Library/pnpm"
 # case ":$PATH:" in
