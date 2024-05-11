@@ -31,8 +31,6 @@ set relativenumber
 set nu rnu
 set ideajoin
 
-set surround
-
 let mapleader = " "
 nmap <space> <Leader>
 
@@ -53,3 +51,17 @@ nnoremap <s-TAB> :action PreviousTab<CR>
 nnoremap <C-p> :action GotoFile<CR>
 nnoremap <leader>fw :action FindInPath<CR>
 nnoremap <leader>fb :action RecentLocations<CR>
+
+Plug 'tpope/vim-surround'
+
+Plug 'easymotion/vim-easymotion'
+map <leader>j <Plug>(easymotion-f)
+map <leader>J <Plug>(easymotion-s)
+
+Plug 'preservim/nerdtree'
+map <C-n> :NERDTree<CR>
+
+Plug 'terryma/vim-multiple-cursors'
+map mc <A-n>
+map mx <A-x>
+map mp <A-p>
