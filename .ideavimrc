@@ -37,6 +37,19 @@ let mapleader = " "
 nmap <space> <Leader>
 
 nnoremap <C-z> :action ToggleDistractionFreeMode<CR>
+nnoremap <leader>gs :action CheckinProject<CR>
+
+" Navigation
+nnoremap <C-\> :action SplitVertically<CR>
+nnoremap <C--> :action SplitHorizontally<CR>
+nnoremap <C-h> <c-w>h
+nnoremap <C-j> <c-w>j
+nnoremap <C-k> <c-w>k
+nnoremap <C-l> <c-w>l
+nnoremap <TAB> :action NextTab<CR>
+nnoremap <s-TAB> :action PreviousTab<CR>
+
+" Files Search
 nnoremap <C-p> :action GotoFile<CR>
 nnoremap <leader>fw :action FindInPath<CR>
-nnoremap <leader>gs :action CheckinProject<CR>
+nnoremap <leader>fb :action RecentLocations<CR>
