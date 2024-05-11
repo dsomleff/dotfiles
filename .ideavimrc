@@ -30,12 +30,13 @@ map Q gq
 set relativenumber
 set nu rnu
 set ideajoin
+set highlightedyank
 
 let mapleader = " "
 nmap <space> <Leader>
 
 nnoremap <C-z> :action ToggleDistractionFreeMode<CR>
-nnoremap <leader>gs :action CheckinProject<CR>
+noremap <leader>gs :action CheckinProject<CR>
 
 " Navigation
 nnoremap <C-\> :action SplitVertically<CR>
