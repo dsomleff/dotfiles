@@ -65,3 +65,8 @@ vim.api.nvim_set_keymap("n", "<Right>", "<NOP>", { noremap = true })
 
 -- Activate Matchit plugin
 vim.cmd("runtime macros/matchit.vim")
+
+-- Providers
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_ruby_provider = 0
