@@ -33,3 +33,10 @@ set ideajoin
 
 set surround
 
+let mapleader = " "
+nmap <space> <Leader>
+
+nnoremap <C-z> :action ToggleDistractionFreeMode<CR>
+nnoremap <C-p> :action GotoFile<CR>
+nnoremap <leader>fw :action FindInPath<CR>
+nnoremap <leader>gs :action CheckinProject<CR>
