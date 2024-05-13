@@ -1,4 +1,4 @@
-vim.opt.nu = true
+vim.opt.number = true
 vim.opt.relativenumber = true
 
 vim.opt.autoread = true
@@ -28,6 +28,7 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
+vim.g.have_nerd_font = true
 vim.opt.colorcolumn = "120"
 vim.opt.termguicolors = true
 

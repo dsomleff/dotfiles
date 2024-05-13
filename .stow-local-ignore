@@ -2,4 +2,6 @@
 \.gitignore
 ^/README.*
 \.DS_Store
+\setup_macos
+\.idea
 
