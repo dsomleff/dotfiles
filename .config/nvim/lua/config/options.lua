@@ -3,7 +3,6 @@ vim.opt.relativenumber = true
 
 vim.opt.splitbelow = true
 vim.opt.splitright = true
-vim.opt.clipboard = "unnamedplus"
 
 vim.opt.autoread = true
 
@@ -36,7 +35,9 @@ vim.g.have_nerd_font = true
 vim.opt.colorcolumn = "120"
 vim.opt.termguicolors = true
 
+-- Set <space> as the leader key
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 vim.opt.spelllang = "en_us"
 vim.opt.spell = true
