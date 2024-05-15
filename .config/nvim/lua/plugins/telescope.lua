@@ -17,7 +17,6 @@ return {
 						},
 					},
 					file_ignore_patterns = {
-						".git",
 						"lazy-lock.json",
 						"*-lock.json",
 						"node_modules",
