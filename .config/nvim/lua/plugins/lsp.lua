@@ -41,8 +41,15 @@ return {
 			},
 			handlers = {
 				function(server_name)
+					local server_config = {}
+
+					if server_name == "volar" then
+						server_config.filetypes = { "vue", "typescript", "javascript" }
+					end
+
 					require("lspconfig")[server_name].setup({
 						-- capabilities = capabilities
+						server_config,
 					})
 				end,
 
@@ -63,7 +70,7 @@ return {
 				["volar"] = function()
 					require("lspconfig").volar.setup({
 						capabilities = capabilities,
-						filetypes = { "vue", "javascript", "typescript", "javascriptreact", "typescriptreact" },
+						filetypes = { "vue", "javascript", "typescript" },
 						init_options = {
 							vue = {
 								hybridMode = false,
