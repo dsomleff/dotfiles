@@ -31,6 +31,9 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
+-- How long vim wait for keymap response (1sec)
+vim.opt.timeoutlen = 1000
+
 vim.g.have_nerd_font = true
 vim.opt.colorcolumn = "120"
 vim.opt.termguicolors = true
@@ -38,6 +41,9 @@ vim.opt.termguicolors = true
 -- Set <space> as the leader key
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+
+-- Disable netrw
+vim.g.netrw_banner = 0
 
 vim.opt.spelllang = "en_us"
 vim.opt.spell = true
