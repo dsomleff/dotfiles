@@ -11,6 +11,7 @@ brew install tmux
 brew install stow
 brew install alacritty
 brew install wget
+brew install tree
 
 # Install dev tools
 brew install --cask docker
