@@ -76,6 +76,7 @@ alias tmks="tmux kill-session -t"
 alias tmka="tmux kill-server"
 
 alias ff="fzf"
+alias c="clear"
 
 # Tmux sessions
 alias conf="tmuxp load ~/dotfiles/.config/tmux/sessions/dotfiles.yaml"
