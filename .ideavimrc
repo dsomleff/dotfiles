@@ -55,14 +55,14 @@ nnoremap <leader>fb :action RecentLocations<CR>
 
 Plug 'tpope/vim-surround'
 
-Plug 'easymotion/vim-easymotion'
-map <leader>j <Plug>(easymotion-f)
-map <leader>J <Plug>(easymotion-s)
-
 Plug 'preservim/nerdtree'
 map <C-n> :NERDTree<CR>
 
-Plug 'terryma/vim-multiple-cursors'
-map mc <A-n>
-map mx <A-x>
-map mp <A-p>
+"Plug 'easymotion/vim-easymotion'
+"map <leader>j <Plug>(easymotion-f)
+"map <leader>J <Plug>(easymotion-s)
+
+"Plug 'terryma/vim-multiple-cursors'
+"map mc <A-n>
+"map mx <A-x>
+"map mp <A-p>
