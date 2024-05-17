@@ -65,6 +65,21 @@ vim.keymap.set("n", "]B", ":blast<CR>")
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
--- Diagnostic keymaps
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
+-- Markdown preview
+vim.opt.conceallevel = 2
+
+-- Display LSP hints
+-- vim.keymaps.set("n", "<leader>h", vim.lsp.inlay_hint.enable())
+vim.keymap.set("n", "<leader>h", function()
+	vim.lsp.inlay_hint.enable()
+end)
+
+-- Exit build in terminal
+vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
+
+-- Open terminal
+vim.keymap.set("n", "<leader>bt", "<cmd>bo te<CR>")
+
+-- Diagnostic keymaps already build in
+-- vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
+-- vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
