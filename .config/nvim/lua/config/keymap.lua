@@ -33,6 +33,9 @@ vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 -- quick fix navigation
 vim.keymap.set("n", "]q", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "[q", "<cmd>cprev<CR>zz")
+vim.keymap.set("n", "[Q", "<cmd>cfirst<CR>zz")
+vim.keymap.set("n", "]Q", "<cmd>clast<CR>zz")
+
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
