@@ -28,6 +28,7 @@ return {
 
 				vim.keymap.set("n", "<leader>gd", ":Gvdiff<CR>", {}),
 				vim.keymap.set("n", "<leader>gH", ":G log --oneline --decorate --graph --all<CR>", {}),
+				vim.keymap.set("n", "<leader>mc", ":Gvdiffsplit!<CR>", {}),
 				--vim.keymap.set("n", "<leader>gH", ":term git log --oneline --graph --all<CR>", {}),
 			})
 		end,

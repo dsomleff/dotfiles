@@ -11,7 +11,7 @@ return {
 				enable = true,
 			},
 
-			ensure_installed = { "vimdoc", "javascript", "typescript", "lua", "go", "jsdoc" },
+			ensure_installed = { "vimdoc", "javascript", "typescript", "lua", "go", "jsdoc", "vim" },
 
 			sync_install = false,
 
