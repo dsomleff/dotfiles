@@ -87,6 +87,16 @@ export VISUAL=nvim
 # for tmux color consistency
 export TERM=tmux-256color
 
+# Function to count the number of lines in files with a given extension
+lines_number() {
+  if [ -z "$1" ]; then
+    echo "Usage: lines_number <file_extension>"
+    return 1
+  fi
+
+  find . -name "*.$1" | xargs -I {} cat {} | wc -l
+}
+
 # pnpm
 # export PNPM_HOME="/Users/somleff/Library/pnpm"
 # case ":$PATH:" in
