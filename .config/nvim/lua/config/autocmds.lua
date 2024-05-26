@@ -40,12 +40,26 @@ end
 
 function my_statusline()
 	local branch = vim.fn.FugitiveHead()
+	local readonly = vim.bo.readonly and "[RO]" or ""
 
 	if branch and #branch > 0 then
 		branch = " " .. branch .. " | "
 	end
 
-	return "%<" .. branch .. "%f" .. " " .. "%m" .. "%=" .. "%y" .. " " .. "%l:%c" .. " " .. progress() .. " "
+	return "%<"
+		.. branch
+		.. "%f"
+		.. " "
+		.. readonly
+		.. " "
+		.. "%m"
+		.. "%="
+		.. "%y"
+		.. " "
+		.. "%l:%c"
+		.. " "
+		.. progress()
+		.. " "
 end
 
 vim.opt.statusline = "%{%v:lua.my_statusline()%}"

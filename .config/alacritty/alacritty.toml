@@ -23,8 +23,8 @@ style = "Medium"
 [font]
 bold = { style = "Bold" }
 italic = { style = "Italic" }
-size = 18.0
-offset = { x = 0, y = 16 }
+size = 18.5
+offset = { x = 0, y = 18 }
 
 
 [cursor.style]
