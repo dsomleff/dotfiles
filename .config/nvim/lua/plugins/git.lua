@@ -58,6 +58,7 @@ return {
 
 				vim.keymap.set("n", "<leader>gh", ":Gitsigns preview_hunk<CR>", {}),
 				vim.keymap.set({ "n", "v" }, "<leader>tb", ":Gitsigns blame_line <CR>", {}),
+				vim.keymap.set({ "n", "v" }, "<leader>hr", ":Gitsigns reset_hunk <CR>", {}),
 
 				vim.keymap.set("n", "]c", function()
 					if vim.wo.diff then
