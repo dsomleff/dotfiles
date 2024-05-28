@@ -1,15 +1,15 @@
 return {
 	{
-		"rebelot/kanagawa.nvim",
+		"catppuccin/nvim",
 		lazy = false,
-		name = "kanagawa",
+		name = "catppuccin",
 		priority = 1000,
 		config = function()
-			require("kanagawa").setup({
-				dimInactive = true,
-				transparent = true,
-			})
-			vim.cmd.colorscheme("kanagawa-dragon")
+			-- require("kanagawa").setup({
+			-- 	dimInactive = true,
+			-- 	transparent = true,
+			-- })
+			vim.cmd.colorscheme("catppuccin-mocha")
 
 			vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 			vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
