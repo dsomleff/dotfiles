@@ -11,7 +11,7 @@ decorations = "None"
 startup_mode = "Windowed"
 dynamic_title = true
 dynamic_padding = true
-opacity = 0.9
+opacity = 0.8
 
 [scrolling]
 history = 10000
@@ -24,7 +24,7 @@ style = "Medium"
 bold = { style = "Bold" }
 italic = { style = "Italic" }
 size = 18.5
-offset = { x = 0, y = 18 }
+offset = { x = 0, y = 24 }
 
 
 [cursor.style]
