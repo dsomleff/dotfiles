@@ -83,6 +83,12 @@ vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
 -- Open terminal
 vim.keymap.set("n", "<leader>bt", "<cmd>bo te<CR>")
 
+-- Close single open buffer
+vim.keymap.set("n", "<leader>q", "<cmd>bd<CR>")
+
+-- Close all open buffers
+vim.keymap.set("n", "<leader>Q", "<cmd>bufdo bd<CR>")
+
 -- Diagnostic keymaps already build in
 -- vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
 -- vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
