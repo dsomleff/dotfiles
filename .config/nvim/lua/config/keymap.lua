@@ -77,9 +77,6 @@ vim.keymap.set("n", "<leader>h", function()
 	vim.lsp.inlay_hint.enable()
 end)
 
--- Exit build in terminal
-vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
-
 -- Open terminal
 vim.keymap.set("n", "<leader>bt", "<cmd>bo te<CR>")
 
