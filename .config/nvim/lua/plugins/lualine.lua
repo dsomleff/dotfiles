@@ -16,13 +16,21 @@ return {
 				},
 			},
 			sections = {
-				lualine_a = {},
-				lualine_b = {
+				lualine_a = {
 					{ "branch", icon = "" },
+				},
+				lualine_b = { "filename" },
+				lualine_c = {
 					"diff",
 					{ "diagnostics", sources = { "nvim_diagnostic" } },
 				},
-				lualine_c = { "filename" },
+				-- lualine_a = {},
+				-- lualine_b = {
+				-- 	{ "branch", icon = "" },
+				-- 	"diff",
+				-- 	{ "diagnostics", sources = { "nvim_diagnostic" } },
+				-- },
+				-- lualine_c = { "filename" },
 				lualine_x = { "filetype" },
 				lualine_y = { "progress" },
 				lualine_z = { "location" },
