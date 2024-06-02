@@ -33,7 +33,7 @@ return {
 				if has_eslint_config() then
 					lint.try_lint()
 				else
-					vim.notify("No ESLint configuration found. Skipping linting.", vim.log.levels.INFO)
+					vim.notify("", vim.log.levels.INFO)
 				end
 			end,
 		})
@@ -42,7 +42,7 @@ return {
 			if has_eslint_config() then
 				lint.try_lint()
 			else
-				vim.notify("No ESLint configuration found. Skipping linting.", vim.log.levels.INFO)
+				vim.notify("", vim.log.levels.INFO)
 			end
 		end, { desc = "Trigger linting for current file" })
 	end,
