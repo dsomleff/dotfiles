@@ -37,8 +37,6 @@ return {
 		"lewis6991/gitsigns.nvim",
 
 		config = function()
-			local gs = package.loaded.gitsigns
-
 			require("gitsigns").setup({
 				--signs = {
 				--    add = { text = '+' },
