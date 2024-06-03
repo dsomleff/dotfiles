@@ -72,7 +72,6 @@ vim.keymap.set("v", ">", ">gv")
 vim.opt.conceallevel = 2
 
 -- Display LSP hints
--- vim.keymaps.set("n", "<leader>h", vim.lsp.inlay_hint.enable())
 vim.keymap.set("n", "<leader>h", function()
 	vim.lsp.inlay_hint.enable()
 end)

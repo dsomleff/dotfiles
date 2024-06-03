@@ -53,7 +53,7 @@ vim.opt.guicursor = vim.opt.guicursor + "a:blinkon20"
 
 -- highlight the line number of the cursor
 vim.opt.cursorline = true
-vim.opt.cursorlineopt = "number"
+-- vim.opt.cursorlineopt = "number"
 
 -- search settings
 vim.opt.ignorecase = true
@@ -63,3 +63,6 @@ vim.opt.smartcase = true
 vim.opt.backspace = "indent,eol,start"
 
 -- Providers
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_ruby_provider = 0
