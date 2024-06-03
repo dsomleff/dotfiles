@@ -32,8 +32,8 @@ return {
 			callback = function()
 				if has_eslint_config() then
 					lint.try_lint()
-				else
-					vim.notify("", vim.log.levels.INFO)
+					-- else
+					-- 	vim.notify("", vim.log.levels.INFO)
 				end
 			end,
 		})
@@ -41,8 +41,8 @@ return {
 		vim.keymap.set("n", "<leader>l", function()
 			if has_eslint_config() then
 				lint.try_lint()
-			else
-				vim.notify("", vim.log.levels.INFO)
+				-- else
+				-- 	vim.notify("", vim.log.levels.INFO)
 			end
 		end, { desc = "Trigger linting for current file" })
 	end,
