@@ -81,8 +81,8 @@ end)
 vim.keymap.set("n", "<leader>bt", "<cmd>bo te<CR>")
 
 -- Close single open buffer
-vim.keymap.set("n", "<leader>q", "<cmd>bd<CR>")
-vim.keymap.set("n", "<leader>1q", "<cmd>bd!<CR>")
+vim.keymap.set("n", "<leader>w", "<cmd>bd<CR>")
+vim.keymap.set("n", "<leader>q", "<cmd>bd!<CR>")
 
 -- Close all open buffers
 vim.keymap.set("n", "<leader>Q", "<cmd>bufdo bd<CR>")
