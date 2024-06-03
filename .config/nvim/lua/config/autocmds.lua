@@ -1,6 +1,16 @@
 --remove white space at the end of a line
 local autocmd = vim.api.nvim_create_autocmd
 
+-- tree view in netrw
+vim.cmd("let g:netrw_liststyle = 0")
+
+-- disable auto-comments on new line
+vim.cmd("autocmd BufEnter * set formatoptions-=cro")
+vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
+
+-- Activate Matchit plugin
+vim.cmd("runtime macros/matchit.vim")
+
 autocmd({ "BufWritePre" }, {
 	pattern = "*",
 	command = [[%s/\s\+$//e]],

@@ -87,6 +87,12 @@ vim.keymap.set("n", "<leader>q", "<cmd>bd!<CR>")
 -- Close all open buffers
 vim.keymap.set("n", "<leader>Q", "<cmd>bufdo bd<CR>")
 
+-- Add mappings to disable arrow keys
+vim.api.nvim_set_keymap("n", "<Up>", "<NOP>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Down>", "<NOP>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Left>", "<NOP>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Right>", "<NOP>", { noremap = true })
+
 -- Diagnostic keymaps already build in
 -- vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
 -- vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })

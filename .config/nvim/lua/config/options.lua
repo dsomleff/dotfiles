@@ -55,9 +55,6 @@ vim.opt.guicursor = vim.opt.guicursor + "a:blinkon20"
 vim.opt.cursorline = true
 vim.opt.cursorlineopt = "number"
 
--- tree view in netrw
-vim.cmd("let g:netrw_liststyle = 0")
-
 -- search settings
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
@@ -65,23 +62,4 @@ vim.opt.smartcase = true
 -- backspace
 vim.opt.backspace = "indent,eol,start"
 
--- disable auto-comments on new line
-vim.cmd("autocmd BufEnter * set formatoptions-=cro")
-vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
-
--- Add mappings to disable arrow keys
-vim.api.nvim_set_keymap("n", "<Up>", "<NOP>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<Down>", "<NOP>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<Left>", "<NOP>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<Right>", "<NOP>", { noremap = true })
-
--- Activate Matchit plugin
-vim.cmd("runtime macros/matchit.vim")
-
 -- Providers
-vim.g.loaded_perl_provider = 0
-vim.g.loaded_python3_provider = 0
-vim.g.loaded_ruby_provider = 0
-
--- Remember history of the search / command-line
-vim.opt.shada = { "'10", "<0", "s10", "h" }
