@@ -97,7 +97,28 @@ return {
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" }, -- For luasnip users.
 				}, {
-					{ name = "buffer" },
+					{
+						name = "buffer",
+						option = {
+							dictionary = {},
+							get_bufnrs = function()
+								return vim.api.nvim_list_bufs()
+							end,
+							update_dictionary = function(bufnrs)
+								local dict = {}
+								for _, bufnr in ipairs(bufnrs) do
+									local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
+
+									for _, line in ipairs(lines) do
+										for word in vim.split(line, { sep = "%s" }) do
+											dict[word] = { word, vim.api.nvim_buf_get_name(bufnr) }
+										end
+									end
+								end
+								return dict
+							end,
+						},
+					},
 					{ name = "path" },
 				}),
 			}),
