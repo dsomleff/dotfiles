@@ -11,6 +11,10 @@ return {
 	vim.keymap.set("n", "<leader>tv", ":TestVisit<CR>"),
 
 	config = function()
+		vim.g.VimuxOrientation = "h"
+
 		vim.cmd("let test#strategy = 'vimux'")
+
+		vim.g.VimuxHeight = "30"
 	end,
 }
