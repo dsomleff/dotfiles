@@ -53,7 +53,7 @@ vim.opt.guicursor = vim.opt.guicursor + "a:blinkon20"
 
 -- highlight the line number of the cursor
 vim.opt.cursorline = true
--- vim.opt.cursorlineopt = "number"
+vim.opt.cursorlineopt = "both"
 
 -- search settings
 vim.opt.ignorecase = true
