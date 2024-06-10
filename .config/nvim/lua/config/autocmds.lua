@@ -1,4 +1,3 @@
---remove white space at the end of a line
 local autocmd = vim.api.nvim_create_autocmd
 
 -- tree view in netrw
@@ -11,6 +10,7 @@ vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
 -- Activate Matchit plugin
 vim.cmd("runtime macros/matchit.vim")
 
+--remove white space at the end of a line
 autocmd({ "BufWritePre" }, {
 	pattern = "*",
 	command = [[%s/\s\+$//e]],
@@ -86,4 +86,20 @@ autocmd("TextYankPost", {
 autocmd({ "BufReadPost" }, {
 	pattern = "fugitive://*",
 	command = "set bufhidden=delete",
+})
+
+-- Save cursor position before saving the file
+vim.api.nvim_create_autocmd("BufWritePre", {
+	callback = function()
+		vim.b.saved_cursor = vim.fn.getpos(".")
+	end,
+})
+
+-- Restore cursor position after saving the file
+vim.api.nvim_create_autocmd("BufWritePost", {
+	callback = function()
+		if vim.b.saved_cursor then
+			vim.fn.setpos(".", vim.b.saved_cursor)
+		end
+	end,
 })
