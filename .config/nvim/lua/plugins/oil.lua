@@ -5,7 +5,7 @@ return {
 
 		config = function()
 			require("oil").setup({
-				default_file_explorer = true,
+				default_file_explorer = false,
 				delete_to_trash = true,
 				use_default_keymaps = false,
 				view_options = {

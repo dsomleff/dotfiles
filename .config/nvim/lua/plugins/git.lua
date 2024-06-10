@@ -22,9 +22,9 @@ return {
 
 				vim.keymap.set("n", "<leader>gP", ":G push<CR>", { silent = true, noremap = true }),
 
-				vim.keymap.set("n", "<leader>gb", ":Telescope git_branches<CR>", { silent = true, noremap = true }),
+				-- vim.keymap.set("n", "<leader>gb", ":Telescope git_branches<CR>", { silent = true, noremap = true }),
 
-				vim.keymap.set("n", "<leader>gB", ":G blame<CR>", { silent = true, noremap = true }),
+				vim.keymap.set("n", "<leader>gb", ":G blame<CR>", { silent = true, noremap = true }),
 
 				vim.keymap.set("n", "<leader>gd", ":Gvdiff<CR>", {}),
 				vim.keymap.set("n", "<leader>gH", ":G log --oneline --decorate --graph --all<CR>", {}),
@@ -55,7 +55,7 @@ return {
 				},
 
 				vim.keymap.set("n", "<leader>gh", ":Gitsigns preview_hunk<CR>", {}),
-				vim.keymap.set({ "n", "v" }, "<leader>tb", ":Gitsigns blame_line <CR>", {}),
+				vim.keymap.set({ "n", "v" }, "<leader>gB", ":Gitsigns blame_line <CR>", {}),
 				vim.keymap.set({ "n", "v" }, "<leader>hr", ":Gitsigns reset_hunk <CR>", {}),
 				vim.keymap.set({ "n" }, "]h", ":Gitsigns next_hunk <CR>", {}),
 				vim.keymap.set({ "n" }, "[h", ":Gitsigns prev_hunk <CR>", {}),
