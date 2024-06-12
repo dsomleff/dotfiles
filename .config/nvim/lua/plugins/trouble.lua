@@ -15,7 +15,7 @@ return {
 			--     information = "",
 			--     other = "",
 			-- },
-			-- use_diagnostic_signs = true
+			use_diagnostic_signs = true,
 		})
 
 		vim.keymap.set("n", "<leader>tt", function()
