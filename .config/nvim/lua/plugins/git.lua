@@ -15,21 +15,15 @@ return {
 			require("neogit").setup({
 
 				vim.keymap.set("n", "<leader>gS", neogit.open, { silent = true, noremap = true }),
-
 				vim.keymap.set({ "n", "v" }, "<leader>gs", ":G | only<CR>", {}),
 
 				vim.keymap.set("n", "<leader>gp", ":G pull<CR>", { silent = true, noremap = true }),
-
 				vim.keymap.set("n", "<leader>gP", ":G push<CR>", { silent = true, noremap = true }),
-
-				-- vim.keymap.set("n", "<leader>gb", ":Telescope git_branches<CR>", { silent = true, noremap = true }),
-
 				vim.keymap.set("n", "<leader>gb", ":G blame<CR>", { silent = true, noremap = true }),
 
 				vim.keymap.set("n", "<leader>gd", ":Gvdiff<CR>", {}),
 				vim.keymap.set("n", "<leader>gH", ":G log --oneline --decorate --graph --all<CR>", {}),
 				vim.keymap.set("n", "<leader>mc", ":Gvdiffsplit!<CR>", {}),
-				--vim.keymap.set("n", "<leader>gH", ":term git log --oneline --graph --all<CR>", {}),
 			})
 		end,
 	},
