@@ -8,6 +8,7 @@ brew install zoxide
 brew install git
 brew install neovim
 brew install tmux
+brew install tmuxp
 brew install stow
 brew install alacritty
 brew install wget
