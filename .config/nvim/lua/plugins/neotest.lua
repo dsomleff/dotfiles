@@ -34,7 +34,7 @@ return {
 		require("neotest").run.run(vim.fn.getcwd())
 	end, { desc = "Run all tests" }),
 
-	vim.keymap.set("n", "<leader>twf", function()
+	vim.keymap.set("n", "<leader>tw", function()
 		require("neotest").run.run({
 			vim.fn.expand("%"),
 			vitestCommand = "npx vitest -w",
