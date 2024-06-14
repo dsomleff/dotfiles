@@ -26,7 +26,6 @@ return {
 				vim.keymap.set("n", "<leader>mc", ":Gvdiffsplit!<CR>", {}),
 
 				vim.keymap.set("n", "<leader>gl", ":G log | only<CR>", {}),
-				vim.keymap.set("n", "<leader>gl", ":G log | only<CR>", {}),
 				vim.keymap.set("n", "<leader>gL", ":0GcLog<CR>", {}),
 			})
 		end,
