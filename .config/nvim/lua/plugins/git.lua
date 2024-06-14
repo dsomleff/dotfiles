@@ -24,6 +24,10 @@ return {
 				vim.keymap.set("n", "<leader>gd", ":Gvdiff<CR>", {}),
 				vim.keymap.set("n", "<leader>gH", ":G log --oneline --decorate --graph --all<CR>", {}),
 				vim.keymap.set("n", "<leader>mc", ":Gvdiffsplit!<CR>", {}),
+
+				vim.keymap.set("n", "<leader>gl", ":G log | only<CR>", {}),
+				vim.keymap.set("n", "<leader>gl", ":G log | only<CR>", {}),
+				vim.keymap.set("n", "<leader>gL", ":0GcLog<CR>", {}),
 			})
 		end,
 	},
