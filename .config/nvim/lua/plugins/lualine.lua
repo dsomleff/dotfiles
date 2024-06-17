@@ -19,18 +19,18 @@ return {
 				lualine_a = {
 					{ "branch", icon = "" },
 				},
-				lualine_b = { "filename" },
+				lualine_b = {
+					{
+						"filename",
+						file_status = true,
+						newfile_status = true,
+						path = 1,
+					},
+				},
 				lualine_c = {
 					"diff",
 					{ "diagnostics", sources = { "nvim_diagnostic" } },
 				},
-				-- lualine_a = {},
-				-- lualine_b = {
-				-- 	{ "branch", icon = "" },
-				-- 	"diff",
-				-- 	{ "diagnostics", sources = { "nvim_diagnostic" } },
-				-- },
-				-- lualine_c = { "filename" },
 				lualine_x = { "filetype" },
 				lualine_y = { "progress" },
 				lualine_z = { "location" },
