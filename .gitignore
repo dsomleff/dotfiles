@@ -1,6 +1,7 @@
 .DS_Store
 .idea
 
+.config/alacritty/themes
 .config/tmux/plugins
 .config/nvim/lua/.DS_Store
 .config/tmux/sessions/hub.yaml
