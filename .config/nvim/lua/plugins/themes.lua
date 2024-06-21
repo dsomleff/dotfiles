@@ -1,11 +1,19 @@
 return {
 	{
-		"catppuccin/nvim",
+		-- "catppuccin/nvim",
+		"kvrohit/rasmus.nvim",
+		name = "rasmus",
 		lazy = false,
-		name = "catppuccin",
 		priority = 1000,
 		config = function()
-			vim.cmd.colorscheme("catppuccin-mocha")
+			-- vim.cmd.colorscheme("catppuccin-mocha")
+			vim.g.rasmus_italic_functions = true
+			vim.g.rasmus_transparent = true
+			vim.g.rasmus_italic_keywords = true
+			vim.g.rasmus_italic_variables = true
+			vim.g.rasmus_italic_booleans = true
+
+			vim.cmd.colorscheme("rasmus")
 
 			vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 			vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
