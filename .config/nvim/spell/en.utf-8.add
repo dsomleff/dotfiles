@@ -1,2 +1,8 @@
 config
 keymap
+BufWritePost
+BufEnter
+nvim
+api
+autocmd
+InsertLeave
