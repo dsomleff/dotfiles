@@ -1,12 +1,10 @@
 return {
 	{
-		-- "catppuccin/nvim",
 		"kvrohit/rasmus.nvim",
 		name = "rasmus",
 		lazy = false,
 		priority = 1000,
 		config = function()
-			-- vim.cmd.colorscheme("catppuccin-mocha")
 			vim.g.rasmus_italic_functions = true
 			vim.g.rasmus_transparent = true
 			vim.g.rasmus_italic_keywords = true
