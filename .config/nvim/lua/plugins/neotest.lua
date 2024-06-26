@@ -4,6 +4,7 @@ return {
 		"nvim-neotest/nvim-nio",
 		"antoinemadec/FixCursorHold.nvim",
 		"marilari88/neotest-vitest",
+		"nvim-neotest/neotest-jest",
 	},
 
 	config = function()
@@ -12,6 +13,14 @@ return {
 				require("neotest-vitest")({
 					filter_dir = function(name)
 						return name ~= "node_modules"
+					end,
+				}),
+				require("neotest-jest")({
+					jestCommand = "npm test --",
+					jestConfigFile = "custom.jest.config.ts",
+					env = { CI = true },
+					cwd = function()
+						return vim.fn.getcwd()
 					end,
 				}),
 			},

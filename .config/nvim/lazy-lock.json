@@ -21,6 +21,7 @@
   "neogen": { "branch": "main", "commit": "6de0add4805165317ab7d3d36b5cef48b1b865f3" },
   "neogit": { "branch": "master", "commit": "11dea1b67bb153cd5b4a2de348ceefa69508dfce" },
   "neotest": { "branch": "master", "commit": "26ed90509c377d10dbdebd25b7094a886323b32b" },
+  "neotest-jest": { "branch": "main", "commit": "514fd4eae7da15fd409133086bb8e029b65ac43f" },
   "neotest-vitest": { "branch": "main", "commit": "353364aa05b94b09409cbef21b79c97c5564e2ce" },
   "nvim-autopairs": { "branch": "master", "commit": "c15de7e7981f1111642e7e53799e1211d4606cb9" },
   "nvim-cmp": { "branch": "main", "commit": "a110e12d0b58eefcf5b771f533fc2cf3050680ac" },
