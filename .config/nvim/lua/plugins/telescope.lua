@@ -71,6 +71,8 @@ return {
 
 			vim.keymap.set("n", "<leader>fW", builtin.live_grep, {})
 			vim.keymap.set("n", "<leader>fo", builtin.oldfiles, {})
+
+			vim.keymap.set("n", "<leader>tt", builtin.diagnostics, {})
 		end,
 	},
 
