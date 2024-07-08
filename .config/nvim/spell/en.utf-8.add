@@ -6,3 +6,4 @@ nvim
 api
 autocmd
 InsertLeave
+const
