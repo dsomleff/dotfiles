@@ -16,12 +16,14 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 -- copy/select/paste
-vim.keymap.set("n", "<leader>p", [["_dP]])
+-- vim.keymap.set("v", "<leader>P", [["_dP]])
 
 -- copy into system clipboard
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
---vim.keymap.set("n", "<leader>Y", [["+Y]])
-vim.keymap.set("n", "<leader>Y", [[gg"+yG]])
+vim.keymap.set("n", "<leader>Y", [["+Y]])
+
+-- Delete into void
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 -- prevent big Q pressing ;)
 vim.keymap.set("n", "Q", "<nop>")
