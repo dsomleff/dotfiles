@@ -76,6 +76,7 @@ alias tmks="tmux kill-session -t"
 alias tmka="tmux kill-server"
 
 alias ff="fzf"
+alias ffp='v $(ff -m --preview="cat {}")'
 alias c="clear"
 
 # Tmux sessions
