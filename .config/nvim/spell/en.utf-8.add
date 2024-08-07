@@ -8,3 +8,4 @@ autocmd
 InsertLeave
 const
 dropdown
+neovim

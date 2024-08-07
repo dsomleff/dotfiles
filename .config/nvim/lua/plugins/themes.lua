@@ -6,7 +6,7 @@ return {
 		priority = 1000,
 		config = function()
 			vim.g.rasmus_italic_functions = true
-			vim.g.rasmus_transparent = true
+			vim.g.rasmus_transparent = false
 			vim.g.rasmus_italic_keywords = true
 			vim.g.rasmus_italic_variables = true
 			vim.g.rasmus_italic_booleans = true
