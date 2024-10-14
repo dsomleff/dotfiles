@@ -7,7 +7,7 @@ return {
 			blend_color = "#000000",
 			hide = {
 				underline = false,
-				virtual_text = false,
+				virtual_text = true,
 				signs = false,
 			},
 			regex = {
