@@ -1,0 +1,76 @@
+---
+- hosts: localhost
+  become: true
+
+  # ==============================================
+  #      Git, Zsh and .dotfiles Installation
+  # ==============================================
+  tasks:
+    # ----------------------------------------------
+    #                    Git Installation
+    # ----------------------------------------------
+    - name: Install Git
+      homebrew:
+        name: git
+        state: present
+
+    # ----------------------------------------------
+    #               Oh My Zsh Setup
+    # ----------------------------------------------
+    - name: Install zsh
+      homebrew:
+        name: zsh
+        state: present
+
+    - name: Install Oh My Zsh
+      shell: |
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
+      args:
+        executable: /bin/zsh
+      when: not ansible_env.HOME | regex_search('.*oh-my-zsh.*')
+
+    # ----------------------------------------------
+    #              Zsh Plugin Installation
+    # ----------------------------------------------
+    - name: Clone zsh-autosuggestions plugin
+      git:
+        repo: https://github.com/zsh-users/zsh-autosuggestions.git
+        dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+        version: master
+      when: not ansible_env.HOME | regex_search('.*zsh-autosuggestions.*') # Check if the plugin is already installed
+
+    - name: Clone zsh-syntax-highlighting plugin
+      git:
+        repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
+        dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+        version: master
+      when: not ansible_env.HOME | regex_search('.*zsh-syntax-highlighting.*') # Check if the plugin is already installed
+
+    # ----------------------------------------------
+    #               Update .zshrc Configuration
+    # ----------------------------------------------
+    - name: Ensure zsh plugins are enabled in .zshrc
+      lineinfile:
+        path: "{{ ansible_env.HOME }}/.zshrc"
+        regexp: "^plugins="
+        line: "plugins=(git zsh-autosuggestions zsh-syntax-highlighting)"
+        create: yes
+
+    # ----------------------------------------------
+    #            Get .dotfiles from git
+    # ----------------------------------------------
+    - name: Clone dotfiles repository
+      git:
+        repo: https://github.com/dsomleff/dotfiles
+        dest: "{{ ansible_env.HOME }}/dotfiles"
+        version: master
+
+    # ----------------------------------------------
+    #            Replace .zshrc with Custom Version
+    # ----------------------------------------------
+    - name: Replace .zshrc with custom version
+      copy:
+        src: "{{ ansible_env.HOME }}/dotfiles/.zshrc" # Path to your custom .zshrc in the cloned repo
+        dest: "{{ ansible_env.HOME }}/.zshrc" # Path to the target .zshrc
+        remote_src: yes # Indicate that the source file is already on the remote machine
+        force: yes # Force replacement even if the file exists
