@@ -1,33 +1,25 @@
 return {
 	{
 		"tpope/vim-fugitive",
-	},
-	{
-		"NeogitOrg/neogit",
-
-		dependencies = {
-			"sindrets/diffview.nvim",
-		},
-
 		config = function()
-			local neogit = require("neogit")
+			vim.keymap.set("n", "<leader>gs", ":G | only<CR>", {})
 
-			require("neogit").setup({
+			vim.keymap.set("n", "<leader>gp", ":G pull<CR>", { silent = true, noremap = true })
+			vim.keymap.set("n", "<leader>gP", ":G push<CR>", { silent = true, noremap = true })
+			vim.keymap.set("n", "<leader>gf", ":G fetch<CR>", { silent = true, noremap = true })
 
-				vim.keymap.set("n", "<leader>gS", neogit.open, { silent = true, noremap = true }),
-				vim.keymap.set({ "n", "v" }, "<leader>gs", ":G | only<CR>", {}),
+			vim.keymap.set("n", "<leader>gb", ":G blame<CR>", { silent = true, noremap = true })
+			vim.keymap.set("n", "<leader>gd", ":Gvdiff<CR>", {})
 
-				vim.keymap.set("n", "<leader>gp", ":G pull<CR>", { silent = true, noremap = true }),
-				vim.keymap.set("n", "<leader>gP", ":G push<CR>", { silent = true, noremap = true }),
-				vim.keymap.set("n", "<leader>gb", ":G blame<CR>", { silent = true, noremap = true }),
+			vim.keymap.set("n", "<leader>gH", ":G log --oneline --decorate --graph --all<CR>", {})
+			vim.keymap.set("n", "<leader>gl", ":G log | only<CR>", {})
+			vim.keymap.set("n", "<leader>gL", ":0GcLog<CR>", {})
 
-				vim.keymap.set("n", "<leader>gd", ":Gvdiff<CR>", {}),
-				vim.keymap.set("n", "<leader>gH", ":G log --oneline --decorate --graph --all<CR>", {}),
-				vim.keymap.set("n", "<leader>mc", ":Gvdiffsplit!<CR>", {}),
+			vim.keymap.set("n", "<leader>mc", ":Gvdiffsplit!<CR>", {})
 
-				vim.keymap.set("n", "<leader>gl", ":G log | only<CR>", {}),
-				vim.keymap.set("n", "<leader>gL", ":0GcLog<CR>", {}),
-			})
+			-- Custom branch deletion command
+			vim.keymap.set("n", "<leader>gD", ":G branch -d ", {}) -- Deletes a branch interactively
+			vim.keymap.set("n", "<leader>gF", ":G branch -D ", {}) -- Force delete branch interactively
 		end,
 	},
 	{
