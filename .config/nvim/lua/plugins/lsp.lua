@@ -37,6 +37,7 @@ return {
 				"prosemd_lsp", -- markdown
 				"taplo", -- toml
 				"volar",
+				"yamlls",
 				"golangci_lint_ls",
 			},
 			handlers = {
