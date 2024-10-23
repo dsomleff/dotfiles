@@ -16,6 +16,7 @@
         name: git
         state: present
       register: git_installation
+      tags: git
 
     - name: Output Git installation results
       debug:
@@ -26,6 +27,7 @@
     # ----------------------------------------------
 
     - name: Install zsh
+      tags: zsh
       homebrew:
         name: zsh
         state: present
@@ -38,6 +40,7 @@
     # ----------------------------------------------
 
     - name: Install Oh My Zsh
+      tags: zsh
       shell: |
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
       args:
@@ -54,6 +57,7 @@
     # ----------------------------------------------
 
     - name: Clone zsh-autosuggestions plugin
+      tags: zsh
       git:
         repo: https://github.com/zsh-users/zsh-autosuggestions.git
         dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
@@ -66,6 +70,7 @@
     # ----------------------------------------------
 
     - name: Clone zsh-syntax-highlighting plugin
+      tags: zsh
       git:
         repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
         dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
@@ -81,6 +86,7 @@
     # ----------------------------------------------
 
     - name: Ensure zsh plugins are enabled in .zshrc
+      tags: zsh
       lineinfile:
         path: "{{ ansible_env.HOME }}/.zshrc"
         regexp: "^plugins="
@@ -96,6 +102,7 @@
     # ----------------------------------------------
 
     - name: Clone dotfiles repository
+      tags: dotfiles
       git:
         repo: https://github.com/dsomleff/dotfiles
         dest: "{{ ansible_env.HOME }}/dotfiles"
@@ -110,6 +117,7 @@
     # ----------------------------------------------
 
     - name: Replace .zshrc with custom version
+      tags: zshrc
       copy:
         src: "{{ ansible_env.HOME }}/dotfiles/.zshrc" # Path to your custom .zshrc in the cloned repo
         dest: "{{ ansible_env.HOME }}/.zshrc" # Path to the target .zshrc
@@ -125,6 +133,7 @@
     # ----------------------------------------------
 
     - name: Run Brew setup script
+      tags: brew
       shell: bash dotfiles/setup_macos/setup_brew.sh
       args:
         chdir: "{{ ansible_env.HOME }}" # Set the working directory to the home directory
@@ -141,6 +150,7 @@
     # ==============================================
 
     - name: Run System settings script
+      tags: macos
       shell: bash dotfiles/setup_macos/system_settings.sh
       args:
         chdir: "{{ ansible_env.HOME }}" # Set the working directory to the playbook directory
