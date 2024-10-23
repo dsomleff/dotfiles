@@ -2,10 +2,10 @@
 brew upgrade
 
 # Install CLI tools
-brew install zsh
+# brew install zsh
 brew install fzf
 brew install zoxide
-brew install git
+# brew install git
 brew install neovim
 brew install tmux
 brew install tmuxp
@@ -19,6 +19,9 @@ brew install --cask docker
 brew install insomnia
 brew install raycast
 brew install --cask arc
+
+brew install node@18
+brew link --force --overwrite node@18
 
 brew tap homebrew/cask-fonts
 brew install --cask font-jetbrains-mono

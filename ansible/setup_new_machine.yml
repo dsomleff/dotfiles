@@ -3,24 +3,57 @@
   become: true
 
   # ==============================================
-  #      Git, Zsh and .dotfiles Installation
+  #       Give Me Fuel Give Me Fire Installation
   # ==============================================
+
   tasks:
+    # ----------------------------------------------
+    #                    Homebrew Installation
+    # ----------------------------------------------
+
+    - name: Install Homebrew
+      shell: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      args:
+        executable: /bin/bash
+      register: brew_installation
+      when: ansible_env.HOME is defined and not ansible_env.HOME | regex_search('brew')
+      changed_when: "'Homebrew is already installed' not in brew_installation.stdout"
+
+    # ----------------------------------------------
+
+    - name: Output Homebrew installation results
+      debug:
+        var: brew_installation.stdout
+
     # ----------------------------------------------
     #                    Git Installation
     # ----------------------------------------------
+
     - name: Install Git
       homebrew:
         name: git
         state: present
+      register: git_installation
+
+    - name: Output Git installation results
+      debug:
+        var: git_installation.stdout
 
     # ----------------------------------------------
     #               Oh My Zsh Setup
     # ----------------------------------------------
+
     - name: Install zsh
       homebrew:
         name: zsh
         state: present
+      register: zsh_installation
+
+    - name: Output Zsh installation results
+      debug:
+        var: zsh_installation.stdout
+
+    # ----------------------------------------------
 
     - name: Install Oh My Zsh
       shell: |
@@ -28,16 +61,27 @@
       args:
         executable: /bin/zsh
       when: not ansible_env.HOME | regex_search('.*oh-my-zsh.*')
+      register: oh_my_zsh_installation
+
+    - name: Output Oh My Zsh installation results
+      debug:
+        var: oh_my_zsh_installation.stdout
 
     # ----------------------------------------------
     #              Zsh Plugin Installation
     # ----------------------------------------------
+
     - name: Clone zsh-autosuggestions plugin
       git:
         repo: https://github.com/zsh-users/zsh-autosuggestions.git
         dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
         version: master
       when: not ansible_env.HOME | regex_search('.*zsh-autosuggestions.*') # Check if the plugin is already installed
+
+    - name: Output zsh-autosuggestions installation results
+      debug:
+        msg: "zsh-autosuggestions plugin cloned to {{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+    # ----------------------------------------------
 
     - name: Clone zsh-syntax-highlighting plugin
       git:
@@ -46,9 +90,14 @@
         version: master
       when: not ansible_env.HOME | regex_search('.*zsh-syntax-highlighting.*') # Check if the plugin is already installed
 
+    - name: Output zsh-syntax-highlighting installation results
+      debug:
+        msg: "zsh-syntax-highlighting plugin cloned to {{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+
     # ----------------------------------------------
     #               Update .zshrc Configuration
     # ----------------------------------------------
+
     - name: Ensure zsh plugins are enabled in .zshrc
       lineinfile:
         path: "{{ ansible_env.HOME }}/.zshrc"
@@ -56,21 +105,65 @@
         line: "plugins=(git zsh-autosuggestions zsh-syntax-highlighting)"
         create: yes
 
+    - name: Output .zshrc configuration results
+      debug:
+        msg: ".zshrc updated with plugins"
+
     # ----------------------------------------------
     #            Get .dotfiles from git
     # ----------------------------------------------
+
     - name: Clone dotfiles repository
       git:
         repo: https://github.com/dsomleff/dotfiles
         dest: "{{ ansible_env.HOME }}/dotfiles"
         version: master
 
+    - name: Output dotfiles clone results
+      debug:
+        msg: "Dotfiles cloned to {{ ansible_env.HOME }}/dotfiles"
+
     # ----------------------------------------------
     #            Replace .zshrc with Custom Version
     # ----------------------------------------------
+
     - name: Replace .zshrc with custom version
       copy:
         src: "{{ ansible_env.HOME }}/dotfiles/.zshrc" # Path to your custom .zshrc in the cloned repo
         dest: "{{ ansible_env.HOME }}/.zshrc" # Path to the target .zshrc
         remote_src: yes # Indicate that the source file is already on the remote machine
         force: yes # Force replacement even if the file exists
+
+    - name: Output .zshrc replacement results
+      debug:
+        msg: ".zshrc replaced with custom version"
+
+    # ----------------------------------------------
+    #            Install all brew packages
+    # ----------------------------------------------
+
+    - name: Run Brew setup script
+      shell: bash dotfiles/setup_macos/setup_brew.sh
+      args:
+        chdir: "{{ ansible_env.HOME }}" # Set the working directory to the home directory
+      register: brew_setup
+      ignore_errors: yes # Optional: ignore errors if the script fails for some reason
+      when: brew_installation.changed # Only run if Homebrew was installed/updated
+
+    - name: Output Brew setup results
+      debug:
+        var: brew_setup.stdout
+
+    # ==============================================
+    #                Run System Settings Script
+    # ==============================================
+
+    - name: Run System settings script
+      shell: bash dotfiles/setup_macos/system_settings.sh
+      args:
+        chdir: "{{ ansible_env.HOME }}" # Set the working directory to the playbook directory
+      register: system_settings_setup
+
+    - name: Output System settings setup results
+      debug:
+        var: system_settings_setup.stdout
