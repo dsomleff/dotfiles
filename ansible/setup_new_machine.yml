@@ -8,24 +8,6 @@
 
   tasks:
     # ----------------------------------------------
-    #                    Homebrew Installation
-    # ----------------------------------------------
-
-    - name: Install Homebrew
-      shell: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-      args:
-        executable: /bin/bash
-      register: brew_installation
-      when: ansible_env.HOME is defined and not ansible_env.HOME | regex_search('brew')
-      changed_when: "'Homebrew is already installed' not in brew_installation.stdout"
-
-    # ----------------------------------------------
-
-    - name: Output Homebrew installation results
-      debug:
-        var: brew_installation.stdout
-
-    # ----------------------------------------------
     #                    Git Installation
     # ----------------------------------------------
 
