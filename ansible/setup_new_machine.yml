@@ -1,6 +1,6 @@
 ---
 - hosts: localhost
-  become: true
+  become: false
 
   # ==============================================
   #       Give Me Fuel Give Me Fire Installation
@@ -106,7 +106,7 @@
       git:
         repo: https://github.com/dsomleff/dotfiles
         dest: "{{ ansible_env.HOME }}/dotfiles"
-        version: master
+        version: main
 
     - name: Output dotfiles clone results
       debug:
@@ -139,7 +139,6 @@
         chdir: "{{ ansible_env.HOME }}" # Set the working directory to the home directory
       register: brew_setup
       ignore_errors: yes # Optional: ignore errors if the script fails for some reason
-      when: brew_installation.changed # Only run if Homebrew was installed/updated
 
     - name: Output Brew setup results
       debug:
