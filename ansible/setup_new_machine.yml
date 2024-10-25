@@ -150,7 +150,9 @@
 
     - name: Run tmux-sessionizer script
       tags: local-scripts
-      shell: bash "{{ ansible_env.HOME }}/dotfiles/.local/scripts/tmux-sessionizer"
+      shell: bash dotfiles/.local/scripts/tmux-sessionizer
+      args:
+        chdir: "{{ ansible_env.HOME }}" # Set the working directory to the home directory
       register: tmux_sessionizer_script
       ignore_errors: yes # Optional: ignore errors if the script fails for some reason
 
@@ -158,9 +160,13 @@
       debug:
         var: tmux_sessionizer_script.stdout
 
+    # ----------------------------------------------
+
     - name: Run update-alacritty-icon script
       tags: local-scripts
-      shell: bash "{{ ansible_env.HOME }}/dotfiles/.local/scripts/update-alacritty-icon.sh"
+      shell: bash dotfiles/.local/scripts/update-alacritty-icon.sh
+      args:
+        chdir: "{{ ansible_env.HOME }}" # Set the working directory to the home directory
       register: alacritty_icon_script
       ignore_errors: yes # Optional: ignore errors if the script fails for some reason
 
