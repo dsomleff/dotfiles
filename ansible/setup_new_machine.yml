@@ -134,9 +134,7 @@
 
     - name: Run Brew setup script
       tags: brew
-      shell: bash dotfiles/setup_macos/setup_brew.sh
-      args:
-        chdir: "{{ ansible_env.HOME }}" # Set the working directory to the home directory
+      shell: bash "{{ ansible_env.HOME }}/dotfiles/setup_macos/setup_brew.sh"
       register: brew_setup
       ignore_errors: yes # Optional: ignore errors if the script fails for some reason
 
@@ -164,9 +162,7 @@
 
     - name: Run System settings script
       tags: macos
-      shell: bash dotfiles/setup_macos/system_settings.sh
-      args:
-        chdir: "{{ ansible_env.HOME }}" # Set the working directory to the playbook directory
+      shell: bash "{{ ansible_env.HOME }}/dotfiles/setup_macos/system_settings.sh"
       register: system_settings_setup
 
     - name: Output System settings setup results
