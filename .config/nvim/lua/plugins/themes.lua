@@ -8,12 +8,16 @@ return {
 
 			lackluster.setup({
 				tweak_ui = {
-					enable_end_of_buffer = true, -- set to true to show the end_of_buffer ~ symbols in the gutter
+					enable_end_of_buffer = true,
+				},
+				tweak_background = {
+					normal = "#0A0A0A",
+					-- normal = 'none',    -- transparent
+					-- normal = '#a1b2c3',    -- hexcode
+					-- normal = color.green,    -- lackluster color
 				},
 			})
-			-- vim.cmd.colorscheme("lackluster")
-			vim.cmd.colorscheme("lackluster-hack") -- my favorite
-			-- vim.cmd.colorscheme("lackluster-mint")
+			vim.cmd.colorscheme("lackluster-hack")
 		end,
 	},
 	-- {
