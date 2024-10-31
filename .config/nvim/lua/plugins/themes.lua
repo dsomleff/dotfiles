@@ -10,12 +10,6 @@ return {
 				tweak_ui = {
 					enable_end_of_buffer = true,
 				},
-				tweak_background = {
-					normal = "#0A0A0A",
-					-- normal = 'none',    -- transparent
-					-- normal = '#a1b2c3',    -- hexcode
-					-- normal = color.green,    -- lackluster color
-				},
 			})
 			vim.cmd.colorscheme("lackluster-hack")
 		end,
