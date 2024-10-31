@@ -14,6 +14,10 @@ return {
 					mappings = {
 						i = {
 							["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
+							["<C-d>"] = actions.delete_buffer,
+						},
+						n = {
+							["<C-d>"] = actions.delete_buffer,
 						},
 					},
 					file_ignore_patterns = {
