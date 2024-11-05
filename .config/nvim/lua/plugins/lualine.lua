@@ -5,7 +5,6 @@ return {
 		require("lualine").setup({
 			options = {
 				theme = "nord",
-				-- theme = "lackluster",
 				section_separators = { left = "", right = "" },
 				component_separators = { left = "", right = "" },
 				always_divide_middle = true,

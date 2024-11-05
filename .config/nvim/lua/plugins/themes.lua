@@ -1,19 +1,4 @@
 return {
-	-- {
-	-- 	"slugbyte/lackluster.nvim",
-	-- 	lazy = false,
-	-- 	priority = 1000,
-	-- 	init = function()
-	-- 		local lackluster = require("lackluster")
-	--
-	-- 		lackluster.setup({
-	-- 			tweak_ui = {
-	-- 				enable_end_of_buffer = true,
-	-- 			},
-	-- 		})
-	-- 		vim.cmd.colorscheme("lackluster-hack")
-	-- 	end,
-	-- },
 	{
 		"kvrohit/rasmus.nvim",
 		name = "rasmus",
