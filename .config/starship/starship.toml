@@ -14,5 +14,9 @@ disabled = true
 
 [lua]
 disabled = true
+
+[golang]
+disabled = true
+
 # format = """
 # $git_branch"""
