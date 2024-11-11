@@ -1,0 +1,7 @@
+add_newline = false
+
+# [character]
+# success_symbol = '[➜](bold green)'
+
+[git_branch]
+symbol = '🌱 '
