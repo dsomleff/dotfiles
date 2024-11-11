@@ -23,7 +23,7 @@
         var: git_installation.stdout
 
     # ----------------------------------------------
-    #               Oh My Zsh Setup
+    #               Zsh & Starship Setup
     # ----------------------------------------------
 
     - name: Install zsh
@@ -39,18 +39,24 @@
 
     # ----------------------------------------------
 
-    - name: Install Oh My Zsh
-      tags: zsh
-      shell: |
-        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
-      args:
-        executable: /bin/zsh
-      when: not ansible_env.HOME | regex_search('.*oh-my-zsh.*')
-      register: oh_my_zsh_installation
+    - name: Install Starship prompt using Homebrew
+      tags: starship
+      homebrew:
+        name: starship
+        state: present
+      when: ansible_facts.packages.starship is not defined
+      register: starship_installation
 
-    - name: Output Oh My Zsh installation results
+    - name: Output Starship installation results
       debug:
-        var: oh_my_zsh_installation.stdout
+        var: starship_installation
+    # ----------------------------------------------
+
+    - name: Configure Starship prompt in .zshrc
+      lineinfile:
+        path: "{{ ansible_env.HOME }}/.zshrc"
+        line: 'eval "$(starship init zsh)"'
+        create: yes
 
     # ----------------------------------------------
     #              Zsh Plugin Installation
@@ -60,42 +66,51 @@
       tags: zsh
       git:
         repo: https://github.com/zsh-users/zsh-autosuggestions.git
-        dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+        dest: "{{ ansible_env.HOME }}/.zsh/plugins/zsh-autosuggestions"
         version: master
       when: not ansible_env.HOME | regex_search('.*zsh-autosuggestions.*') # Check if the plugin is already installed
 
     - name: Output zsh-autosuggestions installation results
       debug:
-        msg: "zsh-autosuggestions plugin cloned to {{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+        msg: "zsh-autosuggestions plugin cloned to {{ ansible_env.HOME }}/.zsh/plugins/zsh-autosuggestions"
     # ----------------------------------------------
 
     - name: Clone zsh-syntax-highlighting plugin
       tags: zsh
       git:
         repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
-        dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+        dest: "{{ ansible_env.HOME }}/.zsh/plugins/zsh-syntax-highlighting"
         version: master
       when: not ansible_env.HOME | regex_search('.*zsh-syntax-highlighting.*') # Check if the plugin is already installed
 
     - name: Output zsh-syntax-highlighting installation results
       debug:
-        msg: "zsh-syntax-highlighting plugin cloned to {{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+        msg: "zsh-syntax-highlighting plugin cloned to {{ ansible_env.HOME }}/.zsh/plugins/zsh-syntax-highlighting"
 
     # ----------------------------------------------
     #               Update .zshrc Configuration
     # ----------------------------------------------
 
-    - name: Ensure zsh plugins are enabled in .zshrc
+    - name: Ensure zsh-autosuggestions is sourced in .zshrc
       tags: zsh
       lineinfile:
         path: "{{ ansible_env.HOME }}/.zshrc"
-        regexp: "^plugins="
-        line: "plugins=(git zsh-autosuggestions zsh-syntax-highlighting)"
+        regexp: "^source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh$"
+        line: "source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
         create: yes
+
+    - name: Ensure zsh-syntax-highlighting is sourced last in .zshrc
+      tags: zsh
+      lineinfile:
+        path: "{{ ansible_env.HOME }}/.zshrc"
+        regexp: "^source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh$"
+        line: "source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+        create: yes
+        insertafter: EOF
 
     - name: Output .zshrc configuration results
       debug:
-        msg: ".zshrc updated with plugins"
+        msg: ".zshrc updated with zsh-autosuggestions and zsh-syntax-highlighting plugins"
 
     # ----------------------------------------------
     #            Get .dotfiles from git

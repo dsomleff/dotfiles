@@ -1,7 +1,18 @@
 add_newline = false
 
 # [character]
-# success_symbol = '[➜](bold green)'
+# # success_symbol = '[➜](bold green)'
 
 [git_branch]
 symbol = '🌱 '
+
+[package]
+disabled = true
+
+[nodejs]
+disabled = true
+
+[lua]
+disabled = true
+# format = """
+# $git_branch"""
