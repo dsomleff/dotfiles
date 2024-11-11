@@ -44,6 +44,10 @@ alias ff="fzf"
 alias ffp='v $(ff -m --preview="cat {}")'
 alias c="clear"
 
+alias ls="eza --icons"
+alias ll="eza -lg --icons"
+alias la="eza -lag --icons"
+
 # Tmux sessions
 alias conf="tmuxp load ~/dotfiles/.config/tmux/sessions/dotfiles.yaml"
 
