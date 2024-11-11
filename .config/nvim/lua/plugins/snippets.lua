@@ -16,11 +16,11 @@ return {
 			ls.expand()
 		end, { silent = true })
 
-		vim.keymap.set({ "i", "s" }, "]s", function()
+		vim.keymap.set({ "i", "s" }, "\\s", function()
 			ls.jump(1)
 		end, { silent = true })
 
-		vim.keymap.set({ "i", "s" }, "[s", function()
+		vim.keymap.set({ "i", "s" }, "|s", function()
 			ls.jump(-1)
 		end, { silent = true })
 
