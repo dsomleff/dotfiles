@@ -87,4 +87,6 @@ export STARSHIP_CONFIG=~/.config/starship/starship.toml
 # prime tmux-sessionizer
 PATH="$PATH":"$HOME/.local/scripts/"
 
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
 bindkey -s ^f "tmux-sessionizer\n"
