@@ -2,6 +2,7 @@ add_newline = false
 follow_symlinks = false
 scan_timeout = 10
 format = "$directory($git_branch)$git_status\n$character"
+right_format = "$cmd_duration"
 
 [character]
 success_symbol = '[❯](bold green) '
@@ -11,13 +12,17 @@ error_symbol = '[❯](bold red) '
 truncation_length = 1
 truncation_symbol = ""
 
+[cmd_duration]
+min_time = 100
+format = ' [$duration](bold green)'
+
 [git_branch]
 symbol = ''
 
 [git_status]
 format = '$staged$modified$ahead$behind'
 staged = '[*](dimmed green)'
-modified = ''
+modified = '[*](dimmed green)'
 ahead = "⇡"
 behind = "⇣"
 
