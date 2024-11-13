@@ -1,7 +1,7 @@
 add_newline = false
 follow_symlinks = false
 scan_timeout = 10
-format = "$directory ($git_branch)\n$character"
+format = "$directory($git_branch)$git_status\n$character"
 
 [character]
 success_symbol = '[❯](bold green) '
@@ -12,7 +12,14 @@ truncation_length = 1
 truncation_symbol = ""
 
 [git_branch]
-symbol = '🌱 '
+symbol = ''
+
+[git_status]
+format = '$staged$modified$ahead$behind'
+staged = '[*](dimmed green)'
+modified = ''
+ahead = "⇡"
+behind = "⇣"
 
 [package]
 disabled = true
