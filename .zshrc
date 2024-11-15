@@ -42,8 +42,11 @@ alias ffp='v $(ff -m --preview="cat {}")'
 alias c="clear"
 
 alias ls="eza --icons"
-alias ll="eza -lg --icons"
-alias la="eza -lag --icons"
+alias ll="eza -lT --icons"
+alias la="eza -lTa --level=1 --icons"
+alias lat2="eza -lTa --level=2 --icons"
+alias lat3="eza -lTa --level=3 --icons"
+alias lata="eza -lTa --icons"
 
 # History
 HISTSIZE=5000
