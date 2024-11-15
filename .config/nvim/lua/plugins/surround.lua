@@ -6,7 +6,9 @@ return {
 	config = function()
 		require("nvim-surround").setup({
 			-- surr*ound_words             ysiw)           (surround_words)
-			-- *make strings               yss"            "make strings"
+			-- surr*ound_words             ysiw(           ( surround_words )
+			-- surr*ound_words             ysiW(           ( (surround_words) )
+			-- *make strings               yss"            "make strings for whole line"
 			-- [delete ar*ound me!]        ds]             delete around me!
 			-- remove <b>HTML t*ags</b>    dst             remove HTML tags
 			-- 'change quot*es'            cs'"            "change quotes"
