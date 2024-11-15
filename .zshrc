@@ -1,7 +1,5 @@
-# --------------------------------------------
-# 🔍 Navigate to a directory interactively using fzf
-# 📂 Example: fcd Code
-# --------------------------------------------
+#  Navigate to a directory interactively using fzf
+#  Example: fcd Code
 fcd() {
     local dir
     dir=$(find ${1:-.} -type d -not -path '*/\.*' 2> /dev/null | fzf)
@@ -12,17 +10,16 @@ fcd() {
 
 export DISABLE_AUTO_TITLE='true'
 
-# ==================================================
-# 🧠 Source zsh-autosuggestions
-# 🎯 Source zsh-syntax-highlighting (should be sourced last)
-# ==================================================
+#  Plugins
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# Load completions
+autoload -Uz compinit && compinit
 
-# 🖥️ Aliases
+#  Aliases
 alias ga="git add"
 alias gs="git status"
 alias gc="git commit -m"
@@ -48,6 +45,19 @@ alias ls="eza --icons"
 alias ll="eza -lg --icons"
 alias la="eza -lag --icons"
 
+# History
+HISTSIZE=5000
+HISTFILE=~/.zsh_history
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
+
 # Tmux sessions
 alias conf="tmuxp load ~/dotfiles/.config/tmux/sessions/dotfiles.yaml"
 
@@ -68,10 +78,9 @@ lines_number() {
 }
 
 
+#  NVM is set up correctly
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
-PATH=/opt/podman/bin:$PATH
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/somleff/.rd/bin:$PATH"
@@ -89,4 +98,6 @@ PATH="$PATH":"$HOME/.local/scripts/"
 
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
+bindkey '^p' history-search-backward
+bindkey '^n' history-search-forward
 bindkey -s ^f "tmux-sessionizer\n"
