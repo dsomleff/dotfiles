@@ -22,3 +22,5 @@
     la = "!git l --all"
     lra = "!git lr --all"
     lg = "!git l -G $1 -- $2"
+[init]
+	defaultBranch = main

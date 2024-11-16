@@ -48,6 +48,12 @@ alias lat2="eza -lTa --level=2 --icons"
 alias lat3="eza -lTa --level=3 --icons"
 alias lata="eza -lTa --icons"
 
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+
 # History
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
