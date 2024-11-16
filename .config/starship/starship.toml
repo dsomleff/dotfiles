@@ -17,7 +17,9 @@ min_time = 100
 format = ' [$duration](bold green)'
 
 [git_branch]
+format = "[$symbol$branch(:$remote_branch)]($style) "
 symbol = ''
+style = "bright-black"
 
 [git_status]
 format = '$staged$modified$ahead$behind'
