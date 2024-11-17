@@ -54,6 +54,10 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 
+alias cat="bat"
+
+BAT_THEME="Nord"
+
 # History
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
