@@ -54,9 +54,10 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 
-alias cat="bat"
+alias cat="bat --theme=Nord"
+alias man="batman"
 
-BAT_THEME="Nord"
+export BAT_THEME="Nord"
 
 # History
 HISTSIZE=5000
