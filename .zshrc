@@ -56,6 +56,8 @@ alias ......="cd ../../../../.."
 
 alias cat="bat --theme=Nord"
 
+export MANPAGER="sh -c 'col -bx | bat --theme=Nord -l man -p'"
+
 # History
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
