@@ -42,11 +42,12 @@ alias ffp='v $(ff -m --preview="cat {}")'
 alias c="clear"
 
 alias ls="eza --icons"
-alias ll="eza -lT --icons"
-alias la="eza -lTa --level=1 --icons"
-alias lat2="eza -lTa --level=2 --icons"
-alias lat3="eza -lTa --level=3 --icons"
-alias lata="eza -lTa --icons"
+alias ll="eza -lTh --level=1 --icons"
+alias ll2="eza -lTh --level=2 --icons"
+alias ll3="eza -lTh --level=3 --icons"
+alias la="eza -lTah --level=1 --icons"
+alias la2="eza -lTah --level=2 --icons"
+alias la3="eza -lTah --level=3 --icons"
 
 alias ..="cd .."
 alias ...="cd ../.."
