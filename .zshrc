@@ -60,6 +60,7 @@ alias rm="rm -i"
 alias cp="cp -i"
 
 alias cat="bat --theme=Nord"
+alias ql="qlmanage -p"
 
 export MANPAGER="sh -c 'col -bx | bat --theme=Nord -l man -p'"
 
