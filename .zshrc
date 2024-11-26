@@ -62,6 +62,16 @@ alias cp="cp -i"
 alias cat="bat --theme=Nord"
 alias ql="qlmanage -p"
 
+weather() {
+    # Check if a city name is provided as an argument
+    local city=${1:-}  # Default to no city if not provided
+    if [ -n "$city" ]; then
+        curl "wttr.in/${city}"
+    else
+        curl wttr.in
+    fi
+}
+
 export MANPAGER="sh -c 'col -bx | bat --theme=Nord -l man -p'"
 
 # History
