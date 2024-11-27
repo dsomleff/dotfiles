@@ -103,3 +103,13 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 		end
 	end,
 })
+
+-- Add relative numbers into Netrw
+-- vim.api.nvim_create_augroup("NetrwSettings", { clear = true })
+-- vim.api.nvim_create_autocmd("FileType", {
+-- 	group = "NetrwSettings",
+-- 	pattern = "netrw",
+-- 	callback = function()
+-- 		vim.opt_local.relativenumber = true
+-- 	end,
+-- })
