@@ -88,22 +88,6 @@ autocmd({ "BufReadPost" }, {
 	command = "set bufhidden=delete",
 })
 
--- Save cursor position before saving the file
-vim.api.nvim_create_autocmd("BufWritePre", {
-	callback = function()
-		vim.b.saved_cursor = vim.fn.getpos(".")
-	end,
-})
-
--- Restore cursor position after saving the file
-vim.api.nvim_create_autocmd("BufWritePost", {
-	callback = function()
-		if vim.b.saved_cursor then
-			vim.fn.setpos(".", vim.b.saved_cursor)
-		end
-	end,
-})
-
 -- Add relative numbers into Netrw
 -- vim.api.nvim_create_augroup("NetrwSettings", { clear = true })
 -- vim.api.nvim_create_autocmd("FileType", {
