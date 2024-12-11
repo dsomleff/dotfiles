@@ -59,7 +59,12 @@ return {
 						},
 					},
 				},
+				extensions = {
+					fzf = {},
+				},
 			})
+
+			require("telescope").load_extension("fzf")
 
 			local builtin = require("telescope.builtin")
 
