@@ -4,7 +4,11 @@ return {
 
 		branch = "0.1.x",
 
-		dependencies = { "nvim-lua/plenary.nvim" },
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			-- suppose to make telescope faster
+			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+		},
 
 		config = function()
 			local actions = require("telescope.actions")
