@@ -18,10 +18,6 @@ return {
 					mappings = {
 						i = {
 							["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
-							["<C-d>"] = actions.delete_buffer,
-						},
-						n = {
-							["<C-d>"] = actions.delete_buffer,
 						},
 					},
 					file_ignore_patterns = {
@@ -68,8 +64,18 @@ return {
 
 			local builtin = require("telescope.builtin")
 
+			local function open_buffers()
+				require("telescope.builtin").buffers({
+					attach_mappings = function(_, map)
+						map({ "n", "i" }, "<C-d>", actions.delete_buffer)
+						return true
+					end,
+				})
+			end
+
+			vim.keymap.set("n", "<leader>fb", open_buffers, {})
+
 			vim.keymap.set("n", "<C-p>", builtin.find_files, {})
-			vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 			vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 
 			vim.keymap.set("n", "<leader>fw", function()
