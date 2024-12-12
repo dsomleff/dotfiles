@@ -17,10 +17,17 @@ return {
 			vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 
 			local red_override = "#6a6a69"
+			local add_magenta = "#de9bc8"
 
 			-- Override all highlight groups that use red
 			vim.api.nvim_set_hl(0, "Error", { fg = red_override })
-			-- vim.api.nvim_set_hl(0, "DiagnosticError", { fg = red_override })
+			vim.api.nvim_set_hl(0, "DiagnosticError", { fg = add_magenta })
+			vim.api.nvim_set_hl(0, "TSError", { fg = add_magenta })
+			vim.api.nvim_set_hl(
+				0,
+				"DiagnosticUnderlineError",
+				{ fg = add_magenta, undercurl = true, sp = red_override }
+			)
 			vim.api.nvim_set_hl(0, "SpellBad", { fg = red_override, undercurl = true, sp = red_override })
 			vim.api.nvim_set_hl(0, "LspDiagnosticsUnderlineError", { sp = red_override, undercurl = true })
 			vim.api.nvim_set_hl(0, "Underlined", { fg = red_override })
