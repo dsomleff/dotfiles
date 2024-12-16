@@ -15,9 +15,6 @@ dynamic_title = true
 dynamic_padding = true
 opacity = 1
 
-[scrolling]
-history = 0
-
 [font.normal]
 family = "JetBrainsMono Nerd Font Mono"
 style = "Medium"
