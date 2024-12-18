@@ -32,8 +32,8 @@ unfocused_hollow = false
 thickness = 0.2
 
 [cursor.style]
-shape = "Beam"
-blinking = "On"
+shape = "Block"
+blinking = "Never"
 
 [mouse]
 hide_when_typing = true
