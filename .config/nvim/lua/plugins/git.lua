@@ -1,6 +1,9 @@
 return {
 	{
 		"tpope/vim-fugitive",
+		dependencies = {
+			"tpope/vim-rhubarb", -- GitHub support
+		},
 		config = function()
 			vim.keymap.set("n", "<leader>gs", ":G | only<CR>", {})
 
