@@ -49,9 +49,9 @@ autocmd("BufEnter", {
 
 -- highlight on yank
 autocmd("TextYankPost", {
-	callback = vim.schedule_wrap(function()
+	callback = function()
 		vim.highlight.on_yank()
-	end),
+	end,
 })
 
 -- Set bufhidden=delete for fugitive buffers after reading

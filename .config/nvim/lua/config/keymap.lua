@@ -41,7 +41,7 @@ vim.keymap.set("n", "]Q", "<cmd>clast<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
--- replace word globaly
+-- replace word globally
 vim.keymap.set("n", "<leader>rw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gc<Left><Left><Left>]])
 
 -- instead of :so
@@ -60,8 +60,6 @@ vim.keymap.set("n", "[a", "gg<S-v>G")
 vim.keymap.set("n", "]a", "gg<S-v>G")
 
 -- Navigating buffers
---vim.keymap.set("n", "<S-l>", ":bnext<CR>")
---vim.keymap.set("n", "<S-h>", ":bprevious<CR>")
 vim.keymap.set("n", "[b", ":bprevious<CR>")
 vim.keymap.set("n", "]b", ":bnext<CR>")
 vim.keymap.set("n", "[B", ":bfirst<CR>")
@@ -94,7 +92,3 @@ vim.api.nvim_set_keymap("n", "<Up>", "<NOP>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<Down>", "<NOP>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<Left>", "<NOP>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<Right>", "<NOP>", { noremap = true })
-
--- Diagnostic keymaps already build in
--- vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
--- vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
