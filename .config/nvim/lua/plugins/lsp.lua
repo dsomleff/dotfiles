@@ -38,7 +38,7 @@ return {
 				"html",
 				"jsonls",
 				"eslint",
-				"prosemd_lsp", -- markdown
+				"harper_ls", -- markdown
 				"taplo", -- toml
 				"volar",
 				"yamlls",
