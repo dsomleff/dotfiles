@@ -28,7 +28,12 @@ return {
 		end
 
 		-- Get LSP capabilities from blink.cmp
-		local capabilities = require("blink.cmp").get_lsp_capabilities()
+		local capabilities = vim.tbl_deep_extend(
+			"force",
+			{},
+			vim.lsp.protocol.make_client_capabilities(),
+			require("blink.cmp").get_lsp_capabilities()
+		)
 
 		require("fidget").setup({})
 		require("mason").setup({})
@@ -86,7 +91,7 @@ return {
 					})
 				end,
 				["harper_ls"] = function()
-					require("lspconfig").volar.setup({
+					require("lspconfig").harper_ls.setup({
 						filetypes = { "markdown" },
 					})
 				end,
