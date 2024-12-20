@@ -5,6 +5,7 @@ return {
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
 		"rafamadriz/friendly-snippets", -- for snippets
+		"j-hui/fidget.nvim",
 	},
 
 	config = function()
@@ -29,6 +30,7 @@ return {
 		-- Get LSP capabilities from blink.cmp
 		local capabilities = require("blink.cmp").get_lsp_capabilities()
 
+		require("fidget").setup({})
 		require("mason").setup({})
 		require("mason-lspconfig").setup({
 			ensure_installed = {
@@ -81,6 +83,11 @@ return {
 							client.server_capabilities.documentFormattingProvider = false
 							client.server_capabilities.documentRangeFormattingProvider = false
 						end,
+					})
+				end,
+				["harper_ls"] = function()
+					require("lspconfig").volar.setup({
+						filetypes = { "markdown" },
 					})
 				end,
 			},
