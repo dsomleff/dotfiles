@@ -62,6 +62,9 @@ vim.opt.smartcase = true
 -- backspace
 vim.opt.backspace = "indent,eol,start"
 
+-- always display diff window vertically
+vim.opt.diffopt:append("vertical")
+
 -- Providers
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_python3_provider = 0
