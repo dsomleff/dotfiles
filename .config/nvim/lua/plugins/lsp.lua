@@ -9,24 +9,6 @@ return {
 	},
 
 	config = function()
-		local function preserve_cursor_position(callback)
-			local last_cursor_pos = vim.api.nvim_win_get_cursor(0)
-
-			if callback then
-				callback()
-			end
-
-			vim.defer_fn(function()
-				if last_cursor_pos then
-					local current_line_count = vim.api.nvim_buf_line_count(0)
-					local safe_line = math.min(last_cursor_pos[1], current_line_count)
-					local safe_col = math.min(last_cursor_pos[2], #vim.api.nvim_get_current_line())
-
-					vim.api.nvim_win_set_cursor(0, { safe_line, safe_col })
-				end
-			end, 10)
-		end
-
 		-- Get LSP capabilities from blink.cmp
 		local capabilities = require("blink.cmp").get_lsp_capabilities()
 
@@ -104,22 +86,19 @@ return {
 				header = "",
 				prefix = "",
 			},
-		})
-
-		-- Add a global handler for potential cursor-moving LSP operations
-		vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-			callback = function()
-				preserve_cursor_position()
-			end,
-		})
-
-		-- Increase LSP timeout to handle slow operations
-		vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-			update_in_insert = true,
 			virtual_text = {
 				spacing = 4,
 				prefix = "●",
 			},
+		})
+
+		-- Increase LSP timeout to handle slow operations
+		vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+			-- update_in_insert = true,
+			-- virtual_text = {
+			-- 	spacing = 4,
+			-- 	prefix = "●",
+			-- },
 			timeout = 2000,
 		})
 
