@@ -12,11 +12,6 @@ return {
 			default = { "lsp", "path", "snippets", "buffer" },
 		},
 		signature = { enabled = true },
-		snippet = {
-			expand = function(args)
-				require("blink.cmp").expand_snippet(args.body)
-			end,
-		},
 	},
 	config = function(_, opts)
 		require("blink.cmp").setup(opts)
