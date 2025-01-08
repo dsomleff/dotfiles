@@ -123,6 +123,8 @@ PATH="$PATH":"$HOME/.local/scripts/"
 
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
+bindkey "^a" beginning-of-line
+bindkey "^e" end-of-line
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 bindkey -s ^f "tmux-sessionizer\n"
