@@ -26,15 +26,14 @@ return {
 				"taplo", -- toml
 				"volar",
 				"yamlls",
-				"golangci_lint_ls",
 			},
 			handlers = {
 				function(server_name)
 					local server_config = { capabilities = capabilities }
 
-					if server_name == "volar" then
-						server_config.filetypes = { "vue", "typescript", "javascript" }
-					end
+					-- if server_name == "volar" then
+					--     server_config.filetypes = { "vue", "typescript", "javascript" }
+					-- end
 
 					require("lspconfig")[server_name].setup(server_config)
 				end,
@@ -90,16 +89,6 @@ return {
 				spacing = 4,
 				prefix = "●",
 			},
-		})
-
-		-- Increase LSP timeout to handle slow operations
-		vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-			-- update_in_insert = true,
-			-- virtual_text = {
-			-- 	spacing = 4,
-			-- 	prefix = "●",
-			-- },
-			timeout = 2000,
 		})
 
 		-- LSP Keymappings
