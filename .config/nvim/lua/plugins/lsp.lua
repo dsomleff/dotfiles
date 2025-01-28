@@ -31,9 +31,9 @@ return {
 				function(server_name)
 					local server_config = { capabilities = capabilities }
 
-					-- if server_name == "volar" then
-					--     server_config.filetypes = { "vue", "typescript", "javascript" }
-					-- end
+					if server_name == "volar" then
+						server_config.filetypes = { "vue", "typescript", "javascript" }
+					end
 
 					require("lspconfig")[server_name].setup(server_config)
 				end,
