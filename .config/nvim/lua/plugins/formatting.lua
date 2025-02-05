@@ -15,7 +15,7 @@ return {
 				html = { "prettierd", "html_beautify", stop_after_first = true },
 				-- json = { "prettier" },
 				-- yaml = { "prettier" },
-				-- markdown = { "prettier" },
+				markdown = { "prettier" },
 				lua = { "stylua" },
 			},
 

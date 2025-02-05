@@ -69,6 +69,9 @@ return {
 				["harper_ls"] = function()
 					require("lspconfig").harper_ls.setup({
 						filetypes = { "markdown" },
+						on_attach = function(client)
+							client.server_capabilities.documentFormattingProvider = true
+						end,
 					})
 				end,
 			},
