@@ -1,26 +1,35 @@
 return {
-    {
-        "echasnovski/mini.ai",
-        version = false,
+	{
+		"echasnovski/mini.ai",
+		version = false,
 
-        config = function()
-            require("mini.ai").setup()
-        end,
-    },
-    {
-        "echasnovski/mini.surround",
-        version = false,
+		config = function()
+			require("mini.ai").setup({
+				-- around/next quotes = "aq"
+				--around_last = "al",
+				--inside_last = "il",
+			})
+		end,
+	},
+	{
+		"echasnovski/mini.surround",
+		version = false,
 
-        config = function()
-            require("mini.surround").setup()
-        end,
-    },
-    {
-        "echasnovski/mini.pairs",
-        version = false,
+		config = function()
+			require("mini.surround").setup({
+				-- `saiw)` - add (`sa`) for inner word (`iw`) parenthesis (`)`).
+				-- delete = 'sd', -- Delete surrounding
+				-- sr'" -- Replace surrounding
+				-- srt -- Replace surrounding tags
+			})
+		end,
+	},
+	{
+		"echasnovski/mini.pairs",
+		version = false,
 
-        config = function()
-            require("mini.pairs").setup()
-        end,
-    },
+		config = function()
+			require("mini.pairs").setup()
+		end,
+	},
 }
