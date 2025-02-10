@@ -7,6 +7,7 @@ return {
             require("mini.ai").setup({
                 -- around/next quotes = "aq"
                 -- around/next brackets = "ab"
+                -- around/next arguments = "aa"
                 --around_last = "al",
                 --inside_last = "il",
             })
