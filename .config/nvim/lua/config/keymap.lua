@@ -24,6 +24,7 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 -- Delete into void
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
+vim.keymap.set({ "n", "x" }, "x", [["_x]])
 
 -- prevent big Q pressing ;)
 vim.keymap.set("n", "Q", "<nop>")
