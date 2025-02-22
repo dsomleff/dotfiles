@@ -87,7 +87,8 @@ setopt hist_find_no_dups
 alias conf="tmuxp load ~/dotfiles/.config/tmux/sessions/dotfiles.yaml"
 
 # Use Neovim as "preferred editor"
-export VISUAL=nvim
+export EDITOR="nvim"
+export VISUAL="$EDITOR"
 
 # for tmux color consistency
 export TERM=tmux-256color
@@ -110,6 +111,16 @@ export NVM_DIR="$HOME/.nvm"
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/somleff/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+#yazi
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
 
 ### zoxide init
 eval "$(zoxide init --cmd cd zsh)"
