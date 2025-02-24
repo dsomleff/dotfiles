@@ -57,6 +57,7 @@ alias ......="cd ../../../../.."
 
 alias cat="bat --theme=Nord"
 alias ql="qlmanage -p"
+alias grep='grep --color=auto'
 
 weather() {
     # Check if a city name is provided as an argument
