@@ -2,3 +2,8 @@
 on = "<Esc>"
 run = "close"
 desc = "Cancel input"
+
+[[manager.prepend_keymap]]
+on = ["g", "c"]
+run = "cd ~/Code"
+desc = "Cd to ~/Code"
