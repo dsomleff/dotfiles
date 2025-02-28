@@ -1,0 +1,29 @@
+session_name: event-hub-2
+windows:
+  - layout: ce83,161x39,0,0,6
+    panes:
+      - focus: "true"
+        shell_command: nvim .
+    start_directory: /Users/somleff/Code/event-hub
+    window_name: hub_fe
+
+  - layout: 6770,161x39,0,0,11
+    panes:
+      - focus: "true"
+        shell_command: docker-compose up
+    start_directory: /Users/somleff/Code/event-hub/local-dev
+    window_name: docker
+
+  - layout: 6770,161x39,0,0,11
+    panes:
+      - focus: "true"
+        shell_command: npm run dev
+    start_directory: /Users/somleff/Code/event-hub/backend/
+    window_name: express
+
+  - layout: 6771,161x39,0,0,12
+    panes:
+      - focus: "true"
+        shell_command: npm run dev
+    start_directory: /Users/somleff/Code/event-hub/frontend/
+    window_name: localhost
