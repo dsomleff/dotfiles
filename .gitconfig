@@ -1,8 +1,32 @@
 [user]
 	name = Dmytro Somliev
 	email = dmytro.somliev@ibm.com
+[column]
+    ui = auto
+[branch]
+    sort = -committerdate
+[diff]
+    algorithm = histogram
+    colorMoved = plain
+    mnemonicPrefix = true
+    renames = true
+[push]
+    default = simple
+    autoSetupRemote = true
+[fetch]
+    prune = true
+    all = true
 [pull]
 	ff = true
+[help]
+    autocorrect = prompt
+[commit]
+    verbose = true
+[rebase]
+    autoSquash = true
+    autoStash = true
+    updateRefs = true
+
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
