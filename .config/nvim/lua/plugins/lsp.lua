@@ -91,6 +91,27 @@ return {
 						},
 					})
 				end,
+				["ts_ls"] = function()
+					require("lspconfig").ts_ls.setup({
+						capabilities = capabilities,
+						on_attach = function(client)
+							client.server_capabilities.documentFormattingProvider = false
+						end,
+						settings = {
+							typescript = {
+								inlayHints = {
+									includeInlayParameterNameHints = "none",
+									includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+									includeInlayFunctionParameterTypeHints = true,
+									includeInlayVariableTypeHints = false,
+									includeInlayPropertyDeclarationTypeHints = true,
+									includeInlayFunctionLikeReturnTypeHints = true,
+									includeInlayEnumMemberValueHints = true,
+								},
+							},
+						},
+					})
+				end,
 			},
 		})
 
@@ -112,6 +133,27 @@ return {
 		})
 
 		-- LSP Keymappings
+		function _G.enable_inlay_hints()
+			vim.lsp.inlay_hint.enable(true)
+			print("Inlay hints enabled")
+		end
+
+		function _G.disable_inlay_hints()
+			vim.lsp.inlay_hint.enable(false)
+			print("Inlay hints disabled")
+		end
+
+		vim.keymap.set("n", "<leader>he", "<cmd>lua enable_inlay_hints()<CR>", {
+			noremap = true,
+			silent = true,
+			desc = "Enable inlay hints",
+		})
+
+		vim.keymap.set("n", "<leader>hd", "<cmd>lua disable_inlay_hints()<CR>", {
+			noremap = true,
+			silent = true,
+			desc = "Disable inlay hints",
+		})
 		vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 		vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
 		vim.keymap.set("n", "gr", vim.lsp.buf.references, {})
