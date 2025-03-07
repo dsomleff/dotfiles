@@ -43,8 +43,9 @@
     l = "!. ~/dotfiles/githelpers && pretty_git_log"
     lr = "!git l -30"
 
-    la = "!git l --all"
-    lra = "!git lr --all"
+    gla = "!git l --all"
+    glra = "!git lr --all"
     lg = "!git l -G $1 -- $2"
+	fpush = git push --force-with-lease
 [init]
 	defaultBranch = main

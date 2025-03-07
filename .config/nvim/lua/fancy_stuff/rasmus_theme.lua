@@ -31,6 +31,15 @@ return {
 			vim.api.nvim_set_hl(0, "SpellBad", { fg = red_override, undercurl = true, sp = red_override })
 			vim.api.nvim_set_hl(0, "LspDiagnosticsUnderlineError", { sp = red_override, undercurl = true })
 			vim.api.nvim_set_hl(0, "Underlined", { fg = red_override })
+
+			-- Add custom coloring for inlay hints
+			vim.api.nvim_set_hl(0, "LspInlayHint", {
+				fg = "#505050", -- Subtle gray color
+				italic = true, -- Make hints italic for better distinction
+			})
+
+			-- Link the newer semantic token highlight group to our custom style
+			vim.api.nvim_set_hl(0, "@lsp.type.inlayHint", { link = "LspInlayHint" })
 		end,
 	},
 	{
