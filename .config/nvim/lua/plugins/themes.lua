@@ -5,11 +5,12 @@ return {
 		lazy = false,
 		priority = 1000,
 		config = function()
-			vim.g.rasmus_italic_functions = true
+			vim.g.rasmus_italic_functions = false
 			vim.g.rasmus_transparent = false
 			vim.g.rasmus_italic_keywords = true
-			vim.g.rasmus_italic_variables = true
+			vim.g.rasmus_italic_variables = false
 			vim.g.rasmus_italic_booleans = true
+			vim.g.rasmus_bold_functions = true
 
 			vim.cmd.colorscheme("rasmus")
 
