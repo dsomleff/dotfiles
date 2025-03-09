@@ -27,6 +27,7 @@ staged = '[*](dimmed green)'
 modified = '[*](dimmed green)'
 ahead = "⇡"
 behind = "⇣"
+stashed = "≡"
 
 [package]
 disabled = true
