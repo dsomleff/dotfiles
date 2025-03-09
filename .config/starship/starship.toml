@@ -22,7 +22,7 @@ symbol = ''
 style = "bright-black"
 
 [git_status]
-format = '$staged$modified$ahead$behind'
+format = '$staged$modified$ahead$behind$stashed'
 staged = '[*](dimmed green)'
 modified = '[*](dimmed green)'
 ahead = "⇡"
