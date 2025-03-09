@@ -25,9 +25,9 @@ style = "bright-black"
 format = '$staged$modified$ahead$behind$stashed'
 staged = '[*](dimmed green)'
 modified = '[*](dimmed green)'
-ahead = "⇡"
-behind = "⇣"
-stashed = "≡"
+ahead = '[ ⇡ ](dimmed green)'
+behind = '[ ⇣ ](dimmed green)'
+stashed = '[ ≡ ](dimmed green)'
 
 [package]
 disabled = true
