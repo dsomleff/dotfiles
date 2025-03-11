@@ -47,7 +47,7 @@ vim.keymap.set("n", "<leader>rw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gc<Left><Left>
 
 -- instead of :so
 vim.keymap.set("n", "<leader><leader>", function()
-	vim.cmd("so")
+    vim.cmd("so")
 end)
 
 -- navigate vim pane
@@ -75,7 +75,7 @@ vim.opt.conceallevel = 2
 
 -- Display LSP hints
 vim.keymap.set("n", "<leader>h", function()
-	vim.lsp.inlay_hint.enable()
+    vim.lsp.inlay_hint.enable()
 end)
 
 -- Open terminal
@@ -93,3 +93,11 @@ vim.api.nvim_set_keymap("n", "<Up>", "<NOP>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<Down>", "<NOP>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<Left>", "<NOP>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<Right>", "<NOP>", { noremap = true })
+
+-- Paste below the current line while keeping the cursor at the correct position
+vim.keymap.set("n", "p", function()
+    local pos = vim.api.nvim_win_get_cursor(0)
+    local row, col = pos[1], pos[2]
+    vim.cmd("put")
+    vim.api.nvim_win_set_cursor(0, { row + 1, col })
+end)
