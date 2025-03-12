@@ -11,7 +11,7 @@ return {
 			vim.keymap.set("n", "<leader>gP", ":G push<CR>", { silent = true, noremap = true })
 			vim.keymap.set("n", "<leader>gf", ":G fetch<CR>", { silent = true, noremap = true })
 
-			vim.keymap.set("n", "<leader>gb", ":G blame<CR>", { silent = true, noremap = true })
+			vim.keymap.set("n", "<leader>gb", ":G blame -w -C -C -C<CR>", { silent = true, noremap = true })
 			vim.keymap.set("n", "<leader>gd", ":Gvdiff<CR>", {})
 
 			vim.keymap.set("n", "<leader>gH", ":G log --oneline --decorate --graph --parents --all<CR>", {})
@@ -21,8 +21,7 @@ return {
 			vim.keymap.set("n", "<leader>mc", ":Gvdiffsplit!<CR>", {})
 
 			-- Custom branch deletion command
-			vim.keymap.set("n", "<leader>gD", ":G branch -d ", {}) -- Deletes a branch interactively
-			vim.keymap.set("n", "<leader>gF", ":G branch -D ", {}) -- Force delete branch interactively
+			vim.keymap.set("n", "<leader>gD", ":G branch -D ", {}) -- Force delete branch interactively
 		end,
 	},
 	{
