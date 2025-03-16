@@ -18,6 +18,8 @@ vim.opt.autoread = true
 vim.opt.wrap = false
 vim.opt.swapfile = false
 vim.opt.backup = false
+
+-- Undo tree folder
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
