@@ -8,8 +8,10 @@ return {
 				-- around/next quotes = "aq"
 				-- around/next brackets = "ab"
 				-- around/next arguments = "aa"
-				--around_last = "al",
-				--inside_last = "il",
+				-- around_last = "al",
+				-- inside_last = "il",
+				-- around_next = "an",
+				-- inside_next = "in",
 			})
 		end,
 	},
