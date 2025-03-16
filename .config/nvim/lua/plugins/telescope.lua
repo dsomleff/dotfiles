@@ -106,28 +106,6 @@ return {
 				},
 			})
 			require("telescope").load_extension("ui-select")
-
-			-- Override vim.ui.input to use Telescope for renaming
-			vim.ui.input = function(opts, on_confirm)
-				require("telescope.builtin").grep_string({
-					prompt_title = opts.prompt or "Rename",
-					search = "",
-					layout_config = {
-						width = 0.4,
-						height = 0.2,
-					},
-					attach_mappings = function(_, map)
-						map("i", "<CR>", function(bufnr)
-							local new_name = require("telescope.actions.state").get_current_line()
-							require("telescope.actions").close(bufnr)
-							if new_name and new_name ~= "" then
-								on_confirm(new_name)
-							end
-						end)
-						return true
-					end,
-				})
-			end
 		end,
 	},
 }
