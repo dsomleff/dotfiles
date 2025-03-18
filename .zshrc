@@ -27,6 +27,7 @@ alias gp="git push origin"
 alias gli="git branch -a"
 alias glc="git branch -v" #last commit on each branch
 alias gf="git fetch --prune"
+alias lg="lazygit"
 
 alias v="nvim"
 
