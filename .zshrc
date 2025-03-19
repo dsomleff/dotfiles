@@ -1,5 +1,4 @@
 #  Navigate to a directory interactively using fzf
-#  Example: fcd Code
 fcd() {
     local dir
     dir=$(find ${1:-.} -type d -not -path '*/\.*' 2> /dev/null | fzf)
@@ -141,3 +140,5 @@ bindkey "^e" end-of-line
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 bindkey -s ^f "tmux-sessionizer\n"
+
+export XDG_CONFIG_HOME="$HOME/dotfiles/.config"
