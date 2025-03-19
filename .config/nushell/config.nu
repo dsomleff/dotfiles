@@ -25,6 +25,13 @@ $env.config = {
     #     max_size: 100_000
     #     sync_on_enter: true
     #     file_format: "sqlite"
-    #     isolation: faslse
+    #     isolation: false
     # }
 }
+
+# Starship
+mkdir ($nu.data-dir | path join "vendor/autoload")
+starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
+
+# zoxide
+source ~/.zoxide.nu

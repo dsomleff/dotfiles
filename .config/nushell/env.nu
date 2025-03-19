@@ -17,4 +17,4 @@
 # You can remove these comments if you want or leave
 # them for future reference.
 source ~/dotfiles/.config/nushell/aliases.nu
-
+zoxide init nushell | save -f ~/.zoxide.nu

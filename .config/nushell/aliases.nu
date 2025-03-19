@@ -19,8 +19,12 @@ alias tmns = tmux new-session -s
 alias tmks = tmux kill-session -t
 alias tmka = tmux kill-server
 
+# Tmux sessions
+alias conf = tmuxp load ~/dotfiles/.config/tmux/sessions/dotfiles.yaml
+
 # Misc
 alias c = clear
+alias y = yazi
 
 # Directory navigation
 alias .. = cd ..

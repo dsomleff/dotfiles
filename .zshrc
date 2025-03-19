@@ -1,4 +1,3 @@
-#  Navigate to a directory interactively using fzf
 fcd() {
     local dir
     dir=$(find ${1:-.} -type d -not -path '*/\.*' 2> /dev/null | fzf)

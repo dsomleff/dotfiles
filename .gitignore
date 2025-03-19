@@ -4,4 +4,5 @@
 # .config/alacritty/themes
 .config/tmux/plugins
 .config/nvim/lua/.DS_Store
+.config/nushell/history.txt
 # .config/tmux/sessions/hub.yaml
