@@ -1,6 +1,14 @@
 #
 # See `help config nu` for more options
 #
+source ~/dotfiles/.config/nushell/env.nu
+
+# zoxide
+source ~/.zoxide.nu
+
+# Carapace
+source ~/.cache/carapace/init.nu
+
 $env.EDITOR = 'nvim'
 
 $env.config = {
@@ -17,12 +25,6 @@ $env.config = {
 # Starship
 mkdir ($nu.data-dir | path join "vendor/autoload")
 starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
-
-# zoxide
-source ~/.zoxide.nu
-
-# Carapace
-source ~/.cache/carapace/init.nu
 
 # Git aliases
 alias lg = lazygit

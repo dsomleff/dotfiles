@@ -4,6 +4,9 @@
 #
 # Also see `help config env` for more options.
 #
+use std "path add"
+path add /opt/homebrew/bin
+
 zoxide init nushell | save -f ~/.zoxide.nu
 
 $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
