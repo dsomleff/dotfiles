@@ -29,13 +29,7 @@ return {
 			},
 			handlers = {
 				function(server_name)
-					local server_config = { capabilities = capabilities }
-
-					if server_name == "volar" then
-						server_config.filetypes = { "vue", "typescript", "javascript" }
-					end
-
-					require("lspconfig")[server_name].setup(server_config)
+					require("lspconfig")[server_name].setup({ capabilities = capabilities })
 				end,
 
 				["lua_ls"] = function()
@@ -135,33 +129,25 @@ return {
 			},
 		})
 
-		-- LSP Keymappings
-		function _G.enable_inlay_hints()
+		local map = vim.keymap.set
+
+		-- Inlay Hint Keymaps
+		map("n", "<leader>he", function()
 			vim.lsp.inlay_hint.enable(true)
 			print("Inlay hints enabled")
-		end
+		end, { noremap = true, silent = true, desc = "Enable inlay hints" })
 
-		function _G.disable_inlay_hints()
+		map("n", "<leader>hd", function()
 			vim.lsp.inlay_hint.enable(false)
 			print("Inlay hints disabled")
-		end
+		end, { noremap = true, silent = true, desc = "Disable inlay hints" })
 
-		vim.keymap.set("n", "<leader>he", "<cmd>lua enable_inlay_hints()<CR>", {
-			noremap = true,
-			silent = true,
-			desc = "Enable inlay hints",
-		})
-
-		vim.keymap.set("n", "<leader>hd", "<cmd>lua disable_inlay_hints()<CR>", {
-			noremap = true,
-			silent = true,
-			desc = "Disable inlay hints",
-		})
-		vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-		vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
-		vim.keymap.set("n", "gr", vim.lsp.buf.references, {})
-		vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
-		vim.keymap.set("n", "gl", function()
+		-- LSP Keymaps
+		map("n", "K", vim.lsp.buf.hover, {})
+		map("n", "gd", vim.lsp.buf.definition, {})
+		map("n", "gr", vim.lsp.buf.references, {})
+		map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
+		map("n", "gl", function()
 			vim.diagnostic.open_float({ focusable = true })
 		end, { desc = "Open Diagnostics in Float" })
 	end,
