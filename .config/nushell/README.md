@@ -16,3 +16,11 @@
 # Add the XDG_CONFIG_HOME variable to your .zshrc file
 > (char nl) + 'export XDG_CONFIG_HOME="$HOME/dotfiles/.config"' + (char nl) | save --append ~/.zshrc
 ```
+
+## Make nu default shell
+
+- Run `$nu.config-path`
+- Copy path without `config.nu` at the end and run it with `cd your path`
+- Create 2 files: `config.nu` and `env.nu`
+- Put `source ~/dotfiles/.config/nushell/config.nu` into `config.nu`
+- Put `$env.XDG_CONFIG_HOME = $"($env.HOME)/dotfiles/.config"`
