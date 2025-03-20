@@ -25,6 +25,7 @@ $env.config = {
 # Starship
 mkdir ($nu.data-dir | path join "vendor/autoload")
 starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
+$env.STARSHIP_CONFIG = '/Users/somleff/dotfiles/.config/starship/starship.toml'
 
 # Git aliases
 alias lg = lazygit
