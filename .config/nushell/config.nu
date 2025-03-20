@@ -21,6 +21,9 @@ starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.n
 # zoxide
 source ~/.zoxide.nu
 
+# Carapace
+source ~/.cache/carapace/init.nu
+
 # Git aliases
 alias lg = lazygit
 
