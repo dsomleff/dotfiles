@@ -15,6 +15,4 @@
 
 # Add the XDG_CONFIG_HOME variable to your .zshrc file
 > (char nl) + 'export XDG_CONFIG_HOME="$HOME/dotfiles/.config"' + (char nl) | save --append ~/.zshrc
-
-
 ```
