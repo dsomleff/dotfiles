@@ -1,28 +1,29 @@
 return {
 	{
 		"tpope/vim-fugitive",
-		dependencies = {
-			"tpope/vim-rhubarb", -- GitHub support
+		cmd = { "G" },
+		keys = {
+			{ "<leader>gs", ":G | only<CR>", {} },
+			{ "<leader>gp", ":G pull<CR>", { silent = true, noremap = true } },
+			{ "<leader>gP", ":G push<CR>", { silent = true, noremap = true } },
+			{ "<leader>gf", ":G fetch<CR>", { silent = true, noremap = true } },
+			{ "<leader>gb", ":G blame -w -C -C -C<CR>", { silent = true, noremap = true } },
+			{ "<leader>gd", ":Gvdiff<CR>", {} },
+			{ "<leader>gH", ":G log --oneline --decorate --graph --parents --all<CR>", {} },
+			{ "<leader>gl", ":G log | only<CR>", {} },
+			{ "<leader>gL", ":0GcLog<CR>", {} },
+			{ "<leader>mc", ":Gvdiffsplit!<CR>", {} },
+			{ "<leader>gD", ":G branch -D ", {} }, -- Force delete branch interactivel
 		},
-		opts = {}, -- No explicit setup needed for Fugitive
-		config = function()
-			-- Key mappings for Fugitive
-			local map = vim.keymap.set
-			map("n", "<leader>gs", ":G | only<CR>", {})
-			map("n", "<leader>gp", ":G pull<CR>", { silent = true, noremap = true })
-			map("n", "<leader>gP", ":G push<CR>", { silent = true, noremap = true })
-			map("n", "<leader>gf", ":G fetch<CR>", { silent = true, noremap = true })
-			map("n", "<leader>gb", ":G blame -w -C -C -C<CR>", { silent = true, noremap = true })
-			map("n", "<leader>gd", ":Gvdiff<CR>", {})
-			map("n", "<leader>gH", ":G log --oneline --decorate --graph --parents --all<CR>", {})
-			map("n", "<leader>gl", ":G log | only<CR>", {})
-			map("n", "<leader>gL", ":0GcLog<CR>", {})
-			map("n", "<leader>mc", ":Gvdiffsplit!<CR>", {})
-			map("n", "<leader>gD", ":G branch -D ", {}) -- Force delete branch interactively
-		end,
+	},
+	{
+		"tpope/vim-rhubarb", -- GitHub support
+		-- event = "VeryLazy",
+		lazy = true,
 	},
 	{
 		"lewis6991/gitsigns.nvim",
+		event = { "BufReadPost" },
 		opts = {
 			signs = {
 				add = { text = "▎" },
@@ -33,10 +34,7 @@ return {
 				untracked = { text = "▎" },
 			},
 		},
-		config = function(_, opts)
-			local gitsigns = require("gitsigns")
-			gitsigns.setup(opts)
-
+		init = function()
 			-- Key mappings for Gitsigns
 			local map = vim.keymap.set
 			map("n", "<leader>gh", ":Gitsigns preview_hunk<CR>", {})

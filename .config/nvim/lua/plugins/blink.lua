@@ -1,7 +1,7 @@
 return {
 	"saghen/blink.cmp",
-	-- dependencies = "rafamadriz/friendly-snippets",
 	version = "v0.*",
+	event = "InsertEnter",
 	opts = {
 		keymap = { preset = "default" },
 		appearance = {
@@ -13,7 +13,4 @@ return {
 		},
 		signature = { enabled = true },
 	},
-	config = function(_, opts)
-		require("blink.cmp").setup(opts)
-	end,
 }

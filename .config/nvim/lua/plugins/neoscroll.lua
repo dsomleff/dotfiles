@@ -1,5 +1,8 @@
 return {
 	"karb94/neoscroll.nvim",
+	event = {
+		"BufReadPost",
+	},
 	opts = function()
 		local neoscroll = require("neoscroll")
 

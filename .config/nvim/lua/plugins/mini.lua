@@ -2,6 +2,9 @@ return {
 	{
 		"echasnovski/mini.ai",
 		version = false,
+		event = {
+			"BufReadPost",
+		},
 		opts = {
 			-- around/next quotes = "aq"
 			-- around/next brackets = "ab"
@@ -15,6 +18,9 @@ return {
 	{
 		"echasnovski/mini.surround",
 		version = false,
+		event = {
+			"BufReadPost",
+		},
 		opts = {
 			-- `saiw)` - add (`sa`) for inner word (`iw`) parenthesis (`)`).
 			-- delete = 'sd', -- Delete surrounding
@@ -26,5 +32,8 @@ return {
 		"echasnovski/mini.pairs",
 		version = false,
 		opts = {},
+		event = {
+			"BufReadPost",
+		},
 	},
 }

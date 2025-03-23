@@ -1,7 +1,7 @@
 return {
 	"nvim-treesitter/nvim-treesitter-textobjects",
-	dependencies = { "nvim-treesitter" },
-
+	dependencies = { "nvim-treesitter", lazy = true },
+	event = { "BufReadPost" },
 	config = function()
 		require("nvim-treesitter.configs").setup({
 			textobjects = {

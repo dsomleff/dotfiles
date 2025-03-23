@@ -43,16 +43,4 @@ return {
 			vim.api.nvim_set_hl(0, "@lsp.type.inlayHint", { link = "LspInlayHint" })
 		end,
 	},
-	{
-		"eandrju/cellular-automaton.nvim",
-
-		vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>"),
-		vim.keymap.set("n", "<leader>gol", "<cmd>CellularAutomaton game_of_life<CR>"),
-		vim.keymap.set("n", "<leader>mx", "<cmd>CellularAutomaton scramble<CR>"),
-	},
-	{
-		"folke/zen-mode.nvim",
-
-		vim.keymap.set("n", "<leader>zz", ":ZenMode<CR>"),
-	},
 }

@@ -1,6 +1,6 @@
 return {
 	"stevearc/conform.nvim",
-	event = { "BufWritePre" },
+	event = { "BufReadPost" },
 	opts = {
 		formatters_by_ft = {
 			javascript = { "prettier" },
@@ -15,27 +15,25 @@ return {
 			markdown = { "prettier" },
 			lua = { "stylua" },
 		},
-
+		default_format_opts = {
+			lsp_format = "fallback",
+		},
 		format_on_save = {
 			lsp_format = "fallback",
 			async = false,
-			timeout_ms = 1000,
+			timeout_ms = 500,
+		},
+		formatters = {
+			prettier = {
+				args = {
+					"--stdin-filepath",
+					"$FILENAME",
+					"--tab-width",
+					"4",
+					"--use-tabs",
+					"false",
+				},
+			},
 		},
 	},
-	config = function(_, opts)
-		local conform = require("conform")
-		conform.setup(opts)
-
-		-- Custom Prettier configuration
-		conform.formatters.prettier = {
-			args = {
-				"--stdin-filepath",
-				"$FILENAME",
-				"--tab-width",
-				"4",
-				"--use-tabs",
-				"false",
-			},
-		}
-	end,
 }

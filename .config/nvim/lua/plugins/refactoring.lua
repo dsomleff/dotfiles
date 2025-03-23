@@ -1,11 +1,8 @@
 return {
-	"ThePrimeagen/refactoring.nvim",
-	dependencies = {
-		"nvim-lua/plenary.nvim",
-		"nvim-treesitter/nvim-treesitter",
-	},
-	config = function()
-		require("refactoring").setup({
+	{
+		"ThePrimeagen/refactoring.nvim",
+		cmd = "Refactor",
+		opts = {
 			vim.keymap.set("x", "<leader>re", ":Refactor extract "),
 			vim.keymap.set("x", "<leader>rf", ":Refactor extract_to_file "),
 
@@ -17,6 +14,8 @@ return {
 
 			vim.keymap.set("n", "<leader>rb", ":Refactor extract_block"),
 			vim.keymap.set("n", "<leader>rbf", ":Refactor extract_block_to_file"),
-		})
-	end,
+		},
+	},
+	{ "nvim-lua/plenary.nvim", lazy = true },
+	{ "nvim-treesitter/nvim-treesitter", lazy = true },
 }

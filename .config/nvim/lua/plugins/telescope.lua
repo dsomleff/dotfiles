@@ -1,13 +1,18 @@
 return {
 	{
 		"nvim-telescope/telescope.nvim",
-
+		cmd = "Telescope",
 		branch = "0.1.x",
-
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			-- suppose to make telescope faster
-			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+		keys = {
+			{ "<leader>fb" },
+			{ "<leader>fh" },
+			{ "<leader>fl" },
+			{ "<leader>fh" },
+			{ "<leader>fw" },
+			{ "<leader>fW" },
+			{ "<leader>fo" },
+			{ "<leader>tt" },
+			{ "<C-p>" },
 		},
 
 		config = function()
@@ -95,8 +100,11 @@ return {
 		end,
 	},
 
+	{ "nvim-lua/plenary.nvim", lazy = true },
+	{ "nvim-telescope/telescope-fzf-native.nvim", lazy = true, build = "make" }, -- suppose to make telescope faster
 	{
 		"nvim-telescope/telescope-ui-select.nvim",
+		lazy = true,
 		config = function()
 			require("telescope").setup({
 				extensions = {
