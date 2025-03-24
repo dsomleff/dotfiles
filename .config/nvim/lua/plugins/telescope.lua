@@ -4,15 +4,40 @@ return {
 		cmd = "Telescope",
 		branch = "0.1.x",
 		keys = {
-			{ "<leader>fb" },
-			{ "<leader>fh" },
-			{ "<leader>fl" },
-			{ "<leader>fh" },
-			{ "<leader>fw" },
-			{ "<leader>fW" },
-			{ "<leader>fo" },
-			{ "<leader>tt" },
-			{ "<C-p>" },
+			{ "<C-p>", "<cmd>Telescope find_files<cr>", { desc = "Telescope | Files", silent = true } },
+			{ "<leader>fh", "<cmd>Telescope help_tags<cr>", { desc = "Telescope | Help", silent = true } },
+			{ "<leader>fW", "<cmd>Telescope live_grep<cr>", { desc = "Telescope | Word", silent = true } },
+			{ "<leader>fo", "<cmd>Telescope oldfiles<cr>", { desc = "Telescope | Recent Files", silent = true } },
+			{ "<leader>tt", "<cmd>Telescope diagnostics<cr>", { desc = "Telescope | Diagnostics", silent = true } },
+			{
+				"<leader>fb",
+				function()
+					require("telescope.builtin").buffers({
+						attach_mappings = function(_, map)
+							local actions = require("telescope.actions")
+							map({ "n", "i" }, "<C-d>", actions.delete_buffer)
+							return true
+						end,
+					})
+				end,
+				{ desc = "Telescope | Buffers", silent = true },
+			},
+			{
+				"<leader>fl",
+				function()
+					local word = vim.fn.expand("<cWORD>")
+					require("telescope.builtin").grep_string({ search = word })
+				end,
+				{ desc = "Telescope | Grep cWORD", silent = true },
+			},
+			{
+				"<leader>fw",
+				function()
+					local word = vim.fn.expand("<cword>")
+					require("telescope.builtin").grep_string({ search = word })
+				end,
+				{ desc = "Telescope | Grep cword", silent = true },
+			},
 		},
 
 		config = function()
@@ -66,37 +91,6 @@ return {
 			})
 
 			require("telescope").load_extension("fzf")
-
-			local builtin = require("telescope.builtin")
-
-			local function open_buffers()
-				require("telescope.builtin").buffers({
-					attach_mappings = function(_, map)
-						map({ "n", "i" }, "<C-d>", actions.delete_buffer)
-						return true
-					end,
-				})
-			end
-
-			vim.keymap.set("n", "<leader>fb", open_buffers, {})
-
-			vim.keymap.set("n", "<C-p>", builtin.find_files, {})
-			vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
-
-			vim.keymap.set("n", "<leader>fw", function()
-				local word = vim.fn.expand("<cword>")
-				builtin.grep_string({ search = word })
-			end)
-
-			vim.keymap.set("n", "<leader>fl", function()
-				local word = vim.fn.expand("<cWORD>")
-				builtin.grep_string({ search = word })
-			end)
-
-			vim.keymap.set("n", "<leader>fW", builtin.live_grep, {})
-			vim.keymap.set("n", "<leader>fo", builtin.oldfiles, {})
-
-			vim.keymap.set("n", "<leader>tt", builtin.diagnostics, {})
 		end,
 	},
 
