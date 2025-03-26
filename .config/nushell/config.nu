@@ -49,8 +49,3 @@ alias hub2 = tmuxp load ~/dotfiles/.config/tmux/sessions/hub2.yaml
 alias c = clear
 alias y = yazi
 
-# Directory navigation
-alias .. = cd ..
-alias ... = cd ../..
-alias .... = cd ../../..
-
