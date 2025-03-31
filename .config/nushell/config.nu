@@ -22,9 +22,6 @@ $env.config = {
     }
 }
 
-fnm env --json | from json | load-env
-$env.path = $env.path | append $env.FNM_MULTISHELL_PATH
-
 # Starship
 mkdir ($nu.data-dir | path join "vendor/autoload")
 starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
