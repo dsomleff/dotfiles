@@ -46,9 +46,9 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 vim.keymap.set("n", "<leader>rw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gc<Left><Left><Left>]])
 
 -- instead of :so
-vim.keymap.set("n", "<leader><leader>", function()
-	vim.cmd("so")
-end)
+-- vim.keymap.set("n", "<leader><leader>", function()
+-- 	vim.cmd("so")
+-- end)
 
 -- navigate vim pane
 vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
