@@ -120,7 +120,7 @@ return {
 				focusable = false,
 				style = "minimal",
 				border = "rounded",
-				source = "always",
+				-- source = "always",
 				header = "",
 				prefix = "",
 			},
@@ -130,26 +130,34 @@ return {
 			},
 		})
 
-		local map = vim.keymap.set
+		local group = vim.api.nvim_create_augroup("LspMappings", { clear = true })
 
-		-- Inlay Hint Keymaps
-		map("n", "<leader>he", function()
-			vim.lsp.inlay_hint.enable(true)
-			print("Inlay hints enabled")
-		end, { noremap = true, silent = true, desc = "Enable inlay hints" })
+		vim.api.nvim_create_autocmd("LspAttach", {
+			group = group,
+			callback = function(args) -- args is available here
+				local map = vim.keymap.set
+				local opts = { buffer = args.buf, silent = true }
 
-		map("n", "<leader>hd", function()
-			vim.lsp.inlay_hint.enable(false)
-			print("Inlay hints disabled")
-		end, { noremap = true, silent = true, desc = "Disable inlay hints" })
+				-- Inlay Hint Keymaps
+				map("n", "<leader>he", function()
+					vim.lsp.inlay_hint.enable(true)
+					print("Inlay hints enabled")
+				end, { noremap = true, silent = true, desc = "Enable inlay hints" })
 
-		-- LSP Keymaps
-		map("n", "K", vim.lsp.buf.hover, {})
-		map("n", "gd", vim.lsp.buf.definition, {})
-		map("n", "gr", vim.lsp.buf.references, {})
-		map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
-		map("n", "gl", function()
-			vim.diagnostic.open_float({ focusable = true })
-		end, { desc = "Open Diagnostics in Float" })
+				map("n", "<leader>hd", function()
+					vim.lsp.inlay_hint.enable(false)
+					print("Inlay hints disabled")
+				end, { noremap = true, silent = true, desc = "Disable inlay hints" })
+
+				-- LSP Keymaps
+				map("n", "K", vim.lsp.buf.hover, opts)
+				map("n", "gd", vim.lsp.buf.definition, opts)
+				map("n", "gr", vim.lsp.buf.references, opts)
+				map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
+				map("n", "gl", function()
+					vim.diagnostic.open_float({ focusable = true })
+				end, opts)
+			end,
+		})
 	end,
 }

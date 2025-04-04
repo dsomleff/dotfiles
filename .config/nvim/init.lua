@@ -2,12 +2,14 @@ require("config.options")
 require("config.keymap")
 require("config.lazy")
 require("config.autocmds")
+require("config.lsp-config")
 
 local modules = {
 	"config.options",
 	"config.keymap",
 	"config.lazy",
 	"config.autocmds",
+	"config.lsp-config",
 }
 
 for _, module in ipairs(modules) do
