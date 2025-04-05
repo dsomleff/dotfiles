@@ -1,7 +1,6 @@
 #
 # See `help config nu` for more options
 #
-use ./fnm.nu
 source ~/dotfiles/.config/nushell/env.nu
 
 # zoxide
