@@ -7,7 +7,6 @@ return {
 		"typescript",
 		"typescriptreact",
 		"typescript.tsx",
-		"vue",
 	},
 	root_markers = { "tsconfig.json", "jsconfig.json", "package.json", ".git" },
 	single_file_support = true,
