@@ -15,7 +15,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			vim.diagnostic.open_float({ focusable = true })
 		end, opts)
 
-		-- Inlay Hint Keymaps
 		if vim.lsp.inlay_hint then
 			vim.keymap.set("n", "<Space>ih", function()
 				vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
@@ -34,5 +33,4 @@ vim.lsp.enable({
 	"harper_ls",
 	"taplo", -- toml
 	"yaml_ls",
-	-- "volar",
 })

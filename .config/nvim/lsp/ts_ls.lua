@@ -7,7 +7,7 @@ return {
 		"typescript",
 		"typescriptreact",
 		"typescript.tsx",
-		-- "vue",
+		"vue",
 	},
 	root_markers = { "tsconfig.json", "jsconfig.json", "package.json", ".git" },
 	single_file_support = true,
@@ -25,11 +25,4 @@ return {
 			},
 		},
 	},
-	-- init_options = { plugins = { {
-	-- 			name = "@vue/typescript-plugin",
-	-- 			location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
-	-- 			languages = { "vue" },
-	-- 		},
-	-- 	},
-	-- },
 }
