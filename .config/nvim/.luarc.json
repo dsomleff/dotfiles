@@ -2,5 +2,9 @@
     "diagnostics.globals": [
         "vim",
         "my_statusline"
+    ],
+    "diagnostics.disable": [
+        "lowercase-global",
+        "unused-local"
     ]
 }

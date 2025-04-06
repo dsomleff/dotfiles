@@ -10,7 +10,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		map("n", "K", vim.lsp.buf.hover, opts)
 		map("n", "gd", vim.lsp.buf.definition, opts)
 		map("n", "gr", vim.lsp.buf.references, opts)
-		map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
+		-- map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
 		map("n", "gl", function()
 			vim.diagnostic.open_float({ focusable = true })
 		end, opts)
