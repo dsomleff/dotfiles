@@ -23,7 +23,7 @@ return {
 			{ desc = "FzfLua | Recent Files", silent = true },
 		},
 		{
-			"<leader>tt",
+			"<leader>fd",
 			"<cmd>FzfLua diagnostics_document<cr>",
 			{ desc = "FzfLua | Diagnostics", silent = true },
 		},
@@ -38,5 +38,9 @@ return {
 			mode = "v",
 			desc = "FzfLua | Search by selection",
 		},
+		{ "<leader>bi", "<cmd>FzfLua builtin<cr>", desc = "FzfLua | List of finders" },
+		{ "<leader>fk", "<cmd>FzfLua keymaps<cr>", desc = "FzfLua | List of keymaps" },
+		{ "<leader>fr", "<cmd>FzfLua resume<cr>", desc = "FzfLua | Open previous search" },
+		{ "<leader>/", "<cmd>FzfLua lgrep_curbuf<cr>", desc = "FzfLua | Grep current file" },
 	},
 }
