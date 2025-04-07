@@ -12,6 +12,26 @@ return {
 				previewer = false,
 			},
 		},
+		files = {
+			formatter = "path.filename_first",
+			no_header = true,
+			cwd_header = false,
+			cwd_prompt = false,
+			winopts = {
+				title = " Find Files ",
+				title_pos = "center",
+				title_flags = false,
+			},
+		},
+		buffers = {
+			formatter = "path.filename_first",
+			no_header = true,
+			fzf_opts = { ["--delimiter"] = " ", ["--with-nth"] = "-1.." },
+			winopts = {
+				title = " Buffers ",
+				title_pos = "center",
+			},
+		},
 	},
 	keys = {
 		{ "<C-p>", "<cmd>FzfLua files<cr>", { desc = "FzfLua | Files", silent = true } },
