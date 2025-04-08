@@ -14,6 +14,7 @@ return {
 		},
 		files = {
 			formatter = "path.filename_first",
+			git_icons = false,
 			no_header = true,
 			cwd_header = false,
 			cwd_prompt = false,
