@@ -71,11 +71,11 @@ autocmd({ "BufReadPost" }, {
 -- })
 
 -- Auto-delete undo files older than 30 days on Vim startup
-autocmd("VimEnter", {
-	callback = function()
-		local undodir = os.getenv("HOME") .. "/.vim/undodir"
-		local days_old = 30
-		local cmd = string.format("find %s -type f -mtime +%d -delete", undodir, days_old)
-		os.execute(cmd)
-	end,
-})
+-- autocmd("VimEnter", {
+-- 	callback = function()
+-- 		local undodir = os.getenv("HOME") .. "/.vim/undodir"
+-- 		local days_old = 30
+-- 		local cmd = string.format("find %s -type f -mtime +%d -delete", undodir, days_old)
+-- 		os.execute(cmd)
+-- 	end,
+-- })
