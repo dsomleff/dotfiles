@@ -1,5 +1,6 @@
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+-- Use only when vim.opt.hlsearch = true
+-- vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 vim.keymap.set("n", "<leader>fv", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>pv", "<cmd>:e.<CR>")
@@ -16,7 +17,10 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 -- copy/select/paste
--- vim.keymap.set("v", "<leader>P", [["_dP]])
+vim.keymap.set("x", "<leader>p", [["_dP]])
+
+-- always use C-c for Esc
+vim.keymap.set("i", "<C-c>", "<Esc>")
 
 -- copy into system clipboard
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
