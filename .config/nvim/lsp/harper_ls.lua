@@ -18,9 +18,10 @@ return {
 			markdown = {
 				IgnoreLinkTitle = false,
 			},
+			linters = {
+				CapitalizePersonalPronouns = false,
+				SentenceCapitalization = false,
+			},
 		},
 	},
-	on_attach = function(client)
-		client.server_capabilities.documentFormattingProvider = true
-	end,
 }
