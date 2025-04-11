@@ -33,4 +33,5 @@ vim.lsp.enable({
 	"harper_ls",
 	"taplo", -- toml
 	"yaml_ls",
+	"bash_ls",
 })

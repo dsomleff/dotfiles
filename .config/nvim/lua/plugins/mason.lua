@@ -8,6 +8,7 @@ local ensure_installed = {
 	"harper-ls", -- spell checker
 	"taplo", -- toml
 	"yaml-language-server",
+	"bash-language-server",
 }
 
 return {
