@@ -1,6 +1,13 @@
 [user]
 	name = Dmytro Somliev
-	email = dmytro.somliev@ibm.com
+    [includeIf "gitdir:/Users/somleff/Code/"]
+        path = .gitconfig.code
+
+    [includeIf "gitdir:/Users/somleff/Pets/"]
+        path = .gitconfig.pets
+
+    [includeIf "gitdir:/Users/somleff/dotfiles/"]
+        path = .gitconfig.pets
 [column]
     ui = auto
 [branch]
