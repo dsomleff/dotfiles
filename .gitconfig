@@ -1,13 +1,13 @@
 [user]
 	name = Dmytro Somliev
     [includeIf "gitdir:/Users/somleff/Code/"]
-        path = .gitconfig.code
+        path = ~/.gitconfig.code
 
     [includeIf "gitdir:/Users/somleff/Pets/"]
-        path = .gitconfig.pets
+        path = ~/.gitconfig.pets
 
     [includeIf "gitdir:/Users/somleff/dotfiles/"]
-        path = .gitconfig.pets
+        path = ~/.gitconfig.pets
 [column]
     ui = auto
 [branch]
