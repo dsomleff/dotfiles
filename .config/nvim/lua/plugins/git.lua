@@ -7,7 +7,7 @@ return {
 			{ "<leader>gp", ":G pull<CR>", {} },
 			{ "<leader>gP", ":G push<CR>", {} },
 			{ "<leader>gf", ":G fetch<CR>", {} },
-			{ "<leader>gb", ":G blame -w -C -C -C<CR>", {} },
+			{ "<leader>gb", ":G blame <CR>", {} }, -- add -C -C -C to :G blame if you want more deep info; add -w to ignore whitespace
 			{ "<leader>gd", ":Gvdiff<CR>", {} },
 			{ "<leader>gH", ":G log --oneline --decorate --graph --parents --all<CR>", {} },
 			-- { "<leader>gl", ":G log | only<CR>", {} },
