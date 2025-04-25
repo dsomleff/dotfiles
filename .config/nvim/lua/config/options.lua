@@ -52,8 +52,8 @@ vim.g.have_nerd_font = true
 -- tree view in netrw
 vim.g.netrw_liststyle = 0
 
--- tree view in netrw
-vim.g.netrw_liststyle = 0
+-- remove netrw header
+vim.g.netrw_banner = 0
 
 -- Set <space> as the leader key
 vim.g.mapleader = " "
