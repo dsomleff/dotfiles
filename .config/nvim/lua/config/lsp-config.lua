@@ -34,4 +34,5 @@ vim.lsp.enable({
 	"taplo", -- toml
 	"yaml_ls",
 	"bash_ls",
+	"tailwindcss_ls",
 })

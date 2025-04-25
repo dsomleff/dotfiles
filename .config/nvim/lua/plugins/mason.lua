@@ -12,6 +12,7 @@ local ensure_installed = {
 	"prettier",
 	"prettierd",
 	"stylua",
+	"tailwindcss-language-server",
 }
 
 return {
