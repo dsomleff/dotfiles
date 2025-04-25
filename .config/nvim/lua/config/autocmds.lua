@@ -30,7 +30,11 @@ autocmd("BufWritePre", {
 autocmd("BufEnter", {
 	group = general,
 	callback = function()
-		if vim.fn.argc() == 0 and vim.fn.line2byte("$") == -1 then
+		local bufs = vim.tbl_filter(function(buf)
+			return vim.fn.buflisted(buf) == 1
+		end, vim.api.nvim_list_bufs())
+
+		if #bufs == 0 then
 			vim.cmd("Explore")
 		end
 	end,
