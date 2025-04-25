@@ -49,12 +49,15 @@ vim.opt.updatetime = 50
 
 vim.g.have_nerd_font = true
 
+-- tree view in netrw
+vim.g.netrw_liststyle = 0
+
+-- tree view in netrw
+vim.g.netrw_liststyle = 0
+
 -- Set <space> as the leader key
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-
--- Disable netrw
-vim.g.netrw_banner = 0
 
 -- Spell check
 vim.opt.spelllang = "en_us"

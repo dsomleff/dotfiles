@@ -6,10 +6,7 @@ local autocmd = vim.api.nvim_create_autocmd
 local formatting = create_augroup("AutoFormatting")
 local general = create_augroup("General")
 
--- tree view in netrw
-vim.g.netrw_liststyle = 0
-
--- disable auto-comments on new line
+-- disable auto-comments on newline
 autocmd("BufEnter", {
 	group = general,
 	callback = function()
@@ -25,15 +22,7 @@ autocmd("BufWritePre", {
 	group = formatting,
 	pattern = "*",
 	callback = function()
-		vim.lsp.buf.format()
 		vim.cmd([[%s/\s\+$//e]])
-	end,
-})
-
-autocmd("BufWritePre", {
-	group = "AutoFormatting",
-	callback = function()
-		vim.lsp.buf.format()
 	end,
 })
 
