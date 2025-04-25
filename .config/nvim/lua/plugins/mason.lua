@@ -9,6 +9,9 @@ local ensure_installed = {
 	"taplo", -- toml
 	"yaml-language-server",
 	"bash-language-server",
+	"prettier",
+	"prettierd",
+	"stylua",
 }
 
 return {
