@@ -27,18 +27,18 @@ autocmd("BufWritePre", {
 })
 
 -- open Netrw after no open buffers left
-autocmd("BufEnter", {
-	group = general,
-	callback = function()
-		local bufs = vim.tbl_filter(function(buf)
-			return vim.fn.buflisted(buf) == 1
-		end, vim.api.nvim_list_bufs())
-
-		if #bufs == 0 then
-			vim.cmd("Explore")
-		end
-	end,
-})
+-- autocmd("BufEnter", {
+-- 	group = general,
+-- 	callback = function()
+-- 		local bufs = vim.tbl_filter(function(buf)
+-- 			return vim.fn.buflisted(buf) == 1
+-- 		end, vim.api.nvim_list_bufs())
+--
+-- 		if #bufs == 0 then
+-- 			vim.cmd("Explore")
+-- 		end
+-- 	end,
+-- })
 
 -- highlight on yank
 autocmd("TextYankPost", {
