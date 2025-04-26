@@ -15,5 +15,11 @@ return {
 			default = { "lsp", "path", "snippets", "buffer" },
 		},
 		signature = { enabled = true },
+		completion = {
+			menu = {
+				border = "single",
+			},
+			documentation = { window = { border = "single" } },
+		},
 	},
 }
