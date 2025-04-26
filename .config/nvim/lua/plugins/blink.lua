@@ -1,7 +1,7 @@
 return {
 	"saghen/blink.cmp",
 	version = "v0.*",
-	event = "InsertEnter",
+	event = { "InsertEnter", "CmdlineEnter" },
 	dependencies = {
 		"rafamadriz/friendly-snippets",
 	},
@@ -13,13 +13,29 @@ return {
 		},
 		sources = {
 			default = { "lsp", "path", "snippets", "buffer" },
+			providers = {
+				-- Exclude keywords/constants from autocomplete
+				lsp = {
+					name = "LSP",
+					module = "blink.cmp.sources.lsp",
+					transform_items = function(_, items)
+						return vim.tbl_filter(function(item)
+							return item.kind ~= require("blink.cmp.types").CompletionItemKind.Keyword
+						end, items)
+					end,
+				},
+			},
 		},
 		signature = { enabled = true },
 		completion = {
 			menu = {
 				border = "single",
 			},
-			documentation = { window = { border = "single" } },
+			documentation = {
+				window = {
+					border = "single",
+				},
+			},
 		},
 	},
 }
