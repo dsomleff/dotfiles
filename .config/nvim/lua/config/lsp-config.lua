@@ -7,7 +7,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		local opts = { buffer = args.buf, silent = true }
 
 		-- LSP Keymaps
-		map("n", "K", vim.lsp.buf.hover, opts)
+		map("n", "K", function()
+			vim.lsp.buf.hover({ border = "single" })
+		end)
 		map("n", "gd", vim.lsp.buf.definition, opts)
 		map("n", "gr", vim.lsp.buf.references, opts)
 		-- map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
