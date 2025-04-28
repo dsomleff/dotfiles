@@ -1,6 +1,6 @@
 local ensure_installed = {
 	"lua-language-server",
-	"typescript-language-server",
+	-- "typescript-language-server",
 	"html-lsp",
 	"css-lsp",
 	"json-lsp",
@@ -13,6 +13,7 @@ local ensure_installed = {
 	"prettierd",
 	"stylua",
 	"tailwindcss-language-server",
+	"vtsls",
 }
 
 return {

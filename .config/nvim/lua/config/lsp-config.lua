@@ -27,7 +27,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 vim.lsp.enable({
 	"lua_ls",
-	"ts_ls",
+	-- "ts_ls",
 	"html_ls",
 	"css_ls",
 	"json_ls",
@@ -37,4 +37,5 @@ vim.lsp.enable({
 	"yaml_ls",
 	"bash_ls",
 	"tailwindcss_ls",
+	"vtsls",
 })
