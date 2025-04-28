@@ -14,7 +14,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		map("n", "gr", vim.lsp.buf.references, opts)
 		-- map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
 		map("n", "gl", function()
-			vim.diagnostic.open_float({ focusable = true })
+			vim.diagnostic.open_float({ focusable = true, border = "single" })
 		end, opts)
 
 		if vim.lsp.inlay_hint then
