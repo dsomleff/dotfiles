@@ -47,10 +47,8 @@ return {
 	filetypes = {
 		"javascript",
 		"javascriptreact",
-		"javascript.jsx",
 		"typescript",
 		"typescriptreact",
-		"typescript.tsx",
 	},
 	root_dir = function(bufnr, cb)
 		local fname = vim.uri_to_fname(vim.uri_from_bufnr(bufnr))
