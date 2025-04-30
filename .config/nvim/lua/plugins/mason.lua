@@ -13,7 +13,8 @@ local ensure_installed = {
 	"prettierd",
 	"stylua",
 	"tailwindcss-language-server",
-	"vtsls",
+	-- "vtsls",
+	--    "vue-language-server"
 }
 
 return {

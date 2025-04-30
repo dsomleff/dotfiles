@@ -37,5 +37,6 @@ vim.lsp.enable({
 	"yaml_ls",
 	"bash_ls",
 	"tailwindcss_ls",
-	-- "vtsls",
+	-- "vtsls", -- must be installed via Mason
+	-- "volar_ls" -- must be installed via Mason
 })
