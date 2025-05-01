@@ -50,7 +50,7 @@ return {
 		},
 		{ "<leader>fb", "<cmd>FzfLua buffers<cr>", { desc = "FzfLua | Buffers", silent = true } },
 		{ "<leader>ca", "<cmd>FzfLua lsp_code_actions<cr>", desc = "FzfLua | Code Actions" },
-		{ "<leader>fc", "<cmd>FzfLua files cwd=~/dotfiles/.config<cr>", desc = "FzfLua | Config" },
+		{ "<leader>fc", "<cmd>FzfLua files cwd=~/dotfiles<cr>", desc = "FzfLua | Config" },
 		{ "<leader>fw", "<cmd>FzfLua grep_cword<cr>", desc = "FzfLua | Word Under Cursor" },
 		{ "<leader>fW", "<cmd>FzfLua grep_cWORD<cr>", desc = "FzfLua | WORD Under Cursor" },
 		{
