@@ -53,7 +53,7 @@
     gla = "!git l --all"
     glra = "!git lr --all"
     lg = "!git l -G $1 -- $2"
-	fpush = git push --force-with-lease
+	fpush = push --force-with-lease
 [init]
 	defaultBranch = main
 [maintenance]
