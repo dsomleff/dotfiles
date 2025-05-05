@@ -16,4 +16,9 @@ mkdir ~/.cache/carapace
 carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
 
 fnm env --json | from json | load-env
-$env.PATH = ($env.PATH | append $"($env.FNM_MULTISHELL_PATH)/bin")
+# $env.PATH = ($env.PATH | append $"($env.FNM_MULTISHELL_PATH)/bin")
+$env.PATH = ($env.PATH
+  | append $"($env.FNM_MULTISHELL_PATH)/bin"
+  | append '/Users/somleff/.rd/bin')
+
+
