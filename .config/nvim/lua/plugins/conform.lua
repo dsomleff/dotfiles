@@ -24,6 +24,16 @@ return {
 			-- async = false,
 		},
 		formatters = {
+			prettierd = {
+				args = {
+					"--stdin-filepath",
+					"$FILENAME",
+					"--tab-width",
+					"4",
+					"--use-tabs",
+					"false",
+				},
+			},
 			prettier = {
 				args = {
 					"--stdin-filepath",
