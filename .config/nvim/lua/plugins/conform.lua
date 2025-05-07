@@ -3,10 +3,10 @@ return {
 	event = { "BufReadPost" },
 	opts = {
 		formatters_by_ft = {
-			javascript = { "prettierd", "prettier", stop_after_first = true },
-			typescript = { "prettierd", "prettier", stop_after_first = true },
-			javascriptreact = { "prettierd", "prettier", stop_after_first = true },
-			typescriptreact = { "prettierd", "prettier", stop_after_first = true },
+			javascript = { "prettierd", "prettier" },
+			typescript = { "prettierd", "prettier" },
+			javascriptreact = { "prettierd", "prettier" },
+			typescriptreact = { "prettierd", "prettier" },
 			vue = { "prettier" },
 			css = { "prettier" },
 			html = { "prettier" },
@@ -15,6 +15,7 @@ return {
 			markdown = { "prettier" },
 			lua = { "stylua" },
 		},
+		format_after_first = true,
 		default_format_opts = {
 			lsp_format = "fallback",
 		},
