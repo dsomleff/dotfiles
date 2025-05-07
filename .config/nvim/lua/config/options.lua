@@ -15,7 +15,7 @@ vim.opt.smartindent = true
 
 -- File settings
 vim.opt.autoread = true
-vim.opt.wrap = false
+vim.opt.wrap = true
 vim.opt.swapfile = false
 vim.opt.backup = false
 

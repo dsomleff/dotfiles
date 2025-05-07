@@ -16,7 +16,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
--- cursor goes to "broken" lines
+-- cursor goes on display lines
 vim.keymap.set("n", "j", "gj")
 vim.keymap.set("n", "k", "gk")
 
