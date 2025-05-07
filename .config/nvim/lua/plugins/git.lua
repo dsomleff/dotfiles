@@ -35,6 +35,9 @@ return {
 				changedelete = { text = "▎" },
 				untracked = { text = "▎" },
 			},
+			preview_config = {
+				border = "single",
+			},
 		},
 		init = function()
 			-- Key mappings for Gitsigns
