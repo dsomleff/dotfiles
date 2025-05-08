@@ -19,10 +19,16 @@ return {
 			diagnostics = {
 				disable = { "lowercase-global" },
 			},
+			format = { enable = false },
+			hint = {
+				enable = true,
+				arrayIndex = "Disable",
+			},
 			workspace = {
 				checkThirdParty = false,
 				library = {
 					vim.env.VIMRUNTIME,
+					"${3rd}/luv/library",
 				},
 			},
 		},
