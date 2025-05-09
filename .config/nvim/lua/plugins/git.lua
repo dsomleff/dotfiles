@@ -14,8 +14,8 @@ return {
 			{ "<leader>gl", ":0GcLog<CR>", {} },
 			{ "<leader>mc", ":Gvdiffsplit!<CR>", {} },
 			{ "<leader>gD", ":G branch -D ", {} }, -- Force delete branch interactive
-			{ "gj", ":diffget //3<CR>", {} }, -- get from right
-			{ "gf", ":diffget //2<CR>", {} }, -- get from left
+			{ "gh", ":diffget //3<CR>", {} }, -- get from right
+			{ "gl", ":diffget //2<CR>", {} }, -- get from left
 		},
 	},
 	{
