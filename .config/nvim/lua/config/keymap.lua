@@ -102,6 +102,10 @@ vim.api.nvim_set_keymap("n", "<Down>", "<NOP>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<Left>", "<NOP>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<Right>", "<NOP>", { noremap = true })
 
+-- Preserve jumplist when navigating search results with 'n' and 'N'
+vim.keymap.set("n", "n", ":keepjumps normal! n<CR>")
+vim.keymap.set("n", "N", ":keepjumps normal! N<CR>")
+
 -- Paste below the current line while keeping the cursor at the correct position
 vim.keymap.set("n", "p", function()
 	local pos = vim.api.nvim_win_get_cursor(0)
