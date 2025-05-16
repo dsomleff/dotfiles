@@ -1,23 +1,47 @@
-fcd() {
-    local dir
-    dir=$(find ${1:-.} -type d -not -path '*/\.*' 2> /dev/null | fzf)
-    if [ -n "$dir" ]; then
-        cd "$dir"
-    fi
-}
+# load modules
+# zmodload zsh/complist
+# autoload -U compinit && compinit
+# autoload -U colors && colors
 
-export DISABLE_AUTO_TITLE='true'
+# completion opts
+# zstyle ':completion:*' menu select # tab opens cmp menu
+# zstyle ':completion:*' special-dirs true # force . and .. to show in cmp menu
+# zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} ma=0\;33 # colorize cmp menu
+# zstyle ':completion:*' squeeze-slashes false # explicit disable to allow /*/ expansion
 
-#  Plugins
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# main options
+setopt auto_menu menu_complete
+setopt autocd
+setopt auto_param_slash
+setopt globdots
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# History file location (XDG-compliant)
+HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh_history"
 
-# Load completions
-autoload -Uz compinit && compinit
+# Increase history size
+HISTSIZE=1000000         # in-memory history
+SAVEHIST=1000000         # on-disk history
 
-#  Aliases
+# History behavior
+setopt appendhistory           # don't overwrite history file, append to it
+setopt sharehistory            # share history across terminals
+setopt hist_ignore_space       # ignore commands starting with space
+setopt hist_ignore_dups        # ignore duplicate commands
+setopt hist_ignore_all_dups    # remove older duplicate commands
+setopt hist_save_no_dups       # don't save duplicates to history
+setopt hist_find_no_dups       # when searching, skip duplicates
+setopt inc_append_history      # write to history file immediately
+
+# Aliases
+alias v="nvim"
+alias tm="tmux"
+alias tma="tmux attach"
+alias tmas="tmux attach -t"
+alias tmns="tmux new-session -s"
+alias tmks="tmux kill-session -t"
+alias tmka="tmux kill-server"
+alias conf="tmuxp load ~/dotfiles/.config/tmux/sessions/dotfiles.yaml"
+
 alias ga="git add"
 alias gs="git status"
 alias gc="git commit -m"
@@ -27,17 +51,6 @@ alias glc="git branch -v" #last commit on each branch
 alias gf="git fetch --prune"
 alias lg="lazygit"
 
-alias v="nvim"
-
-alias tm="tmux"
-alias tma="tmux attach"
-alias tmas="tmux attach -t"
-alias tmns="tmux new-session -s"
-alias tmks="tmux kill-session -t"
-alias tmka="tmux kill-server"
-
-alias ff="fzf"
-alias ffp='v $(ff -m --preview="cat {}")'
 alias c="clear"
 
 alias ls="eza --icons"
@@ -54,37 +67,11 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 
+# alias ff="fzf"
+# alias ffp='v $(ff -m --preview="cat {}")'
 alias cat="bat --theme=Nord"
 alias ql="qlmanage -p"
 alias grep='grep --color=auto'
-
-weather() {
-    # Check if a city name is provided as an argument
-    local city=${1:-}  # Default to no city if not provided
-    if [ -n "$city" ]; then
-        curl "wttr.in/${city}"
-    else
-        curl wttr.in
-    fi
-}
-
-export MANPAGER="sh -c 'col -bx | bat --theme=Nord -l man -p'"
-
-# History
-HISTSIZE=5000
-HISTFILE=~/.zsh_history
-SAVEHIST=$HISTSIZE
-HISTDUP=erase
-setopt appendhistory
-setopt sharehistory
-setopt hist_ignore_space
-setopt hist_ignore_all_dups
-setopt hist_save_no_dups
-setopt hist_ignore_dups
-setopt hist_find_no_dups
-
-# Tmux sessions
-alias conf="tmuxp load ~/dotfiles/.config/tmux/sessions/dotfiles.yaml"
 
 # Use Neovim as "preferred editor"
 export EDITOR="nvim"
@@ -93,24 +80,11 @@ export VISUAL="$EDITOR"
 # for tmux color consistency
 export TERM=tmux-256color
 
-# Function to count the number of lines in files with a given extension
-lines_number() {
-  if [ -z "$1" ]; then
-    echo "Usage: lines_number <file_extension>"
-    return 1
-  fi
+# autosuggestions
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-  find . -name "*.$1" | xargs -I {} cat {} | wc -l
-}
-
-
-#  NVM is set up correctly
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/somleff/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+# syntax highlighting
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #yazi
 function y() {
@@ -131,13 +105,5 @@ export STARSHIP_CONFIG=~/.config/starship/starship.toml
 
 # prime tmux-sessionizer
 PATH="$PATH":"$HOME/.local/scripts/"
-
-bindkey "^[[1;5C" forward-word
-bindkey "^[[1;5D" backward-word
-bindkey "^a" beginning-of-line
-bindkey "^e" end-of-line
-bindkey '^p' history-search-backward
-bindkey '^n' history-search-forward
-bindkey -s ^f "tmux-sessionizer\n"
 
 export XDG_CONFIG_HOME="$HOME/dotfiles/.config"
