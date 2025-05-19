@@ -107,3 +107,7 @@ export STARSHIP_CONFIG=~/.config/starship/starship.toml
 PATH="$PATH":"$HOME/.local/scripts/"
 
 export XDG_CONFIG_HOME="$HOME/dotfiles/.config"
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT) Remove after stop/not using Rancher
+export PATH="/Users/somleff/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
