@@ -18,6 +18,7 @@ return {
 			},
 			diagnostics = {
 				disable = { "lowercase-global" },
+				globals = { "vim" },
 			},
 			format = { enable = false },
 			hint = {
