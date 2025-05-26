@@ -7,6 +7,7 @@ return {
 		local config = require("nvim-treesitter.configs")
 
 		config.setup({
+			branch = "main",
 			autotag = {
 				enable = true,
 			},
