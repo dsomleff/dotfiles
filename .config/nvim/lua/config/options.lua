@@ -79,3 +79,13 @@ vim.diagnostic.config({
 	-- virtual_text = { current_line = true },
 	virtual_lines = { current_line = true },
 })
+
+-- add syntax highlight to .env files
+vim.filetype.add({
+	filename = {
+		[".env"] = "sh",
+	},
+	pattern = {
+		["%.env.*"] = "sh",
+	},
+})
