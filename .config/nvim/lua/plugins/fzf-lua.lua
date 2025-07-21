@@ -34,6 +34,10 @@ return {
 			},
 		},
 	},
+	config = function(_, opts)
+		require("fzf-lua").setup(opts)
+		require("fzf-lua").register_ui_select()
+	end,
 	keys = {
 		{ "<C-p>", "<cmd>FzfLua files<cr>", { desc = "FzfLua | Files", silent = true } },
 		{ "<leader>fh", "<cmd>FzfLua help_tags<cr>", { desc = "FzfLua | Help", silent = true } },
