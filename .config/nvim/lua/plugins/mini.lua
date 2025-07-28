@@ -28,12 +28,12 @@ return {
 			-- srt -- Replace surrounding tags
 		},
 	},
-	{
-		"echasnovski/mini.pairs",
-		version = false,
-		opts = {},
-		event = {
-			"BufReadPost",
-		},
-	},
+	-- {
+	-- 	"echasnovski/mini.pairs",
+	-- 	version = false,
+	-- 	opts = {},
+	-- 	event = {
+	-- 		"BufReadPost",
+	-- 	},
+	-- },
 }
