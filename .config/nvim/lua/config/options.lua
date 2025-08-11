@@ -89,3 +89,6 @@ vim.filetype.add({
 		["%.env.*"] = "sh",
 	},
 })
+
+-- window border
+vim.opt.winborder = "rounded"
