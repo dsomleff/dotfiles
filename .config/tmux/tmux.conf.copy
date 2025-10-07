@@ -1,0 +1,75 @@
+unbind r
+bind r source-file ~/.config/tmux/tmux.conf
+
+set -g prefix C-s
+
+set -g mouse on
+
+set -s escape-time 1
+
+# set-option -g default-shell /opt/homebrew/bin/nu
+
+# True color settings
+set -g default-terminal "$TERM"
+set -ag terminal-overrides ",$TERM:Tc"
+
+set -g base-index 1
+set -g pane-base-index 1
+set -g renumber-windows on
+
+set -g focus-events on
+
+bind-key h select-pane -L
+bind-key j select-pane -D
+bind-key k select-pane -U
+bind-key l select-pane -R
+
+unbind '"'
+bind - split-window -v -c '#{pane_current_path}'
+
+unbind %
+bind | split-window -h -c '#{pane_current_path}'
+
+# open new windows in the same directory
+bind c new-window -c "#{pane_current_path}"
+
+# prime tmux-sessionizer
+bind-key -r f run-shell "tmux neww ~/.local/scripts/tmux-sessionizer"
+
+# Configure positions
+set -g status-position bottom
+# set -g status-justify "absolute-centre"
+
+# Catpuccin
+set -g @catppuccin_status_background "none"
+set -ogq @thm_bg "#303446"
+set -g @catppuccin_window_status_style "none"
+set -g @catppuccin_pane_status_enabled "off"
+set -g @catppuccin_pane_border_status "off"
+# set -g @catppuccin_window_flags "icon"
+
+# status left
+set -g status-left ""
+# set -g status-left-length 100
+
+# status windows
+set -g window-status-style "bg=#{@thm_bg},fg=#{@thm_peach}"
+set -g window-status-last-style "bg=#{@thm_bg},fg=#{@thm_peach}"
+set -g window-status-current-format " #I#{?#{!=:#{window_name},Window},: #W,} 󱨈 "
+set -g window-status-format " #I#{?#{!=:#{window_name},Window},: #W,} 󱓺 "
+set -g window-status-current-style "bg=#{@thm_peach},fg=#{@thm_crust},"
+
+# status right
+set -g status-right ""
+set -g status-right-length 100
+set -ga status-right "#{?client_prefix,#{#[bg=#{@thm_lavender},fg=#{@thm_bg},bold]  #S },#{#[bg=#{@thm_bg},fg=#{@thm_green}]  #S }}"
+set -ga status-right "#[bg=#{@thm_bg},fg=#{@thm_yellow}]#{?window_zoomed_flag,  zoom ,}"
+# set -ga status-right "#[bg=#{@thm_bg},fg=#{@thm_green}] 󰭦 %d-%m 󰅐 %H:%M "
+
+# List of plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'catppuccin/tmux'
+set -g @plugin 'christoomey/vim-tmux-navigator'
+
+run ~/.config/tmux/plugins/tmux/catppuccin.tmux
+run '~/dotfiles/.config/tmux/plugins/tpm/tpm'
