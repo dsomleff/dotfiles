@@ -131,6 +131,90 @@ local function full_git()
 	return full
 end
 
+-- Fidget replacement
+-- local function lsp_active()
+-- 	if not rawget(vim, "lsp") then
+-- 		return ""
+-- 	end
+--
+-- 	local current_buf = vim.api.nvim_get_current_buf()
+-- 	local clients = vim.lsp.get_clients({ bufnr = current_buf })
+--
+-- 	local space = "%#StatusLineMedium# %*"
+--
+-- 	if #clients > 0 then
+-- 		return space .. "%#StatusLineMedium#LSP%*"
+-- 	end
+--
+-- 	return ""
+-- end
+--
+-- local lsp_progress = {
+-- 	client = nil,
+-- 	kind = nil,
+-- 	title = nil,
+-- 	percentage = nil,
+-- 	message = nil,
+-- }
+--
+-- vim.api.nvim_create_autocmd("LspProgress", {
+-- 	group = statusline_augroup,
+-- 	desc = "Update LSP progress in statusline",
+-- 	pattern = { "begin", "report", "end" },
+-- 	callback = function(args)
+-- 		if not (args.data and args.data.client_id) then
+-- 			return
+-- 		end
+--
+-- 		lsp_progress = {
+-- 			client = vim.lsp.get_client_by_id(args.data.client_id),
+-- 			kind = args.data.params.value.kind,
+-- 			message = args.data.params.value.message,
+-- 			percentage = args.data.params.value.percentage,
+-- 			title = args.data.params.value.title,
+-- 		}
+--
+-- 		if lsp_progress.kind == "end" then
+-- 			lsp_progress.title = nil
+-- 			vim.defer_fn(function()
+-- 				vim.cmd.redrawstatus()
+-- 			end, 500)
+-- 		else
+-- 			vim.cmd.redrawstatus()
+-- 		end
+-- 	end,
+-- })
+--
+-- local function lsp_status()
+-- 	if not rawget(vim, "lsp") then
+-- 		return ""
+-- 	end
+--
+-- 	if vim.o.columns < 120 then
+-- 		return ""
+-- 	end
+--
+-- 	if not lsp_progress.client or not lsp_progress.title then
+-- 		return ""
+-- 	end
+--
+-- 	local title = lsp_progress.title or ""
+-- 	local percentage = (lsp_progress.percentage and (lsp_progress.percentage .. "%%")) or ""
+-- 	local message = lsp_progress.message or ""
+--
+-- 	local lsp_message = string.format("%s", title)
+--
+-- 	if message ~= "" then
+-- 		lsp_message = string.format("%s %s", lsp_message, message)
+-- 	end
+--
+-- 	if percentage ~= "" then
+-- 		lsp_message = string.format("%s %s", lsp_message, percentage)
+-- 	end
+--
+-- 	return string.format("%%#StatusLineLspMessages#%s%%* ", lsp_message)
+-- end
+
 local function file_percentage()
 	local current_line = vim.api.nvim_win_get_cursor(0)[1]
 	local lines = vim.api.nvim_buf_line_count(0)
@@ -192,6 +276,8 @@ StatusLine.active = function()
 		"%=",
 		"%S ",
 		formatted_filetype("StatusLineMode"),
+		-- lsp_status(),
+		-- lsp_active(),
 		file_percentage(),
 		total_lines(),
 	}
