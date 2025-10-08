@@ -24,5 +24,10 @@ return {
 
 			vim.keymap.set("n", "-", ":Oil<CR>", { desc = "Open parent directory" }),
 		},
+
+		config = function(_, opts)
+			require("mini.icons").setup()
+			require("oil").setup(opts)
+		end,
 	},
 }
