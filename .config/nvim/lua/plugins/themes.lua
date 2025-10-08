@@ -39,6 +39,17 @@ return {
 				italic = true, -- Make hints italic for better distinction
 			})
 
+			-- Status line colors
+			-- vim.api.nvim_set_hl(0, "StatusLineMedium", { fg = "#c0caf5", bg = "#1f2335", bold = true })
+			-- vim.api.nvim_set_hl(0, "StatusLineGitBranchIcon", { fg = "#767675", bold = true })
+			vim.api.nvim_set_hl(0, "StatusLineGitDiffAdded", { fg = "#D0D0D0" })
+			vim.api.nvim_set_hl(0, "StatusLineGitDiffChanged", { fg = "#bcbcbc" })
+			vim.api.nvim_set_hl(0, "StatusLineGitDiffRemoved", { fg = "#c5c5c5" })
+
+			vim.api.nvim_set_hl(0, "StatusLineLspError", { fg = "#c5c5c5", bold = true })
+			vim.api.nvim_set_hl(0, "StatusLineLspWarn", { fg = "#bcbcbc", bold = true })
+			vim.api.nvim_set_hl(0, "StatusLineLspHint", { fg = "#D0D0D0", bold = true })
+
 			-- Link the newer semantic token highlight group to our custom style
 			vim.api.nvim_set_hl(0, "@lsp.type.inlayHint", { link = "LspInlayHint" })
 		end,

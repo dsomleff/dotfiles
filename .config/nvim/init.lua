@@ -3,6 +3,7 @@ require("config.keymap")
 require("config.lazy")
 require("config.autocmds")
 require("config.lsp-config")
+require("config.statusline")
 
 local modules = {
 	"config.options",
