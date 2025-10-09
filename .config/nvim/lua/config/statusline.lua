@@ -5,10 +5,10 @@ local filetype_icons = {
 	lua = "",
 	javascript = "",
 	typescript = "",
-	typescriptreact = "",
+	typescriptreact = "",
 	html = "",
 	css = "",
-	scss = "",
+	scss = "󰌜",
 	json = "",
 	bash = "",
 	sh = "",
@@ -16,8 +16,11 @@ local filetype_icons = {
 	markdown = "󰫺",
 	fugitive = "",
 	gitcommit = "",
+	gitignore = "",
 	netrw = "",
 	oil = "",
+	yaml = "",
+	yml = "",
 }
 
 local function get_lsp_diagnostics_count(severity)
