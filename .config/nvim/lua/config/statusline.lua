@@ -1,4 +1,4 @@
--- copied from https://github.com/gmr458/nvim/blob/master/lua/gmr/core/statusline.lua
+-- inspired by https://github.com/gmr458/nvim/blob/master/lua/gmr/core/statusline.lua
 local statusline_augroup = vim.api.nvim_create_augroup("gmr_statusline", { clear = true })
 
 local filetype_icons = {
