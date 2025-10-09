@@ -107,10 +107,10 @@ local function full_git()
 	local branch = git_branch()
 	if branch ~= "" then
 		local icon = git_branch_icon()
-		full = full .. space .. icon .. space .. branch .. space
+		full = full .. "%#StatusLineGitBranchBg# " .. icon .. " " .. branch .. " %*"
 	end
 
-	local filepath = "%#StatusLineMedium# %t %*"
+	local filepath = "%#StatusLineFileNameBg#  %t %*"
 	full = full .. filepath .. space
 
 	local added = git_diff_added()

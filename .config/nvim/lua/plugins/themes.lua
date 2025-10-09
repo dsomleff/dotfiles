@@ -41,7 +41,12 @@ return {
 
 			-- Status line colors
 			-- vim.api.nvim_set_hl(0, "StatusLineMedium", { fg = "#c0caf5", bg = "#1f2335", bold = true })
-			-- vim.api.nvim_set_hl(0, "StatusLineGitBranchIcon", { fg = "#767675", bold = true })
+			-- vim.api.nvim_set_hl(0, "StatusLineGitBranchIcon", { fg = "#b6b6b5", bg = "#323231", bold = true })
+			-- vim.api.nvim_set_hl(0, "StatusLineGitBranchBg", { fg = "#b6b6b5", bg = "#323231", bold = true })
+
+			vim.api.nvim_set_hl(0, "StatusLineFileNameBg", { fg = "#d1d1d1", bg = "#2a2a29" })
+			vim.api.nvim_set_hl(0, "StatusLineMode", { fg = "#b6b6b5", bg = "#323231", bold = true })
+
 			vim.api.nvim_set_hl(0, "StatusLineGitDiffAdded", { fg = "#D0D0D0" })
 			vim.api.nvim_set_hl(0, "StatusLineGitDiffChanged", { fg = "#bcbcbc" })
 			vim.api.nvim_set_hl(0, "StatusLineGitDiffRemoved", { fg = "#c5c5c5" })
