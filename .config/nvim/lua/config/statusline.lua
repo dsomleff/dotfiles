@@ -2,16 +2,11 @@
 local statusline_augroup = vim.api.nvim_create_augroup("gmr_statusline", { clear = true })
 
 local function get_lsp_diagnostics_count(severity)
-	if not rawget(vim, "lsp") then
+	if not vim.lsp then
 		return 0
 	end
 
-	local count = vim.diagnostic.count(0, { serverity = severity })[severity]
-	if count == nil then
-		return 0
-	end
-
-	return count
+	return #vim.diagnostic.get(0, { severity = severity })
 end
 
 local function get_git_diff(type)
@@ -23,66 +18,20 @@ local function get_git_diff(type)
 	return 0
 end
 
-local function diagnostics_error()
-	local count = get_lsp_diagnostics_count(vim.diagnostic.severity.ERROR)
+local function diagnostics(severity, icon, hl)
+	local count = get_lsp_diagnostics_count(severity)
 	if count > 0 then
-		return string.format("%%#StatusLineLspError# %se%%*", count)
+		local iconMain = ""
+		return iconMain .. string.format("%%#%s# %s%s%%*", hl, count, icon)
 	end
-
 	return ""
 end
 
-local function diagnostics_warns()
-	local count = get_lsp_diagnostics_count(vim.diagnostic.severity.WARN)
+local function git_diff(type, symbol, hl)
+	local count = get_git_diff(type)
 	if count > 0 then
-		return string.format("%%#StatusLineLspWarn# %sw%%*", count)
+		return string.format("%%#%s#%s%s%%*", hl, symbol, count)
 	end
-
-	return ""
-end
-
-local function diagnostics_hint()
-	local count = get_lsp_diagnostics_count(vim.diagnostic.severity.HINT)
-	if count > 0 then
-		return string.format("%%#StatusLineLspHint# %sh%%*", count)
-	end
-
-	return ""
-end
-
-local function diagnostics_info()
-	local count = get_lsp_diagnostics_count(vim.diagnostic.severity.INFO)
-	if count > 0 then
-		return string.format("%%#StatusLineLspInfo# %si%%*", count)
-	end
-
-	return ""
-end
-
-local function git_diff_added()
-	local added = get_git_diff("added")
-	if added > 0 then
-		return string.format("%%#StatusLineGitDiffAdded#+%s%%*", added)
-	end
-
-	return ""
-end
-
-local function git_diff_changed()
-	local changed = get_git_diff("changed")
-	if changed > 0 then
-		return string.format("%%#StatusLineGitDiffChanged#~%s%%*", changed)
-	end
-
-	return ""
-end
-
-local function git_diff_removed()
-	local removed = get_git_diff("removed")
-	if removed > 0 then
-		return string.format("%%#StatusLineGitDiffRemoved#-%s%%*", removed)
-	end
-
 	return ""
 end
 
@@ -113,19 +62,22 @@ local function full_git()
 	local filepath = "%#StatusLineFileNameBg#  %t %*"
 	full = full .. filepath .. space
 
-	local added = git_diff_added()
-	if added ~= "" then
-		full = full .. added .. space
+	local git_icon = ""
+	local git_info = ""
+
+	for _, diff in ipairs({
+		{ "added", "+", "StatusLineGitDiffAdded" },
+		{ "changed", "~", "StatusLineGitDiffChanged" },
+		{ "removed", "-", "StatusLineGitDiffRemoved" },
+	}) do
+		local part = git_diff(diff[1], diff[2], diff[3])
+		if part ~= "" then
+			git_info = git_info .. part .. space
+		end
 	end
 
-	local changed = git_diff_changed()
-	if changed ~= "" then
-		full = full .. changed .. space
-	end
-
-	local removed = git_diff_removed()
-	if removed ~= "" then
-		full = full .. removed .. space
+	if git_info ~= "" then
+		full = full .. "%#StatusLineMedium# " .. git_icon .. " %*" .. git_info
 	end
 
 	return full
@@ -268,10 +220,10 @@ StatusLine.active = function()
 
 	local statusline = {
 		full_git(),
-		diagnostics_error(),
-		diagnostics_warns(),
-		diagnostics_hint(),
-		diagnostics_info(),
+		diagnostics(vim.diagnostic.severity.ERROR, "e", "StatusLineLspError"),
+		diagnostics(vim.diagnostic.severity.WARN, "w", "StatusLineLspWarn"),
+		diagnostics(vim.diagnostic.severity.HINT, "h", "StatusLineLspHint"),
+		diagnostics(vim.diagnostic.severity.INFO, "i", "StatusLineLspInfo"),
 		"%=",
 		"%=",
 		"%S ",
@@ -297,6 +249,7 @@ vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter", "FileType" }, {
 		"netrw",
 		"mason",
 		"qf",
+		"fugitive",
 	},
 	callback = function()
 		vim.opt_local.statusline = "%!v:lua.StatusLine.inactive()"
