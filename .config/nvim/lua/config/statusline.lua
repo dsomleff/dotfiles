@@ -14,6 +14,9 @@ local filetype_icons = {
 	sh = "",
 	dockerfile = "󰡨",
 	markdown = "󰫺",
+	fugitive = "",
+	gitcommit = "",
+	netrw = "",
 }
 
 local function get_lsp_diagnostics_count(severity)
