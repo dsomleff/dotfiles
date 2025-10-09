@@ -1,6 +1,21 @@
 -- copied from https://github.com/gmr458/nvim/blob/master/lua/gmr/core/statusline.lua
 local statusline_augroup = vim.api.nvim_create_augroup("gmr_statusline", { clear = true })
 
+local filetype_icons = {
+	lua = "",
+	javascript = "",
+	typescript = "",
+	typescriptreact = "",
+	html = "",
+	css = "",
+	scss = "",
+	json = "",
+	bash = "",
+	sh = "",
+	dockerfile = "󰡨",
+	markdown = "󰫺",
+}
+
 local function get_lsp_diagnostics_count(severity)
 	if not vim.lsp then
 		return 0
@@ -180,8 +195,10 @@ local function total_lines()
 end
 
 local function formatted_filetype(hlgroup)
-	local filetype = vim.bo.filetype or vim.fn.expand("%:e", false)
-	return string.format("%%#%s# %s %%*", hlgroup, filetype)
+	local ft = vim.bo.filetype or vim.fn.expand("%:e", false)
+	local icon = filetype_icons[ft] or ""
+
+	return string.format("%%#%s# %s %s %%*", hlgroup, icon, ft)
 end
 
 StatusLine = {}
