@@ -17,6 +17,7 @@ local filetype_icons = {
 	fugitive = "",
 	gitcommit = "",
 	netrw = "",
+	oil = "",
 }
 
 local function get_lsp_diagnostics_count(severity)
@@ -270,6 +271,7 @@ vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter", "FileType" }, {
 		"mason",
 		"qf",
 		"fugitive",
+		"oil",
 	},
 	callback = function()
 		vim.opt_local.statusline = "%!v:lua.StatusLine.inactive()"
