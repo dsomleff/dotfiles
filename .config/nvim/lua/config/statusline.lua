@@ -21,8 +21,7 @@ end
 local function diagnostics(severity, icon, hl)
 	local count = get_lsp_diagnostics_count(severity)
 	if count > 0 then
-		local iconMain = ""
-		return iconMain .. string.format("%%#%s# %s%s%%*", hl, count, icon)
+		return string.format("%%#%s# %s%s%%*", hl, count, icon)
 	end
 	return ""
 end
