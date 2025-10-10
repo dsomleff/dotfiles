@@ -59,7 +59,8 @@ local function status_left()
 		full = full .. "%#StatusLineGitBranchBg# " .. icon .. " " .. branch .. " %*"
 	end
 
-	local filepath = "%#StatusLineFileNameBg#  %f %*" -- to display only filename use %t instead of %f
+	local filepath = "%#StatusLineFileNameBg# %f%m%r %*" -- to display only filename use %t instead of %f
+
 	full = full .. filepath .. space
 
 	for _, diff in ipairs({
