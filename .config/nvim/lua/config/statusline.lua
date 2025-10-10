@@ -48,19 +48,25 @@ local function git_branch()
 	return string.format("%%#StatusLineMedium#%s%%*", branch)
 end
 
-local function status_left()
-	local full = ""
-	local space = "%#StatusLineMedium# %*"
-
+local function status_git_branch()
 	local branch = git_branch()
-	if branch ~= "" then
-		local icon = git_branch_icon()
-		full = full .. "%#StatusLineGitBranchBg# " .. icon .. " " .. branch .. " %*"
+	if branch == "" then
+		return ""
 	end
 
-	local filepath = "%#StatusLineFileNameBg# %f%m%r %*" -- to display only filename use %t instead of %f
+	local icon = git_branch_icon()
+	return string.format("%%#StatusLineGitBranchBg# %s %s %%*", icon, branch)
+end
 
-	full = full .. filepath .. space
+local function status_filename()
+	local space = "%#StatusLineMedium# %*"
+	local filename = "%#StatusLineFileNameBg# %f%m%r %*"
+	return filename .. space
+end
+
+local function status_git_diff()
+	local space = "%#StatusLineMedium# %*"
+	local parts = {}
 
 	for _, diff in ipairs({
 		{ "added", "+", "StatusLineGitDiffAdded" },
@@ -69,11 +75,15 @@ local function status_left()
 	}) do
 		local part = git_diff(diff[1], diff[2], diff[3])
 		if part ~= "" then
-			full = full .. part .. space
+			table.insert(parts, part)
 		end
 	end
 
-	return full
+	if #parts == 0 then
+		return ""
+	end
+
+	return table.concat(parts, space) .. space
 end
 
 local function file_percentage()
@@ -129,7 +139,9 @@ StatusLine.active = function()
 	end
 
 	local statusline = {
-		status_left(),
+		status_git_branch(),
+		status_filename(),
+		status_git_diff(),
 		diagnostics(vim.diagnostic.severity.ERROR, "e", "StatusLineLspError"),
 		diagnostics(vim.diagnostic.severity.WARN, "w", "StatusLineLspWarn"),
 		diagnostics(vim.diagnostic.severity.HINT, "h", "StatusLineLspHint"),
