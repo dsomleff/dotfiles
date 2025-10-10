@@ -1,28 +1,6 @@
 -- inspired by https://github.com/gmr458/nvim/blob/master/lua/gmr/core/statusline.lua
 local statusline_augroup = vim.api.nvim_create_augroup("gmr_statusline", { clear = true })
 
-local filetype_icons = {
-	lua = "",
-	javascript = "",
-	typescript = "",
-	typescriptreact = "",
-	html = "",
-	css = "",
-	scss = "󰌜",
-	json = "",
-	bash = "",
-	sh = "",
-	dockerfile = "󰡨",
-	markdown = "󰫺",
-	fugitive = "",
-	gitcommit = "",
-	gitignore = "",
-	netrw = "",
-	oil = "",
-	yaml = "",
-	yml = "",
-}
-
 local function get_lsp_diagnostics_count(severity)
 	if not vim.lsp then
 		return 0
@@ -43,7 +21,7 @@ end
 local function diagnostics(severity, icon, hl)
 	local count = get_lsp_diagnostics_count(severity)
 	if count > 0 then
-		local iconMain = ""
+		local iconMain = ""
 		return iconMain .. string.format("%%#%s# %s%s%%*", hl, count, icon)
 	end
 	return ""
@@ -71,7 +49,7 @@ local function git_branch()
 	return string.format("%%#StatusLineMedium#%s%%*", branch)
 end
 
-local function full_git()
+local function status_left()
 	local full = ""
 	local space = "%#StatusLineMedium# %*"
 
@@ -81,11 +59,8 @@ local function full_git()
 		full = full .. "%#StatusLineGitBranchBg# " .. icon .. " " .. branch .. " %*"
 	end
 
-	local filepath = "%#StatusLineFileNameBg#  %t %*"
+	local filepath = "%#StatusLineFileNameBg#  %f %*" -- to display only filename use %t instead of %f
 	full = full .. filepath .. space
-
-	local git_icon = ""
-	local git_info = ""
 
 	for _, diff in ipairs({
 		{ "added", "+", "StatusLineGitDiffAdded" },
@@ -94,12 +69,8 @@ local function full_git()
 	}) do
 		local part = git_diff(diff[1], diff[2], diff[3])
 		if part ~= "" then
-			git_info = git_info .. part .. space
+			full = full .. part .. space
 		end
-	end
-
-	if git_info ~= "" then
-		full = full .. "%#StatusLineMedium# " .. git_icon .. " %*" .. git_info
 	end
 
 	return full
@@ -202,10 +173,9 @@ local function total_lines()
 end
 
 local function formatted_filetype(hlgroup)
-	local ft = vim.bo.filetype or vim.fn.expand("%:e", false)
-	local icon = filetype_icons[ft] or ""
+	local filetype = vim.bo.filetype or vim.fn.expand("%:e", false)
 
-	return string.format("%%#%s# %s %s %%*", hlgroup, icon, ft)
+	return string.format("%%#%s# %s %%*", hlgroup, filetype)
 end
 
 StatusLine = {}
@@ -243,7 +213,7 @@ StatusLine.active = function()
 	end
 
 	local statusline = {
-		full_git(),
+		status_left(),
 		diagnostics(vim.diagnostic.severity.ERROR, "e", "StatusLineLspError"),
 		diagnostics(vim.diagnostic.severity.WARN, "w", "StatusLineLspWarn"),
 		diagnostics(vim.diagnostic.severity.HINT, "h", "StatusLineLspHint"),
