@@ -98,6 +98,12 @@ local function total_lines()
 	return string.format("%%#StatusLineMedium#of %s %%*", lines)
 end
 
+local function cursor_position()
+	local line = vim.fn.line(".")
+	local col = vim.fn.col(".")
+	return string.format("%%#StatusLineMedium# %d:%d %%*", line, col)
+end
+
 local function formatted_filetype(hlgroup)
 	local filetype = vim.bo.filetype or vim.fn.expand("%:e", false)
 
@@ -150,6 +156,7 @@ StatusLine.active = function()
 		"%=",
 		"%S ",
 		formatted_filetype("StatusLineMode"),
+		cursor_position(),
 		file_percentage(),
 		total_lines(),
 	}
