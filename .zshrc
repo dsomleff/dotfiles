@@ -102,3 +102,6 @@ export XDG_CONFIG_HOME="$HOME/dotfiles/.config"
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT) Remove after stop/not using Rancher
 export PATH="/Users/somleff/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+export PATH="/opt/homebrew/bin:$PATH"
+# Initialize fnm (Fast Node Manager)
+eval "$(fnm env --use-on-cd)"
