@@ -6,7 +6,7 @@ return {
 		config = function()
 			require("kanso").setup({
 				overrides = function(colors)
-					-- local ui = colors.theme.ui
+					local ui = colors.theme.ui
 					local diag = colors.theme.diag
 					local diff = colors.theme.vcs
 
@@ -24,6 +24,8 @@ return {
 						StatusLineLspWarn = { fg = diag.warning, bold = true },
 						StatusLineLspHint = { fg = diag.hint, bold = true },
 						StatusLineLspInfo = { fg = diag.info, bold = true },
+
+						EndOfBuffer = { fg = ui.whitespace },
 					}
 				end,
 			})
