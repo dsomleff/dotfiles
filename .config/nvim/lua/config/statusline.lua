@@ -1,5 +1,63 @@
--- inspired by https://github.com/gmr458/nvim/blob/master/lua/gmr/core/statusline.lua
-local statusline_augroup = vim.api.nvim_create_augroup("gmr_statusline", { clear = true })
+local StatusLine = {}
+
+local function get_git_branch()
+	local gitsigns = vim.b.gitsigns_status_dict
+	if gitsigns and gitsigns.head then
+		return gitsigns.head
+	end
+	return nil
+end
+
+local function git_branch()
+	local branch = get_git_branch()
+	if not branch or branch == "" then
+		return ""
+	end
+	local icon = ""
+	return string.format("%%#StatusLineGit# %s %s %%*", icon, branch)
+end
+
+local function file_path()
+	local filename = vim.fn.expand("%f%m%r")
+	if filename == "" then
+		filename = "[No Name]"
+	end
+
+	local flags = ""
+	if vim.bo.modified then
+		flags = flags .. "[+]"
+	end
+	if vim.bo.readonly then
+		flags = flags .. "RO"
+	end
+
+	return string.format("%%#StatusLineFile# %s %s %%*", filename, flags)
+end
+
+local function git_diff()
+	local gsd = vim.b.gitsigns_status_dict
+	if not gsd then
+		return ""
+	end
+
+	local parts = {}
+
+	if gsd.added and gsd.added > 0 then
+		table.insert(parts, string.format("%%#StatusLineGitDiffAdded#+%d%%*", gsd.added))
+	end
+	if gsd.changed and gsd.changed > 0 then
+		table.insert(parts, string.format("%%#StatusLineGitDiffChanged#~%d%%*", gsd.changed))
+	end
+	if gsd.removed and gsd.removed > 0 then
+		table.insert(parts, string.format("%%#StatusLineGitDiffRemoved#-%d%%*", gsd.removed))
+	end
+
+	if #parts == 0 then
+		return ""
+	end
+
+	return string.format(" %s ", table.concat(parts, " "))
+end
 
 local function get_lsp_diagnostics_count(severity)
 	if not vim.lsp then
@@ -7,15 +65,6 @@ local function get_lsp_diagnostics_count(severity)
 	end
 
 	return #vim.diagnostic.get(0, { severity = severity })
-end
-
-local function get_git_diff(type)
-	local gsd = vim.b.gitsigns_status_dict
-	if gsd and gsd[type] then
-		return gsd[type]
-	end
-
-	return 0
 end
 
 local function diagnostics(severity, icon, hl)
@@ -26,160 +75,48 @@ local function diagnostics(severity, icon, hl)
 	return ""
 end
 
-local function git_diff(type, symbol, hl)
-	local count = get_git_diff(type)
-	if count > 0 then
-		return string.format("%%#%s#%s%s%%*", hl, symbol, count)
+local function filetype()
+	local ft = vim.bo.filetype or vim.fn.expand("%:e", false)
+	if ft == "" then
+		ft = "no ft"
 	end
-	return ""
-end
-
-local function git_branch_icon()
-	return "%#StatusLineGitBranchIcon#%*"
-end
-
-local function git_branch()
-	local branch = vim.b.gitsigns_head
-
-	if branch == "" or branch == nil then
-		return ""
-	end
-
-	return string.format("%%#StatusLineMedium#%s%%*", branch)
-end
-
-local function status_git_branch()
-	local branch = git_branch()
-	if branch == "" then
-		return ""
-	end
-
-	local icon = git_branch_icon()
-	return string.format("%%#StatusLineGitBranchBg# %s %s %%*", icon, branch)
-end
-
-local function status_filename()
-	local space = "%#StatusLineMedium# %*"
-	local filename = "%#StatusLineFileNameBg# %f%m%r %*"
-	return filename .. space
-end
-
-local function status_git_diff()
-	local space = "%#StatusLineMedium# %*"
-	local parts = {}
-
-	for _, diff in ipairs({
-		{ "added", "+", "StatusLineGitDiffAdded" },
-		{ "changed", "~", "StatusLineGitDiffChanged" },
-		{ "removed", "-", "StatusLineGitDiffRemoved" },
-	}) do
-		local part = git_diff(diff[1], diff[2], diff[3])
-		if part ~= "" then
-			table.insert(parts, part)
-		end
-	end
-
-	if #parts == 0 then
-		return ""
-	end
-
-	return table.concat(parts, space) .. space
-end
-
-local function file_percentage()
-	local current_line = vim.api.nvim_win_get_cursor(0)[1]
-	local lines = vim.api.nvim_buf_line_count(0)
-
-	return string.format("%%#StatusLineMedium#  %d%%%% %%*", math.ceil(current_line / lines * 100))
-end
-
-local function total_lines()
-	local lines = vim.fn.line("$")
-	return string.format("%%#StatusLineMedium#of %s %%*", lines)
+	return string.format("%%#StatusLineFileType# %s %%*", ft)
 end
 
 local function cursor_position()
 	local line = vim.fn.line(".")
 	local col = vim.fn.col(".")
-	return string.format("%%#StatusLineMedium# %d:%d %%*", line, col)
+	return string.format("%%#StatusLineCursor#  %d:%d %%*", line, col)
 end
 
-local function formatted_filetype(hlgroup)
-	local filetype = vim.bo.filetype or vim.fn.expand("%:e", false)
-
-	return string.format("%%#%s# %s %%*", hlgroup, filetype)
+local function file_percentage()
+	local current_line = vim.api.nvim_win_get_cursor(0)[1]
+	local total_lines = vim.api.nvim_buf_line_count(0)
+	local percent = math.ceil((current_line / total_lines) * 100)
+	return string.format("%%#StatusLinePercent# %d%%%% %%*", percent)
 end
 
-StatusLine = {}
-
-StatusLine.inactive = function()
-	return table.concat({
-		formatted_filetype("StatusLineMode"),
-	})
+local function total_lines()
+	local lines = vim.fn.line("$")
+	return string.format("%%#StatusLineTotalLines# of %d %%*", lines)
 end
-
-local redeable_filetypes = {
-	["qf"] = true,
-	["help"] = true,
-}
 
 StatusLine.active = function()
-	local mode_str = vim.api.nvim_get_mode().mode
-	if mode_str == "t" or mode_str == "nt" then
-		return table.concat({
-			"%=",
-			"%=",
-			file_percentage(),
-			total_lines(),
-		})
-	end
-
-	if redeable_filetypes[vim.bo.filetype] or vim.o.modifiable == false then
-		return table.concat({
-			formatted_filetype("StatusLineMode"),
-			"%=",
-			"%=",
-			file_percentage(),
-			total_lines(),
-		})
-	end
-
-	local statusline = {
-		status_git_branch(),
-		status_filename(),
-		status_git_diff(),
+	return table.concat({
+		git_branch(),
+		file_path(),
+		git_diff(),
 		diagnostics(vim.diagnostic.severity.ERROR, "e", "StatusLineLspError"),
 		diagnostics(vim.diagnostic.severity.WARN, "w", "StatusLineLspWarn"),
 		diagnostics(vim.diagnostic.severity.HINT, "h", "StatusLineLspHint"),
 		diagnostics(vim.diagnostic.severity.INFO, "i", "StatusLineLspInfo"),
 		"%=",
-		"%=",
-		"%S ",
-		formatted_filetype("StatusLineMode"),
+		filetype(),
 		cursor_position(),
 		file_percentage(),
 		total_lines(),
-	}
-
-	return table.concat(statusline)
+	})
 end
 
+_G.StatusLine = StatusLine
 vim.opt.statusline = "%!v:lua.StatusLine.active()"
-
-vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter", "FileType" }, {
-	group = statusline_augroup,
-	pattern = {
-		"NvimTree_1",
-		"NvimTree",
-		"lspinfo",
-		"lazy",
-		"netrw",
-		"mason",
-		"qf",
-		"fugitive",
-		"oil",
-	},
-	callback = function()
-		vim.opt_local.statusline = "%!v:lua.StatusLine.inactive()"
-	end,
-})
