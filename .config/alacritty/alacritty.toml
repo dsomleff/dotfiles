@@ -1,6 +1,6 @@
 [general]
 live_config_reload = true
-import = ["~/.config/alacritty/themes/rasmus.toml"]
+import = ["~/.config/alacritty/themes/kanso_zen.toml"]
 
 [env]
 TERM = "xterm-256color"
