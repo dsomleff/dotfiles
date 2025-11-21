@@ -6,13 +6,13 @@ return {
 		config = function()
 			require("kanso").setup({
 				overrides = function(colors)
-					local ui = colors.theme.ui
+					-- local ui = colors.theme.ui
 					local diag = colors.theme.diag
 					local diff = colors.theme.vcs
 
 					return {
-						StatusLineFileNameBg = { fg = ui.fg, bg = ui.bg_p1 },
-						StatusLineMode = { fg = ui.fg, bg = ui.bg_p1, bold = true },
+						-- StatusLineFileNameBg = { fg = ui.fg, bg = ui.whitespace },
+						-- StatusLineMode = { fg = ui.fg, bg = ui.whitespace, bold = true },
 
 						-- Git diff
 						StatusLineGitDiffAdded = { fg = diff.added },
