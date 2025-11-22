@@ -1,45 +1,20 @@
 return {
-	{
-		"webhooked/kanso.nvim",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			require("kanso").setup({
-				foreground = {
-					dark = "saturated",
-					light = "saturated",
-				},
-				overrides = function(colors)
-					local ui = colors.theme.ui
-					local diag = colors.theme.diag
-					local diff = colors.theme.vcs
+	"slugbyte/lackluster.nvim",
+	lazy = false,
+	priority = 1000,
+	init = function()
+		vim.cmd.colorscheme("lackluster-hack")
+		-- vim.cmd.colorscheme("lackluster")
+		-- vim.cmd.colorscheme("lackluster-mint")
+		vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = "#5e5e5e" })
 
-					return {
-						-- StatusLineGit = { fg = ui.fg, bg = ui.bg_p1 },
-						-- StatusLineFile = { fg = ui.fg, bg = ui.indent_line },
+		vim.api.nvim_set_hl(0, "StatusLineGitDiffAdded", { fg = "#789978" })
+		vim.api.nvim_set_hl(0, "StatusLineGitDiffChanged", { fg = "#708090" })
+		vim.api.nvim_set_hl(0, "StatusLineGitDiffRemoved", { fg = "#D7007D" })
 
-						-- Git diff
-						StatusLineGitDiffAdded = { fg = diff.added },
-						StatusLineGitDiffChanged = { fg = diff.changed },
-						StatusLineGitDiffRemoved = { fg = diff.removed },
-
-						-- LSP diagnostics
-						StatusLineLspError = { fg = diag.error, bold = true },
-						StatusLineLspWarn = { fg = diag.warning, bold = true },
-						StatusLineLspHint = { fg = diag.hint, bold = true },
-						StatusLineLspInfo = { fg = diag.info, bold = true },
-
-						-- StatusLineFileType = { fg = ui.fg, bg = ui.indent_line },
-						-- StatusLineCursor = { fg = ui.fg, bg = ui.indent_line },
-						-- StatusLinePercent = { fg = ui.fg, bg = ui.bg_p1 },
-						-- StatusLineTotalLines = { fg = ui.fg, bg = ui.bg_p1 },
-
-						EndOfBuffer = { fg = ui.whitespace },
-					}
-				end,
-			})
-
-			vim.cmd("colorscheme kanso-zen")
-		end,
-	},
+		vim.api.nvim_set_hl(0, "StatusLineLspError", { fg = "#D70000", bold = true })
+		vim.api.nvim_set_hl(0, "StatusLineLspWarn", { fg = "#ffaa88", bold = true })
+		vim.api.nvim_set_hl(0, "StatusLineLspHint", { fg = "#cccccc", bold = true })
+		vim.api.nvim_set_hl(0, "StatusLineLspInfo", { fg = "#7788AA", bold = true })
+	end,
 }
