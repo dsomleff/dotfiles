@@ -15,8 +15,8 @@ return {
 					local diff = colors.theme.vcs
 
 					return {
-						StatusLineGit = { fg = ui.fg, bg = ui.bg_p1 },
-						StatusLineFile = { fg = ui.fg, bg = ui.indent_line },
+						-- StatusLineGit = { fg = ui.fg, bg = ui.bg_p1 },
+						-- StatusLineFile = { fg = ui.fg, bg = ui.indent_line },
 
 						-- Git diff
 						StatusLineGitDiffAdded = { fg = diff.added },
@@ -29,10 +29,10 @@ return {
 						StatusLineLspHint = { fg = diag.hint, bold = true },
 						StatusLineLspInfo = { fg = diag.info, bold = true },
 
-						StatusLineFileType = { fg = ui.fg, bg = ui.indent_line },
-						StatusLineCursor = { fg = ui.fg, bg = ui.indent_line },
-						StatusLinePercent = { fg = ui.fg, bg = ui.bg_p1 },
-						StatusLineTotalLines = { fg = ui.fg, bg = ui.bg_p1 },
+						-- StatusLineFileType = { fg = ui.fg, bg = ui.indent_line },
+						-- StatusLineCursor = { fg = ui.fg, bg = ui.indent_line },
+						-- StatusLinePercent = { fg = ui.fg, bg = ui.bg_p1 },
+						-- StatusLineTotalLines = { fg = ui.fg, bg = ui.bg_p1 },
 
 						EndOfBuffer = { fg = ui.whitespace },
 					}
