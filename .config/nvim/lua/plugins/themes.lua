@@ -3,18 +3,34 @@ return {
 	lazy = false,
 	priority = 1000,
 	init = function()
+		local lackluster = require("lackluster")
+		local color = lackluster.color
+
+		lackluster.setup({
+			tweak_ui = {
+				enable_end_of_buffer = true,
+			},
+			tweak_highlight = {
+				-- Git diff
+				StatusLineGitDiffAdded = { fg = color.green },
+				StatusLineGitDiffChanged = { fg = color.lack },
+				StatusLineGitDiffRemoved = { fg = "#D7007D" },
+
+				-- LSP diagnostics
+				StatusLineLspError = { fg = color.red, bold = true },
+				StatusLineLspWarn = { fg = color.orange, bold = true },
+				StatusLineLspHint = { fg = color.gray8, bold = true },
+				StatusLineLspInfo = { fg = color.blue, bold = true },
+
+				-- Status line colors (commented in your config originally)
+				-- StatusLineGit = { bg = "#080808" },
+				-- StatusLineFile = { bg = "#080808" },
+				-- StatusLineCursor = { bg = "#080808" },
+				-- StatusLinePercent = { bg = "#080808" },
+				-- StatusLineTotalLines = { bg = "#080808" },
+			},
+		})
+
 		vim.cmd.colorscheme("lackluster-hack")
-		-- vim.cmd.colorscheme("lackluster")
-		-- vim.cmd.colorscheme("lackluster-mint")
-		vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = "#5e5e5e" })
-
-		vim.api.nvim_set_hl(0, "StatusLineGitDiffAdded", { fg = "#789978" })
-		vim.api.nvim_set_hl(0, "StatusLineGitDiffChanged", { fg = "#708090" })
-		vim.api.nvim_set_hl(0, "StatusLineGitDiffRemoved", { fg = "#D7007D" })
-
-		vim.api.nvim_set_hl(0, "StatusLineLspError", { fg = "#D70000", bold = true })
-		vim.api.nvim_set_hl(0, "StatusLineLspWarn", { fg = "#ffaa88", bold = true })
-		vim.api.nvim_set_hl(0, "StatusLineLspHint", { fg = "#cccccc", bold = true })
-		vim.api.nvim_set_hl(0, "StatusLineLspInfo", { fg = "#7788AA", bold = true })
 	end,
 }

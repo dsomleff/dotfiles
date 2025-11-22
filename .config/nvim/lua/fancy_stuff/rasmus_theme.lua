@@ -34,23 +34,26 @@ return {
 			italic = true, -- Make hints italic for better distinction
 		})
 
-		-- Status line colors
-		-- vim.api.nvim_set_hl(0, "StatusLineMedium", { fg = "#c0caf5", bg = "#1f2335", bold = true })
-		-- vim.api.nvim_set_hl(0, "StatusLineGitBranchIcon", { fg = "#b6b6b5", bg = "#323231", bold = true })
-		-- vim.api.nvim_set_hl(0, "StatusLineGitBranchBg", { fg = "#b6b6b5", bg = "#323231", bold = true })
-
-		vim.api.nvim_set_hl(0, "StatusLineFileNameBg", { fg = "#b6b6b5", bg = "#323231" })
-		vim.api.nvim_set_hl(0, "StatusLineMode", { fg = "#b6b6b5", bg = "#323231", bold = true })
-
-		vim.api.nvim_set_hl(0, "StatusLineGitDiffAdded", { fg = "#D0D0D0" })
-		vim.api.nvim_set_hl(0, "StatusLineGitDiffChanged", { fg = "#bcbcbc" })
-		vim.api.nvim_set_hl(0, "StatusLineGitDiffRemoved", { fg = "#c5c5c5" })
-
-		vim.api.nvim_set_hl(0, "StatusLineLspError", { fg = "#c5c5c5", bold = true })
-		vim.api.nvim_set_hl(0, "StatusLineLspWarn", { fg = "#bcbcbc", bold = true })
-		vim.api.nvim_set_hl(0, "StatusLineLspHint", { fg = "#D0D0D0", bold = true })
-
 		-- Link the newer semantic token highlight group to our custom style
 		vim.api.nvim_set_hl(0, "@lsp.type.inlayHint", { link = "LspInlayHint" })
+		-- vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = "" })
+
+		-- Git diff
+		-- vim.api.nvim_set_hl(0, "StatusLineGitDiffAdded", { fg = color.green })
+		-- vim.api.nvim_set_hl(0, "StatusLineGitDiffChanged", { fg = color.lack })
+		-- vim.api.nvim_set_hl(0, "StatusLineGitDiffRemoved", { fg = "#D7007D" })
+
+		-- LSP diagnostics
+		-- vim.api.nvim_set_hl(0, "StatusLineLspError", { fg = color.red, bold = true })
+		-- vim.api.nvim_set_hl(0, "StatusLineLspWarn", { fg = color.orange, bold = true })
+		-- vim.api.nvim_set_hl(0, "StatusLineLspHint", { fg = color.gray8, bold = true })
+		-- vim.api.nvim_set_hl(0, "StatusLineLspInfo", { fg = color.blue, bold = true })
+
+		-- Status line colors
+		-- vim.api.nvim_set_hl(0, "StatusLineGit", { bg = "#080808" })
+		-- vim.api.nvim_set_hl(0, "StatusLineFile", { bg = "#080808" })
+		-- vim.api.nvim_set_hl(0, "StatusLineCursor", { bg = "#080808" })
+		-- vim.api.nvim_set_hl(0, "StatusLinePercent", { bg = "#080808" })
+		-- vim.api.nvim_set_hl(0, "StatusLineTotalLines", { bg = "#080808" })
 	end,
 }
