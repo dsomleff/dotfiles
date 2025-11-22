@@ -5,6 +5,10 @@ return {
 		priority = 1000,
 		config = function()
 			require("kanso").setup({
+				foreground = {
+					dark = "saturated",
+					light = "saturated",
+				},
 				overrides = function(colors)
 					local ui = colors.theme.ui
 					local diag = colors.theme.diag
