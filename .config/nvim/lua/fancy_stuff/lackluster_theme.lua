@@ -14,12 +14,12 @@ return {
 				-- Git diff
 				StatusLineGitDiffAdded = { fg = color.green },
 				StatusLineGitDiffChanged = { fg = color.lack },
-				StatusLineGitDiffRemoved = { fg = "#D7007D" },
+				StatusLineGitDiffRemoved = { fg = color.orange },
 
 				-- LSP diagnostics
 				StatusLineLspError = { fg = color.red, bold = true },
 				StatusLineLspWarn = { fg = color.orange, bold = true },
-				StatusLineLspHint = { fg = color.gray8, bold = true },
+				StatusLineLspHints = { fg = color.luster, bold = true },
 				StatusLineLspInfo = { fg = color.blue, bold = true },
 
 				-- Status line colors (commented in your config originally)
@@ -32,5 +32,8 @@ return {
 		})
 
 		vim.cmd.colorscheme("lackluster-hack")
+		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+		vim.api.nvim_set_hl(0, "FloatBorder", { fg = color.gray9, bg = "#101010" })
 	end,
 }
