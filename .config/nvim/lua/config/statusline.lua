@@ -108,7 +108,7 @@ StatusLine.active = function()
 		git_diff(),
 		diagnostics(vim.diagnostic.severity.ERROR, "e", "StatusLineLspError"),
 		diagnostics(vim.diagnostic.severity.WARN, "w", "StatusLineLspWarn"),
-		diagnostics(vim.diagnostic.severity.HINT, "h", "StatusLineLspHint"),
+		diagnostics(vim.diagnostic.severity.HINT, "h", "StatusLineLspHints"),
 		diagnostics(vim.diagnostic.severity.INFO, "i", "StatusLineLspInfo"),
 		"%=",
 		filetype(),

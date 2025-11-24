@@ -1,32 +1,42 @@
 return {
-	"vague-theme/vague.nvim",
+	"slugbyte/lackluster.nvim",
 	lazy = false,
 	priority = 1000,
-	config = function()
-		require("vague").setup({
-			on_highlights = function(hl, c)
-				-- Git diff statusline highlights
-				hl.StatusLineGitDiffAdded = { fg = c.plus }
-				hl.StatusLineGitDiffChanged = { fg = c.keyword }
-				hl.StatusLineGitDiffRemoved = { fg = c.parameter }
+	init = function()
+		local lackluster = require("lackluster")
+		local color = lackluster.color
 
-				-- LSP diagnostics statusline highlights
-				hl.StatusLineLspError = { fg = c.error, bold = true }
-				hl.StatusLineLspWarn = { fg = c.warning, bold = true }
-				hl.StatusLineLspHint = { fg = c.constant, bold = true }
-				hl.StatusLineLspInfo = { fg = c.keyword, bold = true }
+		lackluster.setup({
+			tweak_color = {
+				luster = color.gray7,
+			},
+			tweak_ui = {
+				enable_end_of_buffer = true,
+			},
+			tweak_highlight = {
+				-- Git diff
+				StatusLineGitDiffAdded = { fg = color.green },
+				StatusLineGitDiffChanged = { fg = color.lack },
+				StatusLineGitDiffRemoved = { fg = color.orange },
 
-				-- Example: optional background styling if you want later
-				-- hl.StatusLineGit        = { bg = "#080808" }
-				-- hl.StatusLineFile       = { bg = "#080808" }
-				-- hl.StatusLineCursor     = { bg = "#080808" }
-				-- hl.StatusLinePercent    = { bg = "#080808" }
-				-- hl.StatusLineTotalLines = { bg = "#080808" }
-			end,
+				-- LSP diagnostics
+				StatusLineLspError = { fg = color.red, bold = true },
+				StatusLineLspWarn = { fg = color.orange, bold = true },
+				StatusLineLspHints = { fg = color.yellow, bold = true },
+				StatusLineLspInfo = { fg = color.blue, bold = true },
+
+				-- Status line colors (commented in your config originally)
+				-- StatusLineGit = { bg = "#080808" },
+				-- StatusLineFile = { bg = "#080808" },
+				-- StatusLineCursor = { bg = "#080808" },
+				-- StatusLinePercent = { bg = "#080808" },
+				-- StatusLineTotalLines = { bg = "#080808" },
+			},
 		})
 
-		vim.cmd("colorscheme vague")
+		vim.cmd.colorscheme("lackluster-hack")
 		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+		vim.api.nvim_set_hl(0, "FloatBorder", { fg = color.gray9, bg = "#101010" })
 	end,
 }
