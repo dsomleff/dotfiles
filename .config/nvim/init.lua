@@ -11,6 +11,7 @@ local modules = {
 	"config.lazy",
 	"config.autocmds",
 	"config.lsp-config",
+	"config.statusline",
 }
 
 for _, module in ipairs(modules) do
