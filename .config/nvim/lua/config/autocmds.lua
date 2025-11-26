@@ -74,18 +74,18 @@ autocmd({ "BufReadPost" }, {
 -- })
 
 -- Auto delete No Name buffer + keep the last buffer always open
--- vim.api.nvim_create_augroup("AutoDeleteNoNameBuffer", { clear = true })
--- vim.api.nvim_create_autocmd("BufEnter", {
--- 	group = "AutoDeleteNoNameBuffer",
--- 	pattern = "*",
--- 	callback = function()
--- 		local bufsize = #vim.fn.getbufinfo({ buflisted = 1 })
--- 		if bufsize == 2 then
--- 			for _, buf in pairs(vim.fn.getbufinfo({ buflisted = 1 })) do
--- 				if buf.name == "" then
--- 					vim.api.nvim_buf_delete(buf.bufnr, { force = true })
--- 				end
--- 			end
--- 		end
--- 	end,
--- })
+vim.api.nvim_create_augroup("AutoDeleteNoNameBuffer", { clear = true })
+vim.api.nvim_create_autocmd("BufEnter", {
+	group = "AutoDeleteNoNameBuffer",
+	pattern = "*",
+	callback = function()
+		local bufsize = #vim.fn.getbufinfo({ buflisted = 1 })
+		if bufsize == 2 then
+			for _, buf in pairs(vim.fn.getbufinfo({ buflisted = 1 })) do
+				if buf.name == "" then
+					vim.api.nvim_buf_delete(buf.bufnr, { force = true })
+				end
+			end
+		end
+	end,
+})
