@@ -18,14 +18,20 @@ return {
 	{
 		"echasnovski/mini.surround",
 		version = false,
-		event = {
-			"BufReadPost",
-		},
+		event = { "BufReadPost" },
 		opts = {
-			-- `saiw)` - add (`sa`) for inner word (`iw`) parenthesis (`)`).
-			-- delete = 'sd', -- Delete surrounding
-			-- sr'" -- Replace surrounding
-			-- srt -- Replace surrounding tags
+			mappings = {
+				add = "gsa", -- Add surrounding
+				delete = "gsd", -- Delete surrounding
+				replace = "gsr", -- Replace surrounding
+				find = "gsf", -- Find to the right
+				find_left = "gsF", -- Find to the left
+				highlight = "gsh", -- Highlight surrounding
+				update_n_lines = "gsn", -- Update n_lines
+				suffix_last = "gsl", -- Go to last surrounding
+				suffix_next = "gsn", -- Go to next surrounding
+			},
+			n_lines = 500,
 		},
 	},
 	-- {
