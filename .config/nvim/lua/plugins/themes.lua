@@ -31,6 +31,24 @@ return {
 				-- StatusLineCursor = { bg = "#080808" },
 				-- StatusLinePercent = { bg = "#080808" },
 				-- StatusLineTotalLines = { bg = "#080808" },
+
+				["@keyword"] = {
+					overwrite = false,
+					-- bold = true,
+					italic = true,
+				},
+				["@function"] = {
+					overwrite = true,
+					link = "@keyword",
+				},
+				["@comment"] = {
+					overwrite = false,
+					italic = true,
+				},
+				["@property"] = {
+					italic = true,
+					overwrite = false,
+				},
 			},
 		})
 
