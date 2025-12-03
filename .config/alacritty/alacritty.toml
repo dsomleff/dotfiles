@@ -3,11 +3,12 @@ live_config_reload = true
 import = ["~/.config/alacritty/themes/lackluster.toml"]
 
 [env]
-# TERM = "xterm-256color"
-# COLORTERM = "truecolor"
+# for zsh only
+TERM = "xterm-256color"
+COLORTERM = "truecolor"
 
 [terminal]
-shell = "/opt/homebrew/bin/nu"
+# shell = "/opt/homebrew/bin/nu"
 
 [window]
 decorations = "buttonless"
