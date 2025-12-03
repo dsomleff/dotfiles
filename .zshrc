@@ -105,3 +105,10 @@ export PATH="/Users/somleff/.rd/bin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
 # Initialize fnm (Fast Node Manager)
 eval "$(fnm env --use-on-cd)"
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+
+. "$HOME/.local/bin/env"
