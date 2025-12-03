@@ -107,7 +107,7 @@ vim.keymap.set("n", "n", ":keepjumps normal! n<CR>")
 vim.keymap.set("n", "N", ":keepjumps normal! N<CR>")
 
 -- Paste below the current line while keeping the cursor at the correct position
-vim.keymap.set("n", "p", function()
+vim.keymap.set("n", "<leader>P", function()
 	local pos = vim.api.nvim_win_get_cursor(0)
 	local row, col = pos[1], pos[2]
 	vim.cmd("put")
