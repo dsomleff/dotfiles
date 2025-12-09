@@ -19,11 +19,6 @@ return {
 		},
 	},
 	{
-		"tpope/vim-rhubarb", -- GitHub support
-		-- event = "VeryLazy",
-		lazy = true,
-	},
-	{
 		"lewis6991/gitsigns.nvim",
 		event = { "BufReadPost" },
 		opts = {
