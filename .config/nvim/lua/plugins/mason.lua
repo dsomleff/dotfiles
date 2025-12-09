@@ -19,8 +19,8 @@ local ensure_installed = {
 
 return {
 	"mason-org/mason.nvim",
-	event = { "BufReadPre", "BufNewFile" },
 	cmd = "Mason",
+	build = ":MasonUpdate",
 	dependencies = {
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 	},
