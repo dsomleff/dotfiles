@@ -17,7 +17,7 @@ return {
 		},
 	},
 	keys = {
-		{ "<leader>ct", ":CloakToggle<CR>", {} },
-		{ "<leader>cp", ":CloakPreviewLine<CR>", {} },
+		{ "<leader>ct", ":CloakToggle<CR>", desc = "Toggle cloak" },
+		{ "<leader>cp", ":CloakPreviewLine<CR>", desc = "Preview line" },
 	},
 }
