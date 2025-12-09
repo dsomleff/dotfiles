@@ -2,8 +2,8 @@ return {
 	"eandrju/cellular-automaton.nvim",
 	cmd = { "CellularAutomaton" },
 	keys = {
-		{ "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>", {} },
-		{ "<leader>mx", "<cmd>CellularAutomaton scramble<CR>", {} },
+		{ "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>", desc = "Make it rain" },
+		{ "<leader>mx", "<cmd>CellularAutomaton scramble<CR>", desc = "Scramble" },
 	},
 
 	-- vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>"),
