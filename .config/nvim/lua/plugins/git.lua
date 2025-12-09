@@ -1,21 +1,21 @@
 return {
 	{
 		"tpope/vim-fugitive",
-		cmd = { "G" },
+		cmd = "G",
 		keys = {
-			{ "<leader>gs", ":G | only<CR>", {} },
-			{ "<leader>gp", ":G pull<CR>", {} },
-			{ "<leader>gP", ":G push<CR>", {} },
-			{ "<leader>gf", ":G fetch<CR>", {} },
-			-- { "<leader>gb", ":G blame <CR>", {} }, -- add -C -C -C to :G blame if you want more deep info; add -w to ignore whitespace
-			{ "<leader>gd", ":Gvdiff<CR>", {} },
-			{ "<leader>gH", ":G log --oneline --decorate --graph --parents --all<CR>", {} },
+			{ "<leader>gs", "<cmd>G | only<CR>", desc = "Git status" },
+			{ "<leader>gp", "<cmd>G pull<CR>", desc = "Git pull" },
+			{ "<leader>gP", "<cmd>G push<CR>", desc = "Git push" },
+			{ "<leader>gf", "<cmd>G fetch<CR>", desc = "Git fetch" },
+			{ "<leader>gd", "<cmd>Gvdiff<CR>", desc = "Git diff" },
+			{ "<leader>gH", "<cmd>G log --oneline --decorate --graph --parents --all<CR>", desc = "Git history" },
+			{ "<leader>gl", "<cmd>0GcLog<CR>", desc = "Git log" },
 			-- { "<leader>gl", ":G log | only<CR>", {} },
-			{ "<leader>gl", ":0GcLog<CR>", {} },
-			{ "<leader>mc", ":Gvdiffsplit!<CR>", {} },
-			{ "<leader>gD", ":G branch -D ", {} }, -- Force delete branch interactive
-			{ "gh", ":diffget //2<CR>", { desc = "Get hunk from the left" } }, -- get from left
-			{ "gl", ":diffget //3<CR>", { desc = "Get hunk from the right" } }, -- get from right
+			{ "<leader>gD", ":G branch -D ", desc = "Force delete branch" },
+			{ "<leader>mc", "<cmd>Gvdiffsplit!<CR>", desc = "Merge conflict" },
+			{ "gh", "<cmd>diffget //2<CR>", desc = "Get hunk from left" },
+			{ "gl", "<cmd>diffget //3<CR>", desc = "Get hunk from right" },
+			-- { "<leader>gb", ":G blame <CR>", {} }, -- add -C -C -C to :G blame if you want more deep info; add -w to ignore whitespace
 		},
 	},
 	{
@@ -34,16 +34,14 @@ return {
 				border = "single",
 			},
 		},
-		init = function()
-			-- Key mappings for Gitsigns
-			local map = vim.keymap.set
-			map("n", "<leader>gh", ":Gitsigns preview_hunk<CR>", {})
-			map({ "n", "v" }, "<leader>gbb", ":Gitsigns blame_line<CR>", {})
-			map({ "n", "v" }, "<leader>hr", ":Gitsigns reset_hunk<CR>", {})
-			map("n", "]h", ":Gitsigns next_hunk<CR>", {})
-			map("n", "[h", ":Gitsigns prev_hunk<CR>", {})
-			map("n", "<leader>gb", ":Gitsigns blame<CR>", {})
-			map("n", "<leader>hd", ":Gitsigns diffthis<CR>", {})
-		end,
+		keys = {
+			{ "<leader>gh", "<cmd>Gitsigns preview_hunk<CR>", desc = "Preview hunk" },
+			{ "<leader>gbb", "<cmd>Gitsigns blame_line<CR>", mode = { "n", "v" }, desc = "Blame line" },
+			{ "<leader>hr", "<cmd>Gitsigns reset_hunk<CR>", mode = { "n", "v" }, desc = "Reset hunk" },
+			{ "]h", "<cmd>Gitsigns next_hunk<CR>", desc = "Next hunk" },
+			{ "[h", "<cmd>Gitsigns prev_hunk<CR>", desc = "Prev hunk" },
+			{ "<leader>gb", "<cmd>Gitsigns blame<CR>", desc = "Git blame" },
+			{ "<leader>hd", "<cmd>Gitsigns diffthis<CR>", desc = "Diff this" },
+		},
 	},
 }
