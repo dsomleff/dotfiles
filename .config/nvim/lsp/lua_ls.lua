@@ -1,15 +1,5 @@
 return {
 	cmd = { "lua-language-server" },
-	root_markers = {
-		".luarc.json",
-		".luarc.jsonc",
-		".luacheckrc",
-		".stylua.toml",
-		"stylua.toml",
-		"selene.toml",
-		"selene.yml",
-		".git",
-	},
 	filetypes = { "lua" },
 	settings = {
 		Lua = {
@@ -27,6 +17,13 @@ return {
 			},
 			workspace = {
 				checkThirdParty = false,
+				useGitIgnore = true,
+				ignoreSubmodules = true,
+				ignoreDir = { ".git" },
+
+				maxPreload = 0,
+				preloadFileSize = 0,
+
 				library = {
 					vim.env.VIMRUNTIME,
 					"${3rd}/luv/library",
