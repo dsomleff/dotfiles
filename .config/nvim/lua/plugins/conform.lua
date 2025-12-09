@@ -1,12 +1,12 @@
 return {
 	"stevearc/conform.nvim",
-	event = { "BufReadPost" },
+	event = { "BufReadPre", "BufNewFile" },
 	opts = {
 		formatters_by_ft = {
-			javascript = { "prettierd", "prettier" },
-			typescript = { "prettierd", "prettier" },
-			javascriptreact = { "prettierd", "prettier" },
-			typescriptreact = { "prettierd", "prettier" },
+			javascript = { "prettierd", "prettier", stop_after_first = true },
+			typescript = { "prettierd", "prettier", stop_after_first = true },
+			javascriptreact = { "prettierd", "prettier", stop_after_first = true },
+			typescriptreact = { "prettierd", "prettier", stop_after_first = true },
 			vue = { "prettier" },
 			css = { "prettier" },
 			html = { "prettier" },
@@ -15,7 +15,6 @@ return {
 			markdown = { "prettier" },
 			lua = { "stylua" },
 		},
-		format_after_first = true,
 		default_format_opts = {
 			lsp_format = "fallback",
 		},
@@ -30,7 +29,7 @@ return {
 					"--stdin-filepath",
 					"$FILENAME",
 					"--tab-width",
-					"4",
+					"2",
 					"--use-tabs",
 					"false",
 				},
@@ -40,7 +39,7 @@ return {
 					"--stdin-filepath",
 					"$FILENAME",
 					"--tab-width",
-					"4",
+					"2",
 					"--use-tabs",
 					"false",
 				},
