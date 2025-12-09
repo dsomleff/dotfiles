@@ -56,5 +56,9 @@ return {
 		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 		vim.api.nvim_set_hl(0, "FloatBorder", { fg = color.gray9, bg = "#101010" })
+		vim.api.nvim_set_hl(0, "DiagnosticError", { fg = color.red })
+		vim.api.nvim_set_hl(0, "DiagnosticWarn", { fg = color.orange })
+		vim.api.nvim_set_hl(0, "DiagnosticInfo", { fg = color.blue })
+		vim.api.nvim_set_hl(0, "DiagnosticHint", { fg = color.yellow })
 	end,
 }
