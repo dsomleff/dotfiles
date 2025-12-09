@@ -11,7 +11,6 @@ return {
 					".env*",
 					".dev.vars",
 				},
-				-- example: cloak_pattern = { ":.+", "-.+" } for yaml files.
 				cloak_pattern = "=.+",
 			},
 		},
