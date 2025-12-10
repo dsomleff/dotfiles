@@ -1,5 +1,11 @@
 return {
-	{ "MeanderingProgrammer/render-markdown.nvim", opts = {}, ft = "markdown" },
-	{ "nvim-treesitter/nvim-treesitter", lazy = true },
-	{ "echasnovski/mini.icons", lazy = true },
+	{
+		"MeanderingProgrammer/render-markdown.nvim",
+		ft = "markdown",
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"echasnovski/mini.icons",
+		},
+		opts = {},
+	},
 }
