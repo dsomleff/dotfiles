@@ -2,10 +2,7 @@ local StatusLine = {}
 
 local function get_git_branch()
 	local gitsigns = vim.b.gitsigns_status_dict
-	if gitsigns and gitsigns.head then
-		return gitsigns.head
-	end
-	return nil
+	return gitsigns and gitsigns.head or nil
 end
 
 local function git_branch()
@@ -18,7 +15,7 @@ local function git_branch()
 end
 
 local function file_path()
-	local filename = vim.fn.expand("%f%m%r")
+	local filename = vim.fn.expand("%:~:.")
 	if filename == "" then
 		filename = "[No Name]"
 	end
@@ -35,7 +32,7 @@ local function file_path()
 end
 
 local function git_diff()
-	local gsd = vim.b.gitsigns_status_dict
+	local gsd = vim.b[0].gitsigns_status_dict
 	if not gsd then
 		return ""
 	end
@@ -60,10 +57,6 @@ local function git_diff()
 end
 
 local function get_lsp_diagnostics_count(severity)
-	if not vim.lsp then
-		return 0
-	end
-
 	return #vim.diagnostic.get(0, { severity = severity })
 end
 
