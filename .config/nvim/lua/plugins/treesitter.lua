@@ -1,13 +1,14 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
+	branch = "master",
 	event = { "BufReadPre", "BufNewFile" },
+	-- lazy = false, // remove events and use this in case of wrong behavior
 	build = ":TSUpdate",
 
 	config = function()
 		local config = require("nvim-treesitter.configs")
 
 		config.setup({
-			branch = "main",
 			autotag = {
 				enable = true,
 			},
