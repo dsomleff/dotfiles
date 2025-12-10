@@ -1,7 +1,10 @@
 return {
 	{
 		"stevearc/oil.nvim",
-		cmd = "Oil",
+		dependencies = { { "nvim-mini/mini.icons", opts = {} } },
+		keys = {
+			{ "-", "<cmd>Oil<CR>", desc = "Open parent directory" },
+		},
 		opts = {
 			default_file_explorer = false,
 			delete_to_trash = true,
@@ -21,13 +24,6 @@ return {
 				["gs"] = "actions.change_sort",
 				["g."] = "actions.toggle_hidden",
 			},
-
-			vim.keymap.set("n", "-", ":Oil<CR>", { desc = "Open parent directory" }),
 		},
-
-		config = function(_, opts)
-			require("mini.icons").setup()
-			require("oil").setup(opts)
-		end,
 	},
 }
