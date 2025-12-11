@@ -54,5 +54,6 @@ return {
 		{ "<leader>fk", "<cmd>FzfLua keymaps<cr>", desc = "FzfLua | List of keymaps" },
 		{ "<leader>fr", "<cmd>FzfLua resume<cr>", desc = "FzfLua | Open previous search" },
 		{ "<leader>/", "<cmd>FzfLua lgrep_curbuf<cr>", desc = "FzfLua | Grep current file" },
+		{ "<leader>ft", "<cmd>FzfLua treesitter<cr>", desc = "FzfLua | Grep current file" },
 	},
 }
