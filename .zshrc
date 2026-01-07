@@ -81,9 +81,6 @@ export VISUAL="$EDITOR"
 # for tmux color consistency
 export TERM=tmux-256color
 
-# autosuggestions
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
 # syntax highlighting
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -94,21 +91,44 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 eval "$(starship init zsh)"
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 
-# prime tmux-sessionizer
-PATH="$PATH":"$HOME/.local/scripts/"
-
 export XDG_CONFIG_HOME="$HOME/dotfiles/.config"
 
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT) Remove after stop/not using Rancher
-export PATH="/Users/somleff/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
-export PATH="/opt/homebrew/bin:$PATH"
 # Initialize fnm (Fast Node Manager)
-eval "$(fnm env --use-on-cd)"
+# autoload -U add-zsh-hook
+#
+# fnm_auto_use() {
+#   [[ -f .node-version || -f .nvmrc ]] || return
+#   fnm use --silent-if-unchanged
+# }
+#
+# add-zsh-hook chpwd fnm_auto_use
 
 export PYENV_ROOT="$HOME/.pyenv"
+typeset -U path
+
+path=(
+  # prime tmux-sessionizer
+  $HOME/.local/scripts
+
+  ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT) Remove after stop/not using Rancher
+  /Users/somleff/.rd/bin
+  ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+  # Homebrew
+  /opt/homebrew/bin
+
+  # pyenv binaries
+  $PYENV_ROOT/bin
+
+  # keep existing PATH entries
+  $path
+)
+
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
+# eval "$(pyenv init --path)"
+# eval "$(pyenv init -)"
+command -v pyenv >/dev/null && eval "$(pyenv init -)"
 
 . "$HOME/.local/bin/env"
+# autosuggestions
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
