@@ -13,6 +13,7 @@ return {
 			-- inside_last = "il",
 			-- around_next = "an",
 			-- inside_next = "in",
+			-- Move cursor to corresponding edge of `a` textobject goto_left = 'g[', goto_right = 'g]',
 		},
 	},
 	{
