@@ -92,3 +92,6 @@ vim.filetype.add({
 
 -- window border
 vim.opt.winborder = "rounded"
+
+-- Accept camelCase
+vim.opt.spelloptions:append("camel")
