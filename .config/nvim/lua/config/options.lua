@@ -95,3 +95,6 @@ vim.opt.winborder = "rounded"
 
 -- Accept camelCase
 vim.opt.spelloptions:append("camel")
+
+-- substitute preview
+vim.opt.inccommand = "split"
