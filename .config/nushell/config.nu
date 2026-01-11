@@ -49,3 +49,8 @@ alias hub2 = tmuxp load ~/dotfiles/.config/tmux/sessions/hub2.yaml
 alias c = clear
 alias y = yazi
 
+def vv [...args] {
+  with-env { NVIM_APPNAME: "nvim-new" } {
+    /opt/nvim-nightly/bin/nvim ...$args
+  }
+}

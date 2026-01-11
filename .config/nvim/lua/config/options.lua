@@ -47,8 +47,6 @@ vim.opt.isfname:append("@-@")
 -- Set the update time for events to 50ms for quicker responsiveness
 vim.opt.updatetime = 50
 
-vim.g.have_nerd_font = true
-
 -- tree view in netrw
 vim.g.netrw_liststyle = 0
 
