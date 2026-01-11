@@ -63,7 +63,7 @@ end
 local function diagnostics(severity, icon, hl)
 	local count = get_lsp_diagnostics_count(severity)
 	if count > 0 then
-		return string.format("%%#%s# %s%s%%*", hl, count, icon)
+		return string.format("%%#%s# %s%s%%*", hl, icon, count)
 	end
 	return ""
 end
@@ -99,10 +99,10 @@ StatusLine.active = function()
 		git_branch(),
 		file_path(),
 		git_diff(),
-		diagnostics(vim.diagnostic.severity.ERROR, "e", "StatusLineLspError"),
-		diagnostics(vim.diagnostic.severity.WARN, "w", "StatusLineLspWarn"),
-		diagnostics(vim.diagnostic.severity.HINT, "h", "StatusLineLspHints"),
-		diagnostics(vim.diagnostic.severity.INFO, "i", "StatusLineLspInfo"),
+		diagnostics(vim.diagnostic.severity.ERROR, "E:", "StatusLineLspError"),
+		diagnostics(vim.diagnostic.severity.WARN, "W:", "StatusLineLspWarn"),
+		diagnostics(vim.diagnostic.severity.HINT, "H:", "StatusLineLspHints"),
+		diagnostics(vim.diagnostic.severity.INFO, "I:", "StatusLineLspInfo"),
 		"%=",
 		filetype(),
 		cursor_position(),
