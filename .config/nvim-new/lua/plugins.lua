@@ -2,6 +2,7 @@ vim.pack.add({
     { src = "https://github.com/slugbyte/lackluster.nvim" },
     { src = "https://github.com/tpope/vim-fugitive" },
     { src = "https://github.com/lewis6991/gitsigns.nvim" },
+    { src = "https://github.com/stevearc/oil.nvim" },
 })
 
 -------------------------------------------------
@@ -56,3 +57,11 @@ vim.api.nvim_set_hl(0, "NormalFloat",   { bg = "none" })
 -- vim.api.nvim_set_hl(0, "GitSignsAdd",    { fg = color.green,  bg = "none" })
 -- vim.api.nvim_set_hl(0, "GitSignsChange", { fg = color.lack,   bg = "none" })
 -- vim.api.nvim_set_hl(0, "GitSignsDelete", { fg = color.orange, bg = "none" })
+
+require "oil".setup({
+    -- default_file_explorer = false,
+    delete_to_trash = true,
+    view_options = {
+        show_hidden = true,
+    },
+})
