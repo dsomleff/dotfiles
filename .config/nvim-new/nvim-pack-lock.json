@@ -7,6 +7,10 @@
     "lackluster.nvim": {
       "rev": "70dd682e564784893b984deb51dd5ddd263c8cc7",
       "src": "https://github.com/slugbyte/lackluster.nvim"
+    },
+    "vim-fugitive": {
+      "rev": "61b51c09b7c9ce04e821f6cf76ea4f6f903e3cf4",
+      "src": "https://github.com/tpope/vim-fugitive"
     }
   }
 }
