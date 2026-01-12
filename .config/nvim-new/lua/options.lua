@@ -66,10 +66,3 @@ vim.diagnostic.config({
 	-- virtual_text = { current_line = true },
 	virtual_lines = { current_line = true },
 })
-
--- tree view in netrw
-vim.g.netrw_liststyle = 0
-
--- remove netrw header
-vim.g.netrw_banner = 0
-
