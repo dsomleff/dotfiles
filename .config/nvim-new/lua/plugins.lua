@@ -12,6 +12,7 @@ vim.pack.add({
           end,
         },
     },
+    { src = "https://github.com/ibhagwan/fzf-lua" },
 })
 
 -------------------------------------------------
@@ -75,6 +76,9 @@ require "oil".setup({
     delete_to_trash = true,
     view_options = {
         show_hidden = true,
+    },
+    keymaps = {
+        ["<C-p>"] = false,
     },
 })
 -------------------------------------------------
@@ -142,3 +146,44 @@ local function packchanged(event)
 end
 
 vim.api.nvim_create_autocmd("packchanged", { callback = packchanged })
+
+-------------------------------------------------
+-- Fzf Lua
+-------------------------------------------------
+local fzf = require("fzf-lua")
+
+fzf.setup({
+  winopts = {
+    preview = {
+      layout = "vertical",
+    },
+  },
+
+  lsp = {
+    code_actions = {
+      previewer = false,
+    },
+  },
+
+  files = {
+    formatter = "path.filename_first",
+    git_icons = false,
+    no_header = true,
+    cwd_header = false,
+    cwd_prompt = false,
+    winopts = {
+      title_flags = false,
+    },
+  },
+
+  buffers = {
+    formatter = "path.filename_first",
+    no_header = true,
+    fzf_opts = {
+      ["--delimiter"] = " ",
+      ["--with-nth"] = "-1..",
+    },
+  },
+})
+
+fzf.register_ui_select()

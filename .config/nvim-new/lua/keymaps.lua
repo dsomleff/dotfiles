@@ -86,32 +86,54 @@ end)
 -- =========================
 -- Fugitive keymaps
 -- =========================
-vim.keymap.set("n", "<leader>gs", "<cmd>G | only<CR>", { desc = "Git status" })
-vim.keymap.set("n", "<leader>gp", "<cmd>G pull<CR>", { desc = "Git pull" })
-vim.keymap.set("n", "<leader>gP", "<cmd>G push<CR>", { desc = "Git push" })
-vim.keymap.set("n", "<leader>gf", "<cmd>G fetch<CR>", { desc = "Git fetch" })
-vim.keymap.set("n", "<leader>gD", ":G branch -D ", { desc = "Delete branch" })
-vim.keymap.set("n", "<leader>gH",
+keymap("n", "<leader>gs", "<cmd>G | only<CR>", { desc = "Git status" })
+keymap("n", "<leader>gp", "<cmd>G pull<CR>", { desc = "Git pull" })
+keymap("n", "<leader>gP", "<cmd>G push<CR>", { desc = "Git push" })
+keymap("n", "<leader>gf", "<cmd>G fetch<CR>", { desc = "Git fetch" })
+keymap("n", "<leader>gD", ":G branch -D ", { desc = "Delete branch" })
+keymap("n", "<leader>gH",
   "<cmd>G log --oneline --decorate --graph --parents --all<CR>",
   { desc = "Git history" }
 )
-vim.keymap.set("n", "<leader>gd", "<cmd>Gvdiff<CR>", { desc = "Git diff" })
-vim.keymap.set("n", "<leader>mc", "<cmd>Gvdiffsplit!<CR>", { desc = "Merge conflict" })
+keymap("n", "<leader>gd", "<cmd>Gvdiff<CR>", { desc = "Git diff" })
+keymap("n", "<leader>mc", "<cmd>Gvdiffsplit!<CR>", { desc = "Merge conflict" })
 
 -- Diff helpers
-vim.keymap.set("n", "gh", "<cmd>diffget //2<CR>", { desc = "Get left hunk" })
-vim.keymap.set("n", "gl", "<cmd>diffget //3<CR>", { desc = "Get right hunk" })
+keymap("n", "gh", "<cmd>diffget //2<CR>", { desc = "Get left hunk" })
+keymap("n", "gl", "<cmd>diffget //3<CR>", { desc = "Get right hunk" })
 
 -- =========================
 -- Gitsigns keys
 -- =========================
-vim.keymap.set("n", "<leader>gh", "<cmd>Gitsigns preview_hunk<CR>", { desc = "Preview hunk" })
-vim.keymap.set({ "n", "v" }, "<leader>gbb", "<cmd>Gitsigns blame_line<CR>", { desc = "Blame line" })
-vim.keymap.set({ "n", "v" }, "<leader>hr", "<cmd>Gitsigns reset_hunk<CR>", { desc = "Reset hunk" })
-vim.keymap.set("n", "]h", "<cmd>Gitsigns next_hunk<CR>", { desc = "Next hunk" })
-vim.keymap.set("n", "[h", "<cmd>Gitsigns prev_hunk<CR>", { desc = "Prev hunk" })
-vim.keymap.set("n", "<leader>gb", "<cmd>Gitsigns blame<CR>", { desc = "Git blame" })
-vim.keymap.set("n", "<leader>hd", "<cmd>Gitsigns diffthis<CR>", { desc = "Diff this" })
+keymap("n", "<leader>gh", "<cmd>Gitsigns preview_hunk<CR>", { desc = "Preview hunk" })
+keymap({ "n", "v" }, "<leader>gbb", "<cmd>Gitsigns blame_line<CR>", { desc = "Blame line" })
+keymap({ "n", "v" }, "<leader>hr", "<cmd>Gitsigns reset_hunk<CR>", { desc = "Reset hunk" })
+keymap("n", "]h", "<cmd>Gitsigns next_hunk<CR>", { desc = "Next hunk" })
+keymap("n", "[h", "<cmd>Gitsigns prev_hunk<CR>", { desc = "Prev hunk" })
+keymap("n", "<leader>gb", "<cmd>Gitsigns blame<CR>", { desc = "Git blame" })
+keymap("n", "<leader>hd", "<cmd>Gitsigns diffthis<CR>", { desc = "Diff this" })
 
+-- =========================
 -- Oil
-vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+-- =========================
+keymap("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
+-- =========================
+-- Fzf Lua
+-- =========================
+keymap("n", "<C-p>", "<cmd>FzfLua files<cr>")
+keymap("n", "<leader>fh", "<cmd>FzfLua help_tags<cr>")
+keymap("n", "<leader>fg", "<cmd>FzfLua live_grep_native<cr>")
+keymap("n", "<leader>fo", "<cmd>FzfLua oldfiles<cr>")
+keymap("n", "<leader>fd", "<cmd>FzfLua diagnostics_document<cr>")
+keymap("n", "<leader>fb", "<cmd>FzfLua buffers<cr>")
+keymap("n", "<leader>ca", "<cmd>FzfLua lsp_code_actions<cr>")
+keymap("n", "<leader>fc", "<cmd>FzfLua files cwd=~/dotfiles<cr>")
+keymap("n", "<leader>fw", "<cmd>FzfLua grep_cword<cr>")
+keymap("n", "<leader>fW", "<cmd>FzfLua grep_cWORD<cr>")
+keymap("n", "<leader>bi", "<cmd>FzfLua builtin<cr>")
+keymap("n", "<leader>fk", "<cmd>FzfLua keymaps<cr>")
+keymap("n", "<leader>fr", "<cmd>FzfLua resume<cr>")
+keymap("n", "<leader>/", "<cmd>FzfLua lgrep_curbuf<cr>")
+keymap("n", "<leader>ft", "<cmd>FzfLua treesitter<cr>")
+keymap("v", "<leader>fl", "<cmd>FzfLua grep_visual<cr>")
