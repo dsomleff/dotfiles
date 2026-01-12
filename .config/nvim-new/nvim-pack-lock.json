@@ -8,6 +8,11 @@
       "rev": "70dd682e564784893b984deb51dd5ddd263c8cc7",
       "src": "https://github.com/slugbyte/lackluster.nvim"
     },
+    "nvim-treesitter": {
+      "rev": "5a7e5638e7d220575b1c22c8a2e099b52231886e",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter",
+      "version": "'main'"
+    },
     "oil.nvim": {
       "rev": "d278dc40f9de9980868a0a55fa666fba5e6aeacb",
       "src": "https://github.com/stevearc/oil.nvim"
