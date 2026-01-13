@@ -60,9 +60,3 @@ opt.inccommand = "split"
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_python3_provider = 0
 vim.g.loaded_ruby_provider = 0
-
--- Diagnostics
-vim.diagnostic.config({
-	-- virtual_text = { current_line = true },
-	virtual_lines = { current_line = true },
-})
