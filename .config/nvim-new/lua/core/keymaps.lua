@@ -34,7 +34,7 @@ keymap("n", "N", ":keepjumps normal! N<CR>")
 -- =========================
 -- Copy / paste
 -- =========================
-keymap("x", "<leader>p", [["_dP]])          -- paste without overwriting register
+keymap("x", "<leader>p", [["_dP]]) -- paste without overwriting register
 keymap({ "n", "v" }, "<leader>y", [["+y]]) -- copy to system clipboard
 keymap("n", "<leader>Y", [["+Y]])
 
@@ -48,7 +48,7 @@ keymap("i", "<C-c>", "<Esc>")
 -- =========================
 -- Miscellaneous
 -- =========================
-keymap("n", "Q", "<nop>")                  -- prevent big Q
+keymap("n", "Q", "<nop>") -- prevent big Q
 keymap("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
 -- Window navigation
@@ -66,8 +66,8 @@ keymap("v", "<", "<gv")
 keymap("v", ">", ">gv")
 
 -- Close buffers
-keymap("n", "<leader>w", "<cmd>bd<CR>")     -- close current buffer
-keymap("n", "<leader>q", "<cmd>bd!<CR>")    -- force close current buffer
+keymap("n", "<leader>w", "<cmd>bd<CR>") -- close current buffer
+keymap("n", "<leader>q", "<cmd>bd!<CR>") -- force close current buffer
 keymap("n", "<leader>Q", "<cmd>bufdo bd<CR>") -- close all buffers
 
 -- Disable arrow keys
@@ -82,7 +82,6 @@ keymap("n", "<leader>P", function()
 	vim.cmd("put")
 	vim.api.nvim_win_set_cursor(0, { row + 1, col })
 end)
-
 
 -- =========================
 -- Fzf Lua

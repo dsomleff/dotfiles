@@ -1,43 +1,43 @@
 vim.pack.add({
-    { src = "https://github.com/slugbyte/lackluster.nvim" },
+	{ src = "https://github.com/slugbyte/lackluster.nvim" },
 })
 
 local lackluster = require("lackluster")
 local color = lackluster.color
 
 lackluster.setup({
-  tweak_ui = {
-    enable_end_of_buffer = true,
-  },
-  tweak_highlight = {
-        -- Git diff
-    -- StatusLineGitDiffAdded = { fg = color.green },
-    -- StatusLineGitDiffChanged = { fg = color.lack },
-    -- StatusLineGitDiffRemoved = { fg = color.orange },
+	tweak_ui = {
+		enable_end_of_buffer = true,
+	},
+	tweak_highlight = {
+		-- Git diff
+		-- StatusLineGitDiffAdded = { fg = color.green },
+		-- StatusLineGitDiffChanged = { fg = color.lack },
+		-- StatusLineGitDiffRemoved = { fg = color.orange },
 
-    -- LSP diagnostics
-    StatusLineLspError = { fg = color.red, bold = true },
-    StatusLineLspWarn = { fg = color.orange, bold = true },
-    StatusLineLspHints = { fg = color.yellow, bold = true },
-    StatusLineLspInfo = { fg = color.blue, bold = true },
+		-- LSP diagnostics
+		StatusLineLspError = { fg = color.red, bold = true },
+		StatusLineLspWarn = { fg = color.orange, bold = true },
+		StatusLineLspHints = { fg = color.yellow, bold = true },
+		StatusLineLspInfo = { fg = color.blue, bold = true },
 
-    ["@keyword"] = {
-      overwrite = false,
-      italic = true,
-    },
-    ["@function"] = {
-      overwrite = true,
-      link = "@keyword",
-    },
-    ["@comment"] = {
-      overwrite = false,
-      italic = true,
-    },
-    ["@property"] = {
-      overwrite = false,
-      italic = true,
-    },
-  },
+		["@keyword"] = {
+			overwrite = false,
+			italic = true,
+		},
+		["@function"] = {
+			overwrite = true,
+			link = "@keyword",
+		},
+		["@comment"] = {
+			overwrite = false,
+			italic = true,
+		},
+		["@property"] = {
+			overwrite = false,
+			italic = true,
+		},
+	},
 })
 
 vim.cmd("colorscheme lackluster")
@@ -52,4 +52,3 @@ vim.cmd("colorscheme lackluster")
 -- vim.api.nvim_set_hl(0, "GitSignsAdd",    { fg = color.green,  bg = "none" })
 -- vim.api.nvim_set_hl(0, "GitSignsChange", { fg = color.lack,   bg = "none" })
 -- vim.api.nvim_set_hl(0, "GitSignsDelete", { fg = color.orange, bg = "none" })
-

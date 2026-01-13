@@ -1,42 +1,42 @@
 vim.pack.add({
-    { src = "https://github.com/ibhagwan/fzf-lua" },
+	{ src = "https://github.com/ibhagwan/fzf-lua" },
 })
 
 local fzf = require("fzf-lua")
 local keymap = vim.keymap.set
 
 fzf.setup({
-  winopts = {
-    preview = {
-      layout = "vertical",
-    },
-  },
+	winopts = {
+		preview = {
+			layout = "vertical",
+		},
+	},
 
-  lsp = {
-    code_actions = {
-      previewer = false,
-    },
-  },
+	lsp = {
+		code_actions = {
+			previewer = false,
+		},
+	},
 
-  files = {
-    formatter = "path.filename_first",
-    git_icons = false,
-    no_header = true,
-    cwd_header = false,
-    cwd_prompt = false,
-    winopts = {
-      title_flags = false,
-    },
-  },
+	files = {
+		formatter = "path.filename_first",
+		git_icons = false,
+		no_header = true,
+		cwd_header = false,
+		cwd_prompt = false,
+		winopts = {
+			title_flags = false,
+		},
+	},
 
-  buffers = {
-    formatter = "path.filename_first",
-    no_header = true,
-    fzf_opts = {
-      ["--delimiter"] = " ",
-      ["--with-nth"] = "-1..",
-    },
-  },
+	buffers = {
+		formatter = "path.filename_first",
+		no_header = true,
+		fzf_opts = {
+			["--delimiter"] = " ",
+			["--with-nth"] = "-1..",
+		},
+	},
 })
 
 fzf.register_ui_select()

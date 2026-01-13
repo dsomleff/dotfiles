@@ -113,4 +113,3 @@ end
 
 _G.StatusLine = StatusLine
 vim.opt.statusline = "%!v:lua.StatusLine.active()"
-

@@ -1,5 +1,5 @@
 vim.pack.add({
-    { src = "https://github.com/j-hui/fidget.nvim" }
+	{ src = "https://github.com/j-hui/fidget.nvim" },
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {

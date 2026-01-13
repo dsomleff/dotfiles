@@ -1,6 +1,6 @@
 vim.pack.add({
-    { src = "https://github.com/tpope/vim-fugitive" },
-    { src = "https://github.com/lewis6991/gitsigns.nvim" },
+	{ src = "https://github.com/tpope/vim-fugitive" },
+	{ src = "https://github.com/lewis6991/gitsigns.nvim" },
 })
 
 local keymap = vim.keymap.set
@@ -12,10 +12,7 @@ keymap("n", "<leader>gp", "<cmd>G pull<CR>", { desc = "Git pull" })
 keymap("n", "<leader>gP", "<cmd>G push<CR>", { desc = "Git push" })
 keymap("n", "<leader>gf", "<cmd>G fetch<CR>", { desc = "Git fetch" })
 keymap("n", "<leader>gD", ":G branch -D ", { desc = "Delete branch" })
-keymap("n", "<leader>gH",
-  "<cmd>G log --oneline --decorate --graph --parents --all<CR>",
-  { desc = "Git history" }
-)
+keymap("n", "<leader>gH", "<cmd>G log --oneline --decorate --graph --parents --all<CR>", { desc = "Git history" })
 keymap("n", "<leader>gd", "<cmd>Gvdiff<CR>", { desc = "Git diff" })
 keymap("n", "<leader>mc", "<cmd>Gvdiffsplit!<CR>", { desc = "Merge conflict" })
 keymap("n", "gh", "<cmd>diffget //2<CR>", { desc = "Get left hunk" })
@@ -30,4 +27,3 @@ keymap("n", "]h", "<cmd>Gitsigns next_hunk<CR>", { desc = "Next hunk" })
 keymap("n", "[h", "<cmd>Gitsigns prev_hunk<CR>", { desc = "Prev hunk" })
 keymap("n", "<leader>gb", "<cmd>Gitsigns blame<CR>", { desc = "Git blame" })
 keymap("n", "<leader>hd", "<cmd>Gitsigns diffthis<CR>", { desc = "Diff this" })
-
