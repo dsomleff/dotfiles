@@ -1,6 +1,6 @@
 vim.pack.add({
-	{ src = "https://github.com/tpope/vim-fugitive" },
-	{ src = "https://github.com/lewis6991/gitsigns.nvim" },
+	"https://github.com/tpope/vim-fugitive",
+	"https://github.com/lewis6991/gitsigns.nvim",
 })
 
 local keymap = vim.keymap.set
