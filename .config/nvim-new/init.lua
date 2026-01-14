@@ -4,7 +4,7 @@ require("core.autocmds")
 require("core.statusline")
 require("core.lsp")
 
-require("plugins.themes.lackluster")
+require("themes.lackluster")
 require("plugins.git")
 require("plugins.oil")
 require("plugins.treesitter")

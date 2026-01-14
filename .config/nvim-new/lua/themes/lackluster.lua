@@ -1,5 +1,5 @@
 vim.pack.add({
-	{ src = "https://github.com/slugbyte/lackluster.nvim" },
+	"https://github.com/slugbyte/lackluster.nvim",
 })
 
 local lackluster = require("lackluster")
