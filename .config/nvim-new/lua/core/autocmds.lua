@@ -27,3 +27,15 @@ autocmd("TextYankPost", {
 		vim.highlight.on_yank()
 	end,
 })
+
+-- Vim Pack Commands
+vim.api.nvim_create_user_command("PackUpdate", function()
+	vim.pack.update()
+end, {})
+
+vim.api.nvim_create_user_command("PackDelete", function(opts)
+	vim.pack.delete({ opts.args })
+end, {
+	nargs = 1,
+	complete = function() end,
+})
