@@ -10,6 +10,7 @@ fzf.setup({
 		preview = {
 			layout = "vertical",
 		},
+		backdrop = 100,
 	},
 
 	lsp = {
