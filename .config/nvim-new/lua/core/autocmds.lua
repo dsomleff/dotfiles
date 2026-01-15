@@ -34,7 +34,7 @@ vim.api.nvim_create_user_command("PackUpdate", function()
 end, {})
 
 vim.api.nvim_create_user_command("PackDelete", function(opts)
-	vim.pack.delete({ opts.args })
+	vim.pack.del({ opts.args })
 end, {
 	nargs = 1,
 	complete = function() end,
