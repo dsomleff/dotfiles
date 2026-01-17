@@ -41,7 +41,7 @@ lackluster.setup({
 })
 
 vim.cmd("colorscheme lackluster")
--- vim.cmd(":hi statusline guibg=NONE")
+vim.cmd(":hi statusline guibg=NONE")
 
 -- Custom highlights
 -- vim.api.nvim_set_hl(0, "Normal",        { bg = "none" })
