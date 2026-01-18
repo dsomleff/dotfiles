@@ -40,7 +40,7 @@ lackluster.setup({
 	},
 })
 
-vim.cmd("colorscheme lackluster")
+vim.cmd("colorscheme lackluster-hack")
 vim.cmd(":hi statusline guibg=NONE")
 
 -- Custom highlights
