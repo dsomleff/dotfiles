@@ -1,16 +1,17 @@
 vim.lsp.enable({
-	"lua_ls",
-	"ts_ls",
-	"html_ls",
-	"css_ls",
-	"json_ls",
-	"eslint_ls",
-	"harper_ls",
-	"taplo", -- toml
-	"yaml_ls",
 	"bash_ls",
-	"tailwindcss_ls",
+	"css_ls",
+	"eslint_ls",
 	"go_lsp",
+	"harper_ls",
+	"html_ls",
+	"json_ls",
+	"lua_ls",
+	"nushell",
+	"tailwindcss_ls",
+	"taplo", -- toml
+	"ts_ls",
+	"yaml_ls",
 	-- "vtsls", -- must be installed via Mason
 	-- "vue_ls", -- must be installed via Mason
 })

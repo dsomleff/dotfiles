@@ -24,6 +24,7 @@ local parsers = {
 	"vim",
 	"vimdoc",
 	"yaml",
+	"zsh",
 }
 
 local filetypes = {
@@ -41,6 +42,8 @@ local filetypes = {
 	"javascriptreact",
 	"json",
 	"lua",
+	"markdown",
+	"nu",
 	"scss",
 	"sh",
 	"toml",
@@ -48,6 +51,7 @@ local filetypes = {
 	"typescriptreact",
 	"yaml",
 	"yml",
+	"zsh",
 }
 
 require("nvim-treesitter").install(parsers)
