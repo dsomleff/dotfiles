@@ -23,11 +23,11 @@ lackluster.setup({
 
 		["@keyword"] = {
 			overwrite = false,
-			italic = true,
+			italic = false,
 		},
 		["@function"] = {
 			overwrite = true,
-			link = "@keyword",
+			italic = true,
 		},
 		["@comment"] = {
 			overwrite = false,
