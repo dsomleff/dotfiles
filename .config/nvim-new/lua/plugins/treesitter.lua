@@ -1,8 +1,5 @@
 vim.pack.add({
-	{
-		src = "https://github.com/nvim-treesitter/nvim-treesitter",
-		version = "master",
-	},
+	"https://github.com/nvim-treesitter/nvim-treesitter",
 })
 
 local parsers = {
@@ -17,18 +14,51 @@ local parsers = {
 	"html",
 	"javascript",
 	"json",
+	"lua",
+	"markdown",
+	"nu",
+	"query",
 	"toml",
 	"tsx",
 	"typescript",
+	"vim",
+	"vimdoc",
 	"yaml",
 }
-require("nvim-treesitter.configs").setup({
-	ensure_installed = parsers,
-	auto_install = true,
-	highlight = {
-		enable = true,
-	},
-	indent = {
-		enable = true,
-	},
+
+local filetypes = {
+	"bash",
+	"css",
+	"dockerfile",
+	"git_config",
+	"git_rebase",
+	"gitattributes",
+	"gitcommit",
+	"gitignore",
+	"go",
+	"html",
+	"javascript",
+	"javascriptreact",
+	"json",
+	"lua",
+	"scss",
+	"sh",
+	"toml",
+	"typescript",
+	"typescriptreact",
+	"yaml",
+	"yml",
+}
+
+require("nvim-treesitter").install(parsers)
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = filetypes,
+
+	callback = function()
+		vim.treesitter.start()
+		vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+		vim.wo.foldmethod = "expr"
+		vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+	end,
 })

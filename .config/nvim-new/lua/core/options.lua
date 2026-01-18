@@ -63,3 +63,7 @@ vim.g.loaded_ruby_provider = 0
 
 -- Allow :find for current folder
 opt.path:append("**")
+
+-- Fold
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
