@@ -39,3 +39,11 @@ end, {
 	nargs = 1,
 	complete = function() end,
 })
+
+-- Disable spellcheck for special files
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "nu", "go" },
+	callback = function()
+		vim.opt_local.spell = false
+	end,
+})

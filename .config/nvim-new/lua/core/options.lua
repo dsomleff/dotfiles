@@ -41,8 +41,8 @@ opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 opt.undofile = true
 
 -- Spell check
-opt.spelllang = "en_us"
-opt.spell = true
+-- opt.spelllang = "en_us"
+-- opt.spell = true
 
 -- always display diff window vertically
 opt.diffopt:append("vertical")
