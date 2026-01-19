@@ -1,36 +1,74 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
-	branch = "main",
 	event = { "BufReadPre", "BufNewFile" },
 	build = ":TSUpdate",
 
 	config = function()
-		require("nvim-treesitter").setup({
-			indent = {
-				enable = true,
-			},
+		local parsers = {
+			"bash",
+			"dockerfile",
+			"git_config",
+			"git_rebase",
+			"gitattributes",
+			"gitcommit",
+			"gitignore",
+			"go",
+			"html",
+			"javascript",
+			"json",
+			"lua",
+			"markdown",
+			"nu",
+			"query",
+			"toml",
+			"tsx",
+			"typescript",
+			"vim",
+			"vimdoc",
+			"yaml",
+			"zsh",
+		}
 
-			highlight = {
-				enable = true,
-				additional_vim_regex_highlighting = { "markdown" },
-			},
+		local filetypes = {
+			"bash",
+			"css",
+			"dockerfile",
+			"git_config",
+			"git_rebase",
+			"gitattributes",
+			"gitcommit",
+			"gitignore",
+			"go",
+			"html",
+			"javascript",
+			"javascriptreact",
+			"json",
+			"lua",
+			"markdown",
+			"nu",
+			"scss",
+			"sh",
+			"toml",
+			"typescript",
+			"typescriptreact",
+			"yaml",
+			"yml",
+			"zsh",
+		}
 
-			autotag = {
-				enable = true,
-			},
+		require("nvim-treesitter").install(parsers)
+
+		vim.api.nvim_create_autocmd("FileType", {
+			pattern = filetypes,
+			callback = function()
+				-- syntax highlighting, provided by Neovim
+				vim.treesitter.start()
+				-- folds, provided by Neovim
+				vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+				vim.wo.foldmethod = "expr"
+				-- indentation, provided by nvim-treesitter
+				vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+			end,
 		})
-
-		-- To install a new treesitter run TSInstall and name of the lang
-		-- https://github.com/nvim-treesitter/nvim-treesitter/blob/main/SUPPORTED_LANGUAGES.md
-		-- "vimdoc",
-		-- "javascript",
-		-- "typescript",
-		-- "lua",
-		-- "go",
-		-- "jsdoc",
-		-- "vim",
-		-- "toml"
-		-- "dockerfile"
-		-- "bash"
 	end,
 }
