@@ -45,9 +45,11 @@ alias conf = tmuxp load ~/dotfiles/.config/tmux/sessions/dotfiles.yaml
 alias hub = tmuxp load ~/dotfiles/.config/tmux/sessions/hub.yaml
 alias hub2 = tmuxp load ~/dotfiles/.config/tmux/sessions/hub2.yaml
 
-# Misc
+# Shell
 alias c = clear
-alias y = yazi
+alias rm = rm -v -i
+alias mv = mv -v -i
+alias cp = cp -v -i
 
 def vv [...args] {
   with-env { NVIM_APPNAME: "nvim-new" } {
