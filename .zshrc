@@ -67,6 +67,13 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
+unalias cdd 2>/dev/null
+
+cdd() {
+  local dir
+  dir=$(find ~/Code ~/Pets -mindepth 1 -maxdepth 4 -type d | fzf) || return
+  cd "$dir"
+}
 
 # alias ff="fzf"
 # alias ffp='v $(ff -m --preview="cat {}")'
