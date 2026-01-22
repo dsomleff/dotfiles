@@ -4,7 +4,7 @@
 if [[ $# -eq 1 ]]; then
     session=$1
 else
-    session=$(find ~/Code ~/Pets  -mindepth 1 -maxdepth 1 -type d | fzf)
+    session=$(fd . --type d --mindepth 1 --maxdepth 1 --search-path ~/Code --search-path ~/Pets --absolute-path | fzf)
 fi
 
 if [[ -z $session ]]; then
