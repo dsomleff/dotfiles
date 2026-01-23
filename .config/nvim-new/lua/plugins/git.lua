@@ -17,6 +17,24 @@ keymap("n", "<leader>gd", "<cmd>Gvdiff<CR>", { desc = "Git diff" })
 keymap("n", "<leader>mc", "<cmd>Gvdiffsplit!<CR>", { desc = "Merge conflict" })
 keymap("n", "gh", "<cmd>diffget //2<CR>", { desc = "Get left hunk" })
 keymap("n", "gl", "<cmd>diffget //3<CR>", { desc = "Get right hunk" })
+
+keymap("n", "<leader>sl", function()
+	local handle = io.popen("git stash list")
+	if not handle then
+		print("Unable to check stashes (maybe not a Git repo).")
+		return
+	end
+
+	local result = handle:read("*a") or ""
+	handle:close()
+
+	if result == "" then
+		print("No stashes found.")
+	else
+		vim.cmd("Gclog -g stash")
+	end
+end, { desc = "Stash list" })
+
 -- =========================
 -- Gitsigns keys
 -- =========================
