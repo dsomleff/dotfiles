@@ -4,6 +4,7 @@ vim.pack.add({
 
 local parsers = {
 	"bash",
+	"css",
 	"dockerfile",
 	"git_config",
 	"git_rebase",
@@ -18,6 +19,7 @@ local parsers = {
 	"markdown",
 	"nu",
 	"query",
+	"scss",
 	"toml",
 	"tsx",
 	"typescript",
