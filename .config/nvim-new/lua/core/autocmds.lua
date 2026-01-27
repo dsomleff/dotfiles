@@ -3,22 +3,10 @@ local function create_augroup(name)
 end
 
 local autocmd = vim.api.nvim_create_autocmd
-local formatting = create_augroup("AutoFormatting")
 local general = create_augroup("General")
 
--- Activate Matchit plugin to jump with % via html tags
+-- Activate Matchit plugin to jump with % via HTML tags
 vim.cmd("runtime macros/matchit.vim")
-
--- remove white space at the end of a line and format on save
-autocmd("BufWritePre", {
-	group = formatting,
-	pattern = "*",
-	callback = function()
-		local pos = vim.api.nvim_win_get_cursor(0)
-		vim.cmd([[%s/\s\+$//e]])
-		vim.api.nvim_win_set_cursor(0, pos)
-	end,
-})
 
 -- highlight on yank
 autocmd("TextYankPost", {

@@ -14,6 +14,7 @@ require("conform").setup({
 		json = { "prettier" },
 		markdown = { "prettier" },
 		lua = { "stylua" },
+		["_"] = { "trim_whitespace" },
 	},
 	default_format_opts = {
 		lsp_format = "fallback",
