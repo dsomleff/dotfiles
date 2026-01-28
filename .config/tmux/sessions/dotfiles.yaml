@@ -13,7 +13,7 @@ windows:
     options: {}
     panes:
       - focus: "true"
-        shell_command: v .
+        shell_command: vv .
     window_name: tmux
     start_directory: /Users/somleff/dotfiles/.config/tmux
 
@@ -21,7 +21,7 @@ windows:
     options: {}
     panes:
       - focus: "true"
-        shell_command: v .
+        shell_command: vv .
     window_name: alacritty
     start_directory: /Users/somleff/dotfiles/.config/alacritty
 
