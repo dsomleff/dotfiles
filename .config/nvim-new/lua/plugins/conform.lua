@@ -4,17 +4,16 @@ vim.pack.add({
 
 require("conform").setup({
 	formatters_by_ft = {
-		javascript = { "prettier" },
-		typescript = { "prettier" },
-		javascriptreact = { "prettier" },
-		typescriptreact = { "prettier" },
-		vue = { "prettier" },
-		css = { "prettier" },
-		html = { "prettier" },
-		json = { "prettier" },
-		markdown = { "prettier" },
+		javascript = { "prettierd" },
+		typescript = { "prettierd" },
+		javascriptreact = { "prettierd" },
+		typescriptreact = { "prettierd" },
+		css = { "prettierd" },
+		html = { "prettierd" },
+		json = { "prettierd" },
+		markdown = { "prettierd" },
 		lua = { "stylua" },
-		["_"] = { "trim_whitespace" },
+		["_"] = { "trim_whitespace", "trim_newlines" },
 	},
 	default_format_opts = {
 		lsp_format = "fallback",
@@ -24,15 +23,15 @@ require("conform").setup({
 		timeout_ms = 500,
 	},
 	formatters = {
-		prettier = {
-			args = {
-				"--stdin-filepath",
-				"$FILENAME",
-				"--tab-width",
-				"4",
-				"--use-tabs",
-				"false",
-			},
-		},
+		-- prettier = {
+		-- 	args = {
+		-- 		"--stdin-filepath",
+		-- 		"$FILENAME",
+		-- 		"--tab-width",
+		-- 		"4",
+		-- 		"--use-tabs",
+		-- 		"false",
+		-- 	},
+		-- },
 	},
 })
