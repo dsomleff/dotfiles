@@ -3,6 +3,7 @@ require("core.keymaps")
 require("core.autocmds")
 require("core.statusline")
 require("core.lsp")
+require("core.filetypes")
 
 require("themes.lackluster")
 require("plugins.git")

@@ -13,6 +13,8 @@ require("conform").setup({
 		json = { "prettierd" },
 		markdown = { "prettierd" },
 		lua = { "stylua" },
+		bash = { "shfmt" },
+		sh = { "shfmt" },
 		["_"] = { "trim_whitespace", "trim_newlines" },
 	},
 	default_format_opts = {
