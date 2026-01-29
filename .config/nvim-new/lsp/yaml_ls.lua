@@ -1,6 +1,6 @@
 return {
 	cmd = { "yaml-language-server", "--stdio" },
-	filetypes = { "yaml", "yml", "yaml.docker-compose", "yaml.gitlab" },
+	filetypes = { "yaml" },
 	root_markers = { ".git" },
 	single_file_support = true,
 	settings = {
