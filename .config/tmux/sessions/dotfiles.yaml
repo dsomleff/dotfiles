@@ -5,7 +5,7 @@ windows:
     options: {}
     panes:
       - focus: "true"
-        shell_command: vv .
+        shell_command: v .
     window_name: nvim-new
     start_directory: /Users/somleff/dotfiles/.config/nvim-new
 
@@ -13,7 +13,7 @@ windows:
     options: {}
     panes:
       - focus: "true"
-        shell_command: vv .
+        shell_command: v .
     window_name: tmux
     start_directory: /Users/somleff/dotfiles/.config/tmux
 
@@ -21,7 +21,7 @@ windows:
     options: {}
     panes:
       - focus: "true"
-        shell_command: vv .
+        shell_command: v .
     window_name: alacritty
     start_directory: /Users/somleff/dotfiles/.config/alacritty
 

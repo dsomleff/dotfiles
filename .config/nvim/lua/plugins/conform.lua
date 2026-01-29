@@ -3,16 +3,19 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	opts = {
 		formatters_by_ft = {
-			javascript = { "prettier" },
-			typescript = { "prettier" },
-			javascriptreact = { "prettier" },
-			typescriptreact = { "prettier" },
-			vue = { "prettier" },
-			css = { "prettier" },
-			html = { "prettier" },
-			json = { "prettier" },
-			markdown = { "prettier" },
-			lua = { "stylua" },
+            		javascript = { "prettierd" },
+		typescript = { "prettierd" },
+		javascriptreact = { "prettierd" },
+		typescriptreact = { "prettierd" },
+		css = { "prettierd" },
+		html = { "prettierd" },
+		json = { "prettierd" },
+		markdown = { "prettierd" },
+		lua = { "stylua" },
+		bash = { "shfmt" },
+		sh = { "shfmt" },
+		["_"] = { "trim_whitespace", "trim_newlines" },
+
 		},
 		default_format_opts = {
 			lsp_format = "fallback",
@@ -22,16 +25,16 @@ return {
 			timeout_ms = 500,
 		},
 		formatters = {
-			prettier = {
-				args = {
-					"--stdin-filepath",
-					"$FILENAME",
-					"--tab-width",
-					"4",
-					"--use-tabs",
-					"false",
-				},
-			},
+		-- 	prettier = {
+		-- 		args = {
+		-- 			"--stdin-filepath",
+		-- 			"$FILENAME",
+		-- 			"--tab-width",
+		-- 			"4",
+		-- 			"--use-tabs",
+		-- 			"false",
+		-- 		},
+		-- 	},
 		},
 	},
 }

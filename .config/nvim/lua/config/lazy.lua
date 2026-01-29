@@ -14,6 +14,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	spec = "plugins",
+	spec = {
+		{ import = "plugins" },
+		{ import = "themes.lackluster" },
+	},
 	change_detection = { notify = false },
 })

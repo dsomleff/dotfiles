@@ -15,9 +15,9 @@ return {
 			},
 			tweak_highlight = {
 				-- Git diff
-				StatusLineGitDiffAdded = { fg = color.green },
-				StatusLineGitDiffChanged = { fg = color.lack },
-				StatusLineGitDiffRemoved = { fg = color.orange },
+				-- StatusLineGitDiffAdded = { fg = color.green },
+				-- StatusLineGitDiffChanged = { fg = color.lack },
+				-- StatusLineGitDiffRemoved = { fg = color.orange },
 				-- LSP diagnostics
 				StatusLineLspError = { fg = color.red, bold = true },
 				StatusLineLspWarn = { fg = color.orange, bold = true },
@@ -33,33 +33,34 @@ return {
 
 				["@keyword"] = {
 					overwrite = false,
-					italic = true,
+					italic = false,
 					-- bold = true,
 				},
 				["@function"] = {
 					overwrite = true,
-					link = "@keyword",
+					italic = true,
 				},
 				["@comment"] = {
 					overwrite = false,
 					italic = true,
 				},
 				["@property"] = {
-					italic = true,
 					overwrite = false,
+					italic = true,
 				},
 			},
 		})
 
 		vim.cmd.colorscheme("lackluster-hack")
+		vim.cmd(":hi statusline guibg=NONE")
 
 		-- Custom highlights
-		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-		vim.api.nvim_set_hl(0, "FloatBorder", { fg = color.gray9, bg = "#101010" })
-		vim.api.nvim_set_hl(0, "DiagnosticError", { fg = color.red })
-		vim.api.nvim_set_hl(0, "DiagnosticWarn", { fg = color.orange })
-		vim.api.nvim_set_hl(0, "DiagnosticInfo", { fg = color.blue })
-		vim.api.nvim_set_hl(0, "DiagnosticHint", { fg = color.yellow })
+		-- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+		-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+		-- vim.api.nvim_set_hl(0, "FloatBorder", { fg = color.gray9, bg = "#101010" })
+		-- vim.api.nvim_set_hl(0, "DiagnosticError", { fg = color.red })
+		-- vim.api.nvim_set_hl(0, "DiagnosticWarn", { fg = color.orange })
+		-- vim.api.nvim_set_hl(0, "DiagnosticInfo", { fg = color.blue })
+		-- vim.api.nvim_set_hl(0, "DiagnosticHint", { fg = color.yellow })
 	end,
 }

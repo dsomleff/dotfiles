@@ -58,8 +58,8 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- Spell check
-vim.opt.spelllang = "en_us"
-vim.opt.spell = true
+-- vim.opt.spelllang = "en_us"
+-- vim.opt.spell = true
 
 -- backspace
 vim.opt.backspace = "indent,eol,start"
@@ -96,3 +96,7 @@ vim.opt.spelloptions:append("camel")
 
 -- substitute preview
 vim.opt.inccommand = "split"
+
+-- Fold
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99

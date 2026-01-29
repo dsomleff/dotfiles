@@ -6,6 +6,7 @@ return {
 	config = function()
 		local parsers = {
 			"bash",
+			"css",
 			"dockerfile",
 			"git_config",
 			"git_rebase",
@@ -20,6 +21,7 @@ return {
 			"markdown",
 			"nu",
 			"query",
+			"scss",
 			"toml",
 			"tsx",
 			"typescript",
