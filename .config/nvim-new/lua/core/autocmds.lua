@@ -28,10 +28,14 @@ end, {
 	complete = function() end,
 })
 
--- Disable spellcheck for special files
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "nu", "go" },
-	callback = function()
-		vim.opt_local.spell = false
-	end,
-})
+vim.api.nvim_create_user_command("NvimUpdate", function()
+	vim.notify("Updating Neovim components…", vim.log.levels.INFO)
+
+	vim.defer_fn(function()
+		vim.cmd("TSUpdate")
+		vim.cmd("MasonUpdate")
+		vim.cmd("PackUpdate")
+
+		vim.notify("Neovim update finished", vim.log.levels.INFO)
+	end, 100)
+end, {})
