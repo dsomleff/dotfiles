@@ -65,5 +65,7 @@ vim.g.loaded_ruby_provider = 0
 opt.path:append("**")
 
 -- Fold
-vim.opt.foldlevel = 99
-vim.opt.foldlevelstart = 99
+opt.foldlevel = 99
+opt.foldlevelstart = 99
+opt.foldmethod = "expr"
+opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
