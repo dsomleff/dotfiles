@@ -5,6 +5,7 @@ return {
 	config = function()
 		local lackluster = require("lackluster")
 		local color = lackluster.color
+		local bg = "#101010"
 
 		lackluster.setup({
 			tweak_color = {
@@ -55,12 +56,9 @@ return {
 		vim.cmd(":hi statusline guibg=NONE")
 
 		-- Custom highlights
-		-- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-		-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-		-- vim.api.nvim_set_hl(0, "FloatBorder", { fg = color.gray9, bg = "#101010" })
-		-- vim.api.nvim_set_hl(0, "DiagnosticError", { fg = color.red })
-		-- vim.api.nvim_set_hl(0, "DiagnosticWarn", { fg = color.orange })
-		-- vim.api.nvim_set_hl(0, "DiagnosticInfo", { fg = color.blue })
-		-- vim.api.nvim_set_hl(0, "DiagnosticHint", { fg = color.yellow })
+		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+		vim.api.nvim_set_hl(0, "NormalFloat", { bg = bg })
+		vim.api.nvim_set_hl(0, "FloatBorder", { fg = "none", bg = bg })
+		vim.api.nvim_set_hl(0, "Pmenu", { fg = "none", bg = bg })
 	end,
 }

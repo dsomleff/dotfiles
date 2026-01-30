@@ -4,6 +4,7 @@ vim.pack.add({
 
 local lackluster = require("lackluster")
 local color = lackluster.color
+local bg = "#101010"
 
 lackluster.setup({
 	tweak_ui = {
@@ -44,11 +45,7 @@ vim.cmd("colorscheme lackluster-hack")
 vim.cmd(":hi statusline guibg=NONE")
 
 -- Custom highlights
--- vim.api.nvim_set_hl(0, "Normal",        { bg = "none" })
--- vim.api.nvim_set_hl(0, "NormalFloat",   { bg = "none" })
--- vim.api.nvim_set_hl(0, "FloatBorder",   { fg = color.gray9, bg = "#101010" })
-
--- Override Gitsigns highlights
--- vim.api.nvim_set_hl(0, "GitSignsAdd",    { fg = color.green,  bg = "none" })
--- vim.api.nvim_set_hl(0, "GitSignsChange", { fg = color.lack,   bg = "none" })
--- vim.api.nvim_set_hl(0, "GitSignsDelete", { fg = color.orange, bg = "none" })
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = bg })
+vim.api.nvim_set_hl(0, "FloatBorder", { fg = "none", bg = bg })
+vim.api.nvim_set_hl(0, "Pmenu", { fg = "none", bg = bg })

@@ -31,6 +31,15 @@ return {
 		completion = {
 			menu = {
 				border = "single",
+				draw = {
+					components = {
+						kind_icon = {
+							text = function()
+								return ""
+							end,
+						},
+					},
+				},
 			},
 			documentation = {
 				auto_show = true,
