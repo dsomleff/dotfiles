@@ -5,7 +5,7 @@ windows:
     options: {}
     panes:
       - focus: "true"
-        shell_command: v .
+        shell_command: vv .
     window_name: nvim-new
     start_directory: /Users/somleff/dotfiles/.config/nvim-new
 

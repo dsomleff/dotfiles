@@ -4,12 +4,17 @@ return {
 		opts = {
 			default_file_explorer = true,
 			delete_to_trash = true,
-			-- use_default_keymaps = false,
 			view_options = {
 				show_hidden = true,
 			},
 			keymaps = {
 				["<C-p>"] = false,
+			},
+			columns = {
+				-- "icon",
+				-- "permissions",
+				-- "size",
+				-- "mtime",
 			},
 		},
 	},
