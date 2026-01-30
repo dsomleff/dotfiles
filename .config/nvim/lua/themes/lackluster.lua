@@ -58,7 +58,8 @@ return {
 		-- Custom highlights
 		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 		vim.api.nvim_set_hl(0, "NormalFloat", { bg = bg })
-		vim.api.nvim_set_hl(0, "FloatBorder", { fg = "none", bg = bg })
-		vim.api.nvim_set_hl(0, "Pmenu", { fg = "none", bg = bg })
+		vim.api.nvim_set_hl(0, "FloatBorder", { fg = color.gray5, bg = bg })
+		vim.api.nvim_set_hl(0, "Pmenu", { fg = color.gray5, bg = bg })
+		vim.api.nvim_set_hl(0, "FzfLuaBorder", { fg = color.gray5, bg = bg })
 	end,
 }

@@ -17,12 +17,12 @@ vim.lsp.enable({
 })
 
 vim.keymap.set("n", "K", function()
-	vim.lsp.buf.hover({ border = "single" })
+	vim.lsp.buf.hover()
 end, { silent = true })
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, { silent = true })
 vim.keymap.set("n", "gr", vim.lsp.buf.references, { silent = true })
 vim.keymap.set("n", "gl", function()
-	vim.diagnostic.open_float({ focusable = true, border = "single" })
+	vim.diagnostic.open_float({ focusable = true })
 end, { silent = true })
 
 -- inlay hint toggle
