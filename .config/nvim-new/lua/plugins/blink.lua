@@ -34,6 +34,21 @@ require("blink.cmp").setup({
 	completion = {
 		menu = {
 			border = "single",
+			draw = {
+				columns = { { "kind_icon" }, { "label" }, { "kind" } },
+				components = {
+					kind_icon = {
+						text = function()
+							return ""
+						end,
+					},
+					kind = {
+						text = function(ctx)
+							return ctx.kind
+						end,
+					},
+				},
+			},
 		},
 		documentation = {
 			auto_show = true,
@@ -42,6 +57,7 @@ require("blink.cmp").setup({
 			},
 		},
 	},
+
 	fuzzy = {
 		implementation = "prefer_rust_with_warning",
 	},

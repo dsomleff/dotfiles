@@ -32,10 +32,16 @@ return {
 			menu = {
 				border = "single",
 				draw = {
+					columns = { { "kind_icon" }, { "label" }, { "kind" } },
 					components = {
 						kind_icon = {
 							text = function()
 								return ""
+							end,
+						},
+						kind = {
+							text = function(ctx)
+								return ctx.kind
 							end,
 						},
 					},
@@ -43,6 +49,7 @@ return {
 			},
 			documentation = {
 				auto_show = true,
+				auto_show_delay_ms = 500,
 				window = {
 					border = "single",
 				},
