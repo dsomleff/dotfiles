@@ -1,8 +1,3 @@
-vim.pack.add({
-	"https://github.com/tpope/vim-fugitive",
-	"https://github.com/lewis6991/gitsigns.nvim",
-})
-
 local keymap = vim.keymap.set
 -- =========================
 -- Fugitive keymaps
