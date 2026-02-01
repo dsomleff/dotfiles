@@ -19,4 +19,7 @@ require("lazy").setup({
 		{ import = "themes.lackluster" },
 	},
 	change_detection = { notify = false },
+	ui = {
+		border = "rounded",
+	},
 })
