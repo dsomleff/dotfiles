@@ -57,3 +57,4 @@ def vv [...args] {
     /opt/nvim-nightly/bin/nvim ...$args
   }
 }
+$env.PATH = ($env.PATH | append "~/dotfiles/.config/scripts")
