@@ -2,12 +2,54 @@
 name = "Dmytro Somliev"
 email = "somleff@gmail.com"
 
+[[--scope]]
+--when.repositories = ["~/Code"]
+[--scope.user]
+email = "dmytro.somliev@ibm.com"
+
 [template-aliases]
 'format_short_id(id)' = 'id.shortest()'
-
 "format_timestamp(timestamp)" = "timestamp.ago()"
 
+[remotes.origin]
+auto-track-bookmarks = "*"
+auto-track-created-bookmarks = "~*"
+
+[ui]
+merge-editor = "webstorm"
+
+[merge-tools.webstorm]
+program = "/Applications/WebStorm.app/Contents/MacOS/webstorm"
+edit-args = ["diff", "$left", "$right"]
+merge-args = ["merge", "$right", "$left", "$base", "$output"]
+diff-args = ["diff", "$left", "$right"]
+
 [templates]
+# " ",
+# author.email().local(),
+    # "(no description set)"
+log = '''
+if(root,
+  format_root_commit(self),
+  label(if(current_working_copy, "working_copy"),
+    concat(
+      label("change_id", change_id.shortest()),
+      "\n",
+      if(empty, label("empty", "(empty) ")),
+      if(
+        description.first_line(),
+        label("description", description.first_line()),
+        label("description", "∅")
+      ),
+      if(bookmarks,
+        " " ++ label("branches", separate(" ", bookmarks)) ++ "\n"
+      ),
+      "\n",
+    ),
+  ),
+)
+'''
+
 draft_commit_description ='''
     concat(
       coalesce(description, default_commit_description, "\n"),
