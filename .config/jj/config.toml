@@ -15,6 +15,10 @@ email = "dmytro.somliev@ibm.com"
 auto-track-bookmarks = "*"
 auto-track-created-bookmarks = "~*"
 
+# [experimental-advance-branches]
+# enabled-branches = ["glob:*"]
+# disabled-branches = ["main", "dev", "glob:push-*"]
+
 [ui]
 merge-editor = "webstorm"
 
@@ -25,28 +29,35 @@ merge-args = ["merge", "$right", "$left", "$base", "$output"]
 diff-args = ["diff", "$left", "$right"]
 
 [templates]
-# " ",
-# author.email().local(),
     # "(no description set)"
+# " ",
+# label("commit_id", format_short_id(self.commit_id())),
 log = '''
 if(root,
-  format_root_commit(self),
-  label(if(current_working_copy, "working_copy"),
-    concat(
-      label("change_id", change_id.shortest()),
-      "\n",
-      if(empty, label("empty", "(empty) ")),
-      if(
-        description.first_line(),
-        label("description", description.first_line()),
-        label("description", "∅")
-      ),
-      if(bookmarks,
-        " " ++ label("branches", separate(" ", bookmarks)) ++ "\n"
-      ),
-      "\n",
+    format_root_commit(self),
+    label(if(current_working_copy, "working_copy"),
+        concat(
+            label("change_id", format_short_change_id_with_change_offset(self)),
+            " ",
+            author.email().local(),
+            "\n",
+            if(empty, label("empty", "(empty) ")),
+            if(
+                description.first_line(),
+                label("description", description.first_line()),
+                label("description", "∅")
+            ),
+            if(bookmarks || remote_bookmarks,
+                " " ++ label("branches",
+                separate(" ",
+                    bookmarks,
+                    remote_bookmarks.filter(|b| b.remote() != "git" && !b.tracked())
+                )
+            )
+          ),
+          if(divergent, " " ++ label("divergent", "divergent") ++ "\n")
+        ),
     ),
-  ),
 )
 '''
 
