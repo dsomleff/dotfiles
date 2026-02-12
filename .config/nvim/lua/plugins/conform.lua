@@ -15,6 +15,7 @@ return {
 			bash = { "shfmt" },
 			sh = { "shfmt" },
 			["_"] = { "trim_whitespace", "trim_newlines" },
+			go = { "goimports", "gofumpt" },
 		},
 		default_format_opts = {
 			lsp_format = "fallback",
