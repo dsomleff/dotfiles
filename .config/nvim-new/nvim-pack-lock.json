@@ -30,6 +30,10 @@
       "src": "https://github.com/ThePrimeagen/harpoon",
       "version": "'harpoon2'"
     },
+    "jj.nvim": {
+      "rev": "7827458568ed28b7e8adbcd3a48aafec54681faf",
+      "src": "https://github.com/NicolasGB/jj.nvim"
+    },
     "lackluster.nvim": {
       "rev": "70dd682e564784893b984deb51dd5ddd263c8cc7",
       "src": "https://github.com/slugbyte/lackluster.nvim"

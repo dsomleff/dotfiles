@@ -24,6 +24,7 @@ vim.pack.add({
 		src = "https://github.com/saghen/blink.cmp",
 		version = vim.version.range("^1"),
 	},
+	"https://github.com/NicolasGB/jj.nvim",
 })
 
 require("themes.lackluster")
@@ -38,3 +39,4 @@ require("plugins.conform")
 require("plugins.harpoon")
 require("plugins.undotree")
 require("plugins.neoscroll")
+require("plugins.jj")
