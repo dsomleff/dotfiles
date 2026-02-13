@@ -9,7 +9,17 @@ email = "dmytro.somliev@ibm.com"
 
 [template-aliases]
 'format_short_id(id)' = 'id.shortest()'
-"format_timestamp(timestamp)" = "timestamp.ago()"
+'format_short_signature(signature)' = 'author.email().local()'
+'format_timestamp(ts)' = ''
+'description_placeholder' = 'label("description placeholder", "∅")'
+# "format_timestamp(timestamp)" = "timestamp.ago()"
+# 'format_short_signature(signature)' = 'signature.name()'
+# 'format_timestamp(ts)' = '''
+# if(
+#   ts.after("1 week ago"),
+#   ts.ago(),
+#   ts.format("%b %d, %Y %H:%M"))
+# '''
 
 [remotes.origin]
 auto-track-bookmarks = "*"
@@ -28,47 +38,17 @@ edit-args = ["diff", "$left", "$right"]
 merge-args = ["merge", "$right", "$left", "$base", "$output"]
 diff-args = ["diff", "$left", "$right"]
 
-[templates]
-    # "(no description set)"
-# " ",
-# label("commit_id", format_short_id(self.commit_id())),
-log = '''
-if(root,
-    format_root_commit(self),
-    label(if(current_working_copy, "working_copy"),
-        concat(
-            label("change_id", format_short_change_id_with_change_offset(self)),
-            " ",
-            author.email().local(),
-            "\n",
-            if(empty, label("empty", "(empty) ")),
-            if(
-                description.first_line(),
-                label("description", description.first_line()),
-                label("description", "∅")
-            ),
-            if(bookmarks || remote_bookmarks,
-                " " ++ label("branches",
-                separate(" ",
-                    bookmarks,
-                    remote_bookmarks.filter(|b| b.remote() != "git" && !b.tracked())
-                )
-            )
-          ),
-          if(divergent, " " ++ label("divergent", "divergent") ++ "\n")
-        ),
-    ),
-)
-'''
+[revsets]
+log = '@ | ancestors(trunk()..(visible_heads() & mine()), 2) | trunk()'
 
-draft_commit_description ='''
-    concat(
-      coalesce(description, default_commit_description, "\n"),
-      surround(
-        "\nJJ: This commit contains the following changes:\n", "",
-        indent("JJ:     ", diff.stat(72)),
-      ),
-      "\nJJ: ignore-rest\n",
-      diff.git(),
-    )
-'''
+# draft_commit_description ='''
+#     concat(
+#       coalesce(description, default_commit_description, "\n"),
+#       surround(
+#         "\nJJ: This commit contains the following changes:\n", "",
+#         indent("JJ:     ", diff.stat(72)),
+#       ),
+#       "\nJJ: ignore-rest\n",
+#       diff.git(),
+#     )
+# '''
