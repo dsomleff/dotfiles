@@ -18,11 +18,11 @@
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
     "fzf-lua": {
-      "rev": "ec3fe3d9587005a995a00d55ea424bfc924eaf3e",
+      "rev": "5921997472574fca3880b62949eb8679dc6f5afc",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
-      "rev": "1ce96a464fdbc24208e24c117e2021794259005d",
+      "rev": "9f3c6dd7868bcc116e9c1c1929ce063b978fa519",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "harpoon": {
@@ -31,7 +31,7 @@
       "version": "'harpoon2'"
     },
     "jj.nvim": {
-      "rev": "7827458568ed28b7e8adbcd3a48aafec54681faf",
+      "rev": "3d78c28f7e26d5c87f53e66e05a1393e6ca9fec2",
       "src": "https://github.com/NicolasGB/jj.nvim"
     },
     "lackluster.nvim": {
@@ -47,7 +47,7 @@
       "src": "https://github.com/karb94/neoscroll.nvim"
     },
     "nvim-treesitter": {
-      "rev": "45a07f869b0cffba342276f2c77ba7c116d35db8",
+      "rev": "4d9466677a5ceadef104eaa0fe08d60d91c4e9a7",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "oil.nvim": {
@@ -59,7 +59,7 @@
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "undotree": {
-      "rev": "fc28931fbfba66ab75d9af23fe46ffbbb9de6e8c",
+      "rev": "d8f99084d98c32f651860eb0baaf89759f91debc",
       "src": "https://github.com/mbbill/undotree"
     },
     "vim-fugitive": {
