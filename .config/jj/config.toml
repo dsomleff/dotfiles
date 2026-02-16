@@ -41,6 +41,38 @@ diff-args = ["diff", "$left", "$right"]
 [revsets]
 log = '@ | ancestors(trunk()..(visible_heads() & mine()), 2) | trunk()'
 
+[colors]
+"author" = "#555555"
+"commiter" = "#555555"
+"working_copy author" = "#7a7a7a"
+"working_copy committer" = "#7a7a7a"
+
+"change_id" = "#cccccc"
+"commit_id" = "#7a7a7a"
+"working_copy commit_id" = "#aaaaaa"
+"working_copy change_id" = { fg = "#deeeed", bold = true }
+
+"bookmark" = "#7788AA"
+"bookmarks" = "#7788AA"
+"local_bookmarks" = "#7788AA"
+"remote_bookmarks" = "#708090"
+"working_copy bookmark" = { fg = "#7788AA", bold = true }
+"working_copy bookmarks" = { fg = "#7788AA", bold = true }
+# "working_copy local_bookmarks" = "#7788AA"
+# "working_copy remote_bookmarks" = "#708090"
+
+"empty" = "#444444"
+"placeholder" = "#7a7a7a"
+"description placeholder" = "#444444"
+"working_copy empty" = "#789978"
+"working_copy empty description placeholder" = "#444444"
+# "empty description placeholder" = "#444444"
+# "working_copy placeholder" = "#444444"
+# "working_copy description placeholder" = "#444444"
+
+"node working_copy" = { fg = "#789978", bold = true }
+"node immutable" = { fg = "#708090", bold = true }
+
 # draft_commit_description ='''
 #     concat(
 #       coalesce(description, default_commit_description, "\n"),
