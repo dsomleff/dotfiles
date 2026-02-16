@@ -1,6 +1,5 @@
 local StatusLine = {}
 
--- 1. Git Branch
 local function git_branch()
 	local gsd = vim.b.gitsigns_status_dict
 	if not gsd or not gsd.head or gsd.head == "" then
@@ -9,7 +8,6 @@ local function git_branch()
 	return string.format("%%#StatusLineGit#  %s %%*", gsd.head)
 end
 
--- 2. File Path
 local function file_path()
 	local filename = vim.fn.expand("%:~:.")
 	if filename == "" then
@@ -27,7 +25,6 @@ local function file_path()
 	return string.format("%%#StatusLineFile# %s%s %%*", filename, flags)
 end
 
--- 3. Git Diff
 local function git_diff()
 	local gsd = vim.b.gitsigns_status_dict
 	if not gsd then
@@ -51,7 +48,6 @@ local function git_diff()
 	return " " .. table.concat(diff, " ") .. " "
 end
 
--- 4. Diagnostics
 local function diagnostics()
 	local status = vim.diagnostic.status()
 	if status == "" then

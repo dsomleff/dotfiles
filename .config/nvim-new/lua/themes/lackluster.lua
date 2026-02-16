@@ -13,10 +13,10 @@ lackluster.setup({
 		-- StatusLineGitDiffRemoved = { fg = color.orange },
 
 		-- LSP diagnostics
-		StatusLineLspError = { fg = color.red, bold = true },
-		StatusLineLspWarn = { fg = color.orange, bold = true },
-		StatusLineLspHints = { fg = color.yellow, bold = true },
-		StatusLineLspInfo = { fg = color.blue, bold = true },
+		-- StatusLineLspError = { fg = color.red, bold = true },
+		-- StatusLineLspWarn = { fg = color.orange, bold = true },
+		-- StatusLineLspHints = { fg = color.yellow, bold = true },
+		-- StatusLineLspInfo = { fg = color.blue, bold = true },
 
 		["@keyword"] = {
 			overwrite = false,
