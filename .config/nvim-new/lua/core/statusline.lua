@@ -1,19 +1,15 @@
 local StatusLine = {}
 
-local function get_git_branch()
-	local gitsigns = vim.b.gitsigns_status_dict
-	return gitsigns and gitsigns.head or nil
-end
-
+-- 1. Git Branch
 local function git_branch()
-	local branch = get_git_branch()
-	if not branch or branch == "" then
+	local gsd = vim.b.gitsigns_status_dict
+	if not gsd or not gsd.head or gsd.head == "" then
 		return ""
 	end
-	local icon = ""
-	return string.format("%%#StatusLineGit# %s %s %%*", icon, branch)
+	return string.format("%%#StatusLineGit#  %s %%*", gsd.head)
 end
 
+-- 2. File Path
 local function file_path()
 	local filename = vim.fn.expand("%:~:.")
 	if filename == "" then
@@ -22,92 +18,98 @@ local function file_path()
 
 	local flags = ""
 	if vim.bo.modified then
-		flags = flags .. "[+]"
+		flags = flags .. " [+]"
 	end
 	if vim.bo.readonly then
-		flags = flags .. "RO"
+		flags = flags .. " RO"
 	end
 
-	return string.format("%%#StatusLineFile# %s %s %%*", filename, flags)
+	return string.format("%%#StatusLineFile# %s%s %%*", filename, flags)
 end
 
+-- 3. Git Diff
 local function git_diff()
-	local gsd = vim.b[0].gitsigns_status_dict
+	local gsd = vim.b.gitsigns_status_dict
 	if not gsd then
 		return ""
 	end
 
-	local parts = {}
+	local diff = {}
+	if (gsd.added or 0) > 0 then
+		table.insert(diff, string.format("%%#StatusLineGitDiffAdded#+%d%%*", gsd.added))
+	end
+	if (gsd.changed or 0) > 0 then
+		table.insert(diff, string.format("%%#StatusLineGitDiffChanged#~%d%%*", gsd.changed))
+	end
+	if (gsd.removed or 0) > 0 then
+		table.insert(diff, string.format("%%#StatusLineGitDiffRemoved#-%d%%*", gsd.removed))
+	end
 
-	if gsd.added and gsd.added > 0 then
-		table.insert(parts, string.format("%%#StatusLineGitDiffAdded#+%d%%*", gsd.added))
+	if #diff == 0 then
+		return " "
 	end
-	if gsd.changed and gsd.changed > 0 then
-		table.insert(parts, string.format("%%#StatusLineGitDiffChanged#~%d%%*", gsd.changed))
-	end
-	if gsd.removed and gsd.removed > 0 then
-		table.insert(parts, string.format("%%#StatusLineGitDiffRemoved#-%d%%*", gsd.removed))
-	end
+	return " " .. table.concat(diff, " ") .. " "
+end
 
-	if #parts == 0 then
+-- 4. Diagnostics
+local function diagnostics()
+	local status = vim.diagnostic.status()
+	if status == "" then
 		return ""
 	end
-
-	return string.format(" %s ", table.concat(parts, " "))
+	return status .. " "
 end
 
-local function get_lsp_diagnostics_count(severity)
-	return #vim.diagnostic.get(0, { severity = severity })
-end
+-- local function diagnostics()
+-- 	local counts = vim.diagnostic.count(0)
+-- 	if not counts then
+-- 		return ""
+-- 	end
+--
+-- 	local parts = {}
+--
+-- 	if counts[vim.diagnostic.severity.ERROR] then
+-- 		table.insert(parts, "%#StatusLineLspError#E:" .. counts[vim.diagnostic.severity.ERROR] .. "%*")
+-- 	end
+-- 	if counts[vim.diagnostic.severity.WARN] then
+-- 		table.insert(parts, "%#StatusLineLspWarn#W:" .. counts[vim.diagnostic.severity.WARN] .. "%*")
+-- 	end
+-- 	if counts[vim.diagnostic.severity.HINT] then
+-- 		table.insert(parts, "%#StatusLineLspHints#H:" .. counts[vim.diagnostic.severity.HINT] .. "%*")
+-- 	end
+-- 	if counts[vim.diagnostic.severity.INFO] then
+-- 		table.insert(parts, "%#StatusLineLspInfo#I:" .. counts[vim.diagnostic.severity.INFO] .. "%*")
+-- 	end
+--
+-- 	return table.concat(parts, " ")
+-- end
 
-local function diagnostics(severity, icon, hl)
-	local count = get_lsp_diagnostics_count(severity)
-	if count > 0 then
-		return string.format("%%#%s# %s%s%%*", hl, icon, count)
-	end
-	return ""
-end
-
-local function filetype()
-	local ft = vim.bo.filetype or vim.fn.expand("%:e", false)
-	if ft == "" then
-		ft = "no ft"
-	end
-	return string.format("%%#StatusLineFileType# %s %%*", ft)
-end
-
-local function cursor_position()
+-- 5. Right Side Helpers
+local function cursor_stats()
 	local line = vim.fn.line(".")
 	local col = vim.fn.col(".")
-	return string.format("%%#StatusLineCursor#  %d:%d %%*", line, col)
+	local total = vim.fn.line("$")
+	local percent = math.ceil((line / total) * 100)
+
+	return string.format(
+		"%%#StatusLineCursor#  %d:%d %%#StatusLinePercent#%d%%%% %%#StatusLineTotalLines#of %d %%*",
+		line,
+		col,
+		percent,
+		total
+	)
 end
 
-local function file_percentage()
-	local current_line = vim.api.nvim_win_get_cursor(0)[1]
-	local total_lines = vim.api.nvim_buf_line_count(0)
-	local percent = math.ceil((current_line / total_lines) * 100)
-	return string.format("%%#StatusLinePercent# %d%%%% %%*", percent)
-end
-
-local function total_lines()
-	local lines = vim.fn.line("$")
-	return string.format("%%#StatusLineTotalLines# of %d %%*", lines)
-end
-
+-- Assembly
 StatusLine.active = function()
 	return table.concat({
 		git_branch(),
 		file_path(),
 		git_diff(),
-		diagnostics(vim.diagnostic.severity.ERROR, "E:", "StatusLineLspError"),
-		diagnostics(vim.diagnostic.severity.WARN, "W:", "StatusLineLspWarn"),
-		diagnostics(vim.diagnostic.severity.HINT, "H:", "StatusLineLspHints"),
-		diagnostics(vim.diagnostic.severity.INFO, "I:", "StatusLineLspInfo"),
+		diagnostics(),
 		"%=",
-		filetype(),
-		cursor_position(),
-		file_percentage(),
-		total_lines(),
+		string.format("%%#StatusLineFileType# %s %%*", vim.bo.filetype or "no ft"),
+		cursor_stats(),
 	})
 end
 

@@ -10,10 +10,10 @@ email = "dmytro.somliev@ibm.com"
 [template-aliases]
 'format_short_id(id)' = 'id.shortest()'
 'format_short_signature(signature)' = 'author.email().local()'
+# 'format_short_signature(signature)' = 'signature.name()'
 'format_timestamp(ts)' = ''
 'description_placeholder' = 'label("description placeholder", "∅")'
 # "format_timestamp(timestamp)" = "timestamp.ago()"
-# 'format_short_signature(signature)' = 'signature.name()'
 # 'format_timestamp(ts)' = '''
 # if(
 #   ts.after("1 week ago"),
