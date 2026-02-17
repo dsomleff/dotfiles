@@ -9,7 +9,7 @@ email = "dmytro.somliev@ibm.com"
 
 [template-aliases]
 'format_short_id(id)' = 'id.shortest()'
-'format_short_signature(signature)' = 'author.email().local()'
+'format_short_signature(signature)' = 'signature.email().local()'
 # 'format_short_signature(signature)' = 'signature.name()'
 'format_timestamp(ts)' = ''
 'description_placeholder' = 'label("description placeholder", "∅")'
@@ -42,36 +42,109 @@ diff-args = ["diff", "$left", "$right"]
 log = '@ | ancestors(trunk()..(visible_heads() & mine()), 2) | trunk()'
 
 [colors]
-"author" = "#555555"
-"commiter" = "#555555"
-"working_copy author" = "#7a7a7a"
-"working_copy committer" = "#7a7a7a"
-
-"change_id" = "#cccccc"
+# ─────────────────────────
+# Core identity
+# ─────────────────────────
 "commit_id" = "#7a7a7a"
+"change_id" = "#cccccc"
+"prefix" = { bold = true }
+"rest" = "#555555"
+
 "working_copy commit_id" = "#aaaaaa"
 "working_copy change_id" = { fg = "#deeeed", bold = true }
 
+# ─────────────────────────
+# People & metadata
+# ─────────────────────────
+"author" = "#555555"
+"committer" = "#555555"
+"timestamp" = "#708090"
+
+"working_copy author" = "#7a7a7a"
+"working_copy committer" = "#7a7a7a"
+"working_copy timestamp" = "#aaaaaa"
+
+# ─────────────────────────
+# Bookmarks & refs
+# ─────────────────────────
 "bookmark" = "#7788AA"
 "bookmarks" = "#7788AA"
 "local_bookmarks" = "#7788AA"
 "remote_bookmarks" = "#708090"
+"tag" = "#7788AA"
+"tags" = "#7788AA"
+"git_ref" = "#789978"
+"git_refs" = "#789978"
+"git_head" = "#789978"
+
 "working_copy bookmark" = { fg = "#7788AA", bold = true }
 "working_copy bookmarks" = { fg = "#7788AA", bold = true }
-# "working_copy local_bookmarks" = "#7788AA"
-# "working_copy remote_bookmarks" = "#708090"
+"working_copy git_ref" = "#789978"
 
+# ─────────────────────────
+# States & warnings
+# ─────────────────────────
+"error" = { fg = "#D70000", bold = true }
+"warning" = { fg = "#ffaa88", bold = true }
+"hint" = { fg = "#abab77" }
+
+"conflict" = "#D70000"
+"divergent" = "#ffaa88"
+"mutable divergent" = "#D70000"
+
+# ─────────────────────────
+# Empty / placeholder
+# ─────────────────────────
 "empty" = "#444444"
 "placeholder" = "#7a7a7a"
 "description placeholder" = "#444444"
 "working_copy empty" = "#789978"
-"working_copy empty description placeholder" = "#444444"
-# "empty description placeholder" = "#444444"
-# "working_copy placeholder" = "#444444"
-# "working_copy description placeholder" = "#444444"
 
+# ─────────────────────────
+# Graph nodes
+# ─────────────────────────
 "node working_copy" = { fg = "#789978", bold = true }
 "node immutable" = { fg = "#708090", bold = true }
+"node conflicted" = { fg = "#D70000", bold = true }
+"node elided" = { fg = "#555555" }
+
+# ─────────────────────────
+# Diff colors
+# ─────────────────────────
+"diff header" = "#abab77"
+"diff hunk_header" = "#708090"
+"diff added" = { fg = "#789978" }
+"diff removed" = { fg = "#D70000" }
+"diff modified" = "#7788AA"
+"diff token" = { underline = true }
+"diff context line_number" = { dim = true }
+
+# ─────────────────────────
+# Operation log
+# ─────────────────────────
+"operation id" = "#7788AA"
+"operation user" = "#abab77"
+"operation time" = "#708090"
+"operation tags" = "#7788AA"
+"operation current_operation" = { bold = true }
+
+# ─────────────────────────
+# Config list
+# ─────────────────────────
+"config_list name" = "#789978"
+"config_list value" = "#abab77"
+"config_list source" = "#7788AA"
+"config_list path" = "#708090"
+"config_list overridden" = "#555555"
+
+# ─────────────────────────
+# Signatures
+# ─────────────────────────
+"signature display" = "#abab77"
+"signature key" = "#708090"
+"signature status good" = "#789978"
+"signature status unknown" = "#abab77"
+"signature status bad" = "#D70000"
 
 # draft_commit_description ='''
 #     concat(
