@@ -39,7 +39,7 @@ merge-args = ["merge", "$right", "$left", "$base", "$output"]
 diff-args = ["diff", "$left", "$right"]
 
 [revsets]
-log = '@ | ancestors(trunk()..(visible_heads() & mine()), 2) | trunk()'
+# log = '@ | ancestors(trunk()..(visible_heads() & mine()), 2) | trunk()'
 
 [colors]
 # ─────────────────────────
