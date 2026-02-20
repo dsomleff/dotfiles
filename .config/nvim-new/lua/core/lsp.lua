@@ -14,6 +14,7 @@ vim.lsp.enable({
 	"yaml_ls",
 	-- "vtsls", -- must be installed via Mason
 	-- "vue_ls", -- must be installed via Mason
+	"biome",
 })
 
 vim.keymap.set("n", "K", function()
