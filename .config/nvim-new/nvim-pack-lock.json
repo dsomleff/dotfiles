@@ -6,7 +6,7 @@
       "version": "1.0.0 - 2.0.0"
     },
     "conform.nvim": {
-      "rev": "c2526f1cde528a66e086ab1668e996d162c75f4f",
+      "rev": "e969e302bced7ffb9a0a0323629f31feb0ca35a6",
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "fidget.nvim": {
@@ -18,7 +18,7 @@
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
     "fzf-lua": {
-      "rev": "5921997472574fca3880b62949eb8679dc6f5afc",
+      "rev": "9004cbb4c065a32b690e909c49903967b45301eb",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
@@ -31,7 +31,7 @@
       "version": "'harpoon2'"
     },
     "jj.nvim": {
-      "rev": "3d78c28f7e26d5c87f53e66e05a1393e6ca9fec2",
+      "rev": "185190909ddfe79b0b03862f680c8474b72c90ed",
       "src": "https://github.com/NicolasGB/jj.nvim"
     },
     "lackluster.nvim": {
@@ -47,11 +47,11 @@
       "src": "https://github.com/karb94/neoscroll.nvim"
     },
     "nvim-treesitter": {
-      "rev": "4d9466677a5ceadef104eaa0fe08d60d91c4e9a7",
+      "rev": "dc42c209f3820bdfaae0956f15de29689aa6b451",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "oil.nvim": {
-      "rev": "f55b25e493a7df76371cfadd0ded5004cb9cd48a",
+      "rev": "48fc83a9978c5f25833634700c08be583ee78eb7",
       "src": "https://github.com/stevearc/oil.nvim"
     },
     "plenary.nvim": {
