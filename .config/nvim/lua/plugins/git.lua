@@ -8,7 +8,7 @@ return {
 			{ "<leader>gP", "<cmd>G push<CR>", desc = "Git push" },
 			{ "<leader>gf", "<cmd>G fetch<CR>", desc = "Git fetch" },
 			{ "<leader>gD", "<cmd>Gvdiff<CR>", desc = "Git diff" },
-			{ "<leader>gH", "<cmd>G log --oneline --decorate --graph --parents --all<CR>", desc = "Git history" },
+			{ "<leader>gH", "<cmd>G log --oneline --decorate --graph --parents<CR>", desc = "Git history" },
 			{ "<leader>gl", "<cmd>0GcLog<CR>", desc = "Git log" },
 			-- { "<leader>gl", ":G log | only<CR>", {} },
 			{ "<leader>gd", ":G branch -D ", desc = "Force delete branch" },
