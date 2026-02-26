@@ -39,3 +39,11 @@ vim.api.nvim_create_user_command("NvimUpdate", function()
 		vim.notify("Neovim update finished", vim.log.levels.INFO)
 	end, 100)
 end, {})
+
+-- Add feat and chore snippets into jj description
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "jjdescription",
+	callback = function()
+		vim.bo.filetype = "gitcommit"
+	end,
+})
