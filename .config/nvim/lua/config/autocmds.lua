@@ -89,3 +89,11 @@ vim.api.nvim_create_autocmd("BufEnter", {
 		end
 	end,
 })
+
+-- Add feat and chore snippets into jj description
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "jjdescription",
+	callback = function()
+		vim.bo.filetype = "gitcommit"
+	end,
+})

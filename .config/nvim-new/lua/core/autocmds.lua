@@ -31,13 +31,11 @@ end, {
 vim.api.nvim_create_user_command("NvimUpdate", function()
 	vim.notify("Updating Neovim components…", vim.log.levels.INFO)
 
-	vim.defer_fn(function()
-		vim.cmd("TSUpdate")
-		vim.cmd("MasonUpdate")
-		vim.cmd("PackUpdate")
+	vim.cmd("TSUpdate")
+	vim.cmd("MasonUpdate")
+	vim.cmd("PackUpdate")
 
-		vim.notify("Neovim update finished", vim.log.levels.INFO)
-	end, 100)
+	vim.notify("Neovim update finished", vim.log.levels.INFO)
 end, {})
 
 -- Add feat and chore snippets into jj description
