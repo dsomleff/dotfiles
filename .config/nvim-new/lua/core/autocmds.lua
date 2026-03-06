@@ -32,7 +32,14 @@ vim.api.nvim_create_user_command("NvimUpdate", function()
 	vim.notify("Updating Neovim components…", vim.log.levels.INFO)
 
 	vim.cmd("TSUpdate")
-	vim.cmd("MasonUpdate")
+
+	local registry = require("mason-registry")
+	registry.update(function()
+		for _, pkg in ipairs(registry.get_installed_packages()) do
+			pkg:install()
+		end
+	end)
+
 	vim.cmd("PackUpdate")
 
 	vim.notify("Neovim update finished", vim.log.levels.INFO)

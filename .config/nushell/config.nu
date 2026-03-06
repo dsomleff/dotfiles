@@ -51,6 +51,7 @@ alias rm = rm -v -i
 alias mv = mv -v -i
 alias cp = cp -v -i
 alias cdd = cd (fd . --type d --mindepth 1 --maxdepth 4 --search-path ~/Code --search-path ~/Pets --absolute-path | fzf)
+alias ls = ls -a
 
 def vv [...args] {
   with-env { NVIM_APPNAME: "nvim-new" } {
