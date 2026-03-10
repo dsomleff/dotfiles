@@ -43,3 +43,7 @@ Add the following line to the `.gitignore_global` file:
 ```bash
 .DS_Store
 ```
+
+---
+
+[Vim Tips Link](https://www.ele.uri.edu/faculty/vetter/Other-stuff/vi/vimtips.html)

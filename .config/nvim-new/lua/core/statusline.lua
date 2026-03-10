@@ -56,30 +56,6 @@ local function diagnostics()
 	return status .. " "
 end
 
--- local function diagnostics()
--- 	local counts = vim.diagnostic.count(0)
--- 	if not counts then
--- 		return ""
--- 	end
---
--- 	local parts = {}
---
--- 	if counts[vim.diagnostic.severity.ERROR] then
--- 		table.insert(parts, "%#StatusLineLspError#E:" .. counts[vim.diagnostic.severity.ERROR] .. "%*")
--- 	end
--- 	if counts[vim.diagnostic.severity.WARN] then
--- 		table.insert(parts, "%#StatusLineLspWarn#W:" .. counts[vim.diagnostic.severity.WARN] .. "%*")
--- 	end
--- 	if counts[vim.diagnostic.severity.HINT] then
--- 		table.insert(parts, "%#StatusLineLspHints#H:" .. counts[vim.diagnostic.severity.HINT] .. "%*")
--- 	end
--- 	if counts[vim.diagnostic.severity.INFO] then
--- 		table.insert(parts, "%#StatusLineLspInfo#I:" .. counts[vim.diagnostic.severity.INFO] .. "%*")
--- 	end
---
--- 	return table.concat(parts, " ")
--- end
-
 -- 5. Right Side Helpers
 local function cursor_stats()
 	local line = vim.fn.line(".")
