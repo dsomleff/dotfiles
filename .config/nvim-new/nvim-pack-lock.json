@@ -6,7 +6,7 @@
       "version": "1.0.0 - 2.0.0"
     },
     "conform.nvim": {
-      "rev": "40dcec5555f960b0a04340d76eabdf4efe78599d",
+      "rev": "086a40dc7ed8242c03be9f47fbcee68699cc2395",
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "fidget.nvim": {
@@ -18,11 +18,11 @@
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
     "fzf-lua": {
-      "rev": "1eba927866251bae1b61dffc5b673b8dbd0f3f48",
+      "rev": "30ba09afbc0eac5fc5ec8823418d1e45d0712b9f",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
-      "rev": "6d72ba88c40f4c55c01f8a0558aa532cee108486",
+      "rev": "7c4faa3540d0781a28588cafbd4dd187a28ac6e3",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "harpoon": {
@@ -31,7 +31,7 @@
       "version": "'harpoon2'"
     },
     "jj.nvim": {
-      "rev": "bbba4051c862473637e98277f284d12b050588ca",
+      "rev": "d471a03685836faedbe952ab3794fdca65c4af60",
       "src": "https://github.com/NicolasGB/jj.nvim"
     },
     "lackluster.nvim": {
@@ -47,7 +47,7 @@
       "src": "https://github.com/karb94/neoscroll.nvim"
     },
     "nvim-treesitter": {
-      "rev": "1970f0d3bbb99c7659e58914948749437c7b7398",
+      "rev": "493890b87a81dfe6a7e577dbc364ae33fa482da9",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "oil.nvim": {
@@ -59,11 +59,11 @@
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "undotree": {
-      "rev": "d8f99084d98c32f651860eb0baaf89759f91debc",
+      "rev": "6fa6b57cda8459e1e4b2ca34df702f55242f4e4d",
       "src": "https://github.com/mbbill/undotree"
     },
     "vim-fugitive": {
-      "rev": "61b51c09b7c9ce04e821f6cf76ea4f6f903e3cf4",
+      "rev": "3b753cf8c6a4dcde6edee8827d464ba9b8c4a6f0",
       "src": "https://github.com/tpope/vim-fugitive"
     }
   }
