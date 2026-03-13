@@ -44,6 +44,7 @@ alias tmka = tmux kill-server
 alias conf = tmuxp load ~/dotfiles/.config/tmux/sessions/dotfiles.yaml
 alias hub = tmuxp load ~/dotfiles/.config/tmux/sessions/hub.yaml
 alias hub2 = tmuxp load ~/dotfiles/.config/tmux/sessions/hub2.yaml
+alias ts = bash /Users/somleff/dotfiles/.local/scripts/tmux-sessionizer
 
 # Shell
 alias c = clear
