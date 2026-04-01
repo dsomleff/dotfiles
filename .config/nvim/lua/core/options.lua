@@ -69,3 +69,5 @@ opt.foldlevel = 99
 opt.foldlevelstart = 99
 opt.foldmethod = "expr"
 opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+
+vim.opt.pumborder = "single"
