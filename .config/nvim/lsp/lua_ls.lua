@@ -21,7 +21,7 @@ return {
 				ignoreSubmodules = true,
 				ignoreDir = { ".git" },
 
-				maxPreload = 0,
+				maxPreload = 1000,
 				preloadFileSize = 0,
 
 				library = {

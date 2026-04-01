@@ -22,7 +22,7 @@ email = "dmytro.somliev@ibm.com"
 # '''
 
 [remotes.origin]
-auto-track-bookmarks = "*"
+auto-track-bookmarks = "main|dev"
 auto-track-created-bookmarks = "~*"
 
 # [experimental-advance-branches]
@@ -39,6 +39,7 @@ merge-args = ["merge", "$right", "$left", "$base", "$output"]
 diff-args = ["diff", "$left", "$right"]
 
 [revsets]
+log = '@ | dev | main | ancestors(@, 3)'
 # log = '@ | ancestors(trunk()..(visible_heads() & mine()), 2) | trunk()'
 
 [colors]

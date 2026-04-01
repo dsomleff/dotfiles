@@ -6,4 +6,5 @@
 .config/nvim/lua/.DS_Store
 .config/nushell/history.txt
 .config/jj/repos/
+.config/.jgit/
 # .config/tmux/sessions/hub.yaml

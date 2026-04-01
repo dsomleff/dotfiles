@@ -1,17 +1,13 @@
-return {
-	{
-		"nicolasgb/jj.nvim",
-		version = "*", -- Use latest stable release
-		-- Or from the main branch (uncomment the branch line and comment the version line)
-		-- branch = "main",
-		keys = {
-			{ "<leader>js", "<cmd>J st<CR>", desc = "JJ status" },
-			{ "<leader>jl", "<cmd>J log<CR>", desc = "JJ log" },
-			{ "<leader>jL", "<cmd>J log -r all()<CR>", desc = "JJ log all revisions" },
-			-- { "<leader>jl", "<cmd>J log -T builtin_log_oneline<CR>", desc = "JJ log" },
-		},
-		config = function()
-			require("jj").setup({})
-		end,
-	},
-}
+require("jj").setup({})
+
+local opts = { noremap = true, silent = true }
+
+vim.keymap.set("n", "<leader>js", "<cmd>J st<CR>", opts)
+vim.keymap.set("n", "<leader>jl", "<cmd>J log<CR>", opts)
+vim.keymap.set("n", "<leader>jL", "<cmd>J log -r all()<CR>", opts)
+-- vim.keymap.set("n", "<leader>jl", "<cmd>J log -T builtin_log_oneline<CR>", opts)
+
+local cmd = require("jj.cmd")
+vim.keymap.set("n", "<leader>jd", cmd.describe, { desc = "JJ describe" })
+vim.keymap.set("n", "<leader>jn", cmd.new, { desc = "JJ new" })
+vim.keymap.set("n", "<leader>jbd", cmd.bookmark_delete, { desc = "JJ bookmark delete" })

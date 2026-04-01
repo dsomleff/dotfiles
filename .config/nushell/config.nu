@@ -3,9 +3,6 @@
 #
 source ~/dotfiles/.config/nushell/env.nu
 
-# zoxide
-source ~/.zoxide.nu
-
 # Carapace
 source ~/.cache/carapace/init.nu
 
@@ -54,9 +51,4 @@ alias cp = cp -v -i
 alias cdd = cd (fd . --type d --mindepth 1 --maxdepth 4 --search-path ~/Code --search-path ~/Pets --absolute-path | fzf)
 alias ls = ls -a
 
-def vv [...args] {
-  with-env { NVIM_APPNAME: "nvim-new" } {
-    /opt/nvim-nightly/bin/nvim ...$args
-  }
-}
 $env.PATH = ($env.PATH | append "~/dotfiles/.config/scripts")
