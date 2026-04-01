@@ -5,6 +5,7 @@
 .config/tmux/plugins
 .config/nvim/lua/.DS_Store
 .config/nushell/history.txt
+.config/nushell/.secrets.nu
 .config/jj/repos/
 .config/.jgit/
 # .config/tmux/sessions/hub.yaml

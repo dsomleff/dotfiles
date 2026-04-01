@@ -9,8 +9,11 @@ use ./fnm.nu
 
 path add /opt/homebrew/bin
 
-zoxide init nushell | save -f ~/.zoxide.nu
 
+$env.config.edit_mode = 'vi'
+if (".secrets.nu" | path exists) {
+    source .secrets.nu
+}
 $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
 mkdir ~/.cache/carapace
 carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
@@ -18,7 +21,5 @@ carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
 fnm env --json | from json | load-env
 # $env.PATH = ($env.PATH | append $"($env.FNM_MULTISHELL_PATH)/bin")
 $env.PATH = ($env.PATH
-  | append $"($env.FNM_MULTISHELL_PATH)/bin"
+  | prepend $"($env.FNM_MULTISHELL_PATH)/bin"
   | append '/Users/somleff/.rd/bin')
-
-
