@@ -57,7 +57,7 @@ end
 -- 5. Right Side Helpers
 local function filetype()
 	local ft = vim.bo.filetype ~= "" and vim.bo.filetype or "no ft"
-	return " | " .. ft .. " |"
+	return " " .. ft .. " |"
 end
 
 local function cursor_stats()
