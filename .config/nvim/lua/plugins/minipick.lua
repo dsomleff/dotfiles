@@ -23,6 +23,11 @@ MiniPick.setup({
 		toggle_info = "<S-Tab>",
 	},
 })
+local pick_hidden = function()
+	local command = { "rg", "--files", "--hidden", "-u" }
+	local source = { name = "Files Hidden" }
+	MiniPick.builtin.cli({ command = command }, { source = source })
+end
 
 vim.ui.select = MiniPick.ui_select
 
@@ -34,6 +39,7 @@ keymap("n", "<C-p>", "<cmd>Pick files<cr>")
 keymap("n", "<leader>fh", "<cmd>Pick help<cr>")
 keymap("n", "<leader>fb", "<cmd>Pick buffers<cr>")
 keymap("n", "<leader>fr", "<cmd>Pick resume<cr>")
+keymap("n", "<leader>fH", pick_hidden, { desc = "Find hidden files" })
 
 keymap("n", "<leader>fo", "<cmd>Pick oldfiles<cr>")
 keymap("n", "<leader>fk", "<cmd>Pick keymaps<cr>")
