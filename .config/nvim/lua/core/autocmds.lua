@@ -22,10 +22,27 @@ vim.api.nvim_create_user_command("PackUpdate", function()
 end, {})
 
 vim.api.nvim_create_user_command("PackDelete", function(opts)
-	vim.pack.del({ opts.args })
+	local ok, err = pcall(function()
+		vim.pack.del({ opts.args })
+	end)
+
+	if ok then
+		print("Successfully deleted: " .. opts.args)
+	else
+		vim.notify("Failed to delete " .. opts.args .. ": " .. err, vim.log.levels.ERROR)
+	end
 end, {
 	nargs = 1,
-	complete = function() end,
+	complete = function(ArgLead)
+		local plugins = {}
+		for _, path in ipairs(vim.api.nvim_get_runtime_file("pack/*/*/*", true)) do
+			local name = vim.fn.fnamemodify(path, ":t")
+			if name:match(ArgLead) then
+				table.insert(plugins, name)
+			end
+		end
+		return plugins
+	end,
 })
 
 vim.api.nvim_create_autocmd("PackChanged", {
