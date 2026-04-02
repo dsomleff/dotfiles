@@ -19,6 +19,8 @@ MiniPick.setup({
 		scroll_down = "<C-d>",
 		scroll_up = "<C-k>",
 		scroll_right = "<C-l>",
+		choose_marked = "<C-q>",
+		toggle_info = "<S-Tab>",
 	},
 })
 
@@ -36,9 +38,7 @@ keymap("n", "<leader>fr", "<cmd>Pick resume<cr>")
 keymap("n", "<leader>fo", "<cmd>Pick oldfiles<cr>")
 keymap("n", "<leader>fk", "<cmd>Pick keymaps<cr>")
 keymap("n", "<leader>fd", "<cmd>Pick diagnostic<cr>")
-keymap("n", "<leader>ca", function()
-	vim.lsp.buf.code_action()
-end)
+keymap("n", "<leader>ca", vim.lsp.buf.code_action)
 keymap("n", "<leader>/", "<cmd>Pick buf_lines scope='current'<cr>")
 
 keymap("n", "<leader>fg", "<cmd>Pick grep_live<cr>")
