@@ -1,7 +1,7 @@
 {
   "plugins": {
     "blink.cmp": {
-      "rev": "451168851e8e2466bc97ee3e026c3dcb9141ce07",
+      "rev": "78336bc89ee5365633bcf754d93df01678b5c08f",
       "src": "https://github.com/saghen/blink.cmp",
       "version": "1.0.0 - 2.0.0"
     },
@@ -14,7 +14,7 @@
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
     "gitsigns.nvim": {
-      "rev": "50c205548d8b037b7ff6378fca6d21146f0b6161",
+      "rev": "0d797daee85366bc242580e352a4f62d67557b84",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "harpoon": {
@@ -23,7 +23,7 @@
       "version": "'harpoon2'"
     },
     "jj.nvim": {
-      "rev": "a6e163bcc3a6b75e5b6d4190b64ed4b39f8ddb0c",
+      "rev": "578c5f15dfaeca9841dee85e44001216376bb9ca",
       "src": "https://github.com/NicolasGB/jj.nvim"
     },
     "lackluster.nvim": {
@@ -31,15 +31,15 @@
       "src": "https://github.com/slugbyte/lackluster.nvim"
     },
     "mason.nvim": {
-      "rev": "44d1e90e1f66e077268191e3ee9d2ac97cc18e65",
+      "rev": "b03fb0f20bc1d43daf558cda981a2be22e73ac42",
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mini.extra": {
-      "rev": "0ccc67319240cf8712f5f614db50c262eccd9db3",
+      "rev": "ca1932c95c6e757c06d2cc133b87835a01d909dd",
       "src": "https://github.com/nvim-mini/mini.extra"
     },
     "mini.pick": {
-      "rev": "fe079c2bd894a5ee70b62f23d819620ef40c4949",
+      "rev": "fd7e7efadddcec3f3d7f3b363a99aa44e7286c65",
       "src": "https://github.com/nvim-mini/mini.pick"
     },
     "neoscroll.nvim": {
@@ -47,7 +47,7 @@
       "src": "https://github.com/karb94/neoscroll.nvim"
     },
     "nvim-treesitter": {
-      "rev": "7caec274fd19c12b55902a5b795100d21531391f",
+      "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "oil.nvim": {
