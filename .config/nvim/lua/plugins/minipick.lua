@@ -24,7 +24,7 @@ MiniPick.setup({
 	},
 })
 local pick_hidden = function()
-	local command = { "rg", "--files", "--hidden", "-u" }
+	local command = { "rg", "--files", "--hidden", "-u", "--glob", "!.git" }
 	local source = { name = "Files Hidden" }
 	MiniPick.builtin.cli({ command = command }, { source = source })
 end

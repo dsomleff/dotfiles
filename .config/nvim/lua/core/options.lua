@@ -34,7 +34,7 @@ opt.signcolumn = "yes:1"
 opt.colorcolumn = "120"
 opt.cursorlineopt = "both" -- highlight the line number of the cursor
 opt.cursorline = true
-opt.guicursor = opt.guicursor + "a:blinkon20" -- Enable cursor blinking
+opt.guicursor = opt.guicursor + "a:blinkon0" -- Disable cursor blinking
 
 -- Undo tree folder
 opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
@@ -57,6 +57,7 @@ opt.spelloptions:append("camel")
 opt.inccommand = "split"
 
 -- Providers
+vim.g.did_install_default_menus = 1 -- skip building default menus to speed up startup
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_python3_provider = 0
 vim.g.loaded_ruby_provider = 0
