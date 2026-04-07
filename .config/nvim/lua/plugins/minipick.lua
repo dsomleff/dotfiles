@@ -50,3 +50,10 @@ keymap("n", "<leader>/", "<cmd>Pick buf_lines scope='current'<cr>")
 keymap("n", "<leader>fg", "<cmd>Pick grep_live<cr>")
 keymap("n", "<leader>fw", "<cmd>Pick grep pattern='<cword>'<cr>")
 keymap("n", "<leader>fW", "<cmd>Pick grep pattern='<cWORD>'<cr>")
+vim.keymap.set("n", "<leader>fc", function()
+	require("mini.pick").builtin.files(nil, {
+		source = {
+			cwd = vim.fn.expand("~/dotfiles/.config"),
+		},
+	})
+end, { desc = "Find dotfiles" })
