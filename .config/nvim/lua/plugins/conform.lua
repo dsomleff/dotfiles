@@ -6,7 +6,7 @@ require("conform").setup({
 		typescriptreact = { "prettierd" },
 		css = { "prettierd" },
 		html = { "prettierd" },
-		json = { "prettierd" },
+		json = { "jq" },
 		markdown = { "prettierd" },
 		lua = { "stylua" },
 		bash = { "shfmt" },
