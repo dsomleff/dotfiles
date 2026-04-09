@@ -22,6 +22,9 @@ require("conform").setup({
 		timeout_ms = 500,
 	},
 	formatters = {
+		jq = {
+			args = { "--indent", "2", "." },
+		},
 		-- prettier = {
 		-- 	args = {
 		-- 		"--stdin-filepath",
