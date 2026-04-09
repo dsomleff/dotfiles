@@ -80,3 +80,13 @@ end, {
 vim.api.nvim_create_user_command("LspRestart", "lsp restart", {
 	desc = "Restart LSP",
 })
+
+vim.api.nvim_create_user_command("Path", function()
+	vim.fn.setreg("+", vim.fn.expand("%"))
+	print("Copied relative path")
+end, {})
+
+vim.api.nvim_create_user_command("AbsolutePath", function()
+	vim.fn.setreg("+", vim.fn.expand("%:p"))
+	print("Copied absolute path")
+end, {})
