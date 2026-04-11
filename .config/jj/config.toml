@@ -41,6 +41,8 @@ diff-args = ["diff", "$left", "$right"]
 [revsets]
 log = '@ | dev | main | ancestors(@, 3)'
 # log = '@ | ancestors(trunk()..(visible_heads() & mine()), 2) | trunk()'
+[revset-aliases]
+"immutable_heads()" = "main"
 
 [colors]
 # ─────────────────────────
