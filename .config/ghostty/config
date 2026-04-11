@@ -9,8 +9,7 @@ confirm-close-surface=false
 macos-titlebar-style = hidden
 window-padding-x = 8
 window-padding-y = 8
-background-blur-radius = 20
-background-opacity = 1.0
+background-opacity = 1
 
 # Fonts
 font-family = "JetBrainsMono Nerd Font Mono"
