@@ -46,4 +46,6 @@ Add the following line to the `.gitignore_global` file:
 
 ---
 
-[Vim Tips Link](https://www.ele.uri.edu/faculty/vetter/Other-stuff/vi/vimtips.html)
+## [Vim Tips Link](https://www.ele.uri.edu/faculty/vetter/Other-stuff/vi/vimtips.html)
+
+Fix Alacritty Font Thickens - `defaults write org.alacritty AppleFontSmoothing -int 0`
