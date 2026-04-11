@@ -4,6 +4,7 @@ require("core.autocmds")
 require("core.statusline")
 require("core.lsp")
 require("core.filetypes")
+require("vim._core.ui2").enable({ msg = { target = "cmd" } })
 
 vim.pack.add({
 	"https://github.com/slugbyte/lackluster.nvim",
