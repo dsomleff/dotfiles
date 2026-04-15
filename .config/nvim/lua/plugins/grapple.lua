@@ -3,14 +3,15 @@ local Grapple = require("grapple")
 Grapple.setup({
 	icons = false,
 	scope = "git",
-	style = "basename",
+	style = "basename", ---@type "basename" | "relative"
 	quick_select = "123456789",
-	tag_title = function()
-		return "Grapple"
-	end,
+	-- tag_title = function()
+	-- 	return "Grapple"
+	-- end,
 	win_opts = {
 		width = 80,
 		height = 10,
+		title_pos = "center",
 		footer = "",
 	},
 })
