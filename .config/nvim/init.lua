@@ -12,7 +12,6 @@ vim.pack.add({
 	"https://github.com/stevearc/conform.nvim",
 	"https://github.com/tpope/vim-fugitive",
 	"https://github.com/lewis6991/gitsigns.nvim",
-	"https://github.com/nvim-lua/plenary.nvim",
 	"https://github.com/mason-org/mason.nvim",
 	"https://github.com/karb94/neoscroll.nvim",
 	"https://github.com/stevearc/oil.nvim",
