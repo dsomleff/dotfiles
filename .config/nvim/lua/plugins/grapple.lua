@@ -25,6 +25,11 @@ local quick_select_chars = "123456789"
 for i = 1, #quick_select_chars do
 	local char = quick_select_chars:sub(i, i)
 	map("n", "<leader>" .. char, function()
-		Grapple.select({ index = i })
+		local tags = Grapple.tags()
+		if tags and i <= #tags then
+			Grapple.select({ index = i })
+		else
+			print("Slot " .. i .. " is empty")
+		end
 	end, { desc = "Grapple select tag " .. i .. " (" .. char .. ")" })
 end
