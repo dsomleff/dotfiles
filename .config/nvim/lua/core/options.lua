@@ -72,3 +72,6 @@ opt.foldmethod = "expr"
 opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 
 vim.opt.pumborder = "single"
+
+-- Ctrl-A Ctrl-X "see" the digit
+vim.o.nrformats = "unsigned"
