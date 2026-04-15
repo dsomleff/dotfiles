@@ -11,6 +11,7 @@ if [[ -z $session ]]; then
     exit 0
 fi
 
+session="${session%/}"
 session_name=$(basename "$session" | tr . _)
 tmux_running=$(pgrep tmux)
 
