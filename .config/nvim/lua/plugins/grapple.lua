@@ -9,6 +9,8 @@ Grapple.setup({
 		return "Grapple"
 	end,
 	win_opts = {
+		width = 80,
+		height = 10,
 		footer = "",
 	},
 })
