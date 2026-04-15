@@ -17,7 +17,6 @@ vim.pack.add({
 	"https://github.com/karb94/neoscroll.nvim",
 	"https://github.com/stevearc/oil.nvim",
 	"https://github.com/nvim-treesitter/nvim-treesitter",
-	{ src = "https://github.com/ThePrimeagen/harpoon", version = "harpoon2" },
 	{
 		src = "https://github.com/saghen/blink.cmp",
 		version = vim.version.range("^1"),
@@ -25,6 +24,7 @@ vim.pack.add({
 	"https://github.com/NicolasGB/jj.nvim",
 	"https://github.com/nvim-mini/mini.pick",
 	"https://github.com/nvim-mini/mini.extra",
+	"https://github.com/cbochs/grapple.nvim",
 })
 vim.cmd.packadd("nvim.undotree")
 
@@ -35,7 +35,7 @@ require("plugins.treesitter")
 require("plugins.mason")
 require("plugins.blink")
 require("plugins.conform")
-require("plugins.harpoon")
 require("plugins.neoscroll")
 require("plugins.jj")
 require("plugins.minipick")
+require("plugins.grapple")
