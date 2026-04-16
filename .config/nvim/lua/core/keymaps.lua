@@ -83,8 +83,13 @@ keymap("n", "<leader>P", function()
 	vim.api.nvim_win_set_cursor(0, { row + 1, col })
 end)
 
-vim.keymap.set("n", "<leader>u", function()
+keymap("n", "<leader>u", function()
 	require("undotree").open({
 		command = "leftabove " .. math.floor(vim.api.nvim_win_get_width(0) / 3) .. "vnew",
 	})
 end, { desc = "Undotree toggle" })
+
+-- restart
+keymap("n", "<leader>r", "<cmd>restart<cr>", {
+	desc = "Restart Neovim (:restant)",
+})
