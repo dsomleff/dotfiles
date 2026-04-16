@@ -1,11 +1,9 @@
 .DS_Store
 .idea
 
-# .config/alacritty/themes
 .config/tmux/plugins
 .config/nvim/lua/.DS_Store
 .config/nushell/history.txt
-.config/nushell/.secrets.nu
+.config/nushell/.secrets.json
 .config/jj/repos/
 .config/.jgit/
-# .config/tmux/sessions/hub.yaml

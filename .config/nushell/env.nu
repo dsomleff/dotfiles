@@ -11,8 +11,8 @@ path add /opt/homebrew/bin
 
 
 $env.config.edit_mode = 'vi'
-if (".secrets.nu" | path exists) {
-    source .secrets.nu
+try {
+    load-env (open ($nu.default-config-dir | path join ".secrets.json"))
 }
 $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
 mkdir ~/.cache/carapace
