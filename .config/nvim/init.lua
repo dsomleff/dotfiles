@@ -8,6 +8,7 @@ require("vim._core.ui2").enable({ msg = { target = "cmd" } })
 
 vim.pack.add({
 	"https://github.com/slugbyte/lackluster.nvim",
+	"https://github.com/oskarnurm/koda.nvim",
 	"https://github.com/stevearc/oil.nvim",
 	"https://github.com/mason-org/mason.nvim",
 	"https://github.com/nvim-treesitter/nvim-treesitter",
@@ -27,7 +28,8 @@ vim.pack.add({
 })
 vim.cmd.packadd("nvim.undotree")
 
-require("themes.lackluster")
+-- require("themes.lackluster")
+require("themes.koda")
 require("plugins.git")
 require("plugins.oil")
 require("plugins.treesitter")

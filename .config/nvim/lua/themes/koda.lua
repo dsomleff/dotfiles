@@ -21,5 +21,5 @@ koda.setup({
 	},
 })
 
-vim.cmd("colorscheme koda")
+vim.cmd("colorscheme koda-dark")
 vim.cmd(":hi statusline guibg=NONE")

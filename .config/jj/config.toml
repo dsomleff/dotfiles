@@ -49,115 +49,103 @@ short-prefixes = "all()"
 # ─────────────────────────
 # Core identity
 # ─────────────────────────
-"commit_id" = "#7a7a7a"
-"change_id" = "#cccccc"
+"commit_id" = "#777777"
+"change_id" = "#b0b0b0"
 "prefix" = { bold = true }
-"rest" = "#555555"
+"rest" = "#474747"
 
-"working_copy commit_id" = "#aaaaaa"
-"working_copy change_id" = { fg = "#deeeed", bold = true }
+"working_copy commit_id" = "#b0b0b0"
+"working_copy change_id" = { fg = "#ffffff", bold = true }
 
 # ─────────────────────────
 # People & metadata
 # ─────────────────────────
-"author" = "#555555"
-"committer" = "#555555"
-"timestamp" = "#708090"
+"author" = "#474747"
+"committer" = "#474747"
+"timestamp" = "#777777"
 
-"working_copy author" = "#7a7a7a"
-"working_copy committer" = "#7a7a7a"
-"working_copy timestamp" = "#aaaaaa"
+"working_copy author" = "#777777"
+"working_copy committer" = "#777777"
+"working_copy timestamp" = "#b0b0b0"
 
 # ─────────────────────────
 # Bookmarks & refs
 # ─────────────────────────
-"bookmark" = "#7788AA"
-"bookmarks" = "#7788AA"
-"local_bookmarks" = "#7788AA"
-"remote_bookmarks" = "#708090"
-"tag" = "#7788AA"
-"tags" = "#7788AA"
-"git_ref" = "#789978"
-"git_refs" = "#789978"
-"git_head" = "#789978"
+"bookmark" = "#8ebeec"
+"bookmarks" = "#8ebeec"
+"local_bookmarks" = "#8ebeec"
+"remote_bookmarks" = "#777777"
+"tag" = "#8ebeec"
+"tags" = "#8ebeec"
+"git_ref" = "#86cd82"
+"git_refs" = "#86cd82"
+"git_head" = "#86cd82"
 
-"working_copy bookmark" = { fg = "#7788AA", bold = true }
-"working_copy bookmarks" = { fg = "#7788AA", bold = true }
-"working_copy git_ref" = "#789978"
+"working_copy bookmark" = { fg = "#8ebeec", bold = true }
+"working_copy bookmarks" = { fg = "#8ebeec", bold = true }
+"working_copy git_ref" = "#86cd82"
 
 # ─────────────────────────
 # States & warnings
 # ─────────────────────────
-"error" = { fg = "#D70000", bold = true }
-"warning" = { fg = "#ffaa88", bold = true }
-"hint" = { fg = "#abab77" }
+"error" = { fg = "#ff7676", bold = true }
+"warning" = { fg = "#d9ba73", bold = true }
+"hint" = { fg = "#d9ba73" }
 
-"conflict" = "#D70000"
-"divergent" = "#ffaa88"
-"mutable divergent" = "#D70000"
+"conflict" = "#ff7676"
+"divergent" = "#d9ba73"
+"mutable divergent" = "#ff7676"
 
 # ─────────────────────────
 # Empty / placeholder
 # ─────────────────────────
-"empty" = "#444444"
-"placeholder" = "#7a7a7a"
-"description placeholder" = "#444444"
-"working_copy empty" = "#789978"
+"empty" = "#474747"
+"placeholder" = "#777777"
+"description placeholder" = "#474747"
+"working_copy empty" = "#86cd82"
 
 # ─────────────────────────
 # Graph nodes
 # ─────────────────────────
-"node working_copy" = { fg = "#789978", bold = true }
-"node immutable" = { fg = "#708090", bold = true }
-"node conflicted" = { fg = "#D70000", bold = true }
-"node elided" = { fg = "#555555" }
+"node working_copy" = { fg = "#86cd82", bold = true }
+"node immutable" = { fg = "#777777", bold = true }
+"node conflicted" = { fg = "#ff7676", bold = true }
+"node elided" = { fg = "#474747" }
 
 # ─────────────────────────
 # Diff colors
 # ─────────────────────────
-"diff header" = "#abab77"
-"diff hunk_header" = "#708090"
-"diff added" = { fg = "#789978" }
-"diff removed" = { fg = "#D70000" }
-"diff modified" = "#7788AA"
+"diff header" = "#d9ba73"
+"diff hunk_header" = "#777777"
+"diff added" = { fg = "#86cd82" }
+"diff removed" = { fg = "#ff7676" }
+"diff modified" = "#8ebeec"
 "diff token" = { underline = true }
 "diff context line_number" = { dim = true }
 
 # ─────────────────────────
 # Operation log
 # ─────────────────────────
-"operation id" = "#7788AA"
-"operation user" = "#abab77"
-"operation time" = "#708090"
-"operation tags" = "#7788AA"
+"operation id" = "#8ebeec"
+"operation user" = "#d9ba73"
+"operation time" = "#777777"
+"operation tags" = "#8ebeec"
 "operation current_operation" = { bold = true }
 
 # ─────────────────────────
 # Config list
 # ─────────────────────────
-"config_list name" = "#789978"
-"config_list value" = "#abab77"
-"config_list source" = "#7788AA"
-"config_list path" = "#708090"
-"config_list overridden" = "#555555"
+"config_list name" = "#86cd82"
+"config_list value" = "#d9ba73"
+"config_list source" = "#8ebeec"
+"config_list path" = "#777777"
+"config_list overridden" = "#474747"
 
 # ─────────────────────────
 # Signatures
 # ─────────────────────────
-"signature display" = "#abab77"
-"signature key" = "#708090"
-"signature status good" = "#789978"
-"signature status unknown" = "#abab77"
-"signature status bad" = "#D70000"
-
-# draft_commit_description ='''
-#     concat(
-#       coalesce(description, default_commit_description, "\n"),
-#       surround(
-#         "\nJJ: This commit contains the following changes:\n", "",
-#         indent("JJ:     ", diff.stat(72)),
-#       ),
-#       "\nJJ: ignore-rest\n",
-#       diff.git(),
-#     )
-# '''
+"signature display" = "#d9ba73"
+"signature key" = "#777777"
+"signature status good" = "#86cd82"
+"signature status unknown" = "#d9ba73"
+"signature status bad" = "#ff7676"
