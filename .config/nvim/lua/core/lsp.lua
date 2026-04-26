@@ -43,4 +43,4 @@ vim.diagnostic.config({
 	virtual_lines = { current_line = true },
 })
 
-vim.lsp.document_color.enable(true, nil, { style = "foreground" })
+vim.lsp.document_color.enable(true, nil, { style = "background" })
