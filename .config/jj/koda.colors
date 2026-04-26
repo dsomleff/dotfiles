@@ -1,0 +1,104 @@
+[colors]
+# ─────────────────────────
+# Core identity
+# ─────────────────────────
+"commit_id" = "#777777"
+"change_id" = "#b0b0b0"
+"prefix" = { bold = true }
+"rest" = "#474747"
+
+"working_copy commit_id" = "#b0b0b0"
+"working_copy change_id" = { fg = "#ffffff", bold = true }
+
+# ─────────────────────────
+# People & metadata
+# ─────────────────────────
+"author" = "#474747"
+"committer" = "#474747"
+"timestamp" = "#777777"
+
+"working_copy author" = "#777777"
+"working_copy committer" = "#777777"
+"working_copy timestamp" = "#b0b0b0"
+
+# ─────────────────────────
+# Bookmarks & refs
+# ─────────────────────────
+"bookmark" = "#458ee6"
+"bookmarks" = "#458ee6"
+"local_bookmarks" = "#458ee6"
+"remote_bookmarks" = "#777777"
+"tag" = "#458ee6"
+"tags" = "#458ee6"
+"git_ref" = "#86cd82"
+"git_refs" = "#86cd82"
+"git_head" = "#86cd82"
+
+"working_copy bookmark" = { fg = "#458ee6", bold = true }
+"working_copy bookmarks" = { fg = "#458ee6", bold = true }
+"working_copy git_ref" = "#86cd82"
+
+# ─────────────────────────
+# States & warnings
+# ─────────────────────────
+"error" = { fg = "#ff7676", bold = true }
+"warning" = { fg = "#d9ba73", bold = true }
+"hint" = { fg = "#d9ba73" }
+
+"conflict" = "#ff7676"
+"divergent" = "#d9ba73"
+"mutable divergent" = "#ff7676"
+
+# ─────────────────────────
+# Empty / placeholder
+# ─────────────────────────
+"empty" = "#474747"
+"placeholder" = "#777777"
+"description placeholder" = "#474747"
+"working_copy empty" = "#86cd82"
+
+# ─────────────────────────
+# Graph nodes
+# ─────────────────────────
+"node working_copy" = { fg = "#86cd82", bold = true }
+"node immutable" = { fg = "#777777", bold = true }
+"node conflicted" = { fg = "#ff7676", bold = true }
+"node elided" = { fg = "#474747" }
+
+# ─────────────────────────
+# Diff colors
+# ─────────────────────────
+"diff header" = "#d9ba73"
+"diff hunk_header" = "#777777"
+"diff added" = { fg = "#86cd82" }
+"diff removed" = { fg = "#ff7676" }
+"diff modified" = "#458ee6"
+"diff token" = { underline = true }
+"diff context line_number" = { dim = true }
+
+# ─────────────────────────
+# Operation log
+# ─────────────────────────
+"operation id" = "#458ee6"
+"operation user" = "#d9ba73"
+"operation time" = "#777777"
+"operation tags" = "#458ee6"
+"operation current_operation" = { bold = true }
+
+# ─────────────────────────
+# Config list
+# ─────────────────────────
+"config_list name" = "#86cd82"
+"config_list value" = "#d9ba73"
+"config_list source" = "#458ee6"
+"config_list path" = "#777777"
+"config_list overridden" = "#474747"
+
+# ─────────────────────────
+# Signatures
+# ─────────────────────────
+"signature display" = "#d9ba73"
+"signature key" = "#777777"
+"signature status good" = "#86cd82"
+"signature status unknown" = "#d9ba73"
+"signature status bad" = "#ff7676"
