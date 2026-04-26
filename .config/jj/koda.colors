@@ -24,18 +24,18 @@
 # ─────────────────────────
 # Bookmarks & refs
 # ─────────────────────────
-"bookmark" = "#458ee6"
-"bookmarks" = "#458ee6"
-"local_bookmarks" = "#458ee6"
+"bookmark" = "#8ebeec"
+"bookmarks" = "#8ebeec"
+"local_bookmarks" = "#8ebeec"
 "remote_bookmarks" = "#777777"
-"tag" = "#458ee6"
-"tags" = "#458ee6"
+"tag" = "#8ebeec"
+"tags" = "#8ebeec"
 "git_ref" = "#86cd82"
 "git_refs" = "#86cd82"
 "git_head" = "#86cd82"
 
-"working_copy bookmark" = { fg = "#458ee6", bold = true }
-"working_copy bookmarks" = { fg = "#458ee6", bold = true }
+"working_copy bookmark" = { fg = "#8ebeec", bold = true }
+"working_copy bookmarks" = { fg = "#8ebeec", bold = true }
 "working_copy git_ref" = "#86cd82"
 
 # ─────────────────────────
@@ -72,17 +72,17 @@
 "diff hunk_header" = "#777777"
 "diff added" = { fg = "#86cd82" }
 "diff removed" = { fg = "#ff7676" }
-"diff modified" = "#458ee6"
+"diff modified" = "#8ebeec"
 "diff token" = { underline = true }
 "diff context line_number" = { dim = true }
 
 # ─────────────────────────
 # Operation log
 # ─────────────────────────
-"operation id" = "#458ee6"
+"operation id" = "#8ebeec"
 "operation user" = "#d9ba73"
 "operation time" = "#777777"
-"operation tags" = "#458ee6"
+"operation tags" = "#8ebeec"
 "operation current_operation" = { bold = true }
 
 # ─────────────────────────
@@ -90,7 +90,7 @@
 # ─────────────────────────
 "config_list name" = "#86cd82"
 "config_list value" = "#d9ba73"
-"config_list source" = "#458ee6"
+"config_list source" = "#8ebeec"
 "config_list path" = "#777777"
 "config_list overridden" = "#474747"
 
