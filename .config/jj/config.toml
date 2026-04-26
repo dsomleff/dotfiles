@@ -40,6 +40,7 @@ diff-args = ["diff", "$left", "$right"]
 
 [revsets]
 log = '@ | present(dev) | present(main) | ancestors(@, 3)'
+short-prefixes = "all()"
 # log = '@ | ancestors(trunk()..(visible_heads() & mine()), 2) | trunk()'
 [revset-aliases]
 "immutable_heads()" = "present(main) | present(master)"
