@@ -1,9 +1,8 @@
 -- 	"https://github.com/oskarnurm/koda.nvim"
 
 local koda = require("koda")
-local colors = koda.get_palette("dark")
 
-require("koda").setup({
+koda.setup({
 	transparent = false,
 	auto = true,
 	cache = true,
