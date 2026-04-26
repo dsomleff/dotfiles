@@ -1,4 +1,16 @@
-require("jj").setup({})
+require("jj").setup({
+	editor = {
+		auto_insert = true,
+	},
+	terminal = {
+		window = {
+			type = "hsplit", -- Type of window the terminal is displayed in (hsplit/vsplit/floating/tab)
+			split_size = 0.75, -- (between 0.1 and 1.0)
+			floating_width = 0.99, -- (between 0.1 and 1.0)
+			floating_height = 0.95, -- (between 0.1 and 1.0)
+		},
+	},
+})
 
 local opts = { noremap = true, silent = true }
 
