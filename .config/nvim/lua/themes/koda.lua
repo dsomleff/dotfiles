@@ -1,11 +1,26 @@
-vim.pack.add({
-	{ src = "https://github.com/oskarnurm/koda.nvim", name = "koda" },
+-- 	"https://github.com/oskarnurm/koda.nvim"
+
+local koda = require("koda")
+local colors = koda.get_palette("dark")
+
+require("koda").setup({
+	transparent = false,
+	auto = true,
+	cache = true,
+	styles = {
+		functions = { bold = false, italic = true },
+		keywords = { bold = false },
+		comments = { italic = true },
+		strings = { bold = false },
+		constants = { bold = false },
+	},
+
+	colors = {
+		border = "#ffffff",
+		emphasis = "#86cd82",
+		string = "#777777",
+	},
 })
 
 vim.cmd("colorscheme koda")
 vim.cmd(":hi statusline guibg=NONE")
-
-vim.api.nvim_set_hl(0, "StatusLineLspError", { fg = "#ff7676", bold = true })
-vim.api.nvim_set_hl(0, "StatusLineLspWarn", { fg = "#d9ba73", bold = true })
-vim.api.nvim_set_hl(0, "StatusLineLspHints", { fg = "#8ebeec", bold = true })
-vim.api.nvim_set_hl(0, "StatusLineLspInfo", { fg = "#0058d0", bold = true })
