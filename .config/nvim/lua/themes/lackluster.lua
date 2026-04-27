@@ -1,3 +1,5 @@
+-- "https://github.com/slugbyte/lackluster.nvim",
+
 local lackluster = require("lackluster")
 local color = lackluster.color
 local bg = "#101010"
