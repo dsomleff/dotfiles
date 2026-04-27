@@ -1,7 +1,4 @@
 require("jj").setup({
-	editor = {
-		auto_insert = true,
-	},
 	terminal = {
 		window = {
 			type = "hsplit", -- Type of window the terminal is displayed in (hsplit/vsplit/floating/tab)

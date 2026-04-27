@@ -9,6 +9,8 @@ lackluster.setup({
 		enable_end_of_buffer = true,
 	},
 	tweak_highlight = {
+		MiniPickPrompt = { fg = color.green, bold = true },
+		MiniPickMatchRanges = { fg = color.green, bold = true },
 		-- Git diff
 		-- StatusLineGitDiffAdded = { fg = color.green },
 		-- StatusLineGitDiffChanged = { fg = color.lack },

@@ -19,6 +19,12 @@ koda.setup({
 		emphasis = "#86cd82",
 		string = "#777777",
 	},
+	on_highlights = function(hl, c)
+		hl.DiagnosticUnderlineError = { undercurl = true, sp = c.danger }
+		hl.DiagnosticUnderlineWarn = { undercurl = true, sp = c.warning }
+		hl.DiagnosticUnderlineInfo = { undercurl = true, sp = c.info }
+		hl.DiagnosticUnderlineHint = { undercurl = true, sp = c.hint }
+	end,
 })
 
 vim.cmd("colorscheme koda-dark")
