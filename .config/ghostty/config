@@ -11,6 +11,8 @@ confirm-close-surface=false
 # macos-icon = paper
 macos-icon = custom
 macos-custom-icon = ~/Documents/devs/icons/ghostty_pink.png
+custom-shader = ~/dotfiles/.config/ghostty/shaders/space.glsl
+custom-shader-animation = false
 
 # Window
 macos-titlebar-style = hidden
