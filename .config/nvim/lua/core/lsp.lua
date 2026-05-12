@@ -15,9 +15,10 @@ vim.lsp.enable({
 	"nushell",
 	"tailwindcss_ls",
 	"taplo", -- toml
-	"ts_ls",
+	-- "ts_ls",
+	-- "tsgo",
 	"yaml_ls",
-	-- "vtsls", -- must be installed via Mason
+	"vtsls", -- must be installed via Mason
 	-- "vue_ls", -- must be installed via Mason
 	"biome",
 })
