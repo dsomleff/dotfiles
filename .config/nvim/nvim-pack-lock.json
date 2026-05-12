@@ -6,7 +6,7 @@
       "version": "1.0.0 - 2.0.0"
     },
     "conform.nvim": {
-      "rev": "dca1a190aa85f9065979ef35802fb77131911106",
+      "rev": "18aeab3d63d350dcf44d64c462cc489a3412af40",
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "friendly-snippets": {
@@ -22,11 +22,11 @@
       "src": "https://github.com/cbochs/grapple.nvim"
     },
     "jj.nvim": {
-      "rev": "f5d11a30984b77ab5a33a3efb4c9cec49fd443ab",
+      "rev": "71f640be456f33b103e657bcbb0c41057977dc57",
       "src": "https://github.com/NicolasGB/jj.nvim"
     },
     "koda.nvim": {
-      "rev": "4668e307f2f3a1e38bd627b14d13368ebf5b8d9f",
+      "rev": "ff7ea32c2002ee18032629122f8232fc97e5ccb3",
       "src": "https://github.com/oskarnurm/koda.nvim"
     },
     "lackluster.nvim": {
@@ -34,15 +34,15 @@
       "src": "https://github.com/slugbyte/lackluster.nvim"
     },
     "mason.nvim": {
-      "rev": "e54f5bf5f12c560da31c17eee5b3e1bd369f3ff9",
+      "rev": "cbf8d285e1462dd24acf3507817be2bbcb035919",
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mini.extra": {
-      "rev": "bc4e872500fd6d2ce252604e0ffa100f64f02280",
+      "rev": "cf027da13fd217cfe3af6ef978d0e947c7ee0f7a",
       "src": "https://github.com/nvim-mini/mini.extra"
     },
     "mini.pick": {
-      "rev": "308f16fa39165865ec8d7e0e3e6fb031aa6105a0",
+      "rev": "0e25916ec4b0f3ad81329e529db55ef350ac9901",
       "src": "https://github.com/nvim-mini/mini.pick"
     },
     "neoscroll.nvim": {
