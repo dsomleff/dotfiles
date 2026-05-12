@@ -12,6 +12,7 @@ confirm-close-surface=false
 macos-icon = custom
 macos-custom-icon = ~/Documents/devs/icons/ghostty_pink.png
 custom-shader = ~/dotfiles/.config/ghostty/shaders/space.glsl
+custom-shader = ~/dotfiles/.config/ghostty/shaders/rectangle_cursor.glsl
 custom-shader-animation = false
 
 # Window
@@ -26,6 +27,9 @@ font-style = Medium
 font-size = 18
 adjust-cell-height = 28
 adjust-cell-width = 1
+
+# for lackluster theme only
+font-thicken = true
 
 # Cursor
 cursor-style = block

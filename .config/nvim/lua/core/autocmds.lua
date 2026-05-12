@@ -90,3 +90,26 @@ vim.api.nvim_create_user_command("AbsolutePath", function()
 	vim.fn.setreg("+", vim.fn.expand("%:p"))
 	print("Copied absolute path")
 end, {})
+
+-- Progress Bars
+local function set_terminal_progress(state, percentage)
+	local seq = string.format("\27]9;4;%d;%d\7", state, percentage or 0)
+
+	if os.getenv("TMUX") then
+		seq = "\27Ptmux;\27" .. seq:gsub("\27", "\27\27") .. "\27\\"
+	end
+
+	io.write(seq)
+	io.stdout:flush()
+end
+
+vim.api.nvim_create_autocmd("LspProgress", {
+	callback = function(ev)
+		local value = ev.data.params.value
+		if value.kind == "begin" then
+			set_terminal_progress(3, 0)
+		elseif value.kind == "end" then
+			set_terminal_progress(0, 0)
+		end
+	end,
+})
