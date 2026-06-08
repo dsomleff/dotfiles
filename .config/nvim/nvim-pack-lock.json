@@ -14,7 +14,7 @@
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
     "gitsigns.nvim": {
-      "rev": "dd3f588bacbeb041be6facf1742e42097f62165d",
+      "rev": "25050e4ed39e628282831d4cbecb1850454ce915",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "grapple.nvim": {
@@ -22,7 +22,7 @@
       "src": "https://github.com/cbochs/grapple.nvim"
     },
     "jj.nvim": {
-      "rev": "f30eefeaf3ce19a045ff12deb065ddb60cf611e5",
+      "rev": "33179e2f15cd48b1a661f5a47088aa981c4ec0b5",
       "src": "https://github.com/NicolasGB/jj.nvim"
     },
     "koda.nvim": {
@@ -38,11 +38,11 @@
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mini.extra": {
-      "rev": "ffb7b3a726e059b011b3655f26e61ec6f7cf5b84",
+      "rev": "eb21c1117207d3aa1ae532c666c692e94909087e",
       "src": "https://github.com/nvim-mini/mini.extra"
     },
     "mini.pick": {
-      "rev": "26f94e9c84f529d713de00b900c0a307ca260f35",
+      "rev": "1ffba38c7221669d3da7792d4bbe1c9761075f4d",
       "src": "https://github.com/nvim-mini/mini.pick"
     },
     "neoscroll.nvim": {
@@ -54,7 +54,7 @@
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "oil.nvim": {
-      "rev": "b91ee5a77a6a9605d9c1aaf4fda74b66082c8297",
+      "rev": "b73018b75affd13fa38e2fc94ef753b465f770d7",
       "src": "https://github.com/stevearc/oil.nvim"
     }
   }
