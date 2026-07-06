@@ -13,7 +13,7 @@ export-env {
         }
 
         # path
-        let env_used_path = ($env | columns | where {str downcase | $in == "path"} | get 0)
+        let env_used_path = ($env | columns | where {str lowercase | $in == "path"} | get 0)
         let path_value = ($pwsh_vars | get 0.value | split row (char esep))
         $env_vars = ($env_vars | insert $env_used_path $path_value)
 

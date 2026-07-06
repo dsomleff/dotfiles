@@ -14,7 +14,7 @@
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
     "gitsigns.nvim": {
-      "rev": "2038c666bd9d8a0b7349a0b6ee00dc83104b9ecf",
+      "rev": "eb60cc7b94c46005237fd34170d76f3a089a90aa",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "grapple.nvim": {
@@ -22,7 +22,7 @@
       "src": "https://github.com/cbochs/grapple.nvim"
     },
     "jj.nvim": {
-      "rev": "f217b16699e714e32df5c7616c0f71b70d49e11f",
+      "rev": "c7242901418a05dc1d97ef1739585779bd326702",
       "src": "https://github.com/NicolasGB/jj.nvim"
     },
     "koda.nvim": {
