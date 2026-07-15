@@ -14,7 +14,7 @@
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
     "gitsigns.nvim": {
-      "rev": "eb60cc7b94c46005237fd34170d76f3a089a90aa",
+      "rev": "31d6fb2d618bca1482b9f274751ead5f03461408",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "grapple.nvim": {
@@ -22,7 +22,7 @@
       "src": "https://github.com/cbochs/grapple.nvim"
     },
     "jj.nvim": {
-      "rev": "2cbb69a91409958d63544f5f6cc5267a77064fe9",
+      "rev": "76efdf514fecd6c5d6dac47b82e683073f563d2c",
       "src": "https://github.com/NicolasGB/jj.nvim"
     },
     "koda.nvim": {
@@ -50,7 +50,7 @@
       "src": "https://github.com/karb94/neoscroll.nvim"
     },
     "nvim-treesitter": {
-      "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
+      "rev": "7248feaca45e4d944591497964bc19afa89ad1c6",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "oil.nvim": {
