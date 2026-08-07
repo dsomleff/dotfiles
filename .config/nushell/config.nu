@@ -29,6 +29,7 @@ alias lg = lazygit
 
 # Editor
 alias v = nvim
+alias bob = bob chat --mode ask
 
 # Tmux aliases
 alias tm = tmux
