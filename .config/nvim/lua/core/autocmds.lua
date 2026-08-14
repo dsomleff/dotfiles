@@ -12,7 +12,7 @@ vim.cmd("runtime macros/matchit.vim")
 autocmd("TextYankPost", {
 	group = general,
 	callback = function()
-		vim.highlight.on_yank()
+		vim.hl.on_yank()
 	end,
 })
 
