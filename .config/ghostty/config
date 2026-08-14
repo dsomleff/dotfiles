@@ -1,4 +1,4 @@
-theme = lackluster
+theme = koda
 # Terminal
 command = /opt/homebrew/bin/nu
 shell-integration-features = no-cursor, no-sudo, title
