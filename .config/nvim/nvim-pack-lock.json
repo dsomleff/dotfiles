@@ -17,10 +17,6 @@
       "rev": "31d6fb2d618bca1482b9f274751ead5f03461408",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
-    "grapple.nvim": {
-      "rev": "b41ddfc1c39f87f3d1799b99c2f0f1daa524c5f7",
-      "src": "https://github.com/cbochs/grapple.nvim"
-    },
     "jj.nvim": {
       "rev": "5119dd3f6d4c5a3b8a7a9732b24e6b4c2f2e717c",
       "src": "https://github.com/NicolasGB/jj.nvim"
@@ -44,6 +40,10 @@
     "mini.pick": {
       "rev": "04e73ab07222508361095bb6e27621b315e6b9f1",
       "src": "https://github.com/nvim-mini/mini.pick"
+    },
+    "miniharp.nvim": {
+      "rev": "c21b5bed7d7cc51c13fa00deb09197d330c8a062",
+      "src": "https://github.com/vieitesss/miniharp.nvim"
     },
     "neoscroll.nvim": {
       "rev": "c8d29979cb0cb3a2437a8e0ae683fd82f340d3b8",

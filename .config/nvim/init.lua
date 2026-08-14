@@ -22,7 +22,7 @@ vim.pack.add({
 	"https://github.com/stevearc/conform.nvim",
 	"https://github.com/lewis6991/gitsigns.nvim",
 	"https://github.com/NicolasGB/jj.nvim",
-	"https://github.com/cbochs/grapple.nvim",
+	"https://github.com/vieitesss/miniharp.nvim",
 	"https://github.com/karb94/neoscroll.nvim",
 	-- "https://github.com/tpope/vim-fugitive",
 })
@@ -39,4 +39,4 @@ require("plugins.conform")
 require("plugins.neoscroll")
 require("plugins.jj")
 require("plugins.minipick")
-require("plugins.grapple")
+require("plugins.miniharp")
