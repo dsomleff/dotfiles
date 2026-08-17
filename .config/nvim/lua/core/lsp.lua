@@ -16,7 +16,7 @@ vim.lsp.enable({
 	"tailwindcss_ls",
 	"taplo", -- toml
 	-- "ts_ls",
-	"tsgo",
+	"tsc",
 	"yaml_ls",
 	-- "vtsls", -- must be installed via Mason
 	-- "vue_ls", -- must be installed via Mason
