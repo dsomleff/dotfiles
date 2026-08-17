@@ -139,3 +139,7 @@ command -v pyenv >/dev/null && eval "$(pyenv init -)"
 . "$HOME/.local/bin/env"
 # autosuggestions
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+. "$HOME/.atuin/bin/env"
+
+eval "$(atuin init zsh)"

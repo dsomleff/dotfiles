@@ -7,3 +7,4 @@
 .config/nushell/.secrets.json
 .config/jj/repos/
 .config/.jgit/
+.config/atuin/atuin-receipt.json
