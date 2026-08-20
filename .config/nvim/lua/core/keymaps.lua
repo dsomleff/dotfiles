@@ -93,3 +93,7 @@ end, { desc = "Undotree toggle" })
 keymap("n", "<leader>r", "<cmd>restart<cr>", {
 	desc = "Restart Neovim (:restant)",
 })
+
+-- yank relative and absolute paths
+keymap("n", "<leader>yp", "<cmd>Path<CR>", { desc = "Yank relative path" })
+keymap("n", "<leader>yP", "<cmd>AbsolutePath<CR>", { desc = "Yank absolute path" })

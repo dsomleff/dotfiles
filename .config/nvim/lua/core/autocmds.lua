@@ -82,7 +82,7 @@ vim.api.nvim_create_user_command("LspRestart", "lsp restart", {
 })
 
 vim.api.nvim_create_user_command("Path", function()
-	vim.fn.setreg("+", vim.fn.expand("%"))
+	vim.fn.setreg("+", vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":~:."))
 	print("Copied relative path")
 end, {})
 
