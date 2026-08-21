@@ -13,6 +13,7 @@ require("conform").setup({
 		sh = { "shfmt" },
 		["_"] = { "trim_whitespace", "trim_newlines" },
 		go = { "goimports", "gofumpt" },
+		python = { "ruff_format" },
 	},
 	default_format_opts = {
 		lsp_format = "fallback",
