@@ -43,6 +43,7 @@
 	submoduleSummary = true
 [core]
     excludesfile = ~/.gitignore_global
+	hooksPath = /opt/vault-radar/hooks
 [alias]
     co = checkout
     br = branch
