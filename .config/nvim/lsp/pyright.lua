@@ -33,8 +33,18 @@ return {
 			analysis = {
 				autoSearchPaths = true,
 				diagnosticMode = "openFilesOnly",
+				typeCheckingMode = "basic", -- off | basic | standard | strict | all
+				-- suppress the noisiest basedpyright-specific rules
+				reportUnknownVariableType = "none",
+				reportUnknownMemberType = "none",
+				reportUnknownArgumentType = "none",
+				reportMissingModuleSource = "none",
+				reportUnknownParameterType = "none",
 			},
 			disableTaggedHints = true,
+		},
+		python = {
+			pythonPath = "/Users/somleff/Code/stt-test/.venv/bin/python",
 		},
 	},
 	on_attach = function(client, bufnr)
