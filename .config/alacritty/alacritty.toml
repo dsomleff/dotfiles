@@ -9,6 +9,7 @@ import = ["~/.config/alacritty/themes/lackluster.toml"]
 
 [terminal]
 shell = "/opt/homebrew/bin/nu"
+# shell = "/bin/zsh"
 
 [window]
 decorations = "buttonless"

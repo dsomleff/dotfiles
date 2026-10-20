@@ -1,6 +1,7 @@
 theme = koda
 # Terminal
 command = /opt/homebrew/bin/nu
+# command = /bin/zsh
 shell-integration-features = no-cursor, no-sudo, title
 mouse-hide-while-typing = true
 confirm-close-surface=false

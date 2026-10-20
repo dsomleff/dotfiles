@@ -2,7 +2,6 @@
 \.gitignore
 ^/README.*
 \.DS_Store
-\setup_macos
+^\setup_macos
 \.idea
-\external
-
+^\external
