@@ -26,8 +26,8 @@ style = "Medium"
 [font]
 bold = { style = "Bold" }
 italic = { style = "Italic" }
-size = 18
-offset = { x = 2, y = 28 }
+size = 19
+offset = { x = 0, y = 28 }
 glyph_offset = { x = 0, y = 14 }
 
 [cursor]
