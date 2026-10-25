@@ -42,7 +42,7 @@ lackluster.setup({
 })
 
 vim.cmd("colorscheme lackluster-hack")
-vim.cmd(":hi statusline guibg=NONE")
+vim.api.nvim_set_hl(0, "StatusLine", { bg = "NONE" })
 
 -- Custom highlights
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })

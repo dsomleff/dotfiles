@@ -18,6 +18,7 @@ opt.smartindent = true
 -- File settings
 opt.autoread = true
 opt.wrap = true
+opt.linebreak = true
 opt.swapfile = false
 opt.backup = false
 

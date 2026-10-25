@@ -7,8 +7,10 @@ neoscroll.setup({
 
 vim.keymap.set("n", "<C-u>", function()
 	neoscroll.ctrl_u({ duration = 400, easing = "sine" })
+	vim.cmd("normal! zz")
 end, { desc = "Neoscroll Ctrl-U" })
 
 vim.keymap.set("n", "<C-d>", function()
 	neoscroll.ctrl_d({ duration = 400, easing = "sine" })
+	vim.cmd("normal! zz")
 end, { desc = "Neoscroll Ctrl-D" })

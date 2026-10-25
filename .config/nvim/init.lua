@@ -24,13 +24,12 @@ vim.pack.add({
 	"https://github.com/NicolasGB/jj.nvim",
 	"https://github.com/vieitesss/miniharp.nvim",
 	"https://github.com/karb94/neoscroll.nvim",
-	-- "https://github.com/tpope/vim-fugitive",
 })
 vim.cmd.packadd("nvim.undotree")
 
 -- require("themes.lackluster")
 require("themes.koda")
-require("plugins.git")
+require("plugins.gitsigns")
 require("plugins.oil")
 require("plugins.treesitter")
 require("plugins.mason")

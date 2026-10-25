@@ -19,38 +19,8 @@ vim.keymap.set("n", "<C-n>", miniharp.next, { desc = "miniharp: next file mark" 
 vim.keymap.set("n", "<C-b>", miniharp.prev, { desc = "miniharp: prev file mark" })
 vim.keymap.set("n", "<C-e>", miniharp.show_list, { desc = "miniharp: toggle marks list" })
 
-vim.keymap.set("n", "<leader>1", function()
-	miniharp.go_to(1)
-end, { desc = "miniharp: go to mark 1" })
-
-vim.keymap.set("n", "<leader>2", function()
-	miniharp.go_to(2)
-end, { desc = "miniharp: go to mark 2" })
-
-vim.keymap.set("n", "<leader>3", function()
-	miniharp.go_to(3)
-end, { desc = "miniharp: go to mark 3" })
-
-vim.keymap.set("n", "<leader>4", function()
-	miniharp.go_to(4)
-end, { desc = "miniharp: go to mark 4" })
-
-vim.keymap.set("n", "<leader>5", function()
-	miniharp.go_to(5)
-end, { desc = "miniharp: go to mark 5" })
-
-vim.keymap.set("n", "<leader>6", function()
-	miniharp.go_to(6)
-end, { desc = "miniharp: go to mark 6" })
-
-vim.keymap.set("n", "<leader>7", function()
-	miniharp.go_to(7)
-end, { desc = "miniharp: go to mark 7" })
-
-vim.keymap.set("n", "<leader>8", function()
-	miniharp.go_to(8)
-end, { desc = "miniharp: go to mark 8" })
-
-vim.keymap.set("n", "<leader>9", function()
-	miniharp.go_to(9)
-end, { desc = "miniharp: go to mark 9" })
+for i = 1, 9 do
+	vim.keymap.set("n", "<leader>" .. i, function()
+		miniharp.go_to(i)
+	end, { desc = "miniharp: go to mark " .. i })
+end

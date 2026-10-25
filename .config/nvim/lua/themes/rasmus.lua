@@ -1,4 +1,4 @@
--- 	"https://github.com/oskarnurm/koda.nvim"
+-- https://github.com/kvrohit/rasmus.nvim
 
 local colors = require("rasmus.colors")
 local variant = vim.g.rasmus_variant or "dark"

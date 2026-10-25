@@ -12,7 +12,7 @@ return {
 	root_markers = { "package.json", ".git" },
 	settings = {
 		experimental = {
-			useFlatConfig = false,
+			useFlatConfig = true,
 		},
 		nodePath = "",
 	},

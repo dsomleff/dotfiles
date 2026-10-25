@@ -22,8 +22,6 @@ keymap("v", "K", ":m '<-2<CR>gv=gv")
 -- Cursor position
 -- =========================
 keymap("n", "J", "mzJ`z")
-keymap("n", "<C-d>", "<C-d>zz")
-keymap("n", "<C-u>", "<C-u>zz")
 keymap("n", "j", "gj")
 keymap("n", "k", "gk")
 
@@ -59,7 +57,6 @@ keymap("n", "<c-l>", "<C-w>l")
 
 -- Select all
 keymap("n", "[a", "gg<S-v>G")
-keymap("n", "]a", "gg<S-v>G")
 
 -- Visual mode tabbing
 keymap("v", "<", "<gv")

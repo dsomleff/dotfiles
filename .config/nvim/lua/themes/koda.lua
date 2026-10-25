@@ -28,4 +28,4 @@ koda.setup({
 })
 
 vim.cmd("colorscheme koda-dark")
-vim.cmd(":hi statusline guibg=NONE")
+vim.api.nvim_set_hl(0, "StatusLine", { bg = "NONE" })
