@@ -60,6 +60,7 @@ alias tmks="tmux kill-session -t"
 alias tmka="tmux kill-server"
 
 alias c="clear"
+alias bob="bob chat --mode ask"
 
 alias ls="ls -C -t -U -A -p --color=auto"
 alias ls="eza"
