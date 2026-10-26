@@ -1,5 +1,6 @@
 # PATH
 eval "$(/opt/homebrew/bin/brew shellenv)"
+export PATH="$HOME/.local/bin:$PATH"
 
 # npm global binaries
 export PATH="$(npm config get prefix)/bin:$PATH"
