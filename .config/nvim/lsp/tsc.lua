@@ -13,13 +13,13 @@ return {
 				enumMemberValues = { enabled = true },
 			},
 			referencesCodeLens = {
-				enabled = true,
-				showOnAllFunctions = true,
+				enabled = false,
+				showOnAllFunctions = false,
 			},
 			implementationsCodeLens = {
-				enabled = true,
-				showOnInterfaceMethods = true,
-				showOnAllClassMethods = true,
+				enabled = false,
+				showOnInterfaceMethods = false,
+				showOnAllClassMethods = false,
 			},
 		},
 	},
