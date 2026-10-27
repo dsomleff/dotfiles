@@ -37,6 +37,10 @@
       "rev": "6cbc59d875a9768819091d0a56223205022cbe72",
       "src": "https://github.com/nvim-mini/mini.extra"
     },
+    "mini.files": {
+      "rev": "6ac1d7f5c9e6a196c75cf6f1ea8055cef4ac9bbf",
+      "src": "https://github.com/nvim-mini/mini.files"
+    },
     "mini.pick": {
       "rev": "32ead2c8016a68487de87f23d604135843b0196d",
       "src": "https://github.com/nvim-mini/mini.pick"
@@ -52,10 +56,6 @@
     "nvim-treesitter": {
       "rev": "a2f694478be07f89c2d03cc17858a8745a400c4b",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
-    },
-    "oil.nvim": {
-      "rev": "d3733d933833a0e59b813ecec99341527adf0c28",
-      "src": "https://github.com/stevearc/oil.nvim"
     }
   }
 }
