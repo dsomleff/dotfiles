@@ -2,12 +2,12 @@ local function set_python_path(command)
 	local path = command.args
 	local clients = vim.lsp.get_clients({
 		bufnr = vim.api.nvim_get_current_buf(),
-		name = "basedpyright",
+		name = "pyright",
 	})
 	for _, client in ipairs(clients) do
 		if client.settings then
-			---@diagnostic disable-next-line: param-type-mismatch
-			client.settings.python = vim.tbl_deep_extend("force", client.settings.python or {}, { pythonPath = path })
+			client.settings.python =
+				vim.tbl_deep_extend("force", client.settings.python --[[@as table]], { pythonPath = path })
 		else
 			client.config.settings =
 				vim.tbl_deep_extend("force", client.config.settings, { python = { pythonPath = path } })
@@ -17,7 +17,7 @@ local function set_python_path(command)
 end
 
 return {
-	cmd = { "basedpyright-langserver", "--stdio" },
+	cmd = { "pyright-langserver", "--stdio" },
 	filetypes = { "python" },
 	root_markers = {
 		"pyrightconfig.json",
@@ -29,38 +29,40 @@ return {
 		".git",
 	},
 	settings = {
-		basedpyright = {
-			analysis = {
-				autoSearchPaths = true,
-				diagnosticMode = "openFilesOnly",
-				typeCheckingMode = "basic", -- off | basic | standard | strict | all
-				-- suppress the noisiest basedpyright-specific rules
-				reportUnknownVariableType = "none",
-				reportUnknownMemberType = "none",
-				reportUnknownArgumentType = "none",
-				reportMissingModuleSource = "none",
-				reportUnknownParameterType = "none",
-			},
+		pyright = {
 			disableTaggedHints = true,
 		},
 		python = {
-			pythonPath = "/Users/somleff/Code/stt-test/.venv/bin/python",
+			analysis = {
+				autoSearchPaths = true,
+				useLibraryCodeForTypes = true,
+				diagnosticMode = "openFilesOnly",
+			},
 		},
 	},
+	before_init = function(_, config)
+		local root = config.root_dir
+		if not root then
+			return
+		end
+		local py = root .. "/.venv/bin/python"
+		if vim.uv.fs_stat(py) then
+			config.settings.python = config.settings.python or {}
+			config.settings.python.pythonPath = py
+		end
+	end,
 	on_attach = function(client, bufnr)
 		vim.api.nvim_buf_create_user_command(bufnr, "LspPyrightOrganizeImports", function()
 			local params = {
-				command = "basedpyright.organizeimports",
+				command = "pyright.organizeimports",
 				arguments = { vim.uri_from_bufnr(bufnr) },
 			}
-
 			client.request("workspace/executeCommand", params, nil, bufnr)
 		end, {
 			desc = "Organize Imports",
 		})
-
 		vim.api.nvim_buf_create_user_command(bufnr, "LspPyrightSetPythonPath", set_python_path, {
-			desc = "Reconfigure basedpyright with the provided python path",
+			desc = "Reconfigure pyright with the provided python path",
 			nargs = 1,
 			complete = "file",
 		})
