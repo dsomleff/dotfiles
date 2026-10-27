@@ -19,8 +19,15 @@ vim.keymap.set("n", "<C-n>", miniharp.next, { desc = "miniharp: next file mark" 
 vim.keymap.set("n", "<C-b>", miniharp.prev, { desc = "miniharp: prev file mark" })
 vim.keymap.set("n", "<C-e>", miniharp.show_list, { desc = "miniharp: toggle marks list" })
 
+local function safe_go_to(i)
+	if package.loaded["mini.files"] then
+		require("mini.files").close()
+	end
+	miniharp.go_to(i)
+end
+
 for i = 1, 9 do
 	vim.keymap.set("n", "<leader>" .. i, function()
-		miniharp.go_to(i)
+		safe_go_to(i)
 	end, { desc = "miniharp: go to mark " .. i })
 end
