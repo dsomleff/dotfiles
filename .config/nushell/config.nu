@@ -31,12 +31,7 @@ alias lg = lazygit
 alias v = nvim
 
 def --wrapped bob [...args] {
-    let secret_file = ("~/.secrets.env" | path expand)
-    let key = if ($secret_file | path exists) {
-        open $secret_file | lines | parse "{key}={val}" | where key == "BOBSHELL_API_KEY" | get -o 0.val | default "" | str trim -c '"'
-    } else {
-        ""
-    }
+    let key = (^security find-generic-password -w -a $env.USER -s "BOBSHELL_API_KEY" | complete | get stdout | str trim)
 
     with-env { BOBSHELL_API_KEY: $key } {
         ^bob chat --mode ask ...$args

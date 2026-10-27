@@ -63,12 +63,8 @@ alias tmka="tmux kill-server"
 alias c="clear"
 unalias bob 2>/dev/null
 bob() {
-  if [[ -f "$HOME/.secrets.env" ]]; then
-    set -a
-    source "$HOME/.secrets.env"
-    set +a
-  fi
-  command bob chat --mode ask "$@"
+  BOBSHELL_API_KEY="$(security find-generic-password -w -a "$USER" -s "BOBSHELL_API_KEY" 2>/dev/null)" \
+    command bob chat --mode ask "$@"
 }
 
 alias ls="ls -C -t -U -A -p --color=auto"
