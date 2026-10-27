@@ -61,7 +61,15 @@ alias tmks="tmux kill-session -t"
 alias tmka="tmux kill-server"
 
 alias c="clear"
-alias bob="bob chat --mode ask"
+unalias bob 2>/dev/null
+bob() {
+  if [[ -f "$HOME/.secrets.env" ]]; then
+    set -a
+    source "$HOME/.secrets.env"
+    set +a
+  fi
+  command bob chat --mode ask "$@"
+}
 
 alias ls="ls -C -t -U -A -p --color=auto"
 alias ls="eza"
