@@ -26,9 +26,9 @@ background-opacity = 1
 # Fonts
 font-family = "JetBrainsMono Nerd Font Mono"
 font-style = Medium
-font-size = 18
+font-size = 19
 adjust-cell-height = 28
-adjust-cell-width = 1
+adjust-cell-width = 0
 
 # for lackluster theme only
 # font-thicken = true
@@ -36,6 +36,7 @@ adjust-cell-width = 1
 # Cursor
 cursor-style = block
 cursor-style-blink = false
+adjust-cursor-height = 28
 shell-integration-features = no-cursor
 
 # Keybinds
