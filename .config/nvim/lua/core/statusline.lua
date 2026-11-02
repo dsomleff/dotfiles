@@ -1,5 +1,39 @@
+local frames = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
+local i_frame = 0
+local active_progress = {}
+
+-- uncomment if vim.lsp.status() is in use
+-- vim.api.nvim_create_autocmd("LspProgress", {
+-- 	callback = function()
+-- 		vim.cmd("redrawstatus")
+-- 	end,
+-- })
+
 vim.api.nvim_create_autocmd("LspProgress", {
-	callback = function()
+	callback = function(args)
+		local client_id = args.data.client_id
+		local params = args.data.params
+		local value = params and params.value
+
+		if not value then
+			return
+		end
+
+		local token = params.token or "default"
+		local key = string.format("%d:%s", client_id, tostring(token))
+
+		if value.kind == "end" or (value.percentage and value.percentage >= 100) then
+			active_progress[key] = nil
+		else
+			local client = vim.lsp.get_client_by_id(client_id)
+			local client_name = client and client.name or "LSP"
+			local title = value.title or client_name
+			local percent = value.percentage and string.format(" %d%%%%", value.percentage) or ""
+
+			i_frame = (i_frame % #frames) + 1
+			active_progress[key] = string.format("%s %s%s", frames[i_frame], title, percent)
+		end
+
 		vim.cmd("redrawstatus")
 	end,
 })
@@ -54,6 +88,17 @@ local function diagnostics()
 	return status .. " "
 end
 
+local function lsp_progress()
+	local items = {}
+	for _, text in pairs(active_progress) do
+		table.insert(items, text)
+	end
+	if #items == 0 then
+		return ""
+	end
+	return " " .. table.concat(items, " ") .. " "
+end
+
 -- 5. Right Side Helpers
 local function filetype()
 	local ft = vim.bo.filetype ~= "" and vim.bo.filetype or "no ft"
@@ -73,7 +118,8 @@ StatusLine.active = function()
 		-- git_diff(),
 		diagnostics(),
 		"%=",
-		vim.lsp.status(),
+		-- vim.lsp.status(),
+		lsp_progress(),
 		filetype(),
 		cursor_stats(),
 	})
