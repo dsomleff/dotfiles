@@ -3,8 +3,8 @@ export SHELL=/bin/zsh
 eval "$(/opt/homebrew/bin/brew shellenv)"
 export PATH="$HOME/.local/bin:$PATH"
 
-# npm global binaries
-export PATH="$(npm config get prefix)/bin:$PATH"
+# fnm (node version manager) - provides node/npm global binaries (bob)
+eval "$(fnm env --use-on-cd --shell zsh)"
 
  # history
 HISTFILE="${ZDOTDIR:-$HOME}/.zsh_history"

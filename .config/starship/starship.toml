@@ -5,10 +5,11 @@ format = "$directory($git_branch)$git_status\n$character"
 right_format = "$cmd_duration"
 
 [character]
-success_symbol = '[❯](bold green) '
-error_symbol = '[❯](bold red) '
+success_symbol = '[❯](bold bright-green) '
+error_symbol = '[❯](bold bright-red) '
 
 [directory]
+style = "bold bright-green"
 truncation_length = 1
 truncation_symbol = ""
 
