@@ -3,24 +3,17 @@
   "session": {
     "defaultMode": "ask"
   },
-  "approval": {
-    "outsideWorkspaceAllowed": true,
-    "forbiddenApprovalGroups": []
-  },
-  "migrations": {
-    "legacyBobCodeTaskMigrationDone": true
-  },
-  "telemetry": {
-    "excludePayload": true
-  },
-  "experiments": {
-    "webFetch": true
-  },
-  "licenseConsent": true,
-  "bobShell": {
-    "lastRunVersion": "2.0.9"
-  },
   "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh ~/.bob/hooks/rex-status.sh working 'Bob working'"
+          }
+        ]
+      }
+    ],
     "PreToolUse": [
       {
         "matcher": "^(write_file|apply_diff|insert_content|search_and_replace|execute_command)$",
@@ -43,16 +36,6 @@
         ]
       }
     ],
-    "UserPromptSubmit": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "sh ~/.bob/hooks/rex-status.sh working 'Bob working'"
-          }
-        ]
-      }
-    ],
     "Stop": [
       {
         "hooks": [
@@ -63,5 +46,22 @@
         ]
       }
     ]
+  },
+  "approval": {
+    "outsideWorkspaceAllowed": true,
+    "forbiddenApprovalGroups": []
+  },
+  "migrations": {
+    "legacyBobCodeTaskMigrationDone": true
+  },
+  "telemetry": {
+    "excludePayload": true
+  },
+  "experiments": {
+    "webFetch": true
+  },
+  "licenseConsent": true,
+  "bobShell": {
+    "lastRunVersion": "2.0.9"
   }
 }
