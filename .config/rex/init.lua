@@ -6,6 +6,7 @@ local NU = "/opt/homebrew/bin/nu"
 local REX =
 	"/Users/somleff/Library/Application Support/com.superlogical.rex/RexServer/Versions/Current/Rex Server.app/Contents/MacOS/rex"
 local SCRIPT = os.getenv("HOME") .. "/.config/rex/name-session.lua"
+local SESSIONIZER = os.getenv("HOME") .. "/.local/scripts/rex-sessionizer"
 
 local running = rex.exec({ "pgrep", "-f", "rex do .*name-session.lua" })
 if not (running and running.ok) then
@@ -96,8 +97,26 @@ rex.action({
 	end,
 })
 
+-- project sessionizer (floating pane)
+rex.action({
+	name = "open_project_sessionizer",
+	title = "Open Project Sessionizer",
+	run = function(ctx)
+		rex.session.new_layer({
+			session_id = ctx.session_id,
+			bounds = { 0.15, 0.15, 0.7, 0.7 },
+			layout = rex.layout.block({
+				flavor = SHELL,
+				options = { command = { SESSIONIZER }, shell = "none" },
+			}),
+			focus = true,
+		})
+	end,
+})
+
 -- session list
 rex.bind("ctrl+s>s", "session.switch")
+rex.bind("ctrl+s>f", "open_project_sessionizer")
 rex.bind("ctrl+s>ctrl+s", "pane.send_key", { key = "ctrl+s" })
 
 -- new window with nushell
