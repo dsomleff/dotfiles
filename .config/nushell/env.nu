@@ -8,6 +8,7 @@ use std "path add"
 use ./fnm.nu
 
 path add /opt/homebrew/bin
+path add ($env.HOME | path join ".local/bin")
 
 
 $env.config.edit_mode = 'vi'
