@@ -5,7 +5,7 @@ Hard limit for rendered tables and diagrams: 120 columns total, including border
 
 ## Tables
 
-- Max total width: 150 characters.
+- Max total width: 120 characters.
 - Max 4 columns. Prefer 3.
 - Cell text: short phrases, max ~30 characters. No full sentences in cells.
 - Put detail in text below the table, not inside cells.

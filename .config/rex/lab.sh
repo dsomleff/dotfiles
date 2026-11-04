@@ -5,6 +5,8 @@
 # Window 2 runs through `zsh -ic` so ~/.zshrc loads (fnm puts node/npm on PATH there).
 # --keep-open leaves the output visible if the command stops.
 
+export PATH="$HOME/Library/Application Support/com.superlogical.rex/RexServer/Versions/Current/Rex Server.app/Contents/MacOS:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:$PATH"
+
 CODE="$HOME/Code"
 
 # session <label> <dir> <window-2 command string>

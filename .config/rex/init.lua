@@ -2,11 +2,10 @@
 ---@diagnostic disable: undefined-global
 local TERMINAL = "com.superlogical.terminal"
 local SHELL = TERMINAL .. ".shell"
-local NU = "/opt/homebrew/bin/nu"
 local REX =
 	"/Users/somleff/Library/Application Support/com.superlogical.rex/RexServer/Versions/Current/Rex Server.app/Contents/MacOS/rex"
-local SCRIPT = os.getenv("HOME") .. "/.config/rex/name-session.lua"
-local SESSIONIZER = os.getenv("HOME") .. "/.local/scripts/rex-sessionizer"
+local SCRIPT = os.getenv("HOME") .. "/dorfiles/.config/rex/name-session.lua"
+local SESSIONIZER = os.getenv("HOME") .. "/dotfiles/.config/rex/sessionizer.sh"
 
 local running = rex.exec({ "pgrep", "-f", "rex do .*name-session.lua" })
 if not (running and running.ok) then
