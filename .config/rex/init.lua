@@ -104,7 +104,7 @@ rex.bind("ctrl+s>ctrl+s", "pane.send_key", { key = "ctrl+s" })
 rex.bind("ctrl+s>c", "client.tab.new")
 
 rex.bind("ctrl+s>z", "new_tab_with_zsh")
-rex.bind("ctrl+s>n", "client.sidebar.activity.toggle")
+rex.bind("ctrl+s>a", "client.sidebar.activity.toggle")
 
 rex.bind("ctrl+s>h", "pane.focus", { direction = "left" })
 rex.bind("ctrl+s>j", "pane.focus", { direction = "down" })

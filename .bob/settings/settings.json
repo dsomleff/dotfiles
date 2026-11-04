@@ -1,0 +1,67 @@
+{
+  "enableFileMentions": true,
+  "session": {
+    "defaultMode": "ask"
+  },
+  "approval": {
+    "outsideWorkspaceAllowed": true,
+    "forbiddenApprovalGroups": []
+  },
+  "migrations": {
+    "legacyBobCodeTaskMigrationDone": true
+  },
+  "telemetry": {
+    "excludePayload": true
+  },
+  "experiments": {
+    "webFetch": true
+  },
+  "licenseConsent": true,
+  "bobShell": {
+    "lastRunVersion": "2.0.9"
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "^(write_file|apply_diff|insert_content|search_and_replace|execute_command)$",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh ~/.bob/hooks/rex-status.sh blocked 'Bob needs approval' permission"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "^(write_file|apply_diff|insert_content|search_and_replace|execute_command)$",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh ~/.bob/hooks/rex-status.sh working 'Bob working'"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh ~/.bob/hooks/rex-status.sh working 'Bob working'"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh ~/.bob/hooks/rex-status.sh done 'Bob finished'"
+          }
+        ]
+      }
+    ]
+  }
+}
