@@ -12,6 +12,10 @@ MiniFiles.setup({
 		width_preview = 50,
 		max_number = 2,
 	},
+	mappings = {
+		go_in = "L",
+		go_in_plus = "l",
+	},
 })
 
 vim.keymap.set("n", "-", function()
@@ -20,3 +24,13 @@ vim.keymap.set("n", "-", function()
 		MiniFiles.open(vim.uv.fs_stat(path) and path or nil, false)
 	end
 end, { desc = "Open mini.files (current file dir)" })
+
+vim.api.nvim_create_autocmd("User", {
+	pattern = "MiniFilesBufferCreate",
+	callback = function(args)
+		vim.keymap.set("n", "<C-c>", MiniFiles.close, {
+			buffer = args.data.buf_id,
+			desc = "Close mini.files",
+		})
+	end,
+})

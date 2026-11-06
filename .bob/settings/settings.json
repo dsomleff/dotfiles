@@ -48,7 +48,8 @@
     ]
   },
   "approval": {
-    "outsideWorkspaceAllowed": true
+    "outsideWorkspaceAllowed": true,
+    "forbiddenApprovalGroups": []
   },
   "migrations": {
     "legacyBobCodeTaskMigrationDone": true
