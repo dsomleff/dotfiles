@@ -2,24 +2,7 @@
 ---@diagnostic disable: undefined-global
 local TERMINAL = "com.superlogical.terminal"
 local SHELL = TERMINAL .. ".shell"
-local REX =
-	"/Users/somleff/Library/Application Support/com.superlogical.rex/RexServer/Versions/Current/Rex Server.app/Contents/MacOS/rex"
-local SCRIPT = os.getenv("HOME") .. "/dorfiles/.config/rex/name-session.lua"
 local SESSIONIZER = os.getenv("HOME") .. "/dotfiles/.config/rex/sessionizer.sh"
-
-local running = rex.exec({ "pgrep", "-f", "rex do .*name-session.lua" })
-if not (running and running.ok) then
-	local h, err = rex.exec.start({
-		"sh",
-		"-c",
-		'exec "$0" do "$1" --all >> /tmp/rex-name-session.log 2>&1',
-		REX,
-		SCRIPT,
-	}, { detach = true })
-	if not h then
-		rex.log("error", "name-session: " .. tostring(err))
-	end
-end
 
 -- cwd of the focused pane (tmux: #{pane_current_path})
 -- Uses the foreground process's cwd, since pwd is empty unless the shell reports
@@ -118,7 +101,7 @@ rex.bind("ctrl+s>s", "session.switch")
 rex.bind("ctrl+s>f", "open_project_sessionizer")
 rex.bind("ctrl+s>ctrl+s", "pane.send_key", { key = "ctrl+s" })
 
--- new window with nushell
+-- new window with default shell
 rex.bind("ctrl+s>c", "client.tab.new")
 
 rex.bind("ctrl+s>z", "new_tab_with_zsh")
