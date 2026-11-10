@@ -48,8 +48,7 @@
     ]
   },
   "approval": {
-    "outsideWorkspaceAllowed": true,
-    "forbiddenApprovalGroups": []
+    "outsideWorkspaceAllowed": true
   },
   "migrations": {
     "legacyBobCodeTaskMigrationDone": true
@@ -62,6 +61,6 @@
   },
   "licenseConsent": true,
   "bobShell": {
-    "lastRunVersion": "2.0.9"
+    "lastRunVersion": "2.1.0"
   }
 }
