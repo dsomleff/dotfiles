@@ -65,3 +65,5 @@
 [hook "ciso-vr-prepush"]
 	event = pre-push
 	command = [ ! -d /opt/vault-radar ] && exit 0 || exec sh /opt/vault-radar/hooks.d/confighook/pre-push
+[credential]
+	helper = osxkeychain
