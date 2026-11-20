@@ -2,8 +2,8 @@
 ---@diagnostic disable: undefined-global
 local TERMINAL = "com.superlogical.terminal"
 local SHELL = TERMINAL .. ".shell"
-local SESSIONIZER = os.getenv("HOME") .. "/dotfiles/.config/rex/sessionizer.sh"
-local OPEN_GITHUB = os.getenv("HOME") .. "/dotfiles/.config/scripts/open-github.sh"
+local HOME = os.getenv("HOME")
+local OPEN_GITHUB = HOME .. "/dotfiles/.config/scripts/open-github.sh"
 
 local function pane_cwd(ctx)
 	local r = rex.block.call(TERMINAL, "process", { block_id = ctx.block_id })
@@ -54,21 +54,7 @@ rex.action({
 	end,
 })
 
-rex.action({
-	name = "open_project_sessionizer",
-	title = "Open Project Sessionizer",
-	run = function(ctx)
-		rex.session.new_layer({
-			session_id = ctx.session_id,
-			bounds = { 0.15, 0.15, 0.7, 0.7 },
-			layout = rex.layout.block({
-				flavor = SHELL,
-				options = { command = { SESSIONIZER } },
-			}),
-			focus = true,
-		})
-	end,
-})
+require("sessionizer")
 
 rex.bind("ctrl+s>s", "session.switch")
 rex.bind("ctrl+s>f", "open_project_sessionizer")
