@@ -11,26 +11,14 @@ local function pane_cwd(ctx)
 end
 
 local function new_window(layout)
-	local w, err = rex.session.new_window({ layout = layout, focus = true })
+	local _, err = rex.session.new_window({ layout = layout })
 	if err ~= nil then
 		error("new_window: " .. tostring(err), 0)
 	end
-	if w.window_id then
-		rex.session.focus_window({ window_id = w.window_id })
-	end
-	if w.block_ids and w.block_ids[1] then
-		rex.session.focus_block({ block_id = w.block_ids[1] })
-	end
-
+	-- Give the app a moment to register the new tab, or goto lands before it exists.
 	rex.exec({ "sleep", "0.1" })
 	local view = rex.session.view({})
 	if view and view.windows then
-		for idx, win in ipairs(view.windows) do
-			if win.window_id == w.window_id then
-				rex.client.queue("client.tab.goto", { index = idx })
-				return
-			end
-		end
 		rex.client.queue("client.tab.goto", { index = #view.windows })
 	end
 end
