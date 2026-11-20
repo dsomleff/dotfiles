@@ -55,9 +55,11 @@ rex.action({
 })
 
 require("sessionizer")
+require("lab")
 
 rex.bind("ctrl+s>s", "session.switch")
 rex.bind("ctrl+s>f", "open_project_sessionizer")
+rex.bind("ctrl+s>o", "open_lab")
 rex.bind("ctrl+s>ctrl+s", "pane.send_key", { key = "ctrl+s" })
 
 rex.bind("ctrl+s>c", "client.tab.new")
