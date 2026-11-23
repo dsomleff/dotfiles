@@ -9,9 +9,8 @@ local LAB = {
 	{ id = "studio-companion-frontend", cmd = "npm run dev" },
 }
 
-local function window(label, dir, shell, input)
+local function window(dir, shell, input)
 	return {
-		window_label = label,
 		layout = rex.layout.block({
 			flavor = SHELL,
 			options = { cwd = dir, shell = shell, initial_input = input },
@@ -38,8 +37,8 @@ rex.action({
 			local s, err = rex.call("session.create", {
 				label = p.id,
 				initial_windows = {
-					window("nvim", dir, NU, "nvim .\r"),
-					window("dev", dir, p.shell or NU, p.cmd .. "\r"),
+					window(dir, NU, "nvim .\r"),
+					window(dir, p.shell or NU, p.cmd .. "\r"),
 				},
 			})
 			if s == nil then

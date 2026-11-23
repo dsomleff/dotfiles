@@ -8,3 +8,5 @@
 .config/jj/repos/
 .config/.jgit/
 .config/atuin/atuin-receipt.json
+.config/gh/config.yml
+.config/gh/hosts.yml

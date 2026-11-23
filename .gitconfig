@@ -67,3 +67,9 @@
 	command = [ ! -d /opt/vault-radar ] && exit 0 || exec sh /opt/vault-radar/hooks.d/confighook/pre-push
 [credential]
 	helper = osxkeychain
+[credential "https://ibm.ghe.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.ibm.ghe.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
