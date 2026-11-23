@@ -14,11 +14,11 @@
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
     "gitsigns.nvim": {
-      "rev": "ef707fb93301a9b856f36eae4c8f56f5b988a794",
+      "rev": "c0862d382a35b7b45757d8d151a6a634c09bf3ce",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "jj.nvim": {
-      "rev": "79be2ec0c8ba79d3e24184fc31d611245528fc67",
+      "rev": "e3f8a500a25e42b82946fa9fe144eb1428f30a99",
       "src": "https://github.com/NicolasGB/jj.nvim"
     },
     "koda.nvim": {
@@ -34,15 +34,15 @@
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mini.extra": {
-      "rev": "71f1f63dfcc206251259a3d4789e3cdc51630606",
+      "rev": "4384356a18a230de6f4c930a8fc720085c3fa0df",
       "src": "https://github.com/nvim-mini/mini.extra"
     },
     "mini.files": {
-      "rev": "f031f95dcaa5efd30f12983d5e40020c4d75f694",
+      "rev": "9898bee3b9004a3adf1b0c1b6ba984eae87082c2",
       "src": "https://github.com/nvim-mini/mini.files"
     },
     "mini.pick": {
-      "rev": "f1216d764d0c2772e88d4e1a0cef3082f5b498e1",
+      "rev": "fda834789d64858c15e2a875770b3fca17c3d10c",
       "src": "https://github.com/nvim-mini/mini.pick"
     },
     "miniharp.nvim": {
@@ -54,7 +54,7 @@
       "src": "https://github.com/karb94/neoscroll.nvim"
     },
     "nvim-treesitter": {
-      "rev": "19bdfc04f40ed2ccb3340591d125f759b0406875",
+      "rev": "52773f0d13a0c11d0c3ef33c14ab6ecc1c17148b",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     }
   }
